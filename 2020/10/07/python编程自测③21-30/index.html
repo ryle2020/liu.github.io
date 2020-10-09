@@ -1,78 +1,613 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Python编程自测③21-30 · Ryle's Home</title><meta name="description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。
-def isPrime(num):
-   if num == 2:
-       return True
-   for"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Typography</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">活版印字</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">대문</a></li><li><a href="/archives">아카이브</a></li><li><a href="/categories">카테고리</a></li><li><a href="/tags">태그</a></li><li><a href="/about/index.html">about</a></li><li><a href="/search/index.html">search</a></li><li><a href="/categories/index.html">categories</a></li><li><a href="/tags/index.html">tags</a></li><li class="soc"><a href="https://www.liuyong.online/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="https://www.liuyong.online" rel="noopener noreferrer">Ryle Liu</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Python编程自测③21-30</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2020-10-07</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/程序人生/" title="程序人生" class="a-tag">程序人生</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Python/" title="Python" class="a-tag">Python</a><span>&nbsp;</span><a href="/tags/董付国/" title="董付国" class="a-tag">董付国</a><span>&nbsp;</span><a href="/tags/编程自测/" title="编程自测" class="a-tag">编程自测</a><span>&nbsp;</span></span></p><p class="post-abstract"><ol start="21">
-<li><p>函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">isPrime</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
-   <span class="token keyword">if</span> num <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
-       <span class="token keyword">return</span> <span class="token boolean">True</span>
-   <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>pow<span class="token punctuation">(</span>num<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-       <span class="token keyword">if</span> num <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-           <span class="token keyword">return</span> <span class="token boolean">False</span>
-   <span class="token keyword">return</span> <span class="token boolean">True</span>
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-   <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
-       <span class="token keyword">return</span> n
-   <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-       <span class="token keyword">if</span> isPrime<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-           <span class="token keyword">return</span> i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收两个正整数n和i，返回组合数C（n，i）的值，也就是从n个物体中任选i个物体有多少种选法，要求结果为整数。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-   <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> n<span class="token operator">-</span>i<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-       n <span class="token operator">=</span> n <span class="token operator">*</span> j
-   <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-       n <span class="token operator">=</span> n <span class="token operator">//</span> j
-   <span class="token keyword">return</span> n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收一个大于等于1的正整数n和一个介于[0,9]区间的正整数a，要求返回表达式a+aa+aaa+…+aa..aa前n项的和</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
-   retV<span class="token punctuation">,</span> calV <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
-   <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-       calV <span class="token operator">=</span> calV <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> a
-       retV <span class="token operator">=</span> retV <span class="token operator">+</span> calV
-   <span class="token keyword">return</span> retV<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>已知当前文件夹中文件data24.txt中有若干用英文半角逗号分隔的整数，函数main用来读取文件中的内容，把每个数字乘以10，返回这些乘积结果组成的列表。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-   <span class="token keyword">with</span> open <span class="token punctuation">(</span><span class="token string">'data24.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-       cList <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span>
-       <span class="token keyword">return</span> <span class="token punctuation">[</span>int<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> cList<span class="token punctuation">]</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收一个包含若干集合的列表lst，要求返回这些集合的并集</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>lst<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> set<span class="token punctuation">(</span>lst<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>lst<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        s <span class="token operator">=</span> set<span class="token punctuation">.</span>union<span class="token punctuation">(</span>s<span class="token punctuation">,</span> set<span class="token punctuation">(</span>lst<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收一个包含若干表示角度的实数的列表lst，要求返回这些实数转化为弧度之后的正弦值组成的新列表。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> sin<span class="token punctuation">,</span> radians
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>lst<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span>sin<span class="token punctuation">(</span>radians<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> lst<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收6个整数，其中year1，month1，day1表示一个日期的年月日，year2，month2，day2表示另一个日期的年月日，要求返回这两个日期之间相差的天数（必须为0或者正数）</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> date
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>year1<span class="token punctuation">,</span> month1<span class="token punctuation">,</span> day1<span class="token punctuation">,</span> year2<span class="token punctuation">,</span> month2<span class="token punctuation">,</span> day2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> abs<span class="token punctuation">(</span><span class="token punctuation">(</span>date<span class="token punctuation">(</span>year1<span class="token punctuation">,</span>month1<span class="token punctuation">,</span>day1<span class="token punctuation">)</span><span class="token operator">-</span>date<span class="token punctuation">(</span>year2<span class="token punctuation">,</span>month2<span class="token punctuation">,</span>day2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>days<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收一个表示年份的正整数year，要求判断是否为闰年，是闰年就返回字符串yes，否则返回no</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>year<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> year<span class="token operator">%</span><span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> year<span class="token operator">%</span><span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">or</span> year<span class="token operator">%</span><span class="token number">400</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">'yes'</span>
-<span class="token keyword">return</span> <span class="token string">'no'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收一个单参数函数func和一个包含若干实数的列表lst，要求计算lst中的每个实数作为自变量时func的函数值，返回其中的最大值</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> lst<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> max<span class="token punctuation">(</span><span class="token punctuation">[</span>func<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> lst<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>函数main接收一个包含若干正整数的元组tup，要求计算并返回这些整数的截尾平均数，也就是去掉一个最高分和最低分之后剩余数字的算术平均数，结果保留1位小数。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>tup<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">"&amp;#123;:.1f&amp;#125;"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token punctuation">(</span>sum<span class="token punctuation">(</span>tup<span class="token punctuation">)</span> <span class="token operator">-</span> max<span class="token punctuation">(</span>tup<span class="token punctuation">)</span> <span class="token operator">-</span> min<span class="token punctuation">(</span>tup<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>len<span class="token punctuation">(</span>tup<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=微软雅黑:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。12345678910111213def isPrime(num):    if num &#x3D;&#x3D; 2:        return True    for i in range(2, int(pow(num, 0.5))">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python编程自测③21-30">
+<meta property="og:url" content="https://www.liuyong.online/2020/10/07/python%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E2%91%A221-30/">
+<meta property="og:site_name" content="Ryle&#39;s Home">
+<meta property="og:description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。12345678910111213def isPrime(num):    if num &#x3D;&#x3D; 2:        return True    for i in range(2, int(pow(num, 0.5))">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-07T12:08:12.000Z">
+<meta property="article:modified_time" content="2020-10-09T07:30:01.718Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="董付国">
+<meta property="article:tag" content="编程自测">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2020/10/07/python%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E2%91%A221-30/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Python编程自测③21-30 | Ryle's Home</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Ryle's Home" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Ryle's Home</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">烟波满目凭栏久</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2020/10/07/python%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E2%91%A221-30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryle's Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python编程自测③21-30
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-07 20:08:12" itemprop="dateCreated datePublished" datetime="2020-10-07T20:08:12+08:00">2020-10-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-09 15:30:01" itemprop="dateModified" datetime="2020-10-09T15:30:01+08:00">2020-10-09</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ol start="21">
+<li>函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span>(<span class="params">num</span>):</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(pow(num, <span class="number">0.5</span>))):</span><br><span class="line">        <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n, <span class="number">2</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">if</span> isPrime(i):</span><br><span class="line">            <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收两个正整数n和i，返回组合数C（n，i）的值，也就是从n个物体中任选i个物体有多少种选法，要求结果为整数。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n, i</span>):</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(n<span class="number">-1</span>, n-i, <span class="number">-1</span>):</span><br><span class="line">        n = n * j</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">        n = n // j</span><br><span class="line">    <span class="keyword">return</span> n</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个大于等于1的正整数n和一个介于[0,9]区间的正整数a，要求返回表达式a+aa+aaa+…+aa..aa前n项的和<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n, a</span>):</span></span><br><span class="line">    retV, calV = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, n):</span><br><span class="line">        calV = calV * <span class="number">10</span> + a</span><br><span class="line">        retV = retV + calV</span><br><span class="line">    <span class="keyword">return</span> retV</span><br></pre></td></tr></table></figure></li>
+<li>已知当前文件夹中文件data24.txt中有若干用英文半角逗号分隔的整数，函数main用来读取文件中的内容，把每个数字乘以10，返回这些乘积结果组成的列表。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="keyword">with</span> open (<span class="string">&#x27;data24.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        cList = f.read().strip().split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> [int(x)*<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> cList]</span><br><span class="line">   print(main())</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个包含若干集合的列表lst，要求返回这些集合的并集<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">	s = set(lst[<span class="number">0</span>])</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(lst)):</span><br><span class="line">		s = set.union(s, set(lst[i]))</span><br><span class="line">	<span class="keyword">return</span> s</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个包含若干表示角度的实数的列表lst，要求返回这些实数转化为弧度之后的正弦值组成的新列表。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sin, radians</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">	<span class="keyword">return</span> [sin(radians(x)) <span class="keyword">for</span> x <span class="keyword">in</span> lst]</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收6个整数，其中year1，month1，day1表示一个日期的年月日，year2，month2，day2表示另一个日期的年月日，要求返回这两个日期之间相差的天数（必须为0或者正数）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">year1, month1, day1, year2, month2, day2</span>):</span></span><br><span class="line">    <span class="keyword">return</span> abs((date(year1,month1,day1)-date(year2,month2,day2)).days)</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个表示年份的正整数year，要求判断是否为闰年，是闰年就返回字符串yes，否则返回no<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">year</span>):</span></span><br><span class="line">   	<span class="keyword">if</span> year%<span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year%<span class="number">100</span> != <span class="number">0</span> <span class="keyword">or</span> year%<span class="number">400</span> ==<span class="number">0</span>:</span><br><span class="line">   	    <span class="keyword">return</span> <span class="string">&#x27;yes&#x27;</span></span><br><span class="line">   <span class="keyword">return</span> <span class="string">&#x27;no&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个单参数函数func和一个包含若干实数的列表lst，要求计算lst中的每个实数作为自变量时func的函数值，返回其中的最大值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">func, lst</span>):</span></span><br><span class="line">	<span class="keyword">return</span> max([func(x) <span class="keyword">for</span> x <span class="keyword">in</span> lst])</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个包含若干正整数的元组tup，要求计算并返回这些整数的截尾平均数，也就是去掉一个最高分和最低分之后剩余数字的算术平均数，结果保留1位小数。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">tup</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&#123;:.1f&#125;&quot;</span>.format((sum(tup) - max(tup) - min(tup)) / (len(tup) - <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-</p></div><div class="share"><span>공유하기</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a target="_blank" rel="noopener" href="http://twitter.com/home?status=https://www.liuyong.online/2020/10/07/python编程自测③21-30/%20Ryle's Home%20Python编程自测③21-30" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="https://www.liuyong.online" rel="noopener noreferrer">Ryle Liu</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E8%91%A3%E4%BB%98%E5%9B%BD/" rel="tag"># 董付国</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B/" rel="tag"># 编程自测</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="ryle2020/ryle2020.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2 分钟</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
