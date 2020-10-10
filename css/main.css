@@ -181,7 +181,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 微软雅黑, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Times New Roman, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
   min-height: 100%;
@@ -194,7 +194,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 微软雅黑, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Times New Roman, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -1234,7 +1234,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 微软雅黑, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Times New Roman, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1343,7 +1343,7 @@ pre code {
 }
 .github-corner svg {
   color: #fff;
-  fill: #222;
+  fill: #fc6423;
   position: absolute;
   right: 0;
   top: 0;
@@ -1988,7 +1988,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: 微软雅黑, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Times New Roman, "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2181,7 +2181,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: 微软雅黑, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Times New Roman, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2976,7 +2976,7 @@ hr {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #32ffff;
+  background: #91ff8b;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
