@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Blog.pyclass Blog(object):     def __init__(self, title, url, publish, comment, read, picAddress, content, tag, category):         self.title &#x3D; title                #主题         self.url &#x3D; url">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬取新浪博客文章的Python实现之②">
+<meta property="og:url" content="https://www.liuyong.online/2020/09/01/%E7%88%AC%E5%8F%96%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84Python%E5%AE%9E%E7%8E%B0%E4%B9%8B%E2%91%A1/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:description" content="Blog.pyclass Blog(object):     def __init__(self, title, url, publish, comment, read, picAddress, content, tag, category):         self.title &#x3D; title                #主题         self.url &#x3D; url">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-01T14:19:00.000Z">
+<meta property="article:modified_time" content="2020-10-20T10:17:48.096Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="python爬虫">
+<meta property="article:tag" content="新浪博客">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2020/09/01/%E7%88%AC%E5%8F%96%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84Python%E5%AE%9E%E7%8E%B0%E4%B9%8B%E2%91%A1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>爬取新浪博客文章的Python实现之② | 劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+      <p class="site-subtitle" itemprop="description">Ryle's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Blog-py"><span class="nav-number">1.</span> <span class="nav-text">Blog.py</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getBlogofSina-py"><span class="nav-number">2.</span> <span class="nav-text">getBlogofSina.py</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2020/09/01/%E7%88%AC%E5%8F%96%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84Python%E5%AE%9E%E7%8E%B0%E4%B9%8B%E2%91%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          爬取新浪博客文章的Python实现之②
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-01 22:19:00" itemprop="dateCreated datePublished" datetime="2020-09-01T22:19:00+08:00">2020-09-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h5 id="Blog-py"><a href="#Blog-py" class="headerlink" title="Blog.py"></a><font color=#FF8C00>Blog.py</font></h5><pre><code class="python">class Blog(object):
+    def __init__(self, title, url, publish, comment, read, picAddress, content, tag, category):
+        self.title = title                #主题
+        self.url = url                    #URL
+        self.publish = publish            #发表日期
+        self.comment = comment            #评论数
+        self.read = read                  #阅读数
+        self.picAddress = picAddress      #图片地址列表，无的话为空
+        self.content = content            #内容
+        self.tag = tag                    #标签列表，无的话为空
+        self.category = category          #类别
+
+
+    def show(self):
+        print(&quot;title: &quot;, self.title)
+        print(&quot;url:&quot;, self.url)
+        print(&quot;comment&quot;, self.comment)
+        print(&quot;read&quot;, self.read)
+        print(&quot;picAddress&quot;, self.picAddress)
+        print(&quot;tag&quot;, self.tag)
+        print(&quot;category&quot;, self.category)
+        print(&quot;content&quot;, self.content)</code></pre>
+<h5 id="getBlogofSina-py"><a href="#getBlogofSina-py" class="headerlink" title="getBlogofSina.py"></a><font color=#FF8C00>getBlogofSina.py</font></h5><pre><code class="python">import sys, urllib, urllib.request as requests, re, codecs, html
+from bs4 import BeautifulSoup
+from ConfigData import ConfigData as cd
+from Blog import Blog
+
+
+# 取得博文详细信息
+def get_BlogDetail(strUrl):
+    #retBlog = Blog(title, strUrl, publish, comment, read, picAddress, content, tag, category)
+
+    request = requests.Request(strUrl)
+    response = requests.urlopen(request)
+    html = response.read()    
+    soup = BeautifulSoup(html, &#39;html.parser&#39;)
+
+    # 查找包含TAG和CATEGORY的段落
+    strFindList = str(soup.find_all(&#39;div&#39;, cd.patternTagDiv))
+    tagList = re.findall(cd.patternTag, strFindList)
+    if tagList != None and len(tagList) &gt; 0:
+        tag = (str(re.findall(cd.patternTag, strFindList)[0])[6:-2]).split(&quot;,&quot;)
+    else:
+        tag = []
+    categoryList = re.findall(cd.patternCategory, strFindList)
+    if categoryList != None and len(categoryList) &gt; 0:
+        category = (str(re.findall(cd.patternCategory, strFindList)[0])[1:-3]).split(&quot;,&quot;)
+    else:
+        category = [] 
+
+    # 查找TITLE的段落
+    strFindList = str(soup.find(&#39;title&#39;)).strip()
+    title = strFindList[7:-8].split(&quot;_&quot;)[0]
+    # print(title)
+
+    # 查找发表时间的段落
+    strFindList = str(soup.find_all(&#39;span&#39;, cd.patternTitleDetail))
+    publish = str(re.findall(cd.patternPublishDetail, strFindList)[0])
+
+    # 用Python发送API，获取JS返回值的方式获取评论数和阅读数
+    comment, read = get_cr_num(strUrl, get_crDict(&quot;&amp;aids=&quot; + strUrl[-11:-5]))
+
+    # 获得博文内容
+    content = str(soup.find(&#39;div&#39;, cd.patternContent ))
+
+    # 获得图像地址列表
+    strFindList = soup.find_all(&#39;img&#39;, title=re.compile(title))
+    picAddressList = []
+    for strFind in strFindList:
+        picAddress = str(re.findall(r&#39;real_src=.+src=&#39;, str(strFind)))[12:-6].strip()[:-1]
+        picAddress = picAddress.replace(&#39;&amp;amp;&#39;, &#39;&amp;&#39;)
+        picAddressList.append(picAddress)
+
+    return Blog(title, strUrl, publish, comment, read, picAddressList, content, tag, category)
+
+# 取得评论和阅读数的字典合集
+# INPUT: param （&amp;aids=02vdeu,0136nk）
+# RETURN: r - 评论数； c - 阅读数
+def get_crDict(param):
+    url = cd.crUrl + param
+    request = requests.Request(url)
+    response = requests.urlopen(request)
+    pattern = cd.patternCR
+    htmlW = str(re.findall(pattern, str(response.read()).strip())[0][:-1])
+return e v a l(htmlW)    # 返回字典 把e v a l的空格都要去掉，这个编辑器没法提交，所以只能加空格
+
+# 取得评论和阅读数
+# INPUT: _url （http://blog.sina.com.cn/s/blog_5922f3300101e20o.htm）
+# RETURN: r - 评论数； c - 阅读数
+def get_cr_num(strUrl, cr_dict):
+    needFindKey = strUrl[-11:-5]
+    return cr_dict[needFindKey].get(&#39;c&#39;), cr_dict[needFindKey].get(&#39;r&#39;)
+
+def makeBlogList():
+    # 保存具体内容的待爬取URL清单
+    needProcessURL = set()
+
+    # 需要爬取的URL列表
+    starUrlList = []
+    for i in range(1,5):
+        starUrlList.append(cd.strUrl + str(i) + &quot;.html&quot;)
+
+    # 生成博客文章一览表，格式：
+    # 序号 | 主题 | URL| 是否有图| 评论数/阅读数| 发表时间
+    fout = codecs.open(&#39;sina.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;)
+    fout.write(cd.htmlStart)
+
+    i=1    #  博客文章序号
+    blogList = []
+    for url in starUrlList:
+        request = requests.Request(url, headers=cd.headers)
+        response = requests.urlopen(request)
+        html = response.read()
+        soup = BeautifulSoup(html, &#39;html.parser&#39;)
+
+        # strFindList = soup.find_all(&#39;a&#39;, href=re.compile(cd.patternALink))
+        strFindList = soup.find_all(&#39;div&#39;, cd.patternDiv)
+
+        paramCR = &#39;&amp;aids=&#39;
+        for strFind in strFindList:
+            strFind = str(strFind)
+            resUrl = re.findall(cd.patternUrl, strFind)[0]
+            blogList.append(get_BlogDetail(str(resUrl)))
+
+    for blog in blogList:
+        hasPic = cd.outPic if len(blog.picAddress) &gt; 0 else &#39;&#39;
+        fout.write(cd.htmlCont.format(str(i), blog.title, blog.url, blog.url, hasPic, blog.comment, blog.read, blog.publish))
+        i += 1    
+
+    fout.write(cd.htmlEnd)
+    fout.close()
+
+
+if __name__ == &#39;__main__&#39;:
+    makeBlogList()</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>一杯清茶</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.liu.group">
+            <span class="icon">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+
+            <span class="label">WEB</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/python%E7%88%AC%E8%99%AB/" rel="tag"><i class="fa fa-tag"></i> python爬虫</a>
+              <a href="/tags/%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 新浪博客</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/01/%E7%88%AC%E5%8F%96%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84Python%E5%AE%9E%E7%8E%B0%E4%B9%8B%E2%91%A0/" rel="prev" title="爬取新浪博客文章的Python实现之①">
+                  <i class="fa fa-chevron-left"></i> 爬取新浪博客文章的Python实现之①
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/09/typecho%E5%9C%A8%E7%94%A8pymysql-MariaDB%E7%9A%84%E6%97%B6%E5%80%99%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/" rel="next" title="typecho在用pymysql-MariaDB的时候插入数据遇到的问题及其解决">
+                  typecho在用pymysql-MariaDB的时候插入数据遇到的问题及其解决 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="ryle2020/ryle2020.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">208k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:09</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

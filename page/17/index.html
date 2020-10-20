@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劉勇の博客">
+<meta property="og:url" content="https://www.liuyong.online/page/17/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/page/17/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+      <p class="site-subtitle" itemprop="description">Ryle's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/03/10%E6%9C%883%E6%97%A5%E8%AE%B0%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/03/10%E6%9C%883%E6%97%A5%E8%AE%B0%E4%BA%8B/" class="post-title-link" itemprop="url">10月3日记事</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-03 22:29:00" itemprop="dateCreated datePublished" datetime="2009-10-03T22:29:00+08:00">2009-10-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/" itemprop="url" rel="index"><span itemprop="name">同学亲友</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>928</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div>1.两个大男人逛街</div>
+顾君炯亮，大学时代之好友。昨天晚上打电话说要小聚一番，由于本人晚上在延安西路有喜宴，炯亮便选桐庐山里人家（安顺店）招待午饭。信誓旦旦说曾经在桐庐山里人家（西康店）招待过我，可本人实在是回忆不起来，难道我曾经被请吃过饭？说实在的，这家店的菜普遍偏咸，不过选的那条钱塘鱼钓还真是不错，肥而不腻，而且没有刺，据说炯亮和佩律曾经一连吃了两条。只是我和炯亮现在都在减肥，所以只点了一条应付一下馋虫。吃过饭之后，两个大男人实在找不到去处，便说去中山公园附近逛逛。看看时间尚早，于是两人便从定西路安顺路口沿定西路一直往中山公园方向走去。边走边聊，没感觉有什么特别，倒是从炯亮那里听了很多趣事。到了中山公园，先是在苏宁电器逛了一会，然后在一茶一座，两个人聊了半天，搞得周围很多人都来瞄，看看两个大男人有啥好谈的，而且一坐就是半天，faint。到4点左右，2人又在中山公园里面压了一圈马路。随后开拔，又沿着定西路到武夷路到延安西路，被严重晃点了。说实在的，从买车以来，已经很久没有这么走过了。结果被老顾严重嘲笑，这家伙为了减肥，居然每天爬20层楼要来回几次；看来，我不起来跑步的话，要赶不上他的步伐了。老顾爬楼梯是因为上次吃饭看到我在减肥，而且富有成效。看来这次吃饭，是该我从老顾那里汲取精神动力了。回来google一下地图，发现即使这么走，也才6公里不到。想当初，老刘可是足球场上著名的跑不死，现在才6公里，居然就觉得很多了。看来，果然是老了。不过，再老，也得锻炼。还是恢复以前的跑步+羽毛球吧～
+<div>2.SLJ的婚礼</div>
+<div>
+SLJ都打扮得认不出来了，如果不是WCL同志在的话，我都要怀疑走错地方了。。。。。。婚礼的内容和形式就不多说了，大家可以看照片，如果SLJ提供的话，还有就是ZRX也拍了不少。老刘喝了半杯葡萄酒，脸红得跟关公一样，其实只有半杯，可是脸太红，而且还点了一支喜烟，搞得很多人觉得偶喝醉了-------都是脸红惹的祸，看来，老刘还是不喝酒的比较好。后面的节目偶和薛峰都没有看到，因为偶要给老婆去买85度C的面包和蛋糕，先撤了。祝愿WCL和SLJ顺利过关，即使醉了，一生一次，也值了，呵呵！可惜SLJ的干爸，我们亲爱的飞哥居然没有到，真是莫大的遗憾啊！</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/02/%E4%BB%8A%E5%A4%A9%E6%94%B6%E5%88%B0%E5%A4%A7%E9%87%8E%E7%9A%84%E9%82%AE%E4%BB%B6%E4%BA%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/02/%E4%BB%8A%E5%A4%A9%E6%94%B6%E5%88%B0%E5%A4%A7%E9%87%8E%E7%9A%84%E9%82%AE%E4%BB%B6%E4%BA%86/" class="post-title-link" itemprop="url">今天收到大野的邮件了</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-02 22:49:00" itemprop="dateCreated datePublished" datetime="2009-10-02T22:49:00+08:00">2009-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/" itemprop="url" rel="index"><span itemprop="name">同学亲友</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>918</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2003年3月底回国，在上海见到了大野，长得很凶悍，年轻时候是打橄榄球的。其实是个很好的人。当时任索尼中国EMCS企划部副部长，所有索尼中国工厂的IT系统，都是大野一手推行的。后来，索尼在无锡投了1.7个亿美金，试图把无锡索尼建成全球最大的锂电池、电视机、数码相机等的综合性工厂。第一工厂，主要做锂电池，第二工厂，包括电视机、数码相机、半导体、投影仪等，一度还试产了PS3。03年5月，我和大野去无锡的时候，无锡工厂一共有近3000人，可是连个IT部门都没有。从03年5月到05年1月，我从索尼出来，回到当时的外派公司，我和大野一起，在其他中方同事的支持下，建起了整个无锡索尼的IT部门。我们顺利地导入了iMaps生产管理系统，人事系统等。算是为索尼无锡今后的发展打下了基础。随着我的撤出，以及大野的任期终止，在无锡的故事也画上了一个句号。应该说，在遇到大野之前，我是个纯粹的技术人员，用技术人员的眼光看待一切。是跟着大野的工作，培养了我的其他方面的能力。和大野一起工作的时候，印象最深的是2点，一个是写PPT，每个项目，大野都要我写PPT，说明为什么要上这个项目，准备怎么做，需要多少投资，等等。而且，开始的时候，每次都不厌其烦地帮我改PPT，从最初每次PPT基本全部被大野画红，退回来一遍一遍又一遍。到后来基本一次通过，尽管PPT写得没那么漂亮，但是自信写PPT的水平上升了不少，而且，不只是写的水平的问题，而是从各个角度思考问题的能力。当然，更多地是日本的思考方式。第二点就是大野一直强调，IT部门是工厂的服务部门，不产生直接经济效益，所以要把其他部门当作客户一样对待。这个观点也深深地影响了我，就是为客户服务和创造价值的观点！</p>
+<div>
+随着大野结束中国的任期，他回到了仙台，任索尼生产管理系统维护和开发部门的统括部长，负责索尼日本所有使用iMaps系统的工厂的系统开发和维护。今天收到他的邮件，说他的工作有变化了，“<span style="color:rgb(68, 68, 68);font-family:&prime;MS ゴシック&prime;">新住居は栃木県宇都宮市になります。仙台より東京に近い場所になりました。”任索尼化学和信息装置日本公司的IT部门的统括部长。苏州有个索尼凯美高，是日本索尼化学的100%子公司，可能有机会会来中国出差了～期待和大野的再次见面！</span></div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/01/%E5%9B%BD%E5%BA%8660%E5%91%A8%E5%B9%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/01/%E5%9B%BD%E5%BA%8660%E5%91%A8%E5%B9%B4/" class="post-title-link" itemprop="url">国庆60周年</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-01 22:04:00" itemprop="dateCreated datePublished" datetime="2009-10-01T22:04:00+08:00">2009-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>300</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>84年的阅兵才8岁，只有一个朦朦胧胧的印象，99年的阅兵留下最深印象的只有东风31战略导弹。早上8点准时起来，就等着看今天的60周年阅兵了。男人么，总是对军队，对武器有特殊的爱好。但是今天的阅兵，尤其是徒步方队，不知道是怎么回事，感觉震撼力不够。为了印证还特地上网找了84和99年的阅兵录像。感觉一个是人数少了，一个是武器不一样了，那时都是上刺刀的，正步走的时候有个劈枪的动作，那可不是一般的帅。不过最大的问题，还是觉得导播给的近景太多了。上次奥运会的开幕已经暴露了CCTV的问题，结果阅兵式好像还是没有太大的改进。希望以后会有剪辑版的出来。（不过从中华网上人家视频截的图来看，走得也确实不齐，汗！）</p>
+<div><br/></div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/30/%E8%80%81%E5%A4%A9%E8%BF%98%E7%AE%97%E5%BE%85%E6%88%91%E4%B8%8D%E8%96%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/30/%E8%80%81%E5%A4%A9%E8%BF%98%E7%AE%97%E5%BE%85%E6%88%91%E4%B8%8D%E8%96%84/" class="post-title-link" itemprop="url">老天还算待我不薄</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-30 21:51:00" itemprop="dateCreated datePublished" datetime="2009-09-30T21:51:00+08:00">2009-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>316</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>30日是特殊的一天，因为接下来是8天的长假～很多事情需要在长假前结束掉。工作倒还好啦，面试，不停的面试，只是觉得一面太松了，明明技术不过关的，也统统放进来了，搞得二面很麻烦。最开心的是欠的债都还掉了，中午的午餐+下午的星巴克，10月可以轻装上阵，就等着别人请吃饭喽。薛胖子+飞哥+李敏，每个人都是要1个月才能过关的，这样算来，到年底都可以不用自己掏钱了。不过好像老刘脸皮不够厚，一个礼拜吃上一顿也就OK了～</div></p>
+<div><br/></div>
+<div>
+尽管1点才睡，早上开车都歪歪扭扭的。但是想想，29/30两天：开车差点撞车，老天放了一马，过关了；想一起吃饭的朋友，老天给了机会，吃饭了；想特别见的朋友，老天排了一下，见到了。那么总体上算来，老天待我已经很好了。知足者常乐也～</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/29/%E5%A6%82%E6%9E%9C%E4%BB%8A%E5%A4%A9%E7%89%BA%E7%89%B2%E5%9C%A8%E5%A4%96%E7%8E%AF%E4%BA%86%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/29/%E5%A6%82%E6%9E%9C%E4%BB%8A%E5%A4%A9%E7%89%BA%E7%89%B2%E5%9C%A8%E5%A4%96%E7%8E%AF%E4%BA%86%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82/" class="post-title-link" itemprop="url">如果今天牺牲在外环了。。。。。。</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-29 23:11:00" itemprop="dateCreated datePublished" datetime="2009-09-29T23:11:00+08:00">2009-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%87%91%E5%B1%8B%E8%97%8F%E5%A8%87/" itemprop="url" rel="index"><span itemprop="name">金屋藏娇</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>9月29日，夜雨，外环浦东段，可能由于国庆将至，路上车不是很多，只有重型集卡，由于速度不很很快，排着队在最右边的两个车道鱼贯而行。习惯地打开音响，“对你的爱越深就越来越心痛，留住你的人留不住你的心，梦中的你何时能回头，给我一个温暖的背影”，在学友大叔的歌声中，没啥感觉，车速就提到100了。人生不如意事者，十之八九也，听着歌，回想着近来尤其是今天的点点滴滴，不禁有些走神。当回过神来的时候，突然发觉前面的道路已经被隔离墩栏起来了，离开我也就30多米了，可恶的是一点灯光警示标志都没有。给我就两个选择，或者猛踩刹车，或者转入右边车道。右眼余光瞄了一下右后视镜，发觉右边第一根车道有辆小车飞速靠近，估计看到我离封闭路段已经很近，怕我突然右转插队，还狂闪大灯（有没有按喇叭已经不知道了，因为学友的声音太浑厚了），因为它的右边两根车道都是重卡在跑。祈祷小旋子可以在撞上隔离墩前停下来么？100公里的时速，30米肯定是刹不住了。于是，咬咬牙，右转向灯一打，一脚油门踩到底，一把方向就借到右边的车道上去了。爱卡的论坛上经常有人描写，在多快多块地时候，突然前方有啥啥啥，然后一把方向，就看见ESP的灯乱闪，知道ESP起作用了，然后车子就正常了，于是多亏了ESP啊。都是TMD操蛋，老子那时候冷汗都冒出来了，一把方向打倒右边，还要及时回正，否则车子就撞上更右边的集卡了。油门还不能松，得保持甚至让车速更快，免得后车碰上来。哪有时间观察在驾驶室中的ESP灯闪没闪啊。等到车子摆正在第二根道上并迅速拉开和后车的距离的时候，才舒了口气。虽然空调一直开在23度，冷汗还一直冒。突然想，如果刚才后车再近一点，肯定就碰上了，碰上了，就很容易失控撞到集卡上去了，那老刘今天估计就挂了。真是寒从心底来啊。</p>
+<div>
+然后就把速度降到80慢慢跑了。结果在高科西路出口和华夏路出口的当中，就看到了一个不幸的兄弟，车型没看清楚，黑色的，4轮朝天躺在最左边的超车道上，发动机舱50%已经没有了，我过去的时候已经有吊车在作业了。但愿倒霉的兄弟人没事。上海到处都在修路，只是希望修路的同时，能做好安全警示工作。至于老刘，也得打起12万分的精神，白天工作再累，事情再不顺利，心情再不舒畅；或者白天再闲，事情再顺利，心情再得意，只要挂上档，踩下油门，就得集中精力开车～有些事情尽管成功的可能性很低，起码人在机会在；如果人都没了，那可就真的啥都没有了。。。。。。</div>
+<div><br/></div>
+<div>既然是学友大叔的这首“对你的爱越深就越来越心痛”惹出来的祸，就把你挂在这儿示众了。</div>
+<div><br/></div>
+<div>总想留住你匆匆的身影</div>
+<div>让我能有片刻的安宁</div>
+<div>明知我的梦像那飘忽的风</div>
+<div>却把我的心托付在梦中</div>
+<div>总想留住你回眸的笑容</div>
+<div>遮住我心忧伤的阴影</div>
+<div>明知你的心再也看不懂</div>
+<div>却宁愿相信你痴痴等</div>
+<div>总相拥有自己的天空</div>
+<div>却无奈流逝太多的青春</div>
+<div>明知你的心再也看不懂</div>
+<div>却宁愿相信你痴痴等</div>
+<div>对你的爱越深就越来越心痛</div>
+<div>留住你的人留不住你的心</div>
+<div>梦中的你何时能回头</div>
+<div>给我一个温暖的背影</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/28/%E5%A6%9E%E5%A6%9E%EF%BD%9E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/28/%E5%A6%9E%E5%A6%9E%EF%BD%9E/" class="post-title-link" itemprop="url">妞妞～</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-28 21:38:00" itemprop="dateCreated datePublished" datetime="2009-09-28T21:38:00+08:00">2009-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>553</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>妞妞～是啥？这个说起来有点晕。年轻的时候，老刘脾气不是很好，而且总是很拽，朋友们没辙，老婆可是有办法，先是取了个外号，叫牛牛，是说脾气牛，当然也有技术牛的意思在里面。叫着叫着，就变味了，牛牛太难听，就叫成妞妞了。（倒是JX，曾经叫出一个阿牛，虽然也不好听，总比牛牛好得多，好歹还有歌星是阿牛）虽然老刘抗议了N次，最后还是没有摆脱掉妞妞这样一个特殊称呼。妞妞？妞妞就妞妞吧。。。。。。</p>
+<div> <wbr/> <wbr/>  <wbr/>
+ <wbr/>
+ <wbr/>07年搬到现在的新家。没多久，隔壁也装修好搬进来了，然后，然后养了条狗，叫“妞妞”，真是晕啊。这妞妞啊，还特讨通人性，特机灵。他们自己家的，偶家的人来来往往，她就一声不吭，坐在那里静静地看。只要一有生人，比如送报纸牛奶快递的，物业过来发通知的，就狂吠不已。哪怕关在门里面，也会叫个不停。自从这个妞妞来了，我们家就基本一直只关纱门了。妞妞比门铃还准。问题是我很郁闷啊，因为老爸老妈老婆经常会去妞妞妞妞地逗她，尤其是老婆，特别不怀好意！没辙。</div>
+<div> <wbr/> <wbr/>  <wbr/>
+ <wbr/>
+ <wbr/>GDC缺人要招聘了，居然我认识了第三个妞妞，嘎嘎。HR的心理学专家，而且是偶的本家，曾经开着红色的马六，在外环上别了偶一下，虽然从此之后再也没看到这红马六走过外环，偶可是很记仇的～。这下，偶天天回家可以冲着那可爱的小精灵大叫“妞妞妞妞”，哈哈。这下，家里人也搞不清楚倒底咋回事了，嘿嘿～</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/27/%E4%BB%8A%E5%A4%A9%E8%AE%B0%E6%B5%81%E6%B0%B4%E5%B8%90%E4%B8%80%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/27/%E4%BB%8A%E5%A4%A9%E8%AE%B0%E6%B5%81%E6%B0%B4%E5%B8%90%E4%B8%80%E7%AF%87/" class="post-title-link" itemprop="url">今天记流水帐一篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-27 21:16:00" itemprop="dateCreated datePublished" datetime="2009-09-27T21:16:00+08:00">2009-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/" itemprop="url" rel="index"><span itemprop="name">同学亲友</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>997</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>据说选雪铁龙这个牌子的人都是很特立独行的，或者说脾气性格比较相投，不知真假。苏州的老姐，雪铁龙毕加索；曹洪宇，雪铁龙赛纳；偶，雪铁龙凯旋。早就知道浩程也是雪铁龙，今天早上终于看到了银色的C2，挂着浙H的牌照，还赶忙打电话去确认了，呵呵。今年是雪铁龙90周年，不知道C5会在什么时候正式上市。可惜，银子有限，只能想想了。</div></p>
+<div><br/></div>
+<div>
+老刘没啥特殊爱好，就好吃吃喝喝，一提这吃喝二字，立马浑身来劲，所以现在才会上下一样粗，体重135。本来这周的安排是这样的，周日，老刘请SLJ午餐，顺便带上飞哥、LM、JSC；周一，老刘请LCY；周二：今天上午骗到一顿（近来，见面打招呼的口头禅已经变成“听说你要请我吃饭”。结果今天一不小心，就骗到了一顿，哈哈。），ZQ同志请吃饭。周三，估计来得人也很少了，就随便打发算了。结果、结果天上掉下个馅饼，是福不是祸，是祸躲不过，周二JX请吃饭，于是只好调整计划了，现在是周一，ZQ请吃饭；周二，JX请吃饭；周三，偶请LCY。不过周三这个事情还未搞定，原因是调整了时间，需要支付额外的代价，真是faint了，条件未谈妥，明天继续。不管怎么样，有人请吃饭总是好事。不像我们飞哥，莫名其妙地就成了SLJ的飞爸了，还得继续请吃饭。搞得偶也很郁闷，到底是和飞哥平辈论交呢还是和SLJ平辈论交。。。。。。中午还在草坪上闻到了淡淡的桂花香，想起了小时候常吃的桂花糕～（太没品了，咋啥都和吃挂上钩了呢？）</div>
+<div><br/></div>
+<div>
+下午一直在忙Resource和合同的事情，简直要命。到了5点，CT同志肚子饿了，找不到一起出去吃东西的人，于是就抓了我，没办法，老刘总是抵抗不住这样的诱惑。于是乖乖地跟着CT去吃东西了。晕的是，说肚子饿的人就只吃了根烤肠，而被抓的人居然喝了一瓶酸奶。好在是免费的，胖？也就再胖点吧。反正，这辈子也就这样了!</div>
+<div><br/></div>
+<div>
+有人问我，日志可以坚持写多久？说他们的圈子里面，开始大家都很有热情，然后就淡了。几个月都不带更新的。老老刘留言说，好像有点像文学青年。更还有人说没想到老刘这么感性。呵呵，看来大家对老刘的认识都还不够啊。从初中1990年到大学毕业后近2年的2001年，老刘写了11年日记。可惜冲动之下全部付之一炬，然后放弃了写日记的习惯。现在想来，颇为遗憾。只是这日志和日记还是不一样的。日记是写给自己看的，而日志是和好友一起分享的。</div>
+<div><br/></div>
+<div>晚上看看科幻世界30周年特别纪念版，回味那些经典的科幻小说，感觉真不错。</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/26/%E7%9E%AC%E9%97%B4%E5%8D%B3%E6%B0%B8%E6%81%92-%E7%BB%99%E5%81%B6%E5%AE%B6%E7%9A%84%E6%98%99%E8%8A%B1%EF%BC%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/26/%E7%9E%AC%E9%97%B4%E5%8D%B3%E6%B0%B8%E6%81%92-%E7%BB%99%E5%81%B6%E5%AE%B6%E7%9A%84%E6%98%99%E8%8A%B1%EF%BC%81/" class="post-title-link" itemprop="url">瞬间即永恒-给偶家的昙花！</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-26 21:40:00" itemprop="dateCreated datePublished" datetime="2009-09-26T21:40:00+08:00">2009-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/interesting/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>898</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>老爸是弄花之人，所以家里最多的就是花花草草。虽然有好些我是叫不上名字的，但是每天还是会在前后的院子散散步，也算是增进一下和我们家另类成员的感情吧，呵呵。</p>
+<div>
+原来在常州的老家，也种了很多昙花，可是10多年一朵都没有开过。自从2007年我正式回到上海后，07年开了1朵，08年开了2朵，09年～创纪录了！最早的一次是6月，两株都各开了一朵；9月24号，又是两株各开一朵；最夸张的是9月25日，也就是昨天，这些个花草精灵，居然趁我不在家，一口气开了9朵！昙花一现是形容昙花开得很短暂，一般晚上开，而且从花苞绽开到完全开放到凋谢，只有3-4个小时。满开的时候，满室清香。。。。。。今天，就在偶写这篇日志的时候，又是两朵。。。。。。先上照片，再google一下昙花的资料。</div>
+<div><br/></div>
+<div><span style="font-family:Arial;font-size:14px;line-height:24px">
+昙花的开花季节一般在6至10月，开花的时间一般在晚上8～9点钟以后，盛开的时间只有3～4个小时，非常短促。昙花开放时，花筒慢慢翘起，绛紫色的外衣慢慢打开，然后由20多片花瓣组成的、洁白如雪的大花朵就开放了。开放时花瓣和花蕊都在颤动艳丽动人。可是只3～4小时后，花冠闭合，花朵很快就凋谢了，真可谓“昙花一现”！昙花又叫韦驮花。韦驮花很特别，总是选在黎明时分朝露初凝的那一刻才绽放，相传昙花和佛祖座下的韦驮尊者有一段哀怨缠绵的故事，所以昙花又叫韦驮花。传说昙花是一个花神，她每天都开花，四季都很灿烂，她爱上了一个每天为她锄草的小伙子，后来玉帝知道了这件事情，就大发雷霆，要拆散鸳鸯。玉帝把花神贬为一生只能开一瞬间的花，不让她再和情郎相见，还把那个小伙子送去灵柩山出家，赐名韦驮，让他忘记前尘，忘记花神。可是花神却忘不了那个年轻的小伙子，她知道每年暮春时分，韦驼尊者都会上山采春露，为佛祖煎茶，就选在那个时候开花！希望能见韦驮尊者一面，就一次，一次就够了！</span></div>
+<div><font face="Arial" size="4"><span style="font-size:14px;line-height:24px"><br/>
+</span></font></div>
+<div><font color="#0070C0" face="Arial"><span style="font-size:x-large;line-height:24px">
+<b>感情又何尝不是如此呢。生生世世的感情太累，一般人承受不起；一生一世的感情也不那么容易寻找。在最短的瞬间爆发出的最真挚的感情，也许因为种种而无法坚持到底，但是，又有什么关系呢？正如这傲放的昙花，留下的是永存于心间的孤傲的美丽和清香。如果不能相伴到永远的话，就让彼此在生命中刻下这瞬间的永恒～</b></span></font></div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/26/%E7%9C%8B%E7%94%B5%E8%A7%86%E3%80%82%E3%80%82%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/26/%E7%9C%8B%E7%94%B5%E8%A7%86%E3%80%82%E3%80%82%E3%80%82/" class="post-title-link" itemprop="url">看电视。。。</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-26 21:18:00" itemprop="dateCreated datePublished" datetime="2009-09-26T21:18:00+08:00">2009-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/" itemprop="url" rel="index"><span itemprop="name">同学亲友</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>229</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>朋友来上海，算是两天吧，其实最多不到18个小时，事情居然是看电视最花时间，这里的卫星电视可以看到NHK、BS1和BS2，看着NHK，突然觉得好熟悉，有回家也要装个卫星来看日文台的冲动。不过，鬼子的节目，熟悉的是语言和风格，内容还是觉得。。。。。。比如，看着一个36岁的日本老爸，搞了些毛豆煮煮熟，然后和饭团捏一起，包上一个海苔片，就说うまい、おいしい，真是感觉好笑。但是，看看人家36岁，已经有3个小孩，9岁，6岁和4岁，可能他说的不是饭团而是生活的滋味吧～</div></p>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/09/26/9%E6%9C%8825%E6%97%A5%EF%BC%8C%E5%B1%85%E7%84%B6%E5%BD%BB%E5%A4%9C%E6%9C%AA%E5%BD%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/09/26/9%E6%9C%8825%E6%97%A5%EF%BC%8C%E5%B1%85%E7%84%B6%E5%BD%BB%E5%A4%9C%E6%9C%AA%E5%BD%92/" class="post-title-link" itemprop="url">9月25日，居然彻夜未归</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-09-26 21:10:00" itemprop="dateCreated datePublished" datetime="2009-09-26T21:10:00+08:00">2009-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/" itemprop="url" rel="index"><span itemprop="name">同学亲友</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/friends/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>437</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>9月25日，周五，有朋友从无锡来上海散心，于是屁颠屁颠地去陪朋友了。结果没有想到这一陪就是一宿。住在金桥的碧云国际公寓酒店，1主卧+1客卧+1书房+1客厅+1餐厅+2卫+1厨房，号称有135个平方，858大洋。大是大了，可是少了温馨的感觉。而且比较不爽的是，地板踩上去有地方有咯吱咯吱的响声；有厨房却没有任何厨具；书房中有书架，可是空空如野；看上去是从原来的商务楼改造的，网线也是走的明线。。。。。。不过好在，不是为了去住，而是为了会友～从16层的阳台俯瞰下去，都是别墅，视野相当不错，算是小小的安慰。</p>
+<div>
+<div><br/></div>
+<div>
+<pre style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;font-weight:normal;zoom:1;white-space:pre-wrap;word-wrap:break-word;font-size:14px;line-height:22px;font-family:Arial">
+
+<p><span style="font-family:Arial;font-size:14px;line-height:22px">吕方 - 老情歌<br>我只想唱这一首老情歌  让回忆再涌满心头  当时光飞逝已不知秋冬  这是我唯一的线索<br>人说情歌总是老的好  走遍天涯海角忘不了  我说情人却是老的好  曾经沧海桑田分不了<br>我只想唱这一首老情歌  愿歌声飞到你左右  虽然你不能和我常相守  但求你永远在心中<br>我只想唱这一首老情歌  让往事回荡在四周  啊  事到如今已无所可求  这是我仅有的寄托<br>人说情歌总是老的好  走遍天涯海角忘不了  我说情人却是老的好  曾经沧海桑田分不了</span><br></pre></div></p>
+</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">208k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:09</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劉勇の博客">
+<meta property="og:url" content="https://www.liuyong.online/page/7/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/page/7/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+      <p class="site-subtitle" itemprop="description">Ryle's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/10/01/PrestaShop%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E5%BB%BA%E7%AB%8B%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%AE%A4%E8%AF%81_%E8%AE%A9%E4%BD%A0%E7%9A%84PrestaShop%E6%9B%B4%E5%AE%89%E5%85%A8_%E8%B0%83%E8%AF%95%E5%92%8C%E6%80%A7%E8%83%BD_%E6%8F%90%E5%8D%87%E4%BD%A0%E7%9A%84PrestaShop%E6%80%A7%E8%83%BD_/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/10/01/PrestaShop%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E5%BB%BA%E7%AB%8B%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%AE%A4%E8%AF%81_%E8%AE%A9%E4%BD%A0%E7%9A%84PrestaShop%E6%9B%B4%E5%AE%89%E5%85%A8_%E8%B0%83%E8%AF%95%E5%92%8C%E6%80%A7%E8%83%BD_%E6%8F%90%E5%8D%87%E4%BD%A0%E7%9A%84PrestaShop%E6%80%A7%E8%83%BD_/" class="post-title-link" itemprop="url">PrestaShop管理员指南 - 建立基本的认证/让你的PrestaShop更安全/调试和性能/提升你的PrestaShop性能/</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-10-01 21:08:00" itemprop="dateCreated datePublished" datetime="2012-10-01T21:08:00+08:00">2012-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2><font face="宋体">建立基本的认证(.htaccess)</font></h2>
+<p><font face="宋体">为了更好地保护你的PrestaShop，我们需要对管理目录（admin)建立基本的认证机制。.htaccess文件的一个目的就是保护你指定的录及其子目录。但请注意，基本上这个方式只适合运用在Apache服务器上。请先确认你的WEB服务器支持此方式。为了实现基本的认证机制，我们需要在你指定的目录下增加一个.htaccess文件，比如<tt>/var/www/prestashop/admin</tt>:</font></p>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 80%; CoLor: green; size: 36px">
+<font face="宋体">AuthUserFile /var/www/.prestashop_admin<br/>
+AuthName "Prestashop Admin Access"<br/>
+AuthType Basic<br/>
+Require valid-user<br/>
+Options -Indexes</font></div>
+<p><font face="宋体">说明：</font></p>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 100%; CoLor: blue; size: 36px">
+<ul>
+<li><font face="宋体"><tt>AuthUserFile</tt>:
+定义了包含着允许访问的用户及其密码的文件。<tt>.prestashop_admin是一个文本文件。</tt></font></li>
+<li><font face="宋体"><tt>AuthName</tt>: 定义了弹出认证窗口时显示的信息。</font></li>
+<li><font face="宋体"><tt>AuthType</tt>: 定义了认证类型。</font></li>
+<li><font face="宋体"><tt>Require</tt>:
+为了访问内容需要用户首先登录。<tt>valid-user</tt> 方式说明允许多用户访问此目录。</font></li>
+<li><font face="宋体"><tt>Options</tt>: 定了目录选项。<tt>-Indexes</tt>
+d如果目录没有可用的i索引文件的话，禁止自动产生目录索引。</font></li>
+</ul>
+</div>
+<p><font face="宋体">下面是一个<tt>.prestashop_admin文件的例子，包含登录用户名和密码：</tt></font></p>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 80%; CoLor: green; size: 36px">
+<font face="宋体">login1:$apr1$/wJeliK8$e9OzgRaVL8J8wSsFBXjor1<br/>
+login2:$apr1$yV65Kqqz$cFt3sV2.Q7hhLRRUJDo5a/</font></div>
+<p><font face="宋体">这个文件包含了允许访问目录的用户名和加密的密码。一般为了加密，你可以参考这个链接：</font><a target="_blank" rel="noopener" href="http://aspirine.org/htpasswd.html"><font face="宋体">.htpasswd file
+generation</font></a><font face="宋体">.</font></p>
+<p><font face="宋体">强烈建议你把此文件保存在WEB应用访问不到的目录。具体的有关.htacceess文件的说明，请自己谷哥和度娘～</font></p>
+<hr/>
+<h2><font face="宋体">让你的PrestaShop更安全</font></h2>
+<p><font face="宋体">下面是按照重要度排列的推荐配置</font></p>
+<ul>
+<li><font face="宋体">让你的后台更安全</font></li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li><font face="宋体">重命名你的<tt>/admin文件夹。这是一个强制要求，如果你不重命名的话，就无法访问你的管理后台。确保你起了一个独特的名字，理想状态是包含数字和字符，比如</tt>"my4dm1n"。</font></li>
+<li><font face="宋体">用.htaccess和.htpasswd文件保护你的admin文件夹，或者要求你的主机服务提供商协助你。</font></li>
+<li><font face="宋体">不要让你的浏览器记住你的密码（cookie或者其他密码助手）。</font></li>
+<li><font face="宋体">使用复杂的密码，包含字母、数字甚至特殊字符，比如
+"5r3XaDR#"。你可以使用密码生成器，比如</font> <a target="_blank" rel="noopener" href="http://www.pctools.com/guides/password/"><font face="宋体">PCTools&prime;s</font></a><font face="宋体">或者</font><a target="_blank" rel="noopener" href="https://www.grc.com/passwords.htm"><font face="宋体">GRC&prime;s</font></a><font face="宋体">.</font></li>
+</ul>
+</li>
+<li><font face="宋体">强化你的PHP的安全性</font></li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li><font face="宋体">请参考在本指南开头的有关PHP必须和推荐的配置。</font></li>
+</ul>
+</li>
+<li><font face="宋体">在安装或者升级PrestaShop之后，立刻删除<tt>/install</tt>文件夹。</font></li>
+<li><font face="宋体">删除那些在生产环境没用的文件，比如：</font></li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li><font face="宋体">所有的<tt>readme_xx.txt</tt>文件。</font></li>
+<li><font face="宋体"><tt>CHANGELOG</tt>文件。</font></li>
+<li><font face="宋体"><tt>/docs</tt>文件夹。</font></li>
+</ul>
+</li>
+<li><font face="宋体">用一个设为如下配置的.htaccess文件，禁止对你的主题文件/模板的访问：</font>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 40%; CoLor: blue; size: 36px">
+<font face="宋体">&lt;FilesMatch
+".tpl$"&gt;</font><br/>
+<font face="宋体">order deny,allow</font><br/>
+<font face="宋体">deny from all</font><br/>
+<font face="宋体">&lt;/FilesMatch&gt;</font></div>
+</li>
+</ul>
+<hr/>
+<h2><font face="宋体">调试和性能</font></h2>
+<p><font face="宋体">这一节将会帮助你更好地理解那些不在后台而是在配置文件中的配置变量：</font></p>
+<p><font face="宋体">PrestaShop共有4个配置文件，都在<tt>/config</tt>文件夹：</font></p>
+<ul>
+<li><font face="宋体"><tt>config.inc.php</tt>: 核心配置文件</font></li>
+<li><font face="宋体"><tt>defines.inc.php</tt>:
+定义了PrestaShop的所有常量</font></li>
+<li><font face="宋体"><tt>settings.inc.php</tt>:
+定义了访问数据库的信息以及PrestaShop的版本号</font></li>
+<li><font face="宋体"><tt>smarty.config.inc.php</tt>:
+定义了所有和Smarty（PrestaShop模板/主题引擎）相关的配置</font></li>
+</ul>
+<h3><font color="#0000FF" face="宋体">【config.inc.php文件】</font></h3>
+<p><font face="宋体">生产环境：:</font></p>
+<ul>
+<li><font face="宋体">确保<tt>@ini_set(&prime;display_errors&prime;,
+&prime;Off&prime;);</tt><strong><font color="#FF0000">OFF</font></strong></font></li>
+<li><font face="宋体">确保 <tt>define(&prime;<em>PS_DEBUG_SQL</em>&prime;,
+false);</tt><font color="#FF0000"><strong>FALSE</strong></font></font></li>
+</ul>
+<p><font face="宋体">相反的，在开发/测试环境：</font></p>
+<ul>
+<li><font face="宋体">开启<tt>@ini_set(&prime;display_errors&prime;,
+&prime;Off&prime;);</tt><font color="#FF0000">ON</font></font></li>
+<li><font face="宋体"><tt>开启efine(&prime;<em>PS_DEBUG_SQL</em>&prime;,
+false);</tt><font color="#FF0000">TRUE</font></font></li>
+</ul>
+<h3><font color="#0000FF" face="宋体">【defines.inc.php文件】</font></h3>
+<p><font face="宋体">除了定义一些常量，此文件还包含了所有文件和文件夹的路径。因此如果你需要更新此文件的时候，请务必保留一个原始版本。</font></p>
+<h3><font color="#0000FF" face="宋体">【smarty.inc.php文件】</font></h3>
+<ul>
+<li><font face="宋体"><tt>$smarty-&gt;caching =
+false;</tt>: Smarty的缓存系统必须被设为无效，因为和PrestaShop不兼容</font></li>
+<li><font face="宋体"><strong><font color="#FF0000">重要</font></strong>:
+在生产环境，<tt>$smarty-&gt;force_compile</tt>
+必须被设为"false",这可以给页面加载带来30%的性能提升。另外，当编辑<tt>.tpl文件时，你需要删除</tt><tt>/tools/smarty/compile</tt>
+文件夹(除了 idex.php) in 来立刻确认改变。<font color="#0000FF">提醒</font>，这个设置能够在后台配置： "Preferences" &gt;
+"Performance"&gt;"Smarty"</font></li>
+<li><font face="宋体"><tt>$smarty-&gt;compile_check</tt>需要被设为false</font></li>
+<li><font face="宋体"><tt>$smarty-&gt;debugging给你调试Smarty的信息</tt>.</font></li>
+</ul>
+<hr/>
+<h2><font face="宋体">提升你的PrestaShop性能</font></h2>
+<p><font face="宋体">下面是提升PrestaShop性能的一些Tips：</font></p>
+<ul>
+<li><font face="宋体">开启MySQL的缓存（或者要求你的主机服务商提供），并设一个比较高的值（比如，256M）。</font></li>
+<li><font face="宋体">在生产环境，不要忘记设置<tt>$smarty-&gt;force_compile为</tt>"false"。</font></li>
+<li><font face="宋体">只要可能，就使用opcode
+cache机制来减轻服务器的进程负载。PrestaShop兼容</font><a target="_blank" rel="noopener" href="http://eaccelerator.net/"><font face="宋体">eAccelerator</font></a><font face="宋体">. Opcode 意味着"operation
+code"，具体请自己谷哥或者度娘～</font></li>
+<li><font face="宋体">如果可能的话，将你的静态元素设置到不同的域名或者子域名，以取得并行的HTTP链接。下面是一个配置的例子，编辑<tt>/config/defines.inc.php</tt>
+文件。</font></li>
+</ul>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 100%; CoLor: blue; size: 36px">
+<font face="宋体">if ( $_SERVER[&prime;REMOTE_ADDR&prime;] != &prime;127.0.0.1&prime;
+)</font><br/>
+<font face="宋体">{</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_IMG_DIR_&prime;, <wbr/> <wbr/>
+&prime;http://img2.xxx.com/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_CSS_DIR_&prime;, <wbr/> <wbr/>
+&prime;http://css.xxx.com/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_JS_DIR_&prime;, <wbr/> <wbr/> <wbr/>
+&prime;http://js.xxx.com/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_CAT_DIR_&prime;, <wbr/> <wbr/>
+&prime;http://img1.xxx.com/c/&prime; <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_PROD_DIR_&prime;, <wbr/>
+&prime;http://img1.xxx.com/p/&prime; <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_MANU_DIR_&prime;, <wbr/>
+&prime;http://img1.xxx.com/m/&prime; <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_PS_IMG_&prime;, <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+&prime;http://img1.xxx.com/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_PS_ADMIN_IMG_&prime;, <wbr/> <wbr/> <wbr/>
+&prime;http://img1.xxx.com/admin/&prime; );</font><br/>
+<font face="宋体">} else {</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_IMG_DIR_&prime;, <wbr/> <wbr/> _THEMES_DIR_
+. _THEME_NAME_ . &prime;/img/&prime; );</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_CSS_DIR_&prime;, <wbr/> <wbr/> _THEMES_DIR_
+. _THEME_NAME_ . &prime;/css/&prime; );</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_JS_DIR_&prime;, <wbr/> <wbr/> <wbr/>
+_THEMES_DIR_ . _THEME_NAME_ . &prime;/js/&prime; <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_CAT_DIR_&prime;, <wbr/> <wbr/>
+__PS_BASE_URI__ .
+&prime;img/c/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_PROD_DIR_&prime;, <wbr/> __PS_BASE_URI__ .
+&prime;img/p/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_THEME_MANU_DIR_&prime;, <wbr/> __PS_BASE_URI__ .
+&prime;img/m/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_PS_IMG_&prime;, <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+__PS_BASE_URI__ .
+&prime;img/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体"> <wbr/> <wbr/>define(
+&prime;_PS_ADMIN_IMG_&prime;, <wbr/> <wbr/> <wbr/>
+_PS_IMG_.&prime;admin/&prime; <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/> <wbr/>
+);</font><br/>
+<font face="宋体">}</font></div>
+<hr/>
+<h2><font face="宋体">其他推荐的配置</font></h2>
+<h3><font color="#0000FF" face="宋体">【安全模式】</font></h3>
+<p><font face="宋体"><strong>在最新的PHP版本中，PHP的安全模式已经不被推荐，不应该再被使用。</strong>尤其是PrestaShop,
+开启安全模式会导致支付模块失效。</font></p>
+<h3><font color="#0000FF" face="宋体">【升级】</font></h3>
+<p><font face="宋体">你的应用的PHP代码是使你服务器脆弱的因素。尤其强烈建议你更新你的服务器的应用，PHP、
+MySQL、 Apache和其他。</font></p>
+<hr/>
+<font face="宋体">2012年10月1日于南昌</font>
+<hr/>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/10/01/PrestaShop%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E9%85%8D%E7%BD%AEMySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/10/01/PrestaShop%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E9%85%8D%E7%BD%AEMySQL/" class="post-title-link" itemprop="url">PrestaShop管理员指南 - 配置MySQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-10-01 15:38:00" itemprop="dateCreated datePublished" datetime="2012-10-01T15:38:00+08:00">2012-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><font face="宋体" size="1"><strong><em><u><font face="宋体" size="3">配置MySQL</font></u></em></strong></font></p>
+<p>
+通常MySQL有一个默认的管理员帐号（root），通过这个帐号可以访问所有的数据库内容。这个管理员帐号拥有所有的权利，可以为所欲为。所以你需要强化你的数据库安全来保护你的WEB应用。</p>
+<div style="BACKGroUnD-CoLor: #dd0000; WiDTH: 100%; CoLor: white; size: 36px">
+注意：如果你只是安装了MySQL的话，root帐号默认是没有密码的，请务必给root账号设置密码！</div>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 100%; CoLor: green; size: 36px">
+*在MySQL中，默认的帐户是非常不安全的，简单来说，包括如下内容:
+<table border="3">
+<tbody>
+<tr>
+<th>操作系统</th>
+<th>帐户名</th>
+<th>连接发起位置</th>
+<th>权利</th>
+<th>初始密码</th>
+</tr>
+<tr>
+<td rowspan="4">UNIX</td>
+<td rowspan="2">root</td>
+<td>本机,用localhost表示</td>
+<td rowspan="2">超级用户，拥有对数据库的全部控制</td>
+<td rowspan="2">为空</td>
+</tr>
+<tr>
+<td>本机,需要用主机名或者IP地址表示</td>
+</tr>
+<tr>
+<td rowspan="2">匿名用户，为空字符</td>
+<td>本机,用localhost表示</td>
+<td rowspan="2">拥有访问test数据库或者所有其他以test开头的数据库的全部访问权限</td>
+<td rowspan="2">为空</td>
+</tr>
+<tr>
+<td>本机,需要用主机名或者IP地址表示</td>
+</tr>
+<tr>
+<td rowspan="4">Windows</td>
+<td rowspan="2">root</td>
+<td>本机,用localhost表示</td>
+<td rowspan="2">超级用户，拥有对数据库的全部控制</td>
+<td rowspan="2">为空</td>
+</tr>
+<tr>
+<td>任何主机</td>
+</tr>
+<tr>
+<td rowspan="2">匿名用户，为空字符</td>
+<td>本机,用localhost表示</td>
+<td>超级用户，拥有对数据库的全部控制</td>
+<td rowspan="2">为空</td>
+</tr>
+<tr>
+<td>任何主机</td>
+<td>拥有访问test数据库或者所有其他以test开头的数据库的全部访问权限</td>
+</tr>
+</tbody>
+</table>
+<p>你可以用MySQL的相关命令<br/>
+1.删除匿名用户 ：</p>
+<div style="BACKGroUnD-CoLor: #000000; WiDTH: 75%; CoLor: white; size: 36px">
+shell&gt; mysql -u root<br/>
+mysql&gt; DELETE FROM mysql.user WHERE user=&prime;&prime;;<br/>
+mysql&gt; FLUSH PRIVILEGES;</div>
+<div>2.给root用户加密码 ：</div>
+<div style="BACKGroUnD-CoLor: #000000; WiDTH: 75%; CoLor: white; size: 36px">
+shell&gt; mysql -u root<br/>
+mysql&gt; SET PASSWORD FOR &prime;root&prime;@&prime;localhost&prime; =
+PASSWORD(&prime;newPassword&prime;);<br/>
+mysql&gt; SET PASSWORD FOR &prime;root&prime;@&prime;%&prime; =
+PASSWORD(&prime;newPassword&prime;);<br/></div>
+<div>Unix的不举例了.事实上一共有三种方式给root用户创建密码：
+<ul>
+<li>SET PASSWORD语句(如上）</li>
+<li>mysql&gt; UPDATE mysql.user SET
+password=PASSWORD(&prime;newPassword&prime;) WHERE user=&prime;root&prime;;<br/>
+mysql&gt; FLUSH PRIVILEGES;</li>
+<li>mysqladmin -u root -h host_name password "newPassword"</li>
+</ul>
+<p>*丢失root密码之后的对应：<br/></p>
+<ul>
+<li>1.终止MySQL服务</li>
+<li>2.编辑一个txt文件，命名为my_init.txt内容：SET PASSWORD FOR
+&prime;root&prime;@&prime;localhost&prime; = PASSWORD(&prime;newPassword&prime;);</li>
+<li>3.执行mysqld-nt或者mysqld(Windows)/mysql_safe(Unix)
+--init-file=my_init.txt</li>
+<li>4.重启MySQL服务</li>
+</ul>
+</div>
+<p><font color="#0000FF">【为每一个WEB应用的数据库配置一个用户】</font></p>
+<p>
+每次在你的服务器上新安装一个WEB应用的时候，你应当创建一个新的MySQL用户，这个用户被授权来操作和此应用相关的数据。切记不要用同一个用户名去处理所有的数据库。下面是你创建新用户并授权的例子：</p>
+<div style="BACKGroUnD-CoLor: #000000; WiDTH: 75%; CoLor: white; size: 36px">
+shell&gt; mysql -u root -p yourPassword<br/>
+mysql&gt; use mysql;<br/>
+mysql&gt; CREATE USER &prime;username&prime;@&prime;servername&prime;
+IDENTIFIED BY &prime;user_password&prime;;<br/>
+mysql&gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE,
+DROP, ALTER<br/>
+&gt; ON &prime;prestashop&prime;.* TO &prime;username&prime;@&prime;localhost&prime;;<br/>
+mysql&gt; FLUSH PRIVILEGES;</div>
+这样，你就有一个专门的用户username用来处理和prestashop相关所有的数据操作。
+<p><br/></p>
+<br/>
+<hr/>
+2012年10月1日于南昌
+<hr/></div>
+<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border:0;" title="PrestaShop管理员指南 &lt;wbr&gt;- &lt;wbr&gt;配置MySQL"/></a> <wbr/>本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/10/01/PrestaShop%C2%A01.5%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E9%85%8D%E7%BD%AEPHP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/10/01/PrestaShop%C2%A01.5%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E9%85%8D%E7%BD%AEPHP/" class="post-title-link" itemprop="url">PrestaShop 1.5管理员指南 - 配置PHP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-10-01 14:58:00" itemprop="dateCreated datePublished" datetime="2012-10-01T14:58:00+08:00">2012-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><font face="宋体" size="1"><font face="宋体" size="3">原始Link：</font><a href="http://doc.prestashop.com/display/PS14/System+Administrator+Guide" target="_blank"><font face="宋体" size="3">管理员指南</font></a><font face="宋体" size="3"> <wbr/>（目前只有1.4版本的）</font></font></p>
+<ul>
+<li><font face="宋体" size="1"><font face="宋体" size="3">配置PHP</font></font></li>
+<li><font face="宋体" size="1"><font face="宋体" size="3">配置MySQL</font></font></li>
+<li><font face="宋体" size="1"><font face="宋体" size="3">配置基础认证方式</font></font></li>
+<li><font face="宋体" size="1"><font face="宋体" size="3">确保PrestaShop安装得更安全</font></font></li>
+<li><font face="宋体" size="1"><font face="宋体" size="3">性能调优</font></font></li>
+<li><font face="宋体" size="1"><font face="宋体" size="3">其他建议</font></font></li>
+<li><font face="宋体" size="1"><font face="宋体" size="3">拾遗</font></font></li>
+</ul>
+<p><font face="宋体" size="1"><em><strong><u><font face="宋体" size="3">配置PHP</font></u></strong></em></font></p>
+<p><font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3"><font color="#0000FF" face="宋体" size="3">【</font>设置php.ini】-
+强烈建议仔细阅读PHP手册中关于<a target="_blank" rel="noopener" href="http://cn2.php.net/manual/zh/ini.php">php.ini的配置</a>说明</font></font></p>
+<p><font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#000000">1.
+在此给出一些编辑你的php.ini文件的指南，请注意此文件在你的服务器的PHP的安装目录而不在PrestaShop的目录。</font></font></font></font></p>
+<p><font face="宋体" size="1"><font color="#000000" face="宋体" size="3">2.
+不是所有的主机服务提供商都允许你访问或者编辑此文件，所以如果你需要访问此文件请联系你的主机服务提供商。比如，在共享主机的情况下，你也许不能被允许访问php.ini文件。如果你的主机提供商不能提供PrestaShop需要的配置，你也不能编辑php.ini文件，那你就不得不迁移到一个专享主机或者有更大自由度的主机。</font></font></p>
+<p><font face="宋体" size="1"><font color="#000000" face="宋体" size="3">3.
+编辑php.ini文件也算是个技术活，所以如果你的PrestaShop已经工作正常，那就没有必要尝试编辑此文件或者迁移主机。</font></font></p>
+<p><font face="宋体" size="1"><font color="#000000" face="宋体" size="3">4.
+编辑php.ini文件需要你改变一些配置的值，大部分情况是从“On”到“Off”或者相反。php.ini基本上每行都有相应的说明，请仔细阅读那些和你的改变相关的部分。尤其请慎重对待编辑，因为这些会直接影响PHP的运行，这也会和你的服务的稳定和安全密切相关。</font></font></p>
+<p><font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3">【必须的配置】</font></font></p>
+<p><font face="宋体" size="1"><font face="宋体" size="3">为了保证PrestaShop
+1.4.x正常运行，你的PHP安装必须符合下面的设置：</font></font></p>
+<p><font face="宋体" size="1"><font face="宋体" size="3">1.MySQL：MySQL扩展确保可以访问你的数据。无此扩展PrestaShop不能工作；</font></font></p>
+<p><font face="宋体" size="1"><font face="宋体" size="3">2.GD库：GD库确保PHP可以动态处理图像。PrestaShop使用此库处理图像，包括大小变更，重构等。没有图像，一个在线商店就失去了大部分吸引力。所以请确保GD库是Enabled的！</font></font></p>
+<p><font face="宋体" size="1"><font face="宋体" size="3">3.DOM扩展：DOM扩展确保可以解析XML文档。PrestaShop在很多功能和模块中使用到此扩展。</font></font></p>
+<p><font face="宋体" size="1"><font face="宋体" size="3">4.allow_url_fopen：此指令确保模块可以访问远程文件，而这在付款等流程方面是至关重要的。因此必须设置为“<font color="#FF0000"><strong>ON</strong></font>"。</font></font></p>
+<font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#FF0000" size="2">简而言之，如下的配置是必须的</font></font></font></font>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 30%; CoLor: red; size: 36px">
+<font face="宋体" size="1"><font face="宋体" size="3">extension =
+php_mysql.dll<br/>
+extension = php_gd2.dll<br/>
+allow_url_fopen = On</font></font></div>
+<p><font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3">【建议的配置】</font></font></p>
+<p><font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">为了更好的体验，建议你的PHP需要做如下设置：</font></font></font></p>
+<p><font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">1.GZIP：GZip可以使WEB服务器在发送数据给浏览器前，压缩WEB
+Pages，图像和脚本等。这可以使应用执行得更快。</font></font></font></p>
+<p><font face="宋体">2.Mcrypt库：Mcrypt为PHP提供了额外的安全支持，<font size="1"><font color="#0000FF" size="3"><font color="#000000">可以使用更多的加密解密算法。</font></font></font></font></p>
+<p><font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">3.关闭r</font></font></font><font size="1"><font color="#0000FF" size="3"><font color="#000000"><font face="宋体">egister_globals:register_globals指令在开启的情况下，设置所有的环境变量（GET,POST,COOKIE,SERVER等）为全局变量。使用永远不销毁的变量是非常不安全的。比如一个恶意的用户可以轻易地利用GET方法来设置一个值。具体有关安全的话题，请自行谷哥或者度娘～这个是PHP4.1到4.2的最重要的变化之一。<br/>
+<br/>
+4.关闭magic_quotes:魔法引号指令会自动对所有环境变量中的特殊字符进行转义。这个选项需要被设成“<strong>OFF</strong>”因为它会转义每一个变量而不管这个变量是否已经被转义过了。</font></font></font></font></p>
+<p><font size="1"><font color="#0000FF" size="3"><font color="#000000"><font face="宋体">5.关闭allow_url_include:allow_url_include指令允许通过“require”和“include”指令来include任何文件，包括那些不在你的服务器上的文件。这个选项需要被设成“<strong>OFF</strong>”。</font></font></font></font></p>
+<font size="1"><font size="3"><font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#008000" size="2">简而言之，高度推荐如下的配置：</font></font></font></font></font></font>
+<div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 30%; CoLor: green; size: 36px">
+register_globals = Off<br/>
+magic_quotes_gpc = Off<br/>
+allow_url_include = Off</div>
+<hr/>
+2012年9月30日于南昌<br/>
+<hr/>
+<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border:0;" title="PrestaShop &lt;wbr&gt;1.5管理员指南 &lt;wbr&gt;- &lt;wbr&gt;配置PHP"/></a> <wbr/>本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/09/30/PrestaShop%C2%A01.5%E5%90%AF%E8%88%AA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/09/30/PrestaShop%C2%A01.5%E5%90%AF%E8%88%AA/" class="post-title-link" itemprop="url">PrestaShop 1.5启航</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-09-30 08:41:00" itemprop="dateCreated datePublished" datetime="2012-09-30T08:41:00+08:00">2012-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>350</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>所有需要的准备条件:<br/></p>
+<ol>
+<li>PHP 5.2或以上<br/></li>
+<li>MySQL5.0或以上<br/></li>
+<li>Apache1.3或以上，至少32M内存<br/></li>
+<li>文本编辑器<br/></li>
+<li>FTP工具<br/></li>
+<li>开店么？那还需要Hosting主机/域名等；如果只是在本机玩一玩，那就<br/><br>XAMPP：<a target="_blank" rel="noopener" href="http://www.apachefriends.org/en/xampp.html">http://www.apachefriends.org/en/xampp.html</a>(Windows, Mac OS X,<br>Linux)<br/><br>WampServer: <a href="http://www.wampserver.com/en/" target="_blank">http://www.wampserver.com/en/</a><br/></li>
+</ol>
+<p>吧～<br/><br>————————————————————————————<br/></p>
+<p>安装就不说了吧，下载<a target="_blank" rel="noopener" href="http://www.prestashop.com/en/downloads">http://www.prestashop.com/en/downloads</a>，解压缩到你的WEB服务器的指定目录，install吧～<br/></p>
+<p>————————————————————————————<br/></p>
+<p>升级和卸载就更不说了～                            </p>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/09/29/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%89%BE%E5%88%B0%E8%8F%8A%E5%AD%90%E6%9B%B0%E7%9A%84%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/09/29/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%89%BE%E5%88%B0%E8%8F%8A%E5%AD%90%E6%9B%B0%E7%9A%84%EF%BC%9F/" class="post-title-link" itemprop="url">为什么会找到菊子曰的？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-09-29 20:28:00" itemprop="dateCreated datePublished" datetime="2012-09-29T20:28:00+08:00">2012-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>139</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>
+想找一个单平台多博客管理系统，主要想对PrestaShop的资料翻译做一些整理；发觉国内有很多PrestaShop开源电商平台的中文平台，也有一些模板开发的介绍，但是没有看到完整的中文资料翻译，主要是开发者/设计者和店主，趁朋友有这个需求的时候，边帮忙边整理吧～</p>
+<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"></a> <wbr/>本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2011/02/01/%E5%B0%8F%E5%B9%B4%E5%A4%9C%E5%90%AC%E8%BF%99%E4%B8%AA%E6%AD%8C%EF%BC%8C%E6%98%AF%E4%B8%8D%E6%98%AF%E6%AF%94%E8%BE%83%E6%82%B2%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2011/02/01/%E5%B0%8F%E5%B9%B4%E5%A4%9C%E5%90%AC%E8%BF%99%E4%B8%AA%E6%AD%8C%EF%BC%8C%E6%98%AF%E4%B8%8D%E6%98%AF%E6%AF%94%E8%BE%83%E6%82%B2%EF%BC%9F/" class="post-title-link" itemprop="url">小年夜听这个歌，是不是比较悲？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-02-01 20:05:00" itemprop="dateCreated datePublished" datetime="2011-02-01T20:05:00+08:00">2011-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>319</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre style="line-height: 15px; white-space: normal;">
+<span style="font-family: &prime;Microsoft YaHei&prime;, simsun, Verdana, Tahoma, Arial, sans-serif; line-height: normal; font-size: 12px; color: rgb(42, 42, 42);">天灰的时候我想起了你说的话，再见吧baby我们也许都该长大<br style="line-height: 15px;"/>
+天色很黑，你看不见我的眼泪，因为我装无所谓， 忍着泪，笑的好狼狈<br style="line-height: 15px;"/>
+不想让你太累，不想看你为爱疲惫，不要后退，我怕我会后悔<br style="line-height: 15px;"/>
+<br style="line-height: 15px;"/>
+看着你消失在昏暗的巷口，昨天所有承诺抛在脑后你说分手从来不会有天长地久，我像个孩子一样守在角落，想象你会突然的回过头你永远不会懂，忘记痛要多久<br style="line-height: 15px;"/>
+<br style="line-height: 15px;"/>
+回忆倒流回到我们相遇的地方，天很蓝，风很暖，这些画面我割舍不断我怕孤单，你比谁都更明白，以为你会一直让我依赖，就算海枯石烂<br style="line-height: 15px;"/>
+是我太过天真，是我爱的太愚蠢，童话剧本，又怎么会成真 <wbr/><br style="line-height: 15px;"/>
+<br style="line-height: 15px;"/>
+看着你走失在我们的爱情，留下苍白而无力的回忆<br style="line-height: 15px;"/>
+最后说我爱你，是我所能做的唯一，我知道自己还是无法忘记<br style="line-height: 15px;"/>
+离开你时间该怎么继续，我仍选择放弃，只因为，太爱你</span>
+</pre>
+
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2011/01/05/GDC%E7%9A%84%E6%94%B9%E9%9D%A9%EF%BC%8C%E6%80%8E%E4%B9%88%E4%B9%9F%E9%80%8F%E9%9C%B2%E7%9D%80%E5%AE%98%E5%83%9A%E7%9A%84%E5%91%B3%E9%81%93%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2011/01/05/GDC%E7%9A%84%E6%94%B9%E9%9D%A9%EF%BC%8C%E6%80%8E%E4%B9%88%E4%B9%9F%E9%80%8F%E9%9C%B2%E7%9D%80%E5%AE%98%E5%83%9A%E7%9A%84%E5%91%B3%E9%81%93%EF%BC%9F/" class="post-title-link" itemprop="url">GDC的改革，怎么也透露着官僚的味道？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-01-05 21:49:00" itemprop="dateCreated datePublished" datetime="2011-01-05T21:49:00+08:00">2011-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/others/" itemprop="url" rel="index"><span itemprop="name">一言难尽</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>176</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>据说是Domestic的项目要全部改成CATS系统。可是到现在为止，没有任何一项正规的培训来告诉PM，PeM以及与员工，应该做什么，什么时候开始做，遇到问题怎么办？有的只是官僚的培训通知，仿佛通知你了，这个事情就该成了。如果真的这么容易的话，改革也太容易了点吧。</p>
+<div><br/></div>
+<div>人都是有惯性的，组织也一样。在组织的调整中，刹车，换档可都是技术活，GDC，你准备好了么？</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2011/01/04/%E6%80%BB%E6%98%AF%E5%9C%A8%E4%B8%8D%E7%BB%8F%E6%84%8F%E9%97%B4%E7%9A%84%E5%85%B3%E5%BF%83%E6%89%8D%E8%AE%A9%E4%BA%BA%E6%84%9F%E5%8A%A8%E4%B8%8D%E5%B7%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2011/01/04/%E6%80%BB%E6%98%AF%E5%9C%A8%E4%B8%8D%E7%BB%8F%E6%84%8F%E9%97%B4%E7%9A%84%E5%85%B3%E5%BF%83%E6%89%8D%E8%AE%A9%E4%BA%BA%E6%84%9F%E5%8A%A8%E4%B8%8D%E5%B7%B2/" class="post-title-link" itemprop="url">总是在不经意间的关心才让人感动不已</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-01-04 22:53:00" itemprop="dateCreated datePublished" datetime="2011-01-04T22:53:00+08:00">2011-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>175</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2010年的12月30日下午，接到体检中心的电话，说有一个指标严重超标。然后31日休假去华山医院复查，结果最早要明天，晚一点要后天才出来。</p>
+<div><br/></div>
+<div>
+今天是第一天上班，老顾已经托朋友买好了农科院的东西，等我去拿了。LJ摆事实讲道理说明体检中心的报告有多烂，让我宽心。而Xie-san也在百忙之中询问我的情况，并安慰我不用多想。</div>
+<div><br/></div>
+<div>总是在不经意间的关心，让人感动不已。</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2011/01/03/%E8%A6%81%E4%B8%8A%E7%8F%AD%E4%BA%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2011/01/03/%E8%A6%81%E4%B8%8A%E7%8F%AD%E4%BA%86/" class="post-title-link" itemprop="url">要上班了</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-01-03 19:15:00" itemprop="dateCreated datePublished" datetime="2011-01-03T19:15:00+08:00">2011-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/others/" itemprop="url" rel="index"><span itemprop="name">一言难尽</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>223</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div>
+自从去了RX家，现在特希望可以买个精装修的房子来让我打理家具和电器。可惜，房子买不起，于是只要YY。。。。。。包括今天去苏宁看了半天的电热水器，小厨宝。一直在想，小厨宝是否可以和燃气热水器或者电热水器并线使用，比如，把燃气热水器/电热水器的热水出口当做小厨宝的冷水进口。目前网上看到的方案都是堵死燃气/电热水器的热水口的。真想试验一下。</div>
+<div><br/></div>
+<div>明天就要上班了，还是很迷茫。明天该干啥呢？GDC就这德性，变是永远的不变，就是总是把人晃点得没方向。。。。。。</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2011/01/02/%E7%82%B9%E7%82%B9%EF%BC%8C2011%E5%BC%80%E5%A7%8B%E5%96%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2011/01/02/%E7%82%B9%E7%82%B9%EF%BC%8C2011%E5%BC%80%E5%A7%8B%E5%96%BD/" class="post-title-link" itemprop="url">点点，2011开始喽</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-01-02 20:11:00" itemprop="dateCreated datePublished" datetime="2011-01-02T20:11:00+08:00">2011-01-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>500</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2011到了，1号，天气很冷，爸爸又要去RX家，所以，就待在家里没动。结果这个家伙非常不满意，觉也不好好睡。晚上爸爸在房间里整电脑，为了防止他看屏幕，还特地正坐在屏幕前，挡住屏幕。结果，奶奶发觉他坐在床上，不停地坐直身体，斜着往窗外看，还看得津津有味。小懒虫平时一直是靠在被子上的，今天怎么这么勤快呀？而且天这么黑，你看啥呀?奶奶好奇地坐到点点的旁边，顺着点点看的方向看，结果。。。。。。这个小家伙，是把窗户当镜子，看电脑在镜子中的反射。</p>
+<div><br/></div>
+<div>
+2号，小旋子带着一家人去了金桥国际商业广场，看看小朋友的鞋子，衣服，游乐场。点点呀，起劲得不得了，一个早上就没吃东西，连觉也不睡了。中午在西贝吃饭的时候，他第一次坐宝宝的椅子，能够和爸爸妈妈爷爷奶奶一起坐在桌子上，小家伙特别兴奋，拿了餐巾纸，不停地摇来摇去，然后看着爸爸妈妈爷爷奶奶，咯咯的笑。饿了也不哭，就是低头去咬桌子，哈哈。后来，也许是累了，回家一睡睡了2个半小时。</div>
+<div><br/></div>
+<div>
+点点这家伙，现在越来越坏了，奶奶问，爸爸呢？他会朝爸爸看，但是很严肃。而奶奶一说，刘勇，刘勇在哪里啊。他就会一边找爸爸，一边咯咯的笑。。。。。。</div>
+<div><br/></div>
+<div>成长，是一段旅程，给家人带来欢乐和惊喜的旅程！</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">208k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:09</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

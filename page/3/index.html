@@ -1,0 +1,3065 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劉勇の博客">
+<meta property="og:url" content="https://www.liuyong.online/page/3/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/page/3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+      <p class="site-subtitle" itemprop="description">Ryle's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/07/05/2014-07-05%C2%A0%E7%9C%8B%E7%9C%8BSQLite%E4%BB%A5%E5%8F%8AFlask/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/07/05/2014-07-05%C2%A0%E7%9C%8B%E7%9C%8BSQLite%E4%BB%A5%E5%8F%8AFlask/" class="post-title-link" itemprop="url">2014-07-05 看看SQLite以及Flask</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-07-05 22:49:00" itemprop="dateCreated datePublished" datetime="2014-07-05T22:49:00+08:00">2014-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>457</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>1. 在安装SQLite3.8.5的时候，发生了几个小问题，mark一下：</p>
+<p>1.1
+直接下载的sqlite-shell-linux-x86-3080500.zip解压缩之后在ubuntu64位上跑不起来，</p>
+<p>   
+现象：直接启动执行文件，被告知找不到文件，尽管已经有了可执行的权限，</p>
+<p>   
+解决方式，安装i386的包sudo apt-get install ia32-libs</p>
+<p>1.2 采用从source code开始的变异之后的问题是：</p>
+<p>   
+现象：ERROR：SQLite header and source version mismatch</p>
+<p>   
+解决方式:安装完毕后执行 sudo /sbin/ldconfig</p>
+<p>顺便说一下，sqlite的源代码是托管在fossil（<a target="_blank" rel="noopener" href="http://www.fossil-scm.org/" title="http://www.fossil-scm.org/">http://www.fossil-scm.org/</a>）的，回头找时间去看看</p>
+<p> </p>
+<p>2. Python的环境很烦人，今天终于看到了一个virtualen的东西，貌似不错<a target="_blank" rel="noopener" href="http://dormousehole.readthedocs.org/en/latest/installation.html#installation">http://dormousehole.readthedocs.org/en/latest/installation.html#installation</a></p>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/04/20/%E5%B0%9D%E8%AF%95Mahout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/04/20/%E5%B0%9D%E8%AF%95Mahout/" class="post-title-link" itemprop="url">尝试Mahout</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-04-20 00:02:00" itemprop="dateCreated datePublished" datetime="2014-04-20T00:02:00+08:00">2014-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>免费的东西都是祸害，dataguru免费给了学习卡，结果为了在过期前花掉，报了个Mahout，发觉是要把自己逼疯的节奏～</p>
+<p> </p>
+<p>1.先得弄好Hadoop环境，这个是昊哥去年的任务，不是我的呀～没法子，补～</p>
+<p>2.得有数据挖据的理论基础</p>
+<p>3.得有一些数学基础，不是大数据的统计学基础刚开始么？</p>
+<p> </p>
+<p>老老实实得在Ubuntu1204版上去配个伪分布式的Hadoop吧，基于2.2.0</p>
+<p>安装手顺有很多，不多记录了。</p>
+<p>1.配置好JAVA</p>
+<p>2.配置ssh为不需要口令认证</p>
+<p>3.4个.xml文件：</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQ4Q3Fb3&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="dm4auqa5" border="0" height="163" real_src="http://s4.sinaimg.cn/middle/001DcOaczy6IeJQ4Q3Fb3&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="dm4auqa5" width="651"/></a></p>
+<p>-core-site.xml</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQ7sg33b&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="y4bwgri5" border="0" height="116" real_src="http://s12.sinaimg.cn/middle/001DcOaczy6IeJQ7sg33b&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="y4bwgri5" width="662"/></a></p>
+<p>-hdfs-site.xml</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQr6ufb3&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="s5sowh2z" border="0" height="202" real_src="http://s4.sinaimg.cn/middle/001DcOaczy6IeJQr6ufb3&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="s5sowh2z" width="665"/></a></p>
+<p>-mapred-site.xml</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQumvA2e&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="zyegylnr" border="0" height="118" real_src="http://s15.sinaimg.cn/middle/001DcOaczy6IeJQumvA2e&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="zyegylnr" width="672"/></a></p>
+<p>-yarn-site.xml</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQyFXr19&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="nqdbqonc" border="0" height="129" real_src="http://static10.photo.sina.com.cn/middle/001DcOaczy6IeJQyFXr19&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="nqdbqonc" width="672"/></a></p>
+<p>4.配置etc/slaves中为localhost</p>
+<p>5.启动</p>
+<p>-初始化：<code>hdfs namenode –</code><code>format</code></p>
+<p><code>-启动: cd /opt/hadoop-2.2.0/sbin/</code></p>
+<p>./hadoop-daemon.sh start datanode</p>
+<p>./hadoop-daemon.sh start namenode</p>
+<p>./hadoop-daemon.sh start secondarynamenode</p>
+<p>./yarn-daemon.sh start resourcemanager</p>
+<p>./yarn-daemon.sh start nodemanager</p>
+<p>6.启动管理接口，确认</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQBtBw82&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="wxtre5hw" border="0" height="381" real_src="http://static3.photo.sina.com.cn/middle/001DcOaczy6IeJQBtBw82&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="wxtre5hw" width="669"/></a></p>
+<p>7.结果试图运行的时候报错：</p>
+Java HotSpot(TM) 64-Bit Server VM warning: You have loaded library
+/opt/hadoop-2.2.0/lib/native/libh
+<p> </p>
+<p>Java HotSpot(TM) 64-Bit Server VM warning: You have loaded
+library /opt/hadoop-2.2.0/lib/native/libhadoop.so.1.0.0 which might
+have disabled stack guard. The VM will try to fix the stack guard
+now.<br/>
+It&prime;s highly recommended that you fix the library with &prime;execstack -c
+&lt;libfile&gt;&prime;, or link it with &prime;-z
+noexecstack&prime;.<br/>
+WARN util.NativeCodeLoader: Unable to load native-hadoop library
+for your platform... using builtin-java classes where
+applicable</p>
+<p>为了解决这个问题<strong><font color="#0000FF">需要安装Maven，然后重新再native编译hadoop2.2.0的源代码</font></strong>。</p>
+<p>CSDN上有大神已经有guide，只是难道居然没有碰到ERROR么？<a target="_blank" rel="noopener" href="http://blog.csdn.net/focusheart/article/details/14058153">http://blog.csdn.net/focusheart/article/details/14058153</a></p>
+<p><br/>
+会报错：</p>
+<p>[ERROR] Failed to execute goal
+org.apache.maven.plugins:maven-compiler-plugin:2.5.1:testCompile
+(default-testCompile) on project hadoop-auth: Compilation failure:
+Compilation failure:<br/>
+[ERROR]
+/home/chuan/trunk/hadoop-common-project/hadoop-auth/src/test/java/org/apache/hadoop/security/authentication/client/AuthenticatorTestCase.java:[84,13]
+cannot access org.mortbay.component.AbstractLifeCycle<br/>
+[ERROR] class file for org.mortbay.component.AbstractLifeCycle not
+found</p>
+<p><font color="#323E32"><strong>对应方式</strong></font>：<a target="_blank" rel="noopener" href="https://issues.apache.org/jira/browse/HADOOP-10110" title="https://issues.apache.org/jira/browse/HADOOP-10110">https://issues.apache.org/jira/browse/HADOOP-10110</a></p>
+<p> </p>
+<p>Index: hadoop-common-project/hadoop-auth/pom.xml<br/>
+===================================================================<br/>
+
+<hr>
+<p>hadoop-common-project/hadoop-auth/pom.xml<br>(revision 1543124)<br/><br>+++<br>hadoop-common-project/hadoop-auth/pom.xml<br>(working copy)<br/><br>@@ -54,6 +54,11 @@<br/></p>
+<p>&lt;/dependency&gt;<br/></p>
+<p>&lt;dependency&gt;<br/></p>
+<p>&lt;groupId&gt;org.mortbay.jetty&lt;/groupId&gt;<br/><br><font color="#FF0000">+<br>&lt;artifactId&gt;jetty-util&lt;/artifactId&gt;<br/></p>
+<ul>
+<li><p>&lt;scope&gt;test&lt;/scope&gt;<br/></p>
+</li>
+<li><p>&lt;/dependency&gt;<br/></p>
+</li>
+<li><p>&lt;dependency&gt;<br/></p>
+</li>
+<li><p>&lt;groupId&gt;org.mortbay.jetty&lt;/groupId&gt;</font><br/></p>
+</li>
+</ul>
+<p>&lt;artifactId&gt;jetty&lt;/artifactId&gt;<br/></p>
+<p>&lt;scope&gt;test&lt;/scope&gt;<br/></p>
+<p>&lt;/dependency&gt;</p></p>
+<p>
+编译完毕后，把hadoop-2.2.0-src/hadoop-dist/target/hadoop-2.2.0/lib中的native的文件拷贝到/opt/hadoop-2.2.0/lib中</p>
+<p>太晚了，就不测试了，明天继续～</p>
+<p> </p>
+<p>下面是简单的Hadoop的个人理解的路线图～</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6IeJQHjffc5&amp;bid=5922f3300101fdfa&amp;uid=1495462704" target="_blank"><img alt="fjv1t0wc" border="0" height="272" real_src="http://s6.sinaimg.cn/middle/001DcOaczy6IeJQHjffc5&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" title="fjv1t0wc" width="662"/></a></p>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/02/01/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1%C2%A0-%C2%A0Synergy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/02/01/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1%C2%A0-%C2%A0Synergy/" class="post-title-link" itemprop="url">树莓派安装键盘鼠标共享服务 - Synergy</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-02-01 16:19:00" itemprop="dateCreated datePublished" datetime="2014-02-01T16:19:00+08:00">2014-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原本以为是个简单事情，结果弄起来才知道其实不容易。<br/>
+先去<a target="_blank" rel="noopener" href="http://synergy-foss.org/help/">http://synergy-foss.org/</a>下载源码，ARM的芯片，得重新编译～<br/>
+
+<p>tar xzf synergy-1.4.15-Source.tar.gz<br/><br>cd synergy-1.4.15-Source<br/><br>编译，发觉要cmake，<br/><br>sudo apt-get install cmake<br/><br>vi CMakeLists.txt<br/><br> <wbr/> <wbr/> -修改第178行set(CMAKE_INCLUDE_PATH<br>“${CMAKE_INCLUDE_PATH}:/usr/include”)从“/usr/local/include”改为/usr/include,这个bug可以查到<a target="_blank" rel="noopener" href="http://synergy-foss.org/spit/issues/details/3365/">http://synergy-foss.org/spit/issues/details/3365/</a><br/></p>
+<p>./configure<br/><br>然后你就开始看到error了，<br/><br>第一个Missing header: X11/Xlib.hx11/XKBlib.h<br/><br>解决方式：sudo apt-get install libx11-dev<br/><br>第二个：Missing library：Xtst<br/><br>解决方式：sudo apt-get install libxtst-dev<br/><br>第三个：Cannot find source file： cryptopp562/3way.cpp<br>（发生地点是toos/CMakeLists.txt,意味着是tools子目录下面的，结果过去一看有个cryptopp562.zip的压缩包，坑爹啊）<br/></p>
+<p>解决方式：unzip cryptopp562.zip -d cryptopp562<br/><br>下来就是make了<br/><br>Make的时候出错</p></p>
+<pre>
+<code>Error: unrecognized option -march=native cc1plus: error: bad value (native) for -march switch make[2]: *** [tools/CMakeFiles/cryptopp.dir/cryptopp562/3way.o] Error 1 make[1]: *** [tools/CMakeFiles/cryptopp.dir/all] Error 2 make: *** [all] Error 2</code> 
+</pre>
+
+<p>编译目标出错了，目标应该是arm<br/><br>tools/CMakeLists.txt, and on line 83， 把-march=native<br>改成-march=armv6zk</p>
+<p>用uname -a 看，是armv6l，不过估计没啥问题，就没去改了。</p>
+<p>编译完毕之后，在source目录有个bin</p>
+<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6GfpsdZslc9&amp;bid=5922f3300101e20o&amp;uid=1495462704" target="_blank"><img alt="image" border="0" height="68" real_src="http://s10.sinaimg.cn/middle/001DcOaczy6GfpsdZslc9&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" title="image" width="550"/></a></p>
+<p>然后再在/etc/rc.local中配置为自启动</p>
+<p><a target="_blank" rel="noopener" href="http://s15.sinaimg.cn/middle/001DcOaczy6Gfpsgmho6e&amp;690">
+<img alt="image" border="0" height="345" real_src="http://s13.sinaimg.cn/middle/001DcOaczy6Gfpsj9KY4c&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" title="image" width="559"/></a></p>
+<div style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px">
+Technorati 标记: <a target="_blank" rel="noopener" href="http://technorati.com/tags/raspberrypi">raspberrypi</a>,<a target="_blank" rel="noopener" href="http://technorati.com/tags/synergy">synergy</a></div>
+<p>
+这里要注意的是，由于树莓派是用的debian的核，其shell事实上是dash而不是bash，所以在执行的时候可能会有问题（本人遇到了），解决的方式比较暴力，就是把dash改成bash。</p>
+<p>sudo dpkg-reconfigure dash</p>
+<p>或者 sudo rm /bin/sh;sudo ln –s /bin/bash /bin/sh</p>
+<p>在windows端（作为服务器）配置就简单了，完全是图形化操作，就不多说了。</p>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/01/26/%E5%9C%A8cloudatcost%E4%B8%8A%E7%94%B3%E8%AF%B7%E4%BA%86%E4%B8%AAvps/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/01/26/%E5%9C%A8cloudatcost%E4%B8%8A%E7%94%B3%E8%AF%B7%E4%BA%86%E4%B8%AAvps/" class="post-title-link" itemprop="url">在cloudatcost上申请了个vps</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-01-26 16:08:00" itemprop="dateCreated datePublished" datetime="2014-01-26T16:08:00+08:00">2014-01-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一次交70USD，20G<br>SSD，2个虚拟的L5520CPU，1G内存，100M网络，每个月1G的流量。可用的OS包括CentOS6.4，Ubuntu12.04，<br>Debian7.0.</p>
+<div><br/></div>
+<div>前两天随手整了个centos6.4，装了openvpn，国内连接还可以～</div>
+<div><br/></div>
+<div>考虑到本地虚拟机现在都是装的Ubuntu，所以，今天就重新re-image到ubuntu去了。</div>
+<div><br/></div>
+<div>几个设置：</div>
+<div>
+第一是用putty远程登录后，会出来一堆信息，以前没有关注过，之知道centos是放在/etc/issue的，结果ubuntu比较复杂，是需要系统启动后用命令去取出来的。网上搜了下，有个兄弟已经有系统的论述了，这里就借用一下，原帖在<a target="_blank" rel="noopener" href="http://www.laozhe.net/324.html">http://www.laozhe.net/324.html</a>，我就偷懒了～</div>
+<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+　　Ubuntu的登陆和欢迎信息控制/etc/issue和/etc/motd。/etc/issue与/etc/motd区别在于：当一个网络用户或通过串口登录系统上时,/etc/issue的文件内容显示在login提示符之前,而/etc/motd内容显示在用户成功登录系统之后。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+　　修改登陆前显示信息：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<pre style="font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+
+<p>#vi /etc/issue<br/><br>#vi /etc/issue.net<br/><br>Custom 10.04.2 LTS<br>l<br></pre><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　issue<br>内各代码意义：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/></p>
+<blockquote style="border-left-width: 5px; border-left-style: solid; border-left-color: rgb(201, 229, 247); padding-left: 15px; margin: 0px 0px 0px 15px; font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+d 本地端时间日期；<br/>
+l 显示第几个终端机接口；<br/>
+m 显示硬件等级 (i386/i486/i586/i686...)；<br/>
+
+<p>显示主机网络名称；<br/><br>o 显示 domain name；<br/></p>
+<p>操作系统版本 (相当于 uname -r)<br/><br>显示本地端时间；<br/><br>s 操作系统名称；<br/><br>v 操作系统版本。<br/></blockquote><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　可以通过修改/etc/issue内容制作自己喜欢的登陆信息。这里还要注意的是，除了<br>/etc/issue 外还有个 /etc/issue.net。这个是提供给 telnet 这个进程登录程序用的。当我们使用<br>telnet 连接主机时，主机的登入画面就会显示 /etc/issue.net 而不是<br>/etc/issue。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"><br>　　登陆后显示信息：</span></div></p>
+<div><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
+#vi /var/run/motd</span></div>
+<div><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
+Welcome to Ubuntu!</span><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;"><br/>
+</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+　　这里显示很多系统信息，都是怎么得来和更新的呢？</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+　　Ubuntu 与别的 Linux 不同，直接修改 /etc/motd 文件重登录后无效。因为这里 /etc/motd
+是一个符号链接，指向 /var/run/motd，应该是一个启动后在生成的文件。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+　　在版本 10.04 中，找到生成的脚本在目录 <wbr/></span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255); color: rgb(255, 0, 0);"><strong>/etc/update-motd.d/</strong></span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"> <wbr/>中，那几个有序号的文件就是，包括
+00-header，20-cpu-checker ，90-updates-available，
+98-reboot-required，10-help-text，50-landscape-sysinfo，91-release-
+upgrade，99-footer。修改这几个文件，可以得到自己想要的结果。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+　　我使用的是 Ubuntu 12.04 Server LTS，目录下有这几个文件：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<blockquote style="border-left-width: 5px; border-left-style: solid; border-left-color: rgb(201, 229, 247); padding-left: 15px; margin: 0px 0px 0px 15px; font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+00-header<br/>
+10-help-text<br/>
+50-landscape-sysinfo<br/>
+90-updates-available<br/>
+91-release-upgrade<br/>
+98-fsck-at-reboot<br/>
+98-reboot-required<br/>
+99-footer</blockquote>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　此信息就是文件
+“50-landscape-sysinfo” 里面的如下语句控制的：</span></div>
+<div><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
+/usr/bin/landscape-sysinfo</span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"><br/>
+</span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　</span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">修改后用：sudo
+run-parts /etc/update-motd.d 去执行就会立即见到效果，而不用反复注销登录。</span></div>
+<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+<br/></span></div>
+<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+另外，在最后有Last
+loing：XXXXXXXXXXXXXXXXXXXXXXXX<wbr/>XXXXXXXXXXXXXX</span></div>
+<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+这个是/etc/ssh/sshd_config中有个”PrintLastLog</span><span style="background-color: rgb(249, 253, 255); font-size: 13px;">“来控制的。</span></div>
+<div><span style="background-color: rgb(249, 253, 255); font-size: 13px;"><br/></span></div>
+<div><font size="2"><span style="line-height: 19px;">修改主机名字：</span></font></div>
+<div><font size="2"><span style="line-height: 19px;">/etc/hostname</span></font></div>
+<div><font size="2"><span style="line-height: 19px;">/etc/hosts</span></font></div>
+<div><font size="2"><span style="line-height: 19px;"><br/></span></font></div>
+<div><br/></div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/01/12/%E6%9C%89%E4%B8%AAteam%E5%9C%A8%E5%81%9Avmware%E5%92%8Cwindows%C2%A0ad%E7%9A%84%E6%B4%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/01/12/%E6%9C%89%E4%B8%AAteam%E5%9C%A8%E5%81%9Avmware%E5%92%8Cwindows%C2%A0ad%E7%9A%84%E6%B4%BB/" class="post-title-link" itemprop="url">有个team在做vmware和windows ad的活</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-01-12 00:53:00" itemprop="dateCreated datePublished" datetime="2014-01-12T00:53:00+08:00">2014-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>838</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>顺便去了解了一下vmware vSphere</p>
+<div><br/></div>
+<div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+一.什么是数据中心虚拟化</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> 硬件设备转换成软件资源；虚拟化打破能耗循环；</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> 物理硬件-》管理程序-》虚拟机</div>
+<div style="font-family: 微软雅黑; line-height: normal;">虚拟化的重要优势：合并
+（合并在更少的硬件上，节约资金）</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+IT挑战：可用性，可伸缩性，最佳化，管理</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+二.vSphere的组件</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1.虚拟机</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+2.EXSi管理程序：裸机管理程序，直接硬件访问，稳定性强，灵活的安装方式;托管方式管理程序-workstation</div>
+<div style="font-family: 微软雅黑; line-height: normal;">3.vCenter
+Server管理1000个ESXi主机，管理10000个虚拟机</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>
+ <wbr/>vCenter组件：身份管理服务器，数据库服务器，应用程序服务器，web服务器，VMware
+vSphere Web Client</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>vCenter是具有管理功能的集中式平台</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>vMotion：将运行中的虚拟机不间断迁移</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>DRS：分布式资源调度：提供负载平衡，监控内存和cpu负载</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>DPM：分布式电源管理</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/> StoragevMotion：迁移虚拟机的存储设备</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>存储DRS：存储负载均衡</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>vSphere Data
+Protection：备份虚拟机（VDP）还有开放的API：VADP</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>HA：高可用</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/> FT：容错</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>vSphere Replication：将虚拟机复制到另外一个站点</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+4.存储和虚拟网络</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> 存储：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+vSphere支持：光纤，以太网光纤（FCoE）， iSCSI，NFS，Local</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/> 本地存储共享VSA
+vSphere Storage Appliance</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+vFlash：支持SSD</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>两种类型的数据存储：VMFS或者NFS</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> 虚拟网络： <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/> 虚拟交换机：标准虚拟交换机， 分布式虚拟交换机</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/>
+ <wbr/>vSphere网络支持：VLANS，流量调整，端口镜像，服务质量QoS和DSCP，NetFlow，CDP和LLDP</div>
+<div style="font-family: 微软雅黑; line-height: normal;">5.vCenter
+Operation Manager，解决性能、容量和效率问题，监控动态：运行状况，风险，效率</div>
+<div style="font-family: 微软雅黑; line-height: normal;">6.vCenter
+Configuration Manager：更改发现和关联，自动修复，合规检查，配置分析</div>
+<div style="font-family: 微软雅黑; line-height: normal;">7.vCenter Site
+Recovery Manager：灾难恢复</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/01/04/Linux%E5%B0%B1%E6%98%AF%E6%8B%BF%E6%9D%A5%E7%8E%A9%E7%9A%84%EF%BC%9A%E8%A3%85%E4%B8%AAnginx%E5%90%A7%EF%BD%9E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/01/04/Linux%E5%B0%B1%E6%98%AF%E6%8B%BF%E6%9D%A5%E7%8E%A9%E7%9A%84%EF%BC%9A%E8%A3%85%E4%B8%AAnginx%E5%90%A7%EF%BD%9E/" class="post-title-link" itemprop="url">Linux就是拿来玩的：装个nginx吧～</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-01-04 17:01:00" itemprop="dateCreated datePublished" datetime="2014-01-04T17:01:00+08:00">2014-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在和几个哥们谈web服务器，想到原来ZXH也说过在玩Nginx，正好又有新的centos（6.5）出来了，所以顺便装个虚拟机玩玩～在编译安装Nginx的时候出了各种各样的问题，在解决的同时记录一下，以免忘记：</p>
+<div><br/></div>
+<div>1.gcc没有安装：</div>
+<div> <wbr/> sudo yum install gcc</div>
+<div>2.PCRE没有：</div>
+<div> <wbr/> 访问：http://www.pcre.org</div>
+<div> <wbr/> 下载：pcre-8.34.tar.gz</div>
+<div> <wbr/> 然后  <wbr/>tar zxvf
+pcre-8.34.tar.gz</div>
+<div> <wbr/>  <wbr/>  <wbr/>
+ <wbr/> cd pcre-8.34</div>
+<div> <wbr/>  <wbr/>  <wbr/>
+ <wbr/> ./configure</div>
+<div> <wbr/>  <wbr/>  <wbr/>
+ <wbr/> make</div>
+<div> <wbr/>  <wbr/>  <wbr/>
+ <wbr/> make install</div>
+<div> <wbr/>  <wbr/>发觉还需C++的库</div>
+<div> <wbr/>  <wbr/>yum install gcc-c++</div>
+<div>3.zlib没有：</div>
+<div> <wbr/>  <wbr/>yum install
+zlib-devel</div>
+<div> <wbr/>
+ <wbr/>发觉只有1.2.3的版本，上www.zlib.net发觉最新的1.2.8</div>
+<div> <wbr/>  <wbr/>于是试试其他源</div>
+<div> <wbr/>  <wbr/>yum install
+yum-priorities</div>
+<div> <wbr/>  <wbr/>rpm
+-Uvh <wbr/>http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/epel-release-6-5.noarch.rpm</div>
+<div> <wbr/>  <wbr/>rpm
+-Uvh <wbr/>http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-11.ius.centos6.noarch.rpm</div>
+<div> <wbr/>  <wbr/>结果发觉zlib的库还是1.2.3</div>
+<div> <wbr/>
+ <wbr/>算了，老办法下载zlib1.2.8的src，然后</div>
+<div> <wbr/>  <wbr/>./configure</div>
+<div> <wbr/>
+ <wbr/>make <wbr/></div>
+<div> <wbr/>  <wbr/>make install</div>
+<div>4.然后继续在nginx目录下install：</div>
+<div> <wbr/>  <wbr/>cd nginx-1.5.8</div>
+<div> <wbr/>  <wbr/>./configure</div>
+<div> <wbr/>  <wbr/>make</div>
+<div> <wbr/>  <wbr/>make install</div>
+<div>搞定，然后就安装在/usr/local/nginx</div>
+<div><br/></div>
+<div>在Centos6.5desktop环境，安装nginx缺2个包PCRE和zlib。</div>
+<div><br/></div>
+<div>5.启动nginx</div>
+<div> <wbr/> /usr/local/nginx/sbin/nginx</div>
+<div> <wbr/> 报错：找不到共享库：libpcre.so.1</div>
+<div> <wbr/> 到/lib64看一下，只有libpcre.so.0.0.1</div>
+<div> <wbr/> 改名是万万不行的，ln -s libpcre.so.0.0.
+libpcre.so.1</div>
+<div> <wbr/>
+启动nginx居然一点其他信息都没有，faint～ <wbr/></div>
+<div> <wbr/> 只能http://localhost</div>
+<div> <wbr/> 终于看到Welcome了～</div>
+<div><br/></div>
+<div>6.ldd</div>
+<div>ldd用来查看程序运行是的共享库的依赖关系，具体的没有怎么去仔细看过，简单的用法就是</div>
+<div>ldd 命令名，比如ldd /bin/ls 或者 ldd $(which ls)
+ <wbr/>-需要完整路径</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div> <wbr/>  <wbr/></div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2014/01/01/%E9%87%8D%E6%96%B0%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eubuntu1204%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84Openerp%E5%92%8Cprestashop%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/01/01/%E9%87%8D%E6%96%B0%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eubuntu1204%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84Openerp%E5%92%8Cprestashop%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">重新配置了一个基于ubuntu1204虚拟机的Openerp和prestashop的开发环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-01-01 20:48:00" itemprop="dateCreated datePublished" datetime="2014-01-01T20:48:00+08:00">2014-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div>1.Ubuntu12.04 LTS version with Gnome-Shell</div>
+<div> <wbr/> 可以在登录的时候选择是Gnome还是Ubuntu典型界面</div>
+<div> <wbr/> username: user1</div>
+<div> <wbr/> password: xxxxxx</div>
+<div>OR</div>
+<div> <wbr/> username: root</div>
+<div> <wbr/> password: xxxxxx</div>
+<div><br/></div>
+<div>2.DB:postgresql9.3</div>
+<div> <wbr/> data_directory:
+/var/lib/postgresql/9.3/main</div>
+<div> <wbr/> config_file:
+/etc/postgresql/9.3/main/postgresql.conf</div>
+<div> <wbr/> hba_file:
+/etc/postgresql/9.3/main/pg_hba.conf</div>
+<div> <wbr/> ident_file:
+/etc/postgresql/9.3/main/pg_ident.conf</div>
+<div> <wbr/> username: postgres</div>
+<div> <wbr/> password: xxxxxx</div>
+<div> <wbr/> 命令行访问方式：/usr/bin/psql</div>
+<div> <wbr/> 图形界面方式：/usr/bin/pgAdmin3</div>
+<div> <wbr/> Linux下面启动postgresql: sudo service
+postgresql restart</div>
+<div><br/></div>
+<div>3.Java(1.7.0_45)</div>
+<div> <wbr/> /usr/lib/jvm/jdk1.7.0_45</div>
+<div><br/></div>
+<div>4.Python(v2.7.3)</div>
+<div> <wbr/> /usr/bin/python</div>
+<div><br/></div>
+<div>5.openerp v7.0</div>
+<div> <wbr/> 目录/home/user1/workspace/openerp7</div>
+<div> <wbr/> 连接postgresql用户：user1(默认当前登录用户)</div>
+<div> <wbr/> 安装时需要注意的几点：</div>
+<div> <wbr/> sudo apt-get install python-dateutil
+python-feedparser python-gdata python-ldap </div>
+<div> <wbr/>  <wbr/> python-libxslt1
+python-lxml python-mako python-openid python-psycopg2 </div>
+<div> <wbr/>  <wbr/> python-pybabel
+python-pychart python-pydot python-pyparsing python-reportlab
+</div>
+<div> <wbr/>  <wbr/> python-simplejson
+python-tz python-vatnumber python-vobject python-webdav </div>
+<div> <wbr/>  <wbr/> python-werkzeug
+python-xlwt python-yaml python-zsi </div>
+<div> <wbr/>  <wbr/> <font color="#ED1C24">python-mock python-docutils python-unittest2</font></div>
+<div> <wbr/> 最后一行是在openerp官方网站的说明中没有的</div>
+<div><br/></div>
+<div>
+=============================================================================================================</div>
+<div><br/></div>
+<div> <wbr/>
+截至这里都是在Eclipse中开发，Python+Pydev，针对openerp</div>
+<div> <wbr/> 下面是在netbeans中开发，PHP，针对prestashop</div>
+<div><br/></div>
+<div>
+=============================================================================================================</div>
+<div> <wbr/> <wbr/></div>
+<div>6.XAMPP</div>
+<div> <wbr/> 安装目录:/opt/lampp</div>
+<div> <wbr/> WEB应用所在目录：/opt/lampp/htdocs</div>
+<div> <wbr/> 命令:sudo ./lampp 参数(参数列表如下)</div>
+<div>
+|-------------------------------------------------------------------------------------------------</div>
+<div>|  <wbr/>start 启动 XAMPP。</div>
+<div>|  <wbr/>stop  <wbr/>  <wbr/>
+ <wbr/>  <wbr/>停止 XAMPP。</div>
+<div>|  <wbr/>restart 重新启动 XAMPP。</div>
+<div>|  <wbr/>startapache 只启动 Apache。</div>
+<div>|  <wbr/>startssl 启动 Apache 的 SSL 支持。该命令将持续激活 SSL
+支持，例如：执行该命令后，如果您关闭并重新启动 XAMPP，SSL 仍将处于激活状态。</div>
+<div>|  <wbr/>startmysql 只启动 MySQL 数据库。</div>
+<div>|  <wbr/>startftp 启动 ProFTPD 服务器。通过
+FTP，您可以上传文件到您的网络服务器中（用户名“nobody”，密码“lampp”）。</div>
+<div>|  <wbr/>  <wbr/>  <wbr/>
+ <wbr/>  <wbr/>  <wbr/>
+ <wbr/> 该命令将持续激活 ProFTPD，例如：执行该命令后，如果您关闭并重新启动 XAMPP，FTP
+仍将处于激活状态。</div>
+<div>|  <wbr/>stopapache 停止 Apache。</div>
+<div>|  <wbr/>stopssl 停止 Apache 的 SSL 支持。该命令将持续停止 SSL
+支持，例如：执行该命令后，如果您关闭并重新启动 XAMPP，SSL 仍将处于停止状态。</div>
+<div>|  <wbr/>stopmysql 停止 MySQL 数据库。</div>
+<div>|  <wbr/>stopftp 停止 ProFTPD 服务器。该命令将持续停止
+ProFTPD，例如：执行该命令后，如果您关闭并重新启动 XAMPP，FTP 仍将处于停止状态。</div>
+<div>|  <wbr/>security 启动一个小型安全检查程序。</div>
+<div>
+|-------------------------------------------------------------------------------------------------</div>
+<div> <wbr/> 访问网址：http://localhost/</div>
+<div> <wbr/> username: xampp</div>
+<div> <wbr/> password: xxxxxx</div>
+<div> <wbr/> Mysql数据库：</div>
+<div> <wbr/> username: user1</div>
+<div> <wbr/> password: xxxxxx</div>
+<div> <wbr/> 命令行访问方式：/opt/lampp/bin/mysql</div>
+<div> <wbr/>
+图形界面方式：/opt/lampp/phpmyadmin(应用，通过http访问)</div>
+<div> <wbr/>
+*修改Mysql的用户及密码后需要在/opt/lampp/phpmyadmin/config.inc.php中修改用户和密码</div>
+<div><br/></div>
+<div>7.Prestashop（PHP开源电商，Mysql）</div>
+<div> <wbr/>
+源代码位置：/home/user1/NetbeansProjects/prestashop</div>
+<div> <wbr/> 未安装，请自行配置，配置完毕之后删除
+prestashop/install目录</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/16/Getting%C2%A0Started%C2%A0with%C2%A0Storm(3)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/12/16/Getting%C2%A0Started%C2%A0with%C2%A0Storm(3)/" class="post-title-link" itemprop="url">Getting Started with Storm(3)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-12-16 22:52:00" itemprop="dateCreated datePublished" datetime="2013-12-16T22:52:00+08:00">2013-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div>第三章 Topologies</div>
+<div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这一章，你将会看到在一个Storm
+Topology中的不同组件之间如何传递Tuples，以及怎么把一个Topology部署到一个正在运行的Storm集群中。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Stream
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在设计topology的时候有件很重要的事情，就是需要定义数据在组件之间如何交换（换句话说，就是bolt怎么消费stream），Stream
+Grouping定义了每个bolt消费哪些stream以及怎么被消费。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+一个节点可以emit一个或者数个数据流，流组合允许我们选择接受哪个流。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+正如我们的第二章看到的，在定义topology的时候，我们设置了流组合：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-normalizer", new WordNormalizer())</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.shuffleGrouping("word-reader");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在上面这段代码中，bolt在topology 构造器中被设置，然后使用shuffle Stream
+Grouping设置一个数据源。通常一个流组合使用源组件的ID作为参数，然后根据流组合的类型可选其他参数。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+每一个InputDeclarer可以有多个数据源，每一个数据源可以和一个不同的流组合组合在一起。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Shuffle
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ShuffleGrouping是一个最常用的grouping。它接收一个参数（源数据组件ID），然后发送每一个被source
+emit出来的tuple（元组）到一个随机被选择的bolt，并且保证每个bolt收到同样数量的tuple</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ShuffleGrouping在做自动操作，比如数学运算的时候是非常有用的。然而如果一个操作不能被随机分配，比如在第二章中的例子你需要计算单词个数，你就需要使用其他grouping。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Fields
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Fields
+Grouping允许你基于tuple的一个或者多个字段，控制tuple传递给bolt的方式。它可以保证一个被指定的字段组合的值总是可以被发送到同一个bolt。回到单词计数的例子，如果你通过word字段来分组，word-normalizer
+bolt会将指定单词的tuple发送到同一个word-counter bolt的实例。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-counter", new WordCounter(),2)</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.fieldsGrouping("word-normalizer", new Fields("word"));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+需要注意的是，所有在fields grouping中被指定的字段都必须在源字段中声明过。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">All
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">All
+Grouping发送每个元组的单一拷贝到所有接收bolt。这种类型的grouping主要用于给所有的bolt发送信号。比如，如果你需要刷新缓存，你可以发送一个“刷新缓存信号”给所有的bolt。在单词计数的例子中，你可以使用All
+Grouping去清除counter的缓存。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+execute(Tuple input) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">String str =
+null;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">try{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(input.getSourceStreamId().equals("signals")){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">str =
+input.getStringByField("action");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if("refreshCache".equals(str))</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+counters.clear();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}catch
+(IllegalArgumentException<wbr/> e) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">//Do
+nothing</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">我们增加一个If
+功能来检查源数据流。Storm允许我们对流数据命名（如果你没有命名的话，默认为“default”数据流）。在鉴别元组的来源时给了我们极大的便利，比如上面这段代码，我们定义了signals。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在Topology定义中，你可以增加第二个流给到word-counter
+bolt，从signals-spout流中发送一个元组给到bolt的每一个实例。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-counter", new WordCounter(),2)</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.fieldsGrouping("word-normalizer", new Fields("word"))</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.allGrouping("signals-spout","signals");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这个实现可以在git库中找到。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Custom
+Grouping自定义分组</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+通过实现backtype.storm.grouping.CustomStreamGrouping接口，你也可以创建你自己的自定义流分组。这给了你权利来决定哪些bolt可以收到元组。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">让我们对word
+count的例子做些修改，我们对元组分类，确保以同一个字母开头的单词都被同一个bolt接收。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">public class
+ModuleGrouping implements CustomStreamGrouping, Serializable{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">int numTasks =
+0;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+@Override</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public List
+chooseTasks(List<object>values) {</object></div>
+<div style="font-family: 微软雅黑; line-height: normal;">List boltIds =
+new ArrayList();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(values.size()&gt;0){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">String str =
+values.get(0).toString();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(str.isEmpty())</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+boltIds.add(0);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">else</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+boltIds.add(str.charAt(0) % numTasks);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">return
+boltIds;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+@Override</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+prepare(TopologyContext context, Fields outFields,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">List
+targetTasks) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">numTasks =
+targetTasks.size();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+你看到了一个简单的CustomStreamGrouping的实现，我们用每个单词的第一个字符的整数值对任务总量求余，然后依此选择哪个bolt会接收这个元组。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了使用这个分组，我们改变一下work-normalizer的实现：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-normalizer", new WordNormalizer())</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.customGrouping("word-reader", new ModuleGrouping());</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Direct
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这个是一个特殊的分组，由源来决定哪个组件接收元组。回到上面的例子，基于单词的第一个字符，由源来决定哪一个bolt会接收到元组。为了使用direct
+grouping，在WordNormalizer bolt中，用emitDirect方法代替emit</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+execute(Tuple input) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">for(String
+word : words){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(!word.isEmpty()){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+collector.emitDirect(getWordCountIndex(word),new
+Values(word));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">// Acknowledge
+the tuple</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+collector.ack(input);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public Integer
+getWordCountIndex(String word) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">word =
+word.trim().toUpperCase();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(word.isEmpty())</div>
+<div style="font-family: 微软雅黑; line-height: normal;">return
+0;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">else</div>
+<div style="font-family: 微软雅黑; line-height: normal;">return
+word.charAt(0) % numCounterTasks;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在Prepare方法中计算出目标的任务数量：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+prepare(Map stormConf, TopologyContext context,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+OutputCollector collector) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">this.collector
+= collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+this.numCounterTasks =
+context.getComponentTasks("word-counter");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在topology的定义出，指定流的分组方式：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-counter", new WordCounter(),2)</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.directGrouping("word-normalizer");</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Global
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Global
+Grouping会发送所有源实例产生的元组到一个单一的目标实例（通常是到一个有最小ID的任务）</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">None
+Grouping</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在Storm0.7.1版本中，None Grouping和Shuffle
+Grouping是一样的。换句话说，使用此分组就意味着不去关心Stream怎么被分组。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+LocalCluster对StormSubmitter</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+到目前为止，我们都是使用一个叫做LocalCluster的工具在本地运行topology。在本地运行便于我们调试不同的topoloties。但是当我们把topology提交到一个运行中的Storm会怎么样呢？Storm的一个极其有趣的特性就是非常方便就可以把我们的topology提交给一个正在运行的真实的集群。我们需要在实现submitTopology时，把LocalCluster改变为StormSubmitter，它将负责把topology提交给集群。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">//LocalCluster
+cluster = new LocalCluster();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+//cluster.submitTopology("Count-Word-Topology-With-Refresh-Cache",
+conf, builder.createTopology()); <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+StormSubmitter.submitTopology("Count-Word-Topology-With-Refresh-Cache",
+conf, builder.createTopology()); <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+//Thread.sleep(1000);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+//cluster.shutdown();</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+当我们使用SotrmSubmitter的时候，我们将不能像使用LocalCluster一样在代码中控制集群。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+下一步，我们需要打包一个Jar文件，然后通过StormClient命令提交这个topology。我们在例子中使用的是Maven，所以打包很简单，在代码目录中运行：mvn
+package</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+当我们有了这个Jar包，我们使用storm jar命令提交这个topology（可以参考附录A来安装Storm client）语法是：
+storm jar allmycode.jar org.me.MyTopology arg1 arg2 arg3.</div>
+<div style="font-family: 微软雅黑; line-height: normal;">在这个例子中 storm
+jar target/Topologies-0.0.1-SNAPSHOT.jar countword.TopologyMain
+src/main/ resources/words.txt这样我们就提交了这个topology到集群了。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了停止或者终止这个topology，使用命令：storm kill
+Count-Word-Topology-With-Refresh-Cache</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+注意：Topology的名称必须唯一</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">DRPC
+Topologies</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+有一种特殊的topology，我们称之为 分布式远程过程调用（Distributed Remote Procedure Call
+ <wbr/>-  <wbr/> DRPC),liyong
+Storm强大的分布式处理能力来执行远程过程调用。Strorm提供了一些工具使我们可以使用DRPC。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+第一个是DRPC服务器，作为客户端和Storm topology的连接器运行，同时作为topology
+的spout运行。它接收到要执行的函数及其参数。然后对每一个要处理的数据，服务器都会安排一个requestID来鉴别这个RPC请求。当topology执行完最后一个bolt，它会emit这个RPC
+requestID和结果，确保DRPC服务器返回结果给到正确的客户端。注意：一个DRPC服务器可以执行多个功能，每个功能都需要有一个唯一的名字。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+第二个是LinearDRPCTopologyBuilde<wbr/>r，一个抽象类帮助实现DRPC
+topologies。这个topology会创建DRPCSpouts（连接到DRPC服务器并emit数据到其他的topology），会封装bolt以确保结果可以从最后一个bolt返回。所有被增加到LinearDRPCTopologyBuilde<wbr/>r的bolt都会按照顺序执行。作为这种类型的topology的例子，我们来创建一个流程来增加数字。非常简单的例子，但是可以由此扩展到实现复杂的分布式数学运算。<img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" data-inited="true" data-media-type="image" style="cursor: default; display: inline-block;" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)"/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6F2SCteMtad" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" height="181" name="image_operate_15001387205577809" real_src="http://s14.sinaimg.cn/mw690/001DcOacgy6F2SCteMtad&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" width="490"/></a><br/>
+<br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+bolt有如下的输出宣言：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+declareOutputFields(OutputFieldsDeclarer declarer) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+declarer.declare(new Fields("id","result"));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+尽管这是此topology中唯一的一个bolt，它仍然需要emit RPC ID和结果。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+execute方法负责执行增加操作：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+execute(Tuple input) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">String[]
+numbers = input.getString(1).split("\+");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Integer added
+= 0;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(numbers.length&lt;2){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">throw new
+InvalidParameterExceptio<wbr/>n("Should be at least 2 numbers");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">for(String num
+: numbers){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">added +=
+Integer.parseInt(num);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+collector.emit(new Values(input.getValue(0),added));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+需要在topology的定义中包含额外的bolt</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public static
+void main(String[] args) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">LocalDRPC drpc
+= new LocalDRPC();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+LinearDRPCTopologyBuilde<wbr/>r builder = new
+LinearDRPCTopologyBuilde<wbr/>r("add");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.addBolt(new AdderBolt(),2);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Config conf =
+new Config();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+conf.setDebug(true);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">LocalCluster
+cluster = new LocalCluster();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+cluster.submitTopology("drpc-adder-topology", conf,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.createLocalTopology(drpc));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">String result
+= drpc.execute("add", "1+-1");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+checkResult(result,0);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">result =
+drpc.execute("add", "1+1+5+10");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+checkResult(result,17);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+cluster.shutdown();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+drpc.shutdown();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+首先创建一个LocalDRPC对象在本地运行DRPC服务器；然后创建一个topology
+builder，并增加bolt到此topology。然后用execute方法来测试这个topology。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了连接到一个远程的DRPC服务器，需要使用DRPCClient类。DRPC服务器给出了“Thrift
+API”（http://thrift.apache.org/）可以被多种语言使用，而且无论本地还是远程都是一样的API。上面的例子是本地的，如果需要提交topology到Storm集群，使用createRemoteTopology来代替上面的createLocalTopology，此方法会从Storm
+Config中读到DRPC的配置并据此运行。</div>
+</div>
+<div><br/></div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/13/Getting%C2%A0Started%C2%A0with%C2%A0Storm(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/12/13/Getting%C2%A0Started%C2%A0with%C2%A0Storm(2)/" class="post-title-link" itemprop="url">Getting Started with Storm(2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-12-13 22:58:00" itemprop="dateCreated datePublished" datetime="2013-12-13T22:58:00+08:00">2013-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div style="font-family: 微软雅黑; line-height: normal;">
+<b><font style="font-size: 18px;">第二章</font></b></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这一章，我们将会创建一个Storm项目及第一个Storm
+topology，需要我们事先安装好JRE1.6或者更高版本。建议从oracle的<a target="_blank" rel="noopener" href="http://www.java.com/downloads/">http://www.java.com/downloads/</a>去下载</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<b><font style="font-size: 16px;">Operation Modes</font></b></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在开始之前，我们需要理解Storm的Operation Modes，有两种模式，Local Mode和Remote
+Mode</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><u><b>Local
+Mode</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">在Local
+Mode，Strom
+topology在本地机器的单一的JVM中运行。此模式主要用于开发、测试以及调试，主要是比较容易看到所有的topology组件一起工作的状态。在此模式下，我们可以通过调整参数来观察我们的topology在各种不同的Storm配置环境中的运行。为了在Local
+Mode中运行topology，我们需要下载Storm开发依赖包，包含了开发和测试所有必备的条目。我们在创建第一个Storm项目时候会看到这一些有多简单。在Local
+Mode运行topology和在Storm集群中运行是很相似的。但我们需要确保所有的组件都是线程安全的，因为当这些组件被部署到Remote
+Mode的时候，他们可能会运行在不同的JVMs，甚至不同的物理机器上，这时候是没有直接的通信或者共享的内存的。此章所有的例子都运行在Local
+Mode下。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><u><b>Remote
+Mode</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">在Remote
+Mode，我们提交我们的topology到Storm集群，一般而言，Strom集群可以有许多运行在不同的机器上的进程组成。Remote
+Mode不会显示调试信息，这也是为什么被认为是Production
+Mode的原因。然而，在一台开发机器上创建一个Storm集群也是可能的，而且在正式部署到生产环境是这么做是一个非常好的做法，可以确保在生产环境部署的时候不会有问题。第六章会更多地说明Remote
+Mode，在附录B会说明怎么安装一个集群。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><b><u>Hello
+Word Storm</u></b></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+我们会创建一个简单的topolgy来计算单词的项目，我们把这个项目称为Storm topology的Hello
+World。不过这也是一个非常强大的topology因为事实上这个topology可以被无限制的扩展，稍做修改甚至我们可以做一个统计系统。比如我们可以修改一下用来挖据Twitter的主题的趋势。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了创建这个Topology，我们会用一个Spout来负责读入单词，第一个Bolt负责标准化单词，第二个Bolt负责计算单词次数，如下图所示：</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EY6A8Vgi16" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" name="image_operate_27211386947276109" real_src="http://s7.sinaimg.cn/bmiddle/001DcOacgy6EY6A8Vgi16&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)"/></a><br/>
+可以在<a target="_blank" rel="noopener" href="https://github.com/storm-book/examples-ch02-getting_started/zipball/masteri">https://github.com/storm-book/examples-ch02-getting_started/zipball/masteri</a>下载源代码</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+如果你使用git（一个分布式的版本控制和源代码管理工具），可以在你想要下载源代码的目录中运行：git clone
+git@github.com:storm-book/examples-ch02-getting_started.git <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<u><b>检测java</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+配置环境的第一步是检查使用的java的版本。可以在命令行窗口中运行： java
+-version，可以得到类似下图的信息：<img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" data-inited="true" data-media-type="image" style="cursor: default; display: inline-block;" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)"/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" data-inited="true" data-media-type="image" style="cursor: default; display: inline-block;" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)"/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EY6HCihA4a" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" name="image_operate_43831386947280727" real_src="http://s11.sinaimg.cn/mw690/001DcOacgy6EY6HCihA4a&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)"/></a><br/>
+<br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<u><b>创建项目</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了开始此项目，创建一个放应用的目录，将此项目的源代码放在此目录。然后我们需要下载Storm所有的依赖包：是一组jar包，我们需要将其加入此应用的classpath。有两种做法：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<ul>
+<li>下载所有的依赖包，解压缩然后加入classpath</li>
+<li>或者使用Apache
+Maven。Maven是软件项目管理工具，可以用来管理项目开发周期中的几个方面，从依赖包到发布流程。在此书，我们将广泛使用Maven。请使用mvn命令来检查是否安装了Maven。可以到<a target="_blank" rel="noopener" href="http://maven.apache.org/download.html">http://maven.apache.org/download.html</a>去下载Maven。尽管使用Storm不需要你是一个Maven专家，不过了解Maven是非常有用的。</li>
+</ul>
+</div>
+<span style="font-family: 微软雅黑; line-height: normal;">我们需要创建一个pom.xml（Project
+Object
+Model）文件来定义项目结构，会描述例如依赖关系，包，源代码等。我们将使用由nathanmarz创建的依赖和Maven库(</span><a target="_blank" rel="noopener" href="https://github.com/nathanmarz/">https://github.com/nathanmarz/</a><span style="font-family: 微软雅黑; line-height: normal;">)。所有这些依赖包可以在</span><a target="_blank" rel="noopener" href="https://github.com/nzthanmarz/storm/wiki/Maven">https://github.com/nzthanmarz/storm/wiki/Maven</a><span style="font-family: 微软雅黑; line-height: normal;">找到。在Local
+Mode运行Storm的话需要所有这些依赖包。</span><br style="font-family: 微软雅黑; line-height: normal;"/>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<br/></blockquote>
+<div style="font-family: 微软雅黑; line-height: normal;">
+使用这些依赖包，我们可以写一个包含运行topology的最基本组件的pom.xml:</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">4.0.0</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+storm.book</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Getting-Started</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+0.0.1-SNAPSHOT</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+org.apache.maven.plugins</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+maven-compiler-plugin</div>
+<div style="font-family: 微软雅黑; line-height: normal;">2.3.2</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">1.6</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1.6</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1.6</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+clojars.org</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+http://clojars.org/repo</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">storm</div>
+<div style="font-family: 微软雅黑; line-height: normal;">storm</div>
+<div style="font-family: 微软雅黑; line-height: normal;">0.6.0</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">最初的
+几行定义了项目的名字和版本，然后我们增加了一个编译器插件，告诉Maven我们的源代码需要被java1.6去编译。记者我们定义了代码库（Maven可以支持对同一个项目的多个代码库）。clojars是所有Storm的依赖包的代码库。Maven会自动下载Storm在Local
+Mode运行所需要的所有依赖包和子包。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+(*增加对于Maven的POM的说明：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div style="font-family: 微软雅黑; line-height: normal;">
+xmlns等主要是POM相关的命名空间以及xsd元素；</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+modelVersion指定了当前POM模型的版本；</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+下面是最重要的三个子元素：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">groupId:
+定义了项目属于哪个组；比如，如果你的公司叫mycom，有一个项目叫myapp,那么一般groupId就应该是com.mycom.myapp</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+artifactId:定义了当前Maven项目在组中的唯一ID，相当于子模块的定义</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+version：定义了当前项目的当前版本，有SNAPSHOT的，一般是不稳定的版本</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+最后，其实还可以加一个name元素，可以声明一个对用户更友好的项目名称)</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这个应用将会有如图所示的结构，类似于普通的Maven Java项目：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+our-application-folder/</div>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+├── pom.xml</blockquote>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+└── src</blockquote>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">└──
+main</blockquote>
+</blockquote>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">└──
+java <wbr/></blockquote>
+</blockquote>
+</blockquote>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">| ├──
+spouts</blockquote>
+</blockquote>
+</blockquote>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">| └──
+bolts</blockquote>
+</blockquote>
+</blockquote>
+<blockquote style="font-family: 微软雅黑; line-height: normal; margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">└──
+resources</blockquote>
+</blockquote>
+</blockquote>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在java下面的目录会包括所有我们的项目代码，我们需要处理的单词文件会放在resources目录下面</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<b><u>创建我们第一个Topology</u></b></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了创建第一个topology，我们需要创建所有为了运行单词计数的类。在当前阶段，有些样例可能不是这么清楚，不过不要紧，我们会在今后的几章中说明。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<b><u>Spout</u></b></div>
+<div style="font-family: 微软雅黑; line-height: normal;">WordReader
+spout是实现了IRichSpout的类，在第四章会进一步的说明。WordReader负责读入文件，并将每一行提供给bolt。Spout通常emit定义好的字段清单。这样的结构允许我们对同一个spout流有不同类型的bolt来对应。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Example2-1包含了这个类的完整代码，我们将会分析每一段代码。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Example2-1
+src/main/java/spouts/WordReader.java(本人用Eclipse新建了项目，和原书稍微有一点点区别，主要是package懒得改了）</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这里插一下，在Eclipse中选择文件-》新建-》项目，然后选中Maven
+Project，选择quickstart，输入groupid和artifactid<img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" data-inited="true" data-media-type="image" style="cursor: default; display: inline-block;" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)"/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EY6PoOyNe5" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" height="392" name="image_operate_63711386947300726" real_src="http://s6.sinaimg.cn/mw690/001DcOacgy6EY6PoOyNe5&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(2)" width="490"/></a><br/>
+可以先生成一个空白的Maven项目，然后把</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">package
+storm.book.Getting_Started.spouts;</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.io.BufferedReader;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.io.FileNotFoundException;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.io.FileReader;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.util.Map;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.spout.SpoutOutputCollector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.task.TopologyContext;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.IRichSpout;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.OutputFieldsDeclarer;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Fields;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Values;</div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">public class
+WordReader implements IRichSpout {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private static final long serialVersionUID =
+1L;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private SpoutOutputCollector collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private FileReader fileReader;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private boolean completed = false;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private TopologyContext context;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public boolean isDistributed() {return
+false;}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void ack(Object msgId) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> System.out.println("OK:"+msgId);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void close() {}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void fail(Object msgId) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> System.out.println("FAIL:"+msgId);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void nextTuple() {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> if(completed){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>try {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> Thread.sleep(1000);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>} catch (InterruptedException
+e) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> //Do nothing</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>return;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> String str;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> //Open the reader</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> BufferedReader reader = new
+BufferedReader(fileReader);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> try{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>//Read all lines</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>while((str =
+reader.readLine()) != null){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> this.collector.emit(new
+Values(str),str);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }catch(Exception e){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>throw new
+RuntimeException("Error reading tuple",e);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }finally{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>completed = true;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void open(Map conf, TopologyContext
+context,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>SpoutOutputCollector
+collector) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> try {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>this.context = context;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>this.fileReader = new
+FileReader(conf.get("wordsFile").toString());</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> } catch (FileNotFoundException e) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>throw new
+RuntimeException("Error reading
+file["+conf.get("wordFile")+"]");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> this.collector = collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void
+declareOutputFields(OutputFieldsDeclarer declarer) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> declarer.declare(new Fields("line"));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+//下面三行是无效的，在0.9.0.1的版本中是有如下几个抽象方法必须被实现的。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+第一，在任何一个Spout中第一个被调用的方法是public void open(Map conf, TopologyContext
+context, SpoutOutputCollector
+collector).接收的参数组包括TopologyContext，包含了我们所有的topology数据；conf对象，在topology定义中被创建；SpoutOutputCollector，允许我们emit数据，给到bolts。下面这段代码就是此方法的实装：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div>public void open(Map conf, TopologyContext context,
+ <wbr/> SpoutOutputCollector collector) {</div>
+<div> <wbr/> try {</div>
+<div> <wbr/>  <wbr/>this.context =
+context;</div>
+<div> <wbr/>  <wbr/>this.fileReader = new
+FileReader(conf.get("wordsFile").toString());</div>
+<div> <wbr/> } catch (FileNotFoundException e) {</div>
+<div> <wbr/>  <wbr/>throw new
+RuntimeException("Error reading
+file["+conf.get("wordFile")+"]");</div>
+<div> <wbr/> }</div>
+<div> <wbr/> this.collector = collector;</div>
+<div> <wbr/>} <wbr/></div>
+</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在这个方法中，我们也创建了一个reader，负责读入文件。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+第二，我们需要实装pubilc void
+nextTuple()，我们将在此方法中emit数据给到bolts。在现在这个例子中，此方法主要是读入文件然后按行emit数据</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div> <wbr/>public void nextTuple() {</div>
+<div> <wbr/>  <wbr/>if(completed){</div>
+<div> <wbr/>  <wbr/>try {</div>
+<div> <wbr/>  <wbr/>
+Thread.sleep(1000);</div>
+<div> <wbr/>  <wbr/>} catch
+(InterruptedException e) {</div>
+<div> <wbr/> }</div>
+<div> <wbr/>  <wbr/>return;</div>
+<div> <wbr/> }</div>
+<div> <wbr/> String str;</div>
+<div> <wbr/> BufferedReader reader = new
+BufferedReader(fileReader);</div>
+<div> <wbr/> try{</div>
+<div> <wbr/>  <wbr/> while((str =
+reader.readLine()) != null){</div>
+<div> <wbr/>  <wbr/>  <wbr/>
+this.collector.emit(new Values(str),str);</div>
+<div> <wbr/>  <wbr/>}</div>
+<div> <wbr/> }catch(Exception e){</div>
+<div> <wbr/>  <wbr/>throw new
+RuntimeException("Error reading tuple",e);</div>
+<div> <wbr/> }finally{</div>
+<div> <wbr/>  <wbr/>completed = true;</div>
+<div> <wbr/> }</div>
+<div> <wbr/>} <wbr/></div>
+</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+注意，Values方法构筑了一个ArrayList的实例化。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+nextTulpe()被间隙性地从同一个循环中被调用，比如ack（）和fail（）方法。如果已经没有工作要处理了，它必须释放对于线程的控制，以确保其他方法有机会被调用。所以第一行总是去检查看看处理是否已经完成了。如果是的话，就sleep至少1毫秒以降低cpu的负载。如果所有的工作都被完成的话，就是说一个文件的每一行都已经被读入赋值并emit出去。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+注意，Tuple是数据的被命名的list，可以是任何一种可以被序列化的java对象。Storm默认可以序列化包括string，byte
+array，arraylist，hashmap和hashset类型。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<u><b>Bolts</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+我们现在已经有了一个spout，可以从一个文件中读取内容并把每一行emit一个tuple。接着我们需要创建2个bolt来处理这些tuple。这里，bolt会实装backtype.storm.topology.IRichBolt接口。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">最重要的方法是void
+execute(Tuple
+input),只要收到一个tuple此方法就会被调用一次。然后对于每一个接收到的tuple，此bolt会emit数个tuple。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Bolt或者Spout可以根据需要emit多个tuple。当nextTuple或者execute方法被调用的时候，他们可以emit：0，1或者多个tuples。这一点，第五章还会详细阐述。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+第一个bolt是WordNormalizer，负责把每一行内容正规化。它会把行切分成单词组，把所有单词小写化，并去掉首尾空格。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+1.我们需要声明bolt的输出参数：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+declareOutputFields(OutputFieldsDeclarer declarer) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+declarer.declare(new Fields("word"));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这里我们声明这个bolt会emit一个叫做“word"的字段。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">2.我们需要实现public
+void execute(Tuple input)方法，用来处理输入的tuples</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+execute(Tuple input) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">String
+sentence = input.getString(0);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">String[] words
+= sentence.split(" ");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">for(String
+word : words){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">word =
+word.trim();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(!word.isEmpty()){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">word =
+word.toLowerCase();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">//Emit the
+word</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+collector.emit(new Values(word));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">// Acknowledge
+the tuple</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+collector.ack(input);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+第一行从tuple中读取数据，可以按照位置或者名字读取。然后我们来处理读入的数据，最后用collector对象来emit数据。当每一个tuple都被处理之后，collector对象的ack()方法被调用表明处理已经被成功完成了。如果tuple没有被成功处理，需要调用collector对象的fail()对象。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Example2-2包含了完整的代码：src/main/java/bolts/WordNormalizer.java</div>
+<div style="font-family: 微软雅黑; line-height: normal;">package
+storm.book.Getting_Started.bolts;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.util.ArrayList;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.util.List;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.util.Map;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.task.OutputCollector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.task.TopologyContext;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.IRichBolt;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.OutputFieldsDeclarer;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Fields;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Tuple;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Values;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public class
+WordNormalizer implements IRichBolt {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private static final long serialVersionUID =
+1L;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private OutputCollector collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void cleanup() {}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void execute(Tuple input) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> String sentence = input.getString(0);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> String[] words = sentence.split(" ");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> for(String word : words){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>word = word.trim();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>if(!word.isEmpty()){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> word =
+word.toLowerCase();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> //Emit the word</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> List a = new
+ArrayList();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> a.add(input);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/> collector.emit(a,new
+Values(word));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> // Acknowledge the tuple</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> collector.ack(input);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void prepare(Map stormConf,
+TopologyContext context,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>OutputCollector collector)
+{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> this.collector = collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void
+declareOutputFields(OutputFieldsDeclarer declarer) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> declarer.declare(new Fields("word"));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>//public Map getComponentConfiguratio<wbr/>n(){return
+new java.util.HashMap();}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在这个类中，我们看到了在一个execute调用中emit了多个tuples。如果此方法接收到了一个句子“This is the
+Storm book",我们的这个execute方法会emit5个新的tuple</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+然后我们来看一下下一个bolt，WordCounter，负责对单词计数。当topology完成时（也就是cleanup()方法被调用的时候），我们将显示每个单词的个数</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这里是个简单的bolt的例子，没有emit任何东西，只是简单把数据加入到一个map，而事实上经常会把数据存储到数据库。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">package
+storm.book.Getting_Started.bolts;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.util.HashMap;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+java.util.Map;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.task.OutputCollector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.task.TopologyContext;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.IRichBolt;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.OutputFieldsDeclarer;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Tuple;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public class
+WordCounter implements IRichBolt {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private static final long serialVersionUID =
+8620547231572082101L;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>Integer id;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>String name;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>Map counters;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>private OutputCollector collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void cleanup() {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> System.out.println("-- Word Counter
+["+name+"-"+id+"] --");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> for(Map.Entry entry :
+counters.entrySet()){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>
+ <wbr/>System.out.println(entry.getKey()+":
+"+entry.getValue());</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void execute(Tuple input) {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> String str = input.getString(0);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> if(!counters.containsKey(str)){</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>counters.put(str, 1);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }else{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>Integer c = counters.get(str)
++ 1;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>counters.put(str, c);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> }</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> //Set the tuple as Acknowledge</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> collector.ack(input);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;"></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void prepare(Map stormConf,
+TopologyContext context,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>  <wbr/>OutputCollector collector)
+{</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> this.counters = new HashMap();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> this.collector = collector;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> this.name = context.getThisComponentId();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/> this.id = context.getThisTaskId();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>public void
+declareOutputFields(OutputFieldsDeclarer declarer) {}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ <wbr/>//public Map getComponentConfiguratio<wbr/>n(){return
+new java.util.HashMap();}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+execute方法是用一个map对象来收集和计算单词的个数。当这个topology终止的时候，cleanup()方法被调用，并打印这个counter
+map（这只是一个例子，通常你需要在cleanup()调用的时候去关闭活动的连接，释放资源）</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<u><b>Main类</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在main类中，你将会创建一个topology和一个LocalCluster的对象，从而可以在本地测试和debug这个topology。通过和Config对象的联系，LocalCluster允许你尝试不同的cluster配置。比如，如果一个全局或者类变量被偶然使用，你可以通过改变配置使用不同数量的worker节点测试的时候发现错误。（在第三章会详细介绍）</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+所有的topology节点都需要能够在没有任何进程间共享数据的情况下运行，因为在实际的cluster中，这些进程会运行在不同的机器上。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+你将会使用TopologyBuilder来创建一个topology，然后告诉Storm如何来安置这个节点，怎么样来交换数据。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+TopologyBuilder builder = new TopologyBuilder();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setSpout("word-reader",new WordReader());</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-normalizer", new
+WordNormalizer()).shuffleGrouping("word-</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+reader");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-counter", new
+WordCounter()).shuffleGrouping("word-</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+normalizer");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Spout和blot使用shuffleGrouping联系在一起。这种类型的组合告诉Strom自由地从源节点发送信息到目标节点。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+然后，创建一个包含了topology配置的Config对象，这个对象会在运行的时候和cluster的配置整合在一起，然后通过prepare方法发送给所有的节点。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Config conf =
+new Config();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+conf.put("wordsFile", args[0]);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+conf.setDebug(true);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在开发环境中，设置wordsFile文件为会被spout读入的文件名，设置debug为true。当debug是true的时候，Storm会打印所有的节点之间交换数据的信息，以及其他对理解topology怎么运行的有用的信息。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+正如前面解释的，你需要使用LocalCluster来运行这个cluster。在生产环境中，topology将会持续运行。不过在这个例子中，你将近运行这个topology几秒钟以便于看到结果。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">LocalCluster
+cluster = new LocalCluster();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+cluster.submitTopology("Getting-Started-Toplogie", conf,
+builder.createTopology());</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Thread.sleep(2000);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+cluster.shutdown();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+使用createTopology和submitTopology来创建并运行topology，sleep2秒（topology在不同的线程中运行），然后通过停止cluster来终止topology。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">Example2-3
+src/main/java/TopologyMain.java</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+spouts.WordReader;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.Config;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.LocalCluster;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.topology.TopologyBuilder;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+backtype.storm.tuple.Fields;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+bolts.WordCounter;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">import
+bolts.WordNormalizer;</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public class
+TopologyMain {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public static
+void main(String[] args) throws InterruptedException {</div>
+<div style="font-family: 微软雅黑; line-height: normal;">//Topology
+definition</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+TopologyBuilder builder = new TopologyBuilder();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setSpout("word-reader",new WordReader());</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-normalizer", new WordNormalizer())</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.shuffleGrouping("word-reader");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-counter", new WordCounter(),2)</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.fieldsGrouping("word-normalizer", new Fields("word"));</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+//Configuration</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Config conf =
+new Config();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+conf.put("wordsFile", args[0]);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+conf.setDebug(false);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">//Topology
+run</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+conf.put(Config.TOPOLOGY_MAX_SPOUT_PENDING, 1);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">LocalCluster
+cluster = new LocalCluster();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+cluster.submitTopology("Getting-Started-Toplogie", conf,</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.createTopology());</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Thread.sleep(1000);</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+cluster.shutdown();</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<u><b>让我们来执行～</b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+我们可以来运行第一个topology了！我们在src/main/resources/words.txt中在每一行创建一个单词，比如：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Storm</div>
+<div style="font-family: 微软雅黑; line-height: normal;">test</div>
+<div style="font-family: 微软雅黑; line-height: normal;">are</div>
+<div style="font-family: 微软雅黑; line-height: normal;">great</div>
+<div style="font-family: 微软雅黑; line-height: normal;">is</div>
+<div style="font-family: 微软雅黑; line-height: normal;">an</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Storm</div>
+<div style="font-family: 微软雅黑; line-height: normal;">simple</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+application</div>
+<div style="font-family: 微软雅黑; line-height: normal;">but</div>
+<div style="font-family: 微软雅黑; line-height: normal;">very</div>
+<div style="font-family: 微软雅黑; line-height: normal;">powerful</div>
+<div style="font-family: 微软雅黑; line-height: normal;">really</div>
+<div style="font-family: 微软雅黑; line-height: normal;">Storm</div>
+<div style="font-family: 微软雅黑; line-height: normal;">is</div>
+<div style="font-family: 微软雅黑; line-height: normal;">great</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+然后到pom.xml所在的目录运行Maven的命令：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">mvn exec:java
+-Dexec.mainClass="storm.book.Getting_Started.TopologyMain"
+-Dexec.args="src/main/resources/</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+words.txt"</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+然后你可以在log中找到如下的内容：</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1902
+[Thread-24] INFO backtype.storm.util - Async loop
+interrupted!</div>
+<div style="font-family: 微软雅黑; line-height: normal;">-- Word
+Counter [word-counter-3] --</div>
+<div style="font-family: 微软雅黑; line-height: normal;">really:
+1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">but: 1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">great: 2</div>
+<div style="font-family: 微软雅黑; line-height: normal;">an: 1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">storm: 3</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1907
+[storm.book.Getting_Started.TopologyMain.main()] INFO
+backtype.storm.daemon.task - Shut down task
+Getting-Started-Toplogie-1-1386945629:3</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1907
+[storm.book.Getting_Started.TopologyMain.main()] INFO
+backtype.storm.daemon.task - Shutting down task
+Getting-Started-Toplogie-1-1386945629:2</div>
+<div style="font-family: 微软雅黑; line-height: normal;">1907
+[Thread-26] INFO backtype.storm.util - Async loop
+interrupted!</div>
+<div style="font-family: 微软雅黑; line-height: normal;">-- Word
+Counter [word-counter-2] --</div>
+<div style="font-family: 微软雅黑; line-height: normal;">application:
+1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">is: 2</div>
+<div style="font-family: 微软雅黑; line-height: normal;">are: 1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">test: 1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">simple:
+1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">powerful:
+1</div>
+<div style="font-family: 微软雅黑; line-height: normal;">very: 1</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">注意我们代码中的</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-counter", new WordCounter(),2)</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+.shuffleGrouping("word-normalizer");</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+这是创建了2个WordCounter节点。这就是我们并行化WordCounter的秘诀。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+不可思议吧，这么简单就可以创造出并行机制（在实际中，每个实例都会跑在独立的机器上）不过再仔细看一下，你就会发觉，is和great在每个WordCounter的实例中都被计算了一次。为什么呢？当你使用shuffleGrouping的时候，你是告诉Storm使用随机的方式发送每一个消息。在这个例子中，最理想的是总是发送同一个单词到同一个WordCounter。为了实现这个，你可以把shuffleGrouping改成fieldGrouping("word-normalizer",new
+Fields("word")).然后让我们再尝试一下吧。在后面几张你会看到更多的分组和信息流。</div>
+<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<u><b><font style="font-size: 16px;">结论:</font></b></u></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+我们讨论了Strom的Local和Remote操作模式的区别，Storm的威力以及开发的易用性。你也了解了一些Strom的基础概念，在随后的章节中会深入说明。</div>
+</div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/07/Netbeans7.4+XAMPP+Xdebug@Ubuntu1204LTS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/12/07/Netbeans7.4+XAMPP+Xdebug@Ubuntu1204LTS/" class="post-title-link" itemprop="url">Netbeans7.4+XAMPP+Xdebug@Ubuntu1204LTS</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-12-07 19:34:00" itemprop="dateCreated datePublished" datetime="2013-12-07T19:34:00+08:00">2013-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>965</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="articalContent" id="sina_keyword_ad_area2">
+            在Windows上，其实已经配置好了WAMP+Netbeans+Xdebug了，12年的时候还做了几个PHP的程序～不过在Ubuntu上没试过，正好近期在折腾自己的Ubuntu，配各种开发环境。顺手就做了一下。
+<div><br/></div>
+<div>1.Netbeans的安装，这个最简单了。下载.sh文件，chmod
++x，然后./netbeans-7.4.sh就ok了</div>
+<div> <wbr/> 因为安装的比较全，比较花费时间；</div>
+<div><br/></div>
+<div>2.XAMPP，这个也很直接，而且在apachefriends的网站上<a target="_blank" rel="noopener" href="http://www.apachefriends.org/zh_cn/xampp.html">http://www.apachefriends.org/zh_cn/xampp.html</a>有详细的中文安装使用说明，所以就不说了。默认安装在/opt/lampp,就是其web目录在/opt/lampp/htdocs下面。</div>
+<div><br/></div>
+<div>3.Xdebug，事实上xdebug.org的网站也有很仔细的说明，可以把自己的phpinfo()或者命令行下php
+-i的输入贴到textarea，然后xdebug会自动生成一个安装手顺，依葫芦画瓢就可以了。</div>
+<div> <wbr/>  <wbr/>下载，解压缩，然后运行 phpize，
+./configure, make, cp modules/xdebug.so
+/opt/lampp/lib/php/extensions/no-debug-non-zts-20121212,然后编辑/opt/lampp/etc/php.ini增加一行内容：<br/>
+
+<p>zend_extension=/opt/lampp/lib/php/extensions/no-debug-non-zts-20121212/xdebug.so<br/></p>
+<p>然后把remote debug打开<br/><br>xdebug.remote_enable=On<br/><br>xdebug.profiler_enable=On<br/><br>xdebug.profiler_enable_trigger=On<br/><br><br/><br>默认端口是9000，如果netbean设置不是9000的，需要调整；<br/></div></p>
+<div><br/></div>
+<div>在安装的时候碰到问题： phpize之后输出：</div>
+<div>Cannot find autoconf. Please check your autoconf installation
+and the $PHP_AUTOCON environment variable.</div>
+<div>有兄弟是自己下载gnu的一些src来安装，我在ubuntu下面就偷懒了，直接sudo apt-get install
+autoconf</div>
+<div><br/></div>
+<div>搞定！</div>
+<div><br/></div>
+</div>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">208k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:09</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

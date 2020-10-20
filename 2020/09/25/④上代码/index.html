@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="核心代码3大块：  微信中获取随申码 钉钉中登记并上传截图 钉钉换成哓黑板  import win32gui import win32con import win32api import time import pyautogui import pyperclip import logging import shelve from ConfigData import ConfigData as c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="④上代码">
+<meta property="og:url" content="https://www.liuyong.online/2020/09/25/%E2%91%A3%E4%B8%8A%E4%BB%A3%E7%A0%81/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:description" content="核心代码3大块：  微信中获取随申码 钉钉中登记并上传截图 钉钉换成哓黑板  import win32gui import win32con import win32api import time import pyautogui import pyperclip import logging import shelve from ConfigData import ConfigData as c">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-25T13:47:00.000Z">
+<meta property="article:modified_time" content="2020-10-20T10:17:54.772Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="自动化填表">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2020/09/25/%E2%91%A3%E4%B8%8A%E4%BB%A3%E7%A0%81/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>④上代码 | 劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+      <p class="site-subtitle" itemprop="description">Ryle's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2020/09/25/%E2%91%A3%E4%B8%8A%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ④上代码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-25 21:47:00" itemprop="dateCreated datePublished" datetime="2020-09-25T21:47:00+08:00">2020-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/learning/" itemprop="url" rel="index"><span itemprop="name">学习教育</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>20k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>18 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>核心代码3大块：</p>
+<ol>
+<li>微信中获取随申码</li>
+<li>钉钉中登记并上传截图</li>
+<li>钉钉换成哓黑板</li>
+</ol>
+<pre><code class="python">import win32gui
+import win32con
+import win32api
+import time
+import pyautogui
+import pyperclip
+import logging
+import shelve
+from ConfigData import ConfigData as cd
+
+
+&quot;&quot;&quot;
+本程序主要实现3个功能：
+①登陆微信，找到随申办小程序，然后获得包括本人和亲属的随申码，并保存成jpg文件
+②登陆钉钉，找到相应的组织机构，根据要求提交每日健康申报
+③登陆晓黑板，根据班级要求，提交每日健康申报
+
+本程序主要通过pywin32和pyautogui对应用的窗口进行定位，使用了图片比对和像素定位
+两种方式，目前版本[v1.0]不支持文字识别。
+
+主要存在的限制：
+①必须安装微信、钉钉和晓黑板的PC客户端版本
+②在微信中，必须先安装&#39;随申办&#39;小程序, 并注册用户；然后将亲属随申码都申请好
+③在配置参数中：
+  - familyList这个参数的名单：亲属顺序根据微信’随申码‘的顺序，本人(微信登录用户)在最后,根据钉钉的设置，最多5个人
+④由于暂不支持文字识别，所以在定位控件的时候都是采用pyautogui的图片比较，在图片比较失效的情况下，采用默认定位位置，
+  因此，如果需要更换一些参数，比如省-市-区，比如钉钉的组织的话，需要的操作如下：
+      A) 钉钉的组织修改：
+         方法A： 先登录钉钉，并将默认组织修改为小孩所在的班级
+         方法B： 登录钉钉，将小孩所在的班级的图片截图下来，并命名为dd_org.png和dd_orgselected.png放在img文件夹下
+      B) 钉钉日报提交的省-市-区的修改
+         方法A： 登录钉钉，手工提交一次，以后钉钉会默认记住
+         方法B： 登录钉钉，将自己所在的省市区截图，然后命名为
+                 Sheng.png和Sheng_selected.png
+                 Shi.png和Shi_selected.png
+                 Qu.png和Qu_selected.png
+
+已知BUG：
+①在钉钉和晓黑板打开文件的对话框的时候，需要事先手工打开一次，把文件夹定位到本目录，确保寻找随申码文件不会失效
+  *后续版本会考虑去除这个BUG
+②微信如果打开的时候为扫码登录的话，应用可能会报错，但是只要扫码登录了，应用将继续正常运行
+&quot;&quot;&quot;
+
+__author__ = &#39;Ryle[ryle@liu.group]&#39;
+__version__ = &#39;v1.0&#39;
+
+
+# 日志
+def getLogger(basicLogFileName, logFileName, logLevel=logging.DEBUG, logMode=1):
+
+    # 日志格式
+    logFormat = logging.Formatter(&#39;%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s&#39;)
+    # 定义日志
+    logging.basicConfig(filename=basicLogFileName,
+                        format=&#39;%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s&#39;,
+                        level=logLevel)
+    logger = logging.getLogger(__name__)
+    logger.setLevel(level=logLevel)
+
+    if logMode == 0:
+        ch = logging.StreamHandler()
+        ch.setLevel(logLevel)
+        ch.setFormatter(logFormat)
+        logger.addHandler(ch)
+    elif logMode == 1:
+        fh = logging.FileHandler(logFileName)
+        fh.setLevel(logLevel)
+        fh.setFormatter(logFormat)
+        logger.addHandler(fh)
+    else:
+        ch = logging.StreamHandler()
+        ch.setLevel(logLevel)
+        ch.setFormatter(logFormat)
+        logger.addHandler(ch)    
+        fh = logging.FileHandler(logFileName)
+        fh.setLevel(logLevel)
+        fh.setFormatter(logFormat)
+        logger.addHandler(fh)
+
+    return logger
+
+#获得保存的密码
+def getPassword(key):
+    db = shelve.open(cd.passwordFile)
+    retValue = db[key]
+    db.close()
+    return retValue
+
+# 把指定的窗口移动到新的位置，一般是0,0
+def moveWindow(window, newLeft, newTop):
+    win32gui.ShowWindow(window, win32con.SW_SHOWNORMAL)
+
+    # 把窗口激活
+    win32gui.SetForegroundWindow(window)
+
+    left, top, right, bottom = win32gui.GetWindowRect(window)
+
+    # 把窗口移动到（0，0）
+    win32gui.MoveWindow(window, cd.left, cd.top, abs(right-left), abs(bottom-top), cd.repaint)
+    time.sleep(cd.generalWaitTime)
+
+# 启动应用程序
+def startApp(appName):
+    logger.info(&quot;启动应用程序：&#123;&#125;&quot;.format(appName))
+    win32api.ShellExecute(0, &#39;open&#39;, appName, &#39;&#39;, &#39;&#39;, 1)
+
+
+# 微信登录
+def wxLogin():
+    # 定位微信login窗口，并点击登录
+    target_x, target_y = getClickPosition(cd.wxLoginBtnPic, cd.wxLoginBtn_x, cd.wxLoginBtn_y)
+    logger.debug(&quot;微信登录窗口位置：&#123;&#125;/&#123;&#125;&quot;.format(target_x, target_y))
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 显示登录窗口并等待手机微信确认登录
+    wxWindow = win32gui.FindWindow(cd.wxWindowClass, cd.wxWindowName)
+    while wxWindow == 0:
+        time.sleep(cd.generalWaitTime_speed_high)    #  每隔0.2秒确认一下是否手机已经认登录
+        wxWindow = win32gui.FindWindow(cd.wxWindowClass, cd.wxWindowName)
+
+    logger.debug(&quot;返回微信主窗口句柄：&#123;&#125;&quot;.format(wxWindow))
+    return wxWindow
+
+# 钉钉登录
+def ddLogin():
+    # 定位钉钉Login窗口，并点击密码登录，
+    target_x, target_y = getClickPosition(cd.ddPasswordLoginPic, cd.ddPasswordLogin_x, cd.ddPasswordLogin_y)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 显示密码登录窗口，可以输入手机号和密码（手机国别选择暂时不支持）
+    # 手机号
+    target_x, target_y = getClickPosition(cd.ddInputPhoneNumber, cd.ddInputPhoneNumber_x, cd.ddInputPhoneNumber_y)
+    pyautogui.click(target_x, target_y)
+    for i in range(30):
+        pyautogui.press(&#39;backspace&#39;)
+    pyautogui.write(cd.ddLoginPhone)
+    time.sleep(cd.generalWaitTime)
+
+    # 密码
+    target_x, target_y = getClickPosition(cd.ddInputPassword, cd.ddInputPassword_x, cd.ddInputPassword_y)
+    pyautogui.click(target_x, target_y)
+    for i in range(30):
+        pyautogui.press(&#39;backspace&#39;)
+    pyautogui.write(getPassword(&#39;dingding&#39;))
+    time.sleep(cd.generalWaitTime)
+
+    # 点击登录按钮
+    target_x, target_y = getClickPosition(cd.ddLoginBtn, cd.ddLoginBtn_x, cd.ddLoginBtn_y)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)
+
+    ddMainWindow = win32gui.FindWindow(cd.ddWindowClass, cd.ddWindowName)
+
+    logger.debug(&quot;钉钉主窗口句柄：&#123;&#125;&quot;.format(ddMainWindow))
+    return ddMainWindow
+
+# 晓黑板登录
+def xhbLogin():
+    # 如果登录模式不是账号登录，就切换到账号登录
+    loginMode = pyautogui.locateOnScreen(&#39;img/xiaoheiban/xhb_login_mode.png&#39;)
+    if loginMode == None:
+        target_x, target_y = getClickPosition(&#39;img/xiaoheiban/xhb_login_mode_unselected.png&#39;, 273, 436)
+        pyautogui.click(target_x, target_y)
+        time.sleep(cd.generalWaitTime)
+
+    target_x, target_y = getClickPosition(&#39;img/xiaoheiban/xhb_username.png&#39;, 80, 177)
+    pyautogui.click(target_x, target_y)
+    pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+    pyautogui.press(&#39;delete&#39;)
+    pyautogui.write(cd.xhbLoginPhone)
+
+    target_x, target_y = getClickPosition(&#39;img/xiaoheiban/xhb_password.png&#39;, 80, 232)
+    pyautogui.click(target_x, target_y)
+    pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+    pyautogui.press(&#39;delete&#39;)
+    pyautogui.write(getPassword(&#39;xiaoheiban&#39;))
+
+    target_x, target_y = getClickPosition(&#39;img/xiaoheiban/xhb_login.png&#39;, 180, 316)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)
+
+    xhbMainWindow = win32gui.FindWindow(cd.xhbMainWindowClass, cd.xhbMainWindowName)
+
+    logger.debug(&quot;晓黑板主窗口句柄：&#123;&#125;&quot;.format(xhbMainWindow))
+    return xhbMainWindow
+
+# 根据不同的应用启动应用程序
+def getAppStart(appName, mainWndClassName, mainWndName):
+    &#39;&#39;&#39;
+    通过参数appName，mainWndClassName和mainWndName，判断相应的应用是否已经启动:
+    ①如果已经启动，直接返回该应用的主窗口的句柄；
+    ②如果没有启动，根据传入的参数，启动该应用并返回该应用的主窗口的句柄；
+    ③如果打开失败，抛出异常；
+
+    参数:
+        - appName: 绝对路径表示的应用名称
+        - mainWndClassName: 应用主窗口的类名(可以通过spy++获取)
+        - mainWndName: 应用主窗口名称
+    返回值：
+        - mainWnd: 主窗口的句柄
+    异常：
+        - OpenAppException
+    &#39;&#39;&#39;
+
+    logger.info(&quot;开始获取应用：&#123;&#125;&quot;.format(appName))
+
+    # 获取应用主窗口
+    # 晓黑板和钉钉只要没有主动退出，下一次打开会用默认账号登录，
+    # 而微信每次打开都要单独登录
+    mainWnd = win32gui.FindWindow(mainWndClassName, mainWndName)
+
+    if mainWnd == 0:   # 主窗口没有被打开
+        startApp(appName)    # 启动应用
+        time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)   # 等待主窗口显示
+
+        if &#39;WeChat&#39; in appName:
+            logger.info(&#39;打开微信登录...&#39;)
+            loginWindow = win32gui.FindWindow(cd.wxLoginWindowClass, cd.wxLoginWindowName)
+            moveWindow(loginWindow, 0, 0)
+            mainWnd = wxLogin()
+        elif &#39;DingDing&#39; in appName:
+            logger.info(&#39;打开钉钉登录...&#39;)
+            loginWindow = win32gui.FindWindow(cd.ddLoginWindowClass, cd.ddLoginWindowName)
+            moveWindow(loginWindow, 0, 0)
+            mainWnd = ddLogin()
+        else:
+            logger.info(&#39;打开晓黑板登录...&#39;)
+            loginWindow = win32gui.FindWindow(cd.xhbLoginWindowClass, cd.xhbLoginWindowName)
+            moveWindow(loginWindow, 0, 0)
+            mainWnd = xhbLogin()
+
+    logger.debug(&quot;返回主窗口句柄：&#123;&#125;&quot;.format(mainWnd))    
+    return mainWnd
+
+
+# 粘贴中文
+def myPaste(str):
+    pyperclip.copy(str)
+    pyautogui.hotkey(&#39;ctrl&#39;,&#39;v&#39;)
+
+
+# 截图，文件保留为姓名+.jpg
+def getImage(name):
+    logger.info(&quot;截图： &#123;&#125; 的随申码&quot;.format(name))
+    im = pyautogui.screenshot(
+        imageFilename=name+&quot;.jpg&quot;,
+        region=(cd.imgLeft, cd.imgTop, cd.imgRight, cd.imgBottom)
+        )
+
+
+# 得到需要点击的位置
+# Return: target_x,target_y
+# x, y: 如果不能识别图片的话，使用
+def getClickPosition(pngName, _x, _y):
+    myLocation = pyautogui.locateOnScreen(pngName)
+    if myLocation != None:
+        logger.debug(&quot;找到了图片 &#123;&#125; 的位置，返回图片中央坐标&quot;.format(pngName))
+        btnPosition = pyautogui.center(myLocation)
+        target_x, target_y = btnPosition
+    else:
+        logger.debug(&quot;找不到图片 &#123;&#125; 的位置，使用指定的默认坐标&quot;.format(pngName))
+        target_x = cd.left + _x
+        target_y = cd.top + _y
+    return target_x, target_y
+
+
+# 找省
+def getSheng(pngName, cl_x, cl_y):
+    # 省往下直到找到上海
+    pyautogui.mouseDown(x=363, y=246)
+    time.sleep(cd.generalWaitTime)
+    pyautogui.mouseUp()
+    pyautogui.scroll(-100, x=350, y=250)
+    target_x, target_y = getClickPosition(pngName, cl_x, cl_y)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+
+# 找市
+def getShi(pngName, cl_x, cl_y):
+    # 开始找市, 市往下直到找到上海
+    pyautogui.mouseDown(x=472,y=246)
+    time.sleep(cd.generalWaitTime)
+    pyautogui.mouseUp()
+    pyautogui.scroll(-150, x=450, y=300)
+    target_x, target_y = getClickPosition(pngName, cl_x, cl_y)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+
+# 找区
+def getQu(pngName, cl_x, cl_y):
+    # 开始找区, 区往下直到找到浦东新区
+    pyautogui.mouseDown(x=585,y=246)
+    time.sleep(cd.generalWaitTime)
+    pyautogui.mouseUp()
+    pyautogui.scroll(-150, x=550, y=300)
+    target_x, target_y = getClickPosition(pngName, cl_x, cl_y)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+
+# 钉钉上传文件
+def uploadFile(name):
+    filename = name + &#39;.jpg&#39;
+    dlgWindow = win32gui.FindWindow(&#39;#32770&#39;, &#39;打开&#39;)
+    comboBoxEx32 = win32gui.FindWindowEx(dlgWindow, None, &#39;ComboBoxEx32&#39;, None)
+    comboBox = win32gui.FindWindowEx(comboBoxEx32, None, &#39;ComboBox&#39;, None)
+    edit = win32gui.FindWindowEx(comboBox, None, &#39;Edit&#39;, None)
+    win32gui.SendMessage(edit, win32con.WM_SETTEXT, None, filename)
+    btnOpen = win32gui.FindWindowEx(dlgWindow, None, &#39;Button&#39;, None)
+    win32gui.PostMessage(btnOpen, win32con.WM_KEYDOWN, win32con.VK_RETURN, 0)
+    win32gui.PostMessage(btnOpen, win32con.WM_KEYUP, win32con.VK_RETURN, 0)
+    win32gui.PostMessage(dlgWindow, win32con.WM_CLOSE, 0, 0)
+    time.sleep(cd.generalWaitTime)
+    confirmWindow = win32gui.FindWindow(&#39;PopupFrame&#39;, &#39;&#39;)
+    left, top, right, bottom = win32gui.GetWindowRect(confirmWindow)
+    btn_x = abs(right - 70)
+    btn_y = abs(bottom - 30)
+    pyautogui.click(btn_x, btn_y)
+    #win32gui.PostMessage(confirmWindow, win32con.WM_CLOSE, 0, 0)
+
+
+# 晓黑板上传文件
+def xhbUploadFile(name):
+    filename = name + &#39;.jpg&#39;
+    dlgWindow = win32gui.FindWindow(&#39;#32770&#39;, &#39;打开&#39;)
+    comboBoxEx32 = win32gui.FindWindowEx(dlgWindow, None, &#39;ComboBoxEx32&#39;, None)
+    comboBox = win32gui.FindWindowEx(comboBoxEx32, None, &#39;ComboBox&#39;, None)
+    edit = win32gui.FindWindowEx(comboBox, None, &#39;Edit&#39;, None)
+    win32gui.SendMessage(edit, win32con.WM_SETTEXT, None, filename)
+    btnOpen = win32gui.FindWindowEx(dlgWindow, None, &#39;Button&#39;, None)
+    win32gui.PostMessage(btnOpen, win32con.WM_KEYDOWN, win32con.VK_RETURN, 0)
+    win32gui.PostMessage(btnOpen, win32con.WM_KEYUP, win32con.VK_RETURN, 0)
+    win32gui.PostMessage(dlgWindow, win32con.WM_CLOSE, 0, 0)
+    time.sleep(cd.generalWaitTime)
+
+
+
+# 打开微信的随申办，得到每个人的随申码，并保存在当前目录
+def processWxSuishencode(wxWindow):
+
+    logger.info(&quot;开始处理从微信获取随申码...&quot;)
+
+    # 1.2如果窗口最小化了就把它恢复到正常
+    win32gui.ShowWindow(wxWindow,win32con.SW_SHOWNORMAL)
+
+    # 1.3把窗口激活
+    win32gui.SetForegroundWindow(wxWindow)
+
+    # 1.4 把微信窗口移动到（0，0），大小调整为800x600
+    win32gui.MoveWindow(wxWindow, cd.left, cd.top, cd.width, cd.height, cd.repaint)
+    time.sleep(cd.generalWaitTime)
+
+    # 2. 点击小程序面板
+    target_x, target_y = getClickPosition(cd.wx_xcxPic, cd.microPg_x, cd.microPg_y)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 2. 点击随申办小程序
+    target_x, target_y = getClickPosition(cd.wx_ssbPic, cd.ssb_x, cd.ssb_y)
+    pyautogui.click(target_x, target_y)
+
+
+    # 3.1 打开了随申办的新窗口
+    logger.info(&quot;打开随申办小程序的窗口...&quot;)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)   # 打开小程序还是有点耗时的
+    ssbWindow=win32gui.FindWindow(cd.ssbWindowClass, cd.ssbWindowName)
+    ssbLeft, ssbTop, ssbRight, ssbBottom = win32gui.GetWindowRect(ssbWindow)
+
+    # 3.2 如果窗口最小化了就把它恢复到正常
+    win32gui.ShowWindow(ssbWindow,win32con.SW_SHOWNORMAL)
+
+    # 3.3 把窗口激活
+    win32gui.SetForegroundWindow(ssbWindow)
+
+    # 3.4 把随申办窗口移动到（0，0）
+    win32gui.MoveWindow(ssbWindow, cd.left, cd.top, abs(ssbRight - ssbLeft), abs(ssbBottom - ssbTop), cd.repaint)
+
+    # 3.5 打开随申码
+    logger.info(&quot;打开随申码...&quot;)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)   # 打开小程序还是有点耗时的，以后可以升级成用文字识别，能识别出“随申码”在跳出循环
+    target_x = cd.left + cd.ssm_x
+    target_y = cd.top + cd.ssm_y
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)  # 打开图形（二维码）比较慢）
+
+    # 截图处理
+    getImage(cd.familyList[-1])
+
+    # 3.6 打开亲属随申码主链接，进入亲属随申码列表，第一个是本人
+    logger.info(&quot;打开亲属随申码清单...&quot;)
+    target_x = cd.left + cd.ssm_main_link_x
+    target_y = cd.top + cd.ssm_main_link_y 
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 3.7 循环处理亲属随申码
+    for i in range(len(cd.familyList) - 1):
+        time.sleep(cd.generalWaitTime)
+        target_x = cd.left + cd.ssm_family_x
+        target_y = cd.top + cd.ssm_family_start_y + cd.ssm_family_interval_y * i
+        pyautogui.click(target_x, target_y)
+        time.sleep(cd.generalWaitTime * cd.generalTimeAdjust) 
+        getImage(cd.familyList[i])
+
+        # 返回亲属随申码列表
+        time.sleep(cd.generalWaitTime)
+        target_x = cd.left + cd.ssm_main_link_x
+        target_y = cd.top + cd.ssm_main_link_y + cd.ssm_family_adjust_y
+        pyautogui.click(target_x, target_y)
+
+    # 截图完成后，关闭随申办等窗口，微信窗口保留
+    logger.info(&quot;关闭【随申码】和【随申办】窗口...&quot;)
+    win32gui.PostMessage(ssbWindow, win32con.WM_CLOSE, 0, 0)
+    win32gui.PostMessage(wxWindow, win32con.WM_CLOSE, 0, 0)
+
+
+# 上传到钉钉
+def processDd(ddWindow):
+    # 1.  处理钉钉窗口
+    # 1.1 找到钉钉的窗口
+    ddWindow = win32gui.FindWindow(cd.ddWindowClass, cd.ddWindowName)
+
+    # 1.2 如果窗口最小化了就把它恢复到正常
+    win32gui.ShowWindow(ddWindow,win32con.SW_SHOWNORMAL)
+
+    # 1.3 把窗口激活
+    win32gui.SetForegroundWindow(ddWindow)
+
+    # 1.4 把钉钉窗口移动到（0，0）
+    win32gui.MoveWindow(ddWindow, cd.left, cd.top, cd.ddWidth, cd.ddHeight, cd.repaint)
+    time.sleep(cd.generalWaitTime)
+
+    # 1.5 打开工作窗口
+    logger.info(&quot;找到工作台标签，打开工作窗口&quot;)
+    target_x = cd.left + 30
+    target_y = cd.top + 220
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 1.6 选择孙桥大四班
+    #     点击选项
+    logger.info(&quot;找到组织-班级&quot;)
+    myLocation = pyautogui.locateOnScreen(&#39;img/dingding/dd_orgselected.png&#39;)
+    if myLocation == None:
+        logger.debug(&quot;找不到表明【组织-班级】的图片&quot;)
+        target_x = cd.left + 500
+        target_y = cd.top + 53
+        pyautogui.click(target_x, target_y)
+        time.sleep(cd.generalWaitTime)
+
+        #    点击选中孙桥大四班
+        target_x, target_y = getClickPosition(&#39;img/dingding/dd_org.png&#39;, 500, 202)
+        pyautogui.click(target_x, target_y)
+        time.sleep(cd.generalWaitTime)
+
+    # 1.7 返回OA工作台首页
+    logger.info(&quot;返回OA工作台首页&quot;)
+    target_x, target_y = getClickPosition(&#39;img/dingding/dd_oahome.png&#39;, 140, 93)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 刷新OA工作台首页
+    logger.info(&quot;刷新OA工作台首页&quot;)
+    target_x, target_y = getClickPosition(&#39;img/dingding/dd_refresh.png&#39;, 187, 52)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)
+
+    # 1.8 找每日填表
+    #     鼠标下滚
+    logger.info(&quot;寻找【每日填表】&quot;)
+    pyautogui.moveTo(150, 150)
+    pyautogui.scroll(-400)
+    target_x, target_y = getClickPosition(&#39;img/dingding/dd_mrsb.png&#39;, 550, 225)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)
+
+    # 1.9 找到每天要填的表格
+    logger.info(&quot;寻找每日填表中【每天要填的表格链接】&quot;)
+    target_x = cd.left + 273
+    #target_x = cd.left + 722
+    target_y = cd.top + 584
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime * cd.generalTimeAdjust)
+
+    # 2.0 处理填表
+    logger.info(&quot;开始处理表格，进行自动填表&quot;)
+    #pyautogui.moveTo(150, 150)
+    pyautogui.scroll(-250)
+    time.sleep(cd.generalWaitTime)
+
+
+    # 输入当前日期
+    pyautogui.click(240, 246)
+    time.sleep(cd.generalWaitTime)
+    target_x, target_y = getClickPosition(&#39;img/dingding/dd_today.png&#39;, 346, 548)
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 输入体温
+    strTemp = &#39;36.7&#39;
+    pyautogui.click(250, 350)
+    pyautogui.press(&#39;backspace&#39;, presses=5)
+    pyautogui.write(strTemp)
+    time.sleep(cd.generalWaitTime)
+
+    # 选择健康
+    pyautogui.click(214,461)
+
+    # 选择孩子当前所在城市
+    pyautogui.scroll(-250)
+    time.sleep(cd.generalWaitTime)
+
+
+    # 激活地区输入框
+    pyautogui.click(269, 214)
+    time.sleep(cd.generalWaitTime)
+
+    # 找省
+    myLocSheng= pyautogui.locateOnScreen(&#39;img/dingding/Sheng_SH_selected.png&#39;)
+    if myLocSheng == None:
+        logger.debug(&quot;找不到可以定位的省的图片&quot;)
+        getSheng(&#39;img/dingding/Sheng_SH.png&#39;, 235, 338)
+        getShi(&#39;img/dingding/Shi_SH.png&#39;, 420, 254)
+        getQu(&#39;img/dingding/Qu_PD.png&#39;, 539, 402)
+    else:
+        pyautogui.click(269, 214)
+
+#     # 找市
+#     myLocShi = pyautogui.locateOnScreen(&#39;img/Shi_SH_selected.png&#39;)    
+#     if myLocShi == None:
+#         print(&#39;can not find Shi: &#39; + &#39;Shi_SH_selected.png&#39;)
+#         getShi(&#39;img/dingding/Shi_SH.png&#39;, 420, 254)
+#         getQu(&#39;img/dingding/Qu_PD.png&#39;, 539, 402)
+#        
+#     # 找区
+#     myLocQu = pyautogui.locateOnScreen(&#39;img/dingding/Qu_PD_selected.png&#39;)    
+#     if myLocQu == None:
+#         print(&#39;can not find Qu: &#39; + &#39;Qu_PD_selected.png&#39;)
+
+    # 孩子及家庭成员是否曾到过或居住在武汉市及周边地区，或境内其他有病例报告的社区
+    pyautogui.click(214, 352)
+    time.sleep(cd.generalWaitTime)
+
+    # 孩子及家庭成员最近14天，是否前往疫区或国/境外旅行或居住史
+    pyautogui.click(214, 494)
+    time.sleep(cd.generalWaitTime)
+
+
+    time.sleep(cd.generalWaitTime)
+    pyautogui.scroll(-250)
+    time.sleep(cd.generalWaitTime)
+
+    # 孩子最近14天，是否接触来自境外的人员或来自疫情严重地区的人员
+    time.sleep(cd.generalWaitTime)
+    pyautogui.click(214, 220)
+    time.sleep(cd.generalWaitTime)
+
+    time.sleep(cd.generalWaitTime)
+    pyautogui.scroll(-80)
+    time.sleep(cd.generalWaitTime)
+
+    # 幼儿随申码
+    time.sleep(cd.generalWaitTime)
+    pyautogui.moveTo(231, 245)
+    pyautogui.click()
+    time.sleep(cd.generalWaitTime)
+    uploadFile(cd.ddMain)
+    time.sleep(cd.generalWaitTime)
+    pyautogui.scroll(-50)
+    time.sleep(cd.generalWaitTime)
+
+    familyList = cd.familyList[:]
+    familyList.remove(cd.ddMain)
+
+
+    # 同住人随申码，同住最多4人，必填2人
+    cl_y = 323
+    for personName in familyList:
+        time.sleep(cd.generalWaitTime)
+        pyautogui.moveTo(231, cl_y)
+        pyautogui.click()
+        time.sleep(cd.generalWaitTime)
+
+        uploadFile(personName)
+        time.sleep(cd.generalWaitTime)
+        pyautogui.scroll(-50)
+        time.sleep(cd.generalWaitTime)
+
+        cl_y += 67
+
+    # 最终提交
+    logger.info(&quot;最终提交表格&quot;)
+    time.sleep(cd.generalWaitTime)
+    pyautogui.scroll(-80)
+    time.sleep(cd.generalWaitTime)
+    target_x, target_y = getClickPosition(&#39;img/dingding/btnSubmit.png&#39;, 273, 605)
+    pyautogui.click(target_x, target_y)
+
+    # 2.1 关闭填表
+    logger.info(&quot;关闭表格选项卡&quot;)
+    target_x = cd.left + 501
+    target_y = cd.top + 90
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 2.2 关闭每日填表
+    logger.info(&quot;关闭每日填表选项卡&quot;)
+    target_x = cd.left + 358
+    target_y = cd.top + 90
+    pyautogui.click(target_x, target_y)
+
+
+def processXHB(xhbMainWindow):
+    win32gui.SetForegroundWindow(xhbMainWindow)
+    left, top, right, bottom = win32gui.GetWindowRect(xhbMainWindow)
+    win32gui.MoveWindow(xhbMainWindow, cd.left, cd.top, abs(right-left), abs(bottom-top), cd.repaint)
+    time.sleep(cd.generalWaitTime)
+
+    # 把屏幕回滚到最顶端，必定有&quot;今天的消息“
+    logger.info(&quot;回滚消息屏幕到最顶端&quot;)
+    pyautogui.moveTo(400,400)
+    found = False
+    while not found:
+        xhbMainScreen = pyautogui.locateOnScreen(&#39;img/xiaoheiban/xhb_main_screen_title.png&#39;)
+        if xhbMainScreen != None:
+            found = True
+        else:
+            pyautogui.scroll(400)
+
+    # 下滚屏幕直到找到需要提交的调查表
+    logger.info(&quot;下滚消息屏幕找到调查表入口&quot;)
+    found = False
+    while not found:
+        xhbMrsbLink = pyautogui.locateOnScreen(&#39;img/xiaoheiban/xhb_mrsb_submit.png&#39;)
+        if xhbMrsbLink != None:
+            found = True
+        else:
+            pyautogui.scroll(-400)
+
+    # 定位到“学校进校人员健康排摸登记表”
+    btnPosition = pyautogui.center(xhbMrsbLink)
+    target_x, target_y = btnPosition
+    pyautogui.click(target_x, target_y)
+    time.sleep(cd.generalWaitTime)
+
+    # 1. 输入学号
+    pyautogui.click(500, 283)
+    pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+    pyautogui.press(&#39;delete&#39;)
+    pyautogui.write(&#39;9&#39;)
+    time.sleep(cd.generalWaitTime)
+
+    # 2. 输入姓名
+    pyautogui.click(500, 480)
+    pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+    pyautogui.press(&#39;delete&#39;)
+    myPaste(cd.xhbMain)
+    time.sleep(cd.generalWaitTime)
+
+    # 滚屏
+    pyautogui.scroll(-485)
+    time.sleep(cd.generalWaitTime)
+
+
+    # 3. 选择健康码
+    pyautogui.click(483, 270)
+    time.sleep(cd.generalWaitTime)
+
+    # 滚屏
+    pyautogui.scroll(-325)
+    time.sleep(cd.generalWaitTime)
+
+    # 4. 健康码截图
+    pyautogui.click(512, 296)
+    time.sleep(cd.generalWaitTime)
+    xhbUploadFile(cd.xhbMain)
+    time.sleep(cd.generalWaitTime)
+
+    # 5. 体温
+    pyautogui.click(500, 500)
+    pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+    pyautogui.press(&#39;delete&#39;)
+    myPaste(&#39;36.5&#39;)
+    time.sleep(cd.generalWaitTime)
+
+    # 滚屏
+    pyautogui.scroll(-510)
+    time.sleep(cd.generalWaitTime)
+
+    # 循环把同住人的信息全部更新
+    familyList = cd.familyList[:]
+    familyList.remove(cd.xhbMain)
+
+    cl_y = 269
+    for personName in familyList:
+        # 6. 同住人姓名
+        pyautogui.click(500, cl_y)
+        time.sleep(cd.generalWaitTime)
+        pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+        pyautogui.press(&#39;delete&#39;)
+        myPaste(personName)
+        time.sleep(cd.generalWaitTime)
+
+        # 7. 同住人健康码
+        pyautogui.click(483, 458)
+        time.sleep(cd.generalWaitTime)
+
+        # 滚屏
+        pyautogui.scroll(-565)
+        time.sleep(cd.generalWaitTime)
+
+        # 8. 同住人健康码截图
+        pyautogui.click(511, 290)
+        time.sleep(cd.generalWaitTime)
+        xhbUploadFile(personName)
+        time.sleep(cd.generalWaitTime)
+
+
+        # 9. 同住人体温
+        pyautogui.click(500, 500)
+        pyautogui.hotkey(&#39;ctrl&#39;, &#39;a&#39;)
+        pyautogui.press(&#39;delete&#39;)
+        myPaste(&#39;36.7&#39;)
+        time.sleep(cd.generalWaitTime)
+
+        # 滚屏
+        pyautogui.scroll(-510)
+        time.sleep(cd.generalWaitTime)
+
+
+    # 点击提交
+    logger.info(&quot;提交调查表&quot;)
+    target_x, target_y = getClickPosition(&#39;img/xiaoheiban/xhb_mrsb_final_submit.png&#39;, 846, 594)
+    pyautogui.click(target_x, target_y)
+
+    # 回到消息窗口
+    pyautogui.click(50, 170)
+
+
+if __name__ == &#39;__main__&#39;:
+
+    # 日志
+    logger = getLogger(cd.basicLogFileName, cd.logFileName, cd.logLevel, cd.logMode)
+
+    # 启动并登录微信
+    wxMainWindow = getAppStart(cd.wxAppName, cd.wxWindowClass, cd.wxWindowName)
+
+    # 获取健康码
+    processWxSuishencode(wxMainWindow)
+
+    # 启动并登录钉钉
+    ddMainWindow = getAppStart(cd.ddAppName, cd.ddWindowClass,  cd.ddWindowName)
+
+    # 钉钉完成提交
+    processDd(ddMainWindow)
+#     
+    # 启动晓黑板并登录晓黑板
+    xhbMainWindow = getAppStart(cd.xhbAppName, cd.xhbMainWindowClass,  cd.xhbMainWindowName)
+
+    # 晓黑板完成提交
+    processXHB(xhbMainWindow)</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>一杯清茶</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.liu.group">
+            <span class="icon">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+
+            <span class="label">WEB</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 自动化填表</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/25/%E2%91%A1%E7%94%A8python%E7%9A%84shelve%E5%8C%85%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E5%AF%86%E7%A0%81/" rel="prev" title="②用python的shelve包持久化存储密码">
+                  <i class="fa fa-chevron-left"></i> ②用python的shelve包持久化存储密码
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/06/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A0%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%981-10/" rel="next" title="Python小屋练手①编程自测题1-10">
+                  Python小屋练手①编程自测题1-10 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="ryle2020/ryle2020.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">208k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:09</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

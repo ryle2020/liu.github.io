@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="配置文件[family]  ; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人 familyList&#x3D;爸爸, 大宝, 二宝, 妈妈 ddMain&#x3D;二宝 xhbMain&#x3D;大宝   [time] ; 定义等待间隔时间 pyautoguiPAUSE &#x3D; 2 generalWaitTime &#x3D; 2 generalWaitTime_speed_high &#x3D; 0.2 g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="③用configparser解析配置文件">
+<meta property="og:url" content="https://www.liuyong.online/2020/09/25/%E2%91%A2%E7%94%A8configparser%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:description" content="配置文件[family]  ; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人 familyList&#x3D;爸爸, 大宝, 二宝, 妈妈 ddMain&#x3D;二宝 xhbMain&#x3D;大宝   [time] ; 定义等待间隔时间 pyautoguiPAUSE &#x3D; 2 generalWaitTime &#x3D; 2 generalWaitTime_speed_high &#x3D; 0.2 g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-25T13:25:00.000Z">
+<meta property="article:modified_time" content="2020-10-20T10:17:54.733Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2020/09/25/%E2%91%A2%E7%94%A8configparser%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>③用configparser解析配置文件 | 劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+      <p class="site-subtitle" itemprop="description">Ryle's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">解析程序</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2020/09/25/%E2%91%A2%E7%94%A8configparser%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ③用configparser解析配置文件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-25 21:25:00" itemprop="dateCreated datePublished" datetime="2020-09-25T21:25:00+08:00">2020-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><pre><code>[family] 
+; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人
+familyList=爸爸, 大宝, 二宝, 妈妈
+ddMain=二宝
+xhbMain=大宝
+
+
+[time]
+; 定义等待间隔时间
+pyautoguiPAUSE = 2
+generalWaitTime = 2
+generalWaitTime_speed_high = 0.2
+generalTimeAdjust = 3
+generalTimeAdjust_speed_high = 1
+generalTimeAdjust_speed_low =  5
+
+[log]
+; 定义日志参数，0表示控制台输出，1表示文件输出，2表示同时输出
+basicLogFileName = logger.log
+logFileName = log.txt
+logMode = 2
+level = DEBUG
+
+[password]
+passwordFile = password
+[weixin-ssm]
+; 微信随申码相关的控制参数
+
+; 定义微信安装位置
+wxAppName = C:\\Program Files (x86)\\Tencent\\WeChat\\WeChat.exe
+
+; 定义微信登录窗口
+wxLoginWindowClass = WeChatLoginWndForPC
+wxLoginWindowName = 登录
+wxLoginBtnPic = img/weixin/wxLogin.png
+
+; 定义微信主窗口
+wxWindowClass = WeChatMainWndForPC
+wxWindowName = 微信
+
+; 定义微信小程序面板窗口
+wxMicroPgWindowClass = AppletPanelWnd
+wxMicroPgWindowName = 
+wx_xcxPic = img/weixin/wx_xcx.png
+
+; 定义随申办的窗口
+ssbWindowClass=Chrome_WidgetWin_0
+ssbWindowName=随申办
+wx_ssbPic = img/weixin/wx_ssb.png
+
+; 定义一些鼠标移动的相对常量
+; 0. 微信登录窗口的登录按钮位置
+wxLoginBtn_x = 138
+wxLoginBtn_y = 279
+
+; 1. 微信主窗口位置
+left = 0
+top = 0
+width = 800
+height = 600
+repaint = 1
+
+; 2. 搜索框
+searchBox_x = 150
+searchBox_y = 37
+
+; 3. 小程序面板
+microPg_x = 30
+microPg_y = 490
+
+; 4. 查找小程序
+s_microPg_x = 300
+s_microPg_y = 450
+
+; 5. 随申办定位
+ssb_x = 115
+ssb_y = 320
+
+; 6. 随申码定位
+ssm_x = 235
+ssm_y = 280
+
+; 7. 亲属随申码主链接
+ssm_main_link_x = 347
+ssm_main_link_y = 191
+
+; 8. 亲属随申码定位（x不变，y从310开始，以93位间隔增长）
+ssm_family_x = 347
+ssm_family_start_y = 310
+ssm_family_interval_y = 93
+; 亲属随申码返回的时候需要调整位置
+ssm_family_adjust_y = 10 
+
+; 定义搜索内容
+wxSearch = 
+
+; 截图区域
+imgLeft = 5
+imgTop = 62
+imgRight = 405
+imgBottom = 675
+
+[Dingding]
+; 钉钉相关控制参数
+
+; 定义钉钉安装位置
+ddAppName = C:\\Program Files (x86)\\DingDing\\DingtalkLauncher.exe
+
+ddLoginWindowClass = StandardFrame_Loging
+ddLoginWindowName = 钉钉
+ddPasswordLoginPic = img/dingding/ddPasswordLogin.png
+ddPasswordLogin_x = 210
+ddPasswordLogin_y = 70
+ddInputPassword = img/dingding/inputPassword.png
+ddInputPassword_x = 200
+ddInputPassword_y = 316
+ddInputPhoneNumber = img/dingding/inputPhoneNumber.png
+ddInputPhoneNumber_x = 215
+ddInputPhoneNumber_y = 272
+ddLoginBtn = img/dingding/loginBtn.png
+ddLoginBtn_x = 257
+ddLoginBtn_y = 316
+
+ddLoginPhone = 钉钉登录手机号
+
+
+; 定义钉钉主窗口
+ddWindowClass = StandardFrame_DingTalk
+ddWindowName = 钉钉
+ddWidth = 960
+ddHeight = 640
+
+; 获得省的列表并取得相应的省
+sheng_pullPosition_x = 363
+sheng_pullPosition_y = 246
+sheng_scroll = -100
+sheng_scroll_from_x = 350
+sheng_scroll_from_y = 250
+
+; 获得市的列表并取得相应的市
+shi_pullPosition_x = 472
+shi_pullPosition_y = 246
+shi_scroll = -150
+shi_scroll_from_x = 450
+shi_scroll_from_y = 300
+
+; 获得区的列表并取得相应的区
+qu_pullPosition_x = 585
+qu_pullPosition_y = 246
+qu_scroll = -150
+qu_scroll_from_x = 550
+qu_scroll_from_y = 300
+
+; 上传随申码确认按钮距离边界的差值
+uploadConfirmBtn_x = 70
+uploadConfirmBtn_y = 30
+
+; 工作窗口图标
+workWindowSign_x = 30
+workWindowSign_y = 220
+
+; 选择工作单位
+workOrgSelect_x = 500
+workOrgSelect_y = 53
+confirmWorkOrg_x = 500
+confirmWorkOrg_y = 202
+
+; OA工作台首页
+oaHomepage_x = 140
+oaHomepage_y = 93
+oaRefresh_x = 187
+oaRefresh_y = 52
+
+; 每日填报
+mrtb_scroll_from_x = 150
+mrtb_scroll_from_y = 150
+mrtb_scroll = -400
+mrtb_default_x = 550
+mrtb_default_y = 225
+
+; 寻找表格
+mrtb_table_x = 273
+mrtb_table_y = 584
+
+; 处理表格
+table_scroll = -250
+table_uploade_scroll = -50
+table_upload_scroll_adjust = 67
+table_small_scroll = -80
+
+; 日期
+currentDate_x = 240
+currentDate_y = 246
+todayBtn_x = 346
+todayBtn_y = 548
+
+; 体温
+temp = 36.7
+temp_x = 250
+temp_y = 350
+
+; 健康
+jiankang_x = 214
+jiankang_y = 461
+
+; 城市
+city_x = 269
+city_y = 214
+
+sheng_default_x = 235
+sheng_default_y = 338
+
+shi_default_x = 420
+shi_default_y = 254
+
+qu_default_x = 539
+qu_default_y = 402
+
+; 社区
+shequ_x = 214
+shequ_y = 352
+
+; 旅行
+lvxing_x = 214
+lvxing_y = 494
+
+; 接触
+jiechu_x = 214
+jiechu_y = 220
+
+; 图片上传
+ddMain_pic_x = 231
+ddMain_pic_y = 245
+
+family_start_x = 231
+family_start_y = 323
+
+; 最终提交
+submit_x = 273
+submit_y = 605
+
+; 关闭填表
+close_table_x = 501
+close_table_y = 90
+
+; 关闭每日填表
+close_mrtb_x = 358
+close_mrtb_y = 90
+
+
+[xiaoheiban]
+; 定义晓黑板相关的控制参数
+; 晓黑板的安装绝对路径
+xhbAppName = C:\\Program Files (x86)\\xiaoheiban\\晓黑板.exe
+
+xhbLoginWindowClass = Chrome_WidgetWin_1
+xhbLoginWindowName = 晓黑板登录
+
+xhbMainWindowClass = Chrome_WidgetWin_1
+xhbMainWindowName = 消息/全部
+
+xhbLoginPhone = 哓黑板登录手机号</code></pre>
+<h4 id="解析程序"><a href="#解析程序" class="headerlink" title="解析程序"></a>解析程序</h4><pre><code class="python">import configparser
+import logging
+from logging import handlers
+
+configFilename=&quot;suishencode.ini&quot;
+
+class ConfigData(object):
+
+    config = configparser.ConfigParser()
+    config.read(configFilename, encoding=&#39;utf-8&#39;)
+
+
+    # ********************************* #
+    # 全局参数定义开始                  #
+    # ********************************* #        
+    # 定义家属列表
+    familyList = config.get(&#39;family&#39;, &#39;familyList&#39;).strip().split(&#39;,&#39;)
+    ddMain = config.get(&#39;family&#39;, &#39;ddMain&#39;).strip()
+    xhbMain = config.get(&#39;family&#39;, &#39;xhbMain&#39;).strip()
+
+    # 定义等待间隔时间
+    pyautoguiPAUSE = config.getint(&#39;time&#39;, &#39;pyautoguiPAUSE&#39;)
+    generalWaitTime_speed_high = config.getfloat(&#39;time&#39;, &#39;generalWaitTime_speed_high&#39;)
+    generalWaitTime = config.getint(&#39;time&#39;, &#39;generalWaitTime&#39;)
+    generalTimeAdjust = config.getint(&#39;time&#39;, &#39;generalTimeAdjust&#39;)
+    generalTimeAdjust_speed_high = config.getint(&#39;time&#39;, &#39;generalTimeAdjust_speed_high&#39;)
+    generalTimeAdjust_speed_low = config.getint(&#39;time&#39;, &#39;generalTimeAdjust_speed_low&#39;)
+
+    # 日志参数
+    basicLogFileName = config.get(&#39;log&#39;, &#39;basicLogFileName&#39;)
+    logFileName = config.get(&#39;log&#39;, &#39;logFileName&#39;)
+    logMode = config.getint(&#39;log&#39;, &#39;logMode&#39;)
+    logLevelDefinition = &#123;&#39;DEBUG&#39;: 10,
+                          &#39;INFO&#39;: 20,
+                          &#39;NOTSET&#39;: 0,
+                          &#39;WARNING&#39;: 30,
+                          &#39;ERROR&#39;: 40,
+                          &#39;CRITICAL&#39;: 50&#125;
+    logLevel = logLevelDefinition[config.get(&#39;log&#39;, &#39;level&#39;)]
+
+    passwordFile = config.get(&#39;password&#39;, &#39;passwordFile&#39;)
+
+    # ********************************* #
+    # 全局参数定义结束                  #
+    # ********************************* #
+
+
+
+    # ********************************* #
+    # 微信随申码获取参数定义开始        #
+    # ********************************* #
+    # 定义微信APP安装位置
+    wxAppName = config.get(&#39;weixin-ssm&#39;, &#39;wxAppName&#39;).strip()
+
+    # 定义微信登录窗口
+    wxLoginWindowClass = config.get(&#39;weixin-ssm&#39;, &#39;wxLoginWindowClass&#39;).strip()
+    wxLoginWindowName = config.get(&#39;weixin-ssm&#39;, &#39;wxLoginWindowName&#39;).strip()
+    wxLoginBtnPic = config.get(&#39;weixin-ssm&#39;, &#39;wxLoginBtnPic&#39;).strip()
+    wxLoginBtn_x = config.getint(&#39;weixin-ssm&#39;, &#39;wxLoginBtn_x&#39;)
+    wxLoginBtn_y = config.getint(&#39;weixin-ssm&#39;, &#39;wxLoginBtn_y&#39;)
+
+    # 定义微信主窗口
+    wxWindowClass = config.get(&#39;weixin-ssm&#39;, &#39;wxWindowClass&#39;).strip()
+    wxWindowName = config.get(&#39;weixin-ssm&#39;, &#39;wxWindowName&#39;).strip()
+
+    # 定义微信小程序面板窗口
+    wxMicroPgWindowClass = config.get(&#39;weixin-ssm&#39;, &#39;wxMicroPgWindowClass&#39;).strip()
+    wxMicroPgWindowName = config.get(&#39;weixin-ssm&#39;, &#39;wxMicroPgWindowName&#39;).strip()
+    wx_xcxPic = config.get(&#39;weixin-ssm&#39;, &#39;wx_xcxPic&#39;).strip()
+    wx_ssbPic = config.get(&#39;weixin-ssm&#39;, &#39;wx_ssbPic&#39;).strip()
+
+    # 定义随申办的窗口
+    ssbWindowClass=config.get(&#39;weixin-ssm&#39;, &#39;ssbWindowClass&#39;).strip()
+    ssbWindowName=config.get(&#39;weixin-ssm&#39;, &#39;ssbWindowName&#39;).strip()
+
+    # 定义一些鼠标移动的相对常量
+    # 0. 窗口位置
+    left = config.getint(&#39;weixin-ssm&#39;, &#39;left&#39;)
+    top = config.getint(&#39;weixin-ssm&#39;, &#39;top&#39;)
+    width = config.getint(&#39;weixin-ssm&#39;, &#39;width&#39;)
+    height = config.getint(&#39;weixin-ssm&#39;, &#39;height&#39;)
+    repaint = config.getint(&#39;weixin-ssm&#39;, &#39;repaint&#39;)
+
+    # 1. 搜索框
+    searchBox_x = config.getint(&#39;weixin-ssm&#39;, &#39;searchBox_x&#39;)
+    searchBox_y = config.getint(&#39;weixin-ssm&#39;, &#39;searchBox_y&#39;)
+
+    # 2. 小程序面板
+    microPg_x = config.getint(&#39;weixin-ssm&#39;, &#39;microPg_x&#39;)
+    microPg_y = config.getint(&#39;weixin-ssm&#39;, &#39;microPg_y&#39;)
+
+    # 3. 查找小程序
+    s_microPg_x = config.getint(&#39;weixin-ssm&#39;, &#39;s_microPg_x&#39;)
+    s_microPg_y = config.getint(&#39;weixin-ssm&#39;, &#39;s_microPg_y&#39;)
+
+    # 4. 随申办定位
+    ssb_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssb_x&#39;)
+    ssb_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssb_y&#39;)
+
+    # 5. 随申码定位
+    ssm_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_x&#39;)
+    ssm_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_y&#39;)
+
+    # 6. 亲属随申码主链接
+    ssm_main_link_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_main_link_x&#39;)
+    ssm_main_link_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_main_link_y&#39;)
+
+    # 7. 亲属随申码定位（x不变，y从310开始，以93位间隔增长）
+    ssm_family_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_x&#39;)
+    ssm_family_start_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_start_y&#39;)
+    ssm_family_interval_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_interval_y&#39;)
+    ssm_family_adjust_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_adjust_y&#39;) # 亲属随申码返回的时候需要调整位置
+
+    # 定义搜索内容
+    forSearch = config.get(&#39;weixin-ssm&#39;, &#39;wxSearch&#39;).strip()
+
+    # 截图区域
+    imgLeft = config.getint(&#39;weixin-ssm&#39;, &#39;imgLeft&#39;)
+    imgTop = config.getint(&#39;weixin-ssm&#39;, &#39;imgTop&#39;)
+    imgRight = config.getint(&#39;weixin-ssm&#39;, &#39;imgRight&#39;)
+    imgBottom = config.getint(&#39;weixin-ssm&#39;, &#39;imgBottom&#39;)    
+
+    # ********************************* #
+    # 微信随申码获取参数定义结束        #
+    # ********************************* #
+
+
+
+    # ********************************* #
+    # 钉钉获取参数定义开始              #
+    # ********************************* #
+
+    # 定义钉钉APP安装位置
+    ddAppName = config.get(&#39;Dingding&#39;, &#39;ddAppName&#39;).strip()
+
+    # 定义钉钉登录窗口
+    ddLoginWindowClass = config.get(&#39;Dingding&#39;, &#39;ddLoginWindowClass&#39;).strip()
+    ddLoginWindowName = config.get(&#39;Dingding&#39;, &#39;ddLoginWindowName&#39;).strip()
+
+    ddPasswordLoginPic = config.get(&#39;Dingding&#39;, &#39;ddPasswordLoginPic&#39;).strip()
+    ddPasswordLogin_x = config.getint(&#39;Dingding&#39;, &#39;ddPasswordLogin_x&#39;)
+    ddPasswordLogin_y = config.getint(&#39;Dingding&#39;, &#39;ddPasswordLogin_y&#39;)
+
+    ddInputPassword = config.get(&#39;Dingding&#39;, &#39;ddInputPassword&#39;).strip()
+    ddInputPassword_x = config.getint(&#39;Dingding&#39;, &#39;ddInputPassword_x&#39;)
+    ddInputPassword_y = config.getint(&#39;Dingding&#39;, &#39;ddInputPassword_y&#39;)
+
+    ddInputPhoneNumber = config.get(&#39;Dingding&#39;, &#39;ddInputPhoneNumber&#39;).strip()
+    ddInputPhoneNumber_x = config.getint(&#39;Dingding&#39;, &#39;ddInputPhoneNumber_x&#39;)
+    ddInputPhoneNumber_y = config.getint(&#39;Dingding&#39;, &#39;ddInputPhoneNumber_y&#39;)
+
+    ddLoginBtn = config.get(&#39;Dingding&#39;, &#39;ddLoginBtn&#39;).strip()
+    ddLoginBtn_x = config.getint(&#39;Dingding&#39;, &#39;ddLoginBtn_x&#39;)
+    ddLoginBtn_y = config.getint(&#39;Dingding&#39;, &#39;ddLoginBtn_y&#39;)
+
+    ddLoginPhone = config.get(&#39;Dingding&#39;, &#39;ddLoginPhone&#39;).strip()
+
+    # 定义钉钉窗口
+    ddWindowClass = config.get(&#39;Dingding&#39;, &#39;ddWindowClass&#39;).strip()
+    ddWindowName = config.get(&#39;Dingding&#39;, &#39;ddWindowName&#39;).strip()
+    ddWidth = config.getint(&#39;Dingding&#39;, &#39;ddWidth&#39;)
+    ddHeight = config.getint(&#39;Dingding&#39;, &#39;ddHeight&#39;)
+
+
+    # ********************************* #
+    # 钉钉获取参数定义结束              #
+    # ********************************* #
+
+
+
+    # ********************************* #
+    # 晓黑板获取参数定义开始            #
+    # ********************************* #
+    # 定义晓黑板窗口
+
+
+
+    # ********************************* #
+    # 晓黑板获取参数定义结束            #
+    # ********************************* #
+
+    # 定义晓黑板APP安装位置
+    xhbAppName = config.get(&#39;xiaoheiban&#39;, &#39;xhbAppName&#39;).strip()
+
+    # 晓黑板登录窗口
+    xhbLoginWindowClass = config.get(&#39;xiaoheiban&#39;, &#39;xhbLoginWindowClass&#39;).strip()
+    xhbLoginWindowName = config.get(&#39;xiaoheiban&#39;, &#39;xhbLoginWindowName&#39;).strip()
+
+    # 晓黑板主窗口
+    xhbMainWindowClass = config.get(&#39;xiaoheiban&#39;, &#39;xhbMainWindowClass&#39;).strip()
+    xhbMainWindowName = config.get(&#39;xiaoheiban&#39;, &#39;xhbMainWindowName&#39;).strip()
+
+    xhbLoginPhone = config.get(&#39;xiaoheiban&#39;, &#39;xhbLoginPhone&#39;).strip()
+
+
+if __name__ == &#39;__main__&#39;:
+    cd = ConfigData()</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>一杯清茶</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.liu.group">
+            <span class="icon">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+
+            <span class="label">WEB</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/25/%E2%91%A0pywin32%E5%92%8Cpyautogui%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E9%9A%8F%E7%94%B3%E7%A0%81%E8%87%AA%E5%8A%A8%E6%88%AA%E5%8F%96%E5%B9%B6%E5%9C%A8%E9%92%89%E9%92%89%E5%92%8C%E6%99%93%E9%BB%91%E6%9D%BF%E4%B8%8A%E4%BC%A0/" rel="prev" title="①pywin32和pyautogui实现微信随申码自动截取并在钉钉和晓黑板上传">
+                  <i class="fa fa-chevron-left"></i> ①pywin32和pyautogui实现微信随申码自动截取并在钉钉和晓黑板上传
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/25/%E2%91%A1%E7%94%A8python%E7%9A%84shelve%E5%8C%85%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E5%AF%86%E7%A0%81/" rel="next" title="②用python的shelve包持久化存储密码">
+                  ②用python的shelve包持久化存储密码 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="ryle2020/ryle2020.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">208k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:09</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
