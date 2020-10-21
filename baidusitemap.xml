@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.liuyong.online/2020/10/14/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A4%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%9841-50/</loc>
+    <lastmod>2020-10-21</lastmod>
+  </url>
+  <url>
     <loc>https://www.liuyong.online/2020/10/14/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A3%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B31-40/</loc>
     <lastmod>2020-10-21</lastmod>
   </url>
@@ -731,9 +735,5 @@
   <url>
     <loc>https://www.liuyong.online/2020/08/28/%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%92%8C%E4%BA%B2%E5%92%8C%E6%95%B0%E8%AE%A1%E7%AE%97%E4%B9%8BPython%E5%92%8CC/</loc>
     <lastmod>2020-10-21</lastmod>
-  </url>
-  <url>
-    <loc>https://www.liuyong.online/2020/10/14/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A4%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%9841-50/</loc>
-    <lastmod>2020-10-14</lastmod>
   </url>
 </urlset> 
