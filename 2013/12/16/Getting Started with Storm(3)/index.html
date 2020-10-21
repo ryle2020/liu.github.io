@@ -23,16 +23,16 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="第三章 Topologies   这一章，你将会看到在一个Storm Topology中的不同组件之间如何传递Tuples，以及怎么把一个Topology部署到一个正在运行的Storm集群中。  Stream Grouping  在设计topology的时候有件很重要的事情，就是需要定义数据在组件之间如何交换（换句话说，就是bolt怎么消费stream），Stream Grouping定义了每个b">
+  <meta name="description" content="第三章 Topologies">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Getting Started with Storm(3)">
 <meta property="og:url" content="https://www.liuyong.online/2013/12/16/Getting%C2%A0Started%C2%A0with%C2%A0Storm(3)/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="第三章 Topologies   这一章，你将会看到在一个Storm Topology中的不同组件之间如何传递Tuples，以及怎么把一个Topology部署到一个正在运行的Storm集群中。  Stream Grouping  在设计topology的时候有件很重要的事情，就是需要定义数据在组件之间如何交换（换句话说，就是bolt怎么消费stream），Stream Grouping定义了每个b">
+<meta property="og:description" content="第三章 Topologies">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="article:published_time" content="2013-12-16T14:52:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.832Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.855Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="storm">
 <meta name="twitter:card" content="summary">
@@ -239,14 +239,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -391,349 +391,343 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <div>第三章 Topologies</div>
-<div>
+        <p>第三章 Topologies</p>
+<a id="more"></a>
 <div style="font-family: 微软雅黑; line-height: normal;">
 这一章，你将会看到在一个Storm
-Topology中的不同组件之间如何传递Tuples，以及怎么把一个Topology部署到一个正在运行的Storm集群中。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+Topology中的不同组件之间如何传递Tuples，以及怎么把一个Topology部署到一个正在运行的Storm集群中。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">Stream
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">
 在设计topology的时候有件很重要的事情，就是需要定义数据在组件之间如何交换（换句话说，就是bolt怎么消费stream），Stream
-Grouping定义了每个bolt消费哪些stream以及怎么被消费。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+Grouping定义了每个bolt消费哪些stream以及怎么被消费。
 <div style="font-family: 微软雅黑; line-height: normal;">
-一个节点可以emit一个或者数个数据流，流组合允许我们选择接受哪个流。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
 <div style="font-family: 微软雅黑; line-height: normal;">
-正如我们的第二章看到的，在定义topology的时候，我们设置了流组合：</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+一个节点可以emit一个或者数个数据流，流组合允许我们选择接受哪个流。
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.setBolt("word-normalizer", new WordNormalizer())</div>
 <div style="font-family: 微软雅黑; line-height: normal;">
-.shuffleGrouping("word-reader");</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+正如我们的第二章看到的，在定义topology的时候，我们设置了流组合：
+<div style="font-family: 微软雅黑; line-height: normal;">...
+<div style="font-family: 微软雅黑; line-height: normal;">
+builder.setBolt("word-normalizer", new WordNormalizer())
+<div style="font-family: 微软雅黑; line-height: normal;">
+.shuffleGrouping("word-reader");
+<div style="font-family: 微软雅黑; line-height: normal;">...
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">
 在上面这段代码中，bolt在topology 构造器中被设置，然后使用shuffle Stream
-Grouping设置一个数据源。通常一个流组合使用源组件的ID作为参数，然后根据流组合的类型可选其他参数。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+Grouping设置一个数据源。通常一个流组合使用源组件的ID作为参数，然后根据流组合的类型可选其他参数。
 <div style="font-family: 微软雅黑; line-height: normal;">
-每一个InputDeclarer可以有多个数据源，每一个数据源可以和一个不同的流组合组合在一起。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+每一个InputDeclarer可以有多个数据源，每一个数据源可以和一个不同的流组合组合在一起。
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">Shuffle
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">
 ShuffleGrouping是一个最常用的grouping。它接收一个参数（源数据组件ID），然后发送每一个被source
-emit出来的tuple（元组）到一个随机被选择的bolt，并且保证每个bolt收到同样数量的tuple</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+emit出来的tuple（元组）到一个随机被选择的bolt，并且保证每个bolt收到同样数量的tuple
 <div style="font-family: 微软雅黑; line-height: normal;">
-ShuffleGrouping在做自动操作，比如数学运算的时候是非常有用的。然而如果一个操作不能被随机分配，比如在第二章中的例子你需要计算单词个数，你就需要使用其他grouping。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+ShuffleGrouping在做自动操作，比如数学运算的时候是非常有用的。然而如果一个操作不能被随机分配，比如在第二章中的例子你需要计算单词个数，你就需要使用其他grouping。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">Fields
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">Fields
 Grouping允许你基于tuple的一个或者多个字段，控制tuple传递给bolt的方式。它可以保证一个被指定的字段组合的值总是可以被发送到同一个bolt。回到单词计数的例子，如果你通过word字段来分组，word-normalizer
-bolt会将指定单词的tuple发送到同一个word-counter bolt的实例。</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+bolt会将指定单词的tuple发送到同一个word-counter bolt的实例。
+<div style="font-family: 微软雅黑; line-height: normal;">...
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.setBolt("word-counter", new WordCounter(),2)</div>
+builder.setBolt("word-counter", new WordCounter(),2)
 <div style="font-family: 微软雅黑; line-height: normal;">
-.fieldsGrouping("word-normalizer", new Fields("word"));</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+.fieldsGrouping("word-normalizer", new Fields("word"));
+<div style="font-family: 微软雅黑; line-height: normal;">...
 <div style="font-family: 微软雅黑; line-height: normal;">
-需要注意的是，所有在fields grouping中被指定的字段都必须在源字段中声明过。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+需要注意的是，所有在fields grouping中被指定的字段都必须在源字段中声明过。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">All
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">All
 Grouping发送每个元组的单一拷贝到所有接收bolt。这种类型的grouping主要用于给所有的bolt发送信号。比如，如果你需要刷新缓存，你可以发送一个“刷新缓存信号”给所有的bolt。在单词计数的例子中，你可以使用All
-Grouping去清除counter的缓存。</div>
+Grouping去清除counter的缓存。
 <div style="font-family: 微软雅黑; line-height: normal;">public void
-execute(Tuple input) {</div>
+execute(Tuple input) {
 <div style="font-family: 微软雅黑; line-height: normal;">String str =
-null;</div>
-<div style="font-family: 微软雅黑; line-height: normal;">try{</div>
+null;
+<div style="font-family: 微软雅黑; line-height: normal;">try{
 <div style="font-family: 微软雅黑; line-height: normal;">
-if(input.getSourceStreamId().equals("signals")){</div>
+if(input.getSourceStreamId().equals("signals")){
 <div style="font-family: 微软雅黑; line-height: normal;">str =
-input.getStringByField("action");</div>
+input.getStringByField("action");
 <div style="font-family: 微软雅黑; line-height: normal;">
-if("refreshCache".equals(str))</div>
+if("refreshCache".equals(str))
 <div style="font-family: 微软雅黑; line-height: normal;">
-counters.clear();</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+counters.clear();
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">}catch
-(IllegalArgumentException<wbr/> e) {</div>
+(IllegalArgumentException e) {
 <div style="font-family: 微软雅黑; line-height: normal;">//Do
-nothing</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+nothing
+<div style="font-family: 微软雅黑; line-height: normal;">}
+<div style="font-family: 微软雅黑; line-height: normal;">...
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">我们增加一个If
-功能来检查源数据流。Storm允许我们对流数据命名（如果你没有命名的话，默认为“default”数据流）。在鉴别元组的来源时给了我们极大的便利，比如上面这段代码，我们定义了signals。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+功能来检查源数据流。Storm允许我们对流数据命名（如果你没有命名的话，默认为“default”数据流）。在鉴别元组的来源时给了我们极大的便利，比如上面这段代码，我们定义了signals。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">
 在Topology定义中，你可以增加第二个流给到word-counter
-bolt，从signals-spout流中发送一个元组给到bolt的每一个实例。</div>
+bolt，从signals-spout流中发送一个元组给到bolt的每一个实例。
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.setBolt("word-counter", new WordCounter(),2)</div>
+builder.setBolt("word-counter", new WordCounter(),2)
 <div style="font-family: 微软雅黑; line-height: normal;">
-.fieldsGrouping("word-normalizer", new Fields("word"))</div>
+.fieldsGrouping("word-normalizer", new Fields("word"))
 <div style="font-family: 微软雅黑; line-height: normal;">
-.allGrouping("signals-spout","signals");</div>
+.allGrouping("signals-spout","signals");
 <div style="font-family: 微软雅黑; line-height: normal;">
-这个实现可以在git库中找到。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+这个实现可以在git库中找到。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">Custom
-Grouping自定义分组</div>
+Grouping自定义分组
 <div style="font-family: 微软雅黑; line-height: normal;">
-通过实现backtype.storm.grouping.CustomStreamGrouping接口，你也可以创建你自己的自定义流分组。这给了你权利来决定哪些bolt可以收到元组。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+通过实现backtype.storm.grouping.CustomStreamGrouping接口，你也可以创建你自己的自定义流分组。这给了你权利来决定哪些bolt可以收到元组。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">让我们对word
-count的例子做些修改，我们对元组分类，确保以同一个字母开头的单词都被同一个bolt接收。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+count的例子做些修改，我们对元组分类，确保以同一个字母开头的单词都被同一个bolt接收。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">public class
-ModuleGrouping implements CustomStreamGrouping, Serializable{</div>
+ModuleGrouping implements CustomStreamGrouping, Serializable{
 <div style="font-family: 微软雅黑; line-height: normal;">int numTasks =
-0;</div>
+0;
 <div style="font-family: 微软雅黑; line-height: normal;">
-@Override</div>
+@Override
 <div style="font-family: 微软雅黑; line-height: normal;">public List
-chooseTasks(List<object>values) {</object></div>
+chooseTasks(List<object>values) {</object>
 <div style="font-family: 微软雅黑; line-height: normal;">List boltIds =
-new ArrayList();</div>
+new ArrayList();
 <div style="font-family: 微软雅黑; line-height: normal;">
-if(values.size()&gt;0){</div>
+if(values.size()&gt;0){
 <div style="font-family: 微软雅黑; line-height: normal;">String str =
-values.get(0).toString();</div>
+values.get(0).toString();
 <div style="font-family: 微软雅黑; line-height: normal;">
-if(str.isEmpty())</div>
+if(str.isEmpty())
 <div style="font-family: 微软雅黑; line-height: normal;">
-boltIds.add(0);</div>
-<div style="font-family: 微软雅黑; line-height: normal;">else</div>
+boltIds.add(0);
+<div style="font-family: 微软雅黑; line-height: normal;">else
 <div style="font-family: 微软雅黑; line-height: normal;">
-boltIds.add(str.charAt(0) % numTasks);</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+boltIds.add(str.charAt(0) % numTasks);
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">return
-boltIds;</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+boltIds;
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-@Override</div>
+@Override
 <div style="font-family: 微软雅黑; line-height: normal;">public void
-prepare(TopologyContext context, Fields outFields,</div>
+prepare(TopologyContext context, Fields outFields,
 <div style="font-family: 微软雅黑; line-height: normal;">List
-targetTasks) {</div>
+targetTasks) {
 <div style="font-family: 微软雅黑; line-height: normal;">numTasks =
-targetTasks.size();</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+targetTasks.size();
+<div style="font-family: 微软雅黑; line-height: normal;">}
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-你看到了一个简单的CustomStreamGrouping的实现，我们用每个单词的第一个字符的整数值对任务总量求余，然后依此选择哪个bolt会接收这个元组。</div>
+你看到了一个简单的CustomStreamGrouping的实现，我们用每个单词的第一个字符的整数值对任务总量求余，然后依此选择哪个bolt会接收这个元组。
 <div style="font-family: 微软雅黑; line-height: normal;">
-为了使用这个分组，我们改变一下work-normalizer的实现：</div>
+为了使用这个分组，我们改变一下work-normalizer的实现：
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.setBolt("word-normalizer", new WordNormalizer())</div>
+builder.setBolt("word-normalizer", new WordNormalizer())
 <div style="font-family: 微软雅黑; line-height: normal;">
-.customGrouping("word-reader", new ModuleGrouping());</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+.customGrouping("word-reader", new ModuleGrouping());
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">Direct
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">
 这个是一个特殊的分组，由源来决定哪个组件接收元组。回到上面的例子，基于单词的第一个字符，由源来决定哪一个bolt会接收到元组。为了使用direct
-grouping，在WordNormalizer bolt中，用emitDirect方法代替emit</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;">public void
-execute(Tuple input) {</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
-<div style="font-family: 微软雅黑; line-height: normal;">for(String
-word : words){</div>
+grouping，在WordNormalizer bolt中，用emitDirect方法代替emit
 <div style="font-family: 微软雅黑; line-height: normal;">
-if(!word.isEmpty()){</div>
-<div style="font-family: 微软雅黑; line-height: normal;">...</div>
+<div style="font-family: 微软雅黑; line-height: normal;">public void
+execute(Tuple input) {
+<div style="font-family: 微软雅黑; line-height: normal;">...
+<div style="font-family: 微软雅黑; line-height: normal;">for(String
+word : words){
+<div style="font-family: 微软雅黑; line-height: normal;">
+if(!word.isEmpty()){
+<div style="font-family: 微软雅黑; line-height: normal;">...
 <div style="font-family: 微软雅黑; line-height: normal;">
 collector.emitDirect(getWordCountIndex(word),new
-Values(word));</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+Values(word));
+<div style="font-family: 微软雅黑; line-height: normal;">}
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">// Acknowledge
-the tuple</div>
+the tuple
 <div style="font-family: 微软雅黑; line-height: normal;">
-collector.ack(input);</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+collector.ack(input);
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">public Integer
-getWordCountIndex(String word) {</div>
+getWordCountIndex(String word) {
 <div style="font-family: 微软雅黑; line-height: normal;">word =
-word.trim().toUpperCase();</div>
+word.trim().toUpperCase();
 <div style="font-family: 微软雅黑; line-height: normal;">
-if(word.isEmpty())</div>
+if(word.isEmpty())
 <div style="font-family: 微软雅黑; line-height: normal;">return
-0;</div>
-<div style="font-family: 微软雅黑; line-height: normal;">else</div>
+0;
+<div style="font-family: 微软雅黑; line-height: normal;">else
 <div style="font-family: 微软雅黑; line-height: normal;">return
-word.charAt(0) % numCounterTasks;</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+word.charAt(0) % numCounterTasks;
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-在Prepare方法中计算出目标的任务数量：</div>
+在Prepare方法中计算出目标的任务数量：
 <div style="font-family: 微软雅黑; line-height: normal;">public void
-prepare(Map stormConf, TopologyContext context,</div>
+prepare(Map stormConf, TopologyContext context,
 <div style="font-family: 微软雅黑; line-height: normal;">
-OutputCollector collector) {</div>
+OutputCollector collector) {
 <div style="font-family: 微软雅黑; line-height: normal;">this.collector
-= collector;</div>
+= collector;
 <div style="font-family: 微软雅黑; line-height: normal;">
 this.numCounterTasks =
-context.getComponentTasks("word-counter");</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+context.getComponentTasks("word-counter");
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-在topology的定义出，指定流的分组方式：</div>
+在topology的定义出，指定流的分组方式：
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.setBolt("word-counter", new WordCounter(),2)</div>
+builder.setBolt("word-counter", new WordCounter(),2)
 <div style="font-family: 微软雅黑; line-height: normal;">
-.directGrouping("word-normalizer");</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+.directGrouping("word-normalizer");
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">Global
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">Global
-Grouping会发送所有源实例产生的元组到一个单一的目标实例（通常是到一个有最小ID的任务）</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+Grouping会发送所有源实例产生的元组到一个单一的目标实例（通常是到一个有最小ID的任务）
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">None
-Grouping</div>
+Grouping
 <div style="font-family: 微软雅黑; line-height: normal;">
 在Storm0.7.1版本中，None Grouping和Shuffle
-Grouping是一样的。换句话说，使用此分组就意味着不去关心Stream怎么被分组。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+Grouping是一样的。换句话说，使用此分组就意味着不去关心Stream怎么被分组。
 <div style="font-family: 微软雅黑; line-height: normal;">
-LocalCluster对StormSubmitter</div>
 <div style="font-family: 微软雅黑; line-height: normal;">
-到目前为止，我们都是使用一个叫做LocalCluster的工具在本地运行topology。在本地运行便于我们调试不同的topoloties。但是当我们把topology提交到一个运行中的Storm会怎么样呢？Storm的一个极其有趣的特性就是非常方便就可以把我们的topology提交给一个正在运行的真实的集群。我们需要在实现submitTopology时，把LocalCluster改变为StormSubmitter，它将负责把topology提交给集群。</div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+LocalCluster对StormSubmitter
+<div style="font-family: 微软雅黑; line-height: normal;">
+到目前为止，我们都是使用一个叫做LocalCluster的工具在本地运行topology。在本地运行便于我们调试不同的topoloties。但是当我们把topology提交到一个运行中的Storm会怎么样呢？Storm的一个极其有趣的特性就是非常方便就可以把我们的topology提交给一个正在运行的真实的集群。我们需要在实现submitTopology时，把LocalCluster改变为StormSubmitter，它将负责把topology提交给集群。
 <div style="font-family: 微软雅黑; line-height: normal;">//LocalCluster
-cluster = new LocalCluster();</div>
+cluster = new LocalCluster();
 <div style="font-family: 微软雅黑; line-height: normal;">
 //cluster.submitTopology("Count-Word-Topology-With-Refresh-Cache",
-conf, builder.createTopology()); <wbr/></div>
+conf, builder.createTopology());
 <div style="font-family: 微软雅黑; line-height: normal;">
 StormSubmitter.submitTopology("Count-Word-Topology-With-Refresh-Cache",
-conf, builder.createTopology()); <wbr/></div>
+conf, builder.createTopology());
 <div style="font-family: 微软雅黑; line-height: normal;">
-//Thread.sleep(1000);</div>
+//Thread.sleep(1000);
 <div style="font-family: 微软雅黑; line-height: normal;">
-//cluster.shutdown();</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+//cluster.shutdown();
 <div style="font-family: 微软雅黑; line-height: normal;">
-当我们使用SotrmSubmitter的时候，我们将不能像使用LocalCluster一样在代码中控制集群。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+<div style="font-family: 微软雅黑; line-height: normal;">
+当我们使用SotrmSubmitter的时候，我们将不能像使用LocalCluster一样在代码中控制集群。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">
 下一步，我们需要打包一个Jar文件，然后通过StormClient命令提交这个topology。我们在例子中使用的是Maven，所以打包很简单，在代码目录中运行：mvn
-package</div>
+package
 <div style="font-family: 微软雅黑; line-height: normal;">
 当我们有了这个Jar包，我们使用storm jar命令提交这个topology（可以参考附录A来安装Storm client）语法是：
-storm jar allmycode.jar org.me.MyTopology arg1 arg2 arg3.</div>
+storm jar allmycode.jar org.me.MyTopology arg1 arg2 arg3.
 <div style="font-family: 微软雅黑; line-height: normal;">在这个例子中 storm
 jar target/Topologies-0.0.1-SNAPSHOT.jar countword.TopologyMain
-src/main/ resources/words.txt这样我们就提交了这个topology到集群了。</div>
+src/main/ resources/words.txt这样我们就提交了这个topology到集群了。
 <div style="font-family: 微软雅黑; line-height: normal;">
 为了停止或者终止这个topology，使用命令：storm kill
-Count-Word-Topology-With-Refresh-Cache</div>
+Count-Word-Topology-With-Refresh-Cache
 <div style="font-family: 微软雅黑; line-height: normal;">
-注意：Topology的名称必须唯一</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+注意：Topology的名称必须唯一
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">DRPC
-Topologies</div>
+Topologies
 <div style="font-family: 微软雅黑; line-height: normal;">
 有一种特殊的topology，我们称之为 分布式远程过程调用（Distributed Remote Procedure Call
- <wbr/>-  <wbr/> DRPC),liyong
-Storm强大的分布式处理能力来执行远程过程调用。Strorm提供了一些工具使我们可以使用DRPC。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+-   DRPC),liyong
+Storm强大的分布式处理能力来执行远程过程调用。Strorm提供了一些工具使我们可以使用DRPC。
+<div style="font-family: 微软雅黑; line-height: normal;">
 <div style="font-family: 微软雅黑; line-height: normal;">
 第一个是DRPC服务器，作为客户端和Storm topology的连接器运行，同时作为topology
 的spout运行。它接收到要执行的函数及其参数。然后对每一个要处理的数据，服务器都会安排一个requestID来鉴别这个RPC请求。当topology执行完最后一个bolt，它会emit这个RPC
-requestID和结果，确保DRPC服务器返回结果给到正确的客户端。注意：一个DRPC服务器可以执行多个功能，每个功能都需要有一个唯一的名字。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+requestID和结果，确保DRPC服务器返回结果给到正确的客户端。注意：一个DRPC服务器可以执行多个功能，每个功能都需要有一个唯一的名字。
 <div style="font-family: 微软雅黑; line-height: normal;">
-第二个是LinearDRPCTopologyBuilde<wbr/>r，一个抽象类帮助实现DRPC
-topologies。这个topology会创建DRPCSpouts（连接到DRPC服务器并emit数据到其他的topology），会封装bolt以确保结果可以从最后一个bolt返回。所有被增加到LinearDRPCTopologyBuilde<wbr/>r的bolt都会按照顺序执行。作为这种类型的topology的例子，我们来创建一个流程来增加数字。非常简单的例子，但是可以由此扩展到实现复杂的分布式数学运算。<img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" data-inited="true" data-media-type="image" style="cursor: default; display: inline-block;" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)"/></div>
-<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6F2SCteMtad" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" height="181" name="image_operate_15001387205577809" real_src="http://s14.sinaimg.cn/mw690/001DcOacgy6F2SCteMtad&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" width="490"/></a><br/>
-<br/></div>
 <div style="font-family: 微软雅黑; line-height: normal;">
-bolt有如下的输出宣言：</div>
+第二个是LinearDRPCTopologyBuilder，一个抽象类帮助实现DRPC
+topologies。这个topology会创建DRPCSpouts（连接到DRPC服务器并emit数据到其他的topology），会封装bolt以确保结果可以从最后一个bolt返回。所有被增加到LinearDRPCTopologyBuilder的bolt都会按照顺序执行。作为这种类型的topology的例子，我们来创建一个流程来增加数字。非常简单的例子，但是可以由此扩展到实现复杂的分布式数学运算。<img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" data-inited="true" data-media-type="image" style="cursor: default; display: inline-block;" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)"/>
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6F2SCteMtad" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" height="181" name="image_operate_15001387205577809" real_src="http://s14.sinaimg.cn/mw690/001DcOacgy6F2SCteMtad&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm(3)" width="490"/></a>
+<div style="font-family: 微软雅黑; line-height: normal;">
+bolt有如下的输出宣言：
 <div style="font-family: 微软雅黑; line-height: normal;">public void
-declareOutputFields(OutputFieldsDeclarer declarer) {</div>
+declareOutputFields(OutputFieldsDeclarer declarer) {
 <div style="font-family: 微软雅黑; line-height: normal;">
-declarer.declare(new Fields("id","result"));</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+declarer.declare(new Fields("id","result"));
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-尽管这是此topology中唯一的一个bolt，它仍然需要emit RPC ID和结果。</div>
+尽管这是此topology中唯一的一个bolt，它仍然需要emit RPC ID和结果。
 <div style="font-family: 微软雅黑; line-height: normal;">
-execute方法负责执行增加操作：</div>
+execute方法负责执行增加操作：
 <div style="font-family: 微软雅黑; line-height: normal;">public void
-execute(Tuple input) {</div>
+execute(Tuple input) {
 <div style="font-family: 微软雅黑; line-height: normal;">String[]
-numbers = input.getString(1).split("\+");</div>
+numbers = input.getString(1).split("\+");
 <div style="font-family: 微软雅黑; line-height: normal;">Integer added
-= 0;</div>
+= 0;
 <div style="font-family: 微软雅黑; line-height: normal;">
-if(numbers.length&lt;2){</div>
+if(numbers.length&lt;2){
 <div style="font-family: 微软雅黑; line-height: normal;">throw new
-InvalidParameterExceptio<wbr/>n("Should be at least 2 numbers");</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+InvalidParameterException("Should be at least 2 numbers");
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">for(String num
-: numbers){</div>
+: numbers){
 <div style="font-family: 微软雅黑; line-height: normal;">added +=
-Integer.parseInt(num);</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+Integer.parseInt(num);
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-collector.emit(new Values(input.getValue(0),added));</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+collector.emit(new Values(input.getValue(0),added));
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
-需要在topology的定义中包含额外的bolt</div>
+需要在topology的定义中包含额外的bolt
 <div style="font-family: 微软雅黑; line-height: normal;">public static
-void main(String[] args) {</div>
+void main(String[] args) {
 <div style="font-family: 微软雅黑; line-height: normal;">LocalDRPC drpc
-= new LocalDRPC();</div>
+= new LocalDRPC();
 <div style="font-family: 微软雅黑; line-height: normal;">
-LinearDRPCTopologyBuilde<wbr/>r builder = new
-LinearDRPCTopologyBuilde<wbr/>r("add");</div>
+LinearDRPCTopologyBuilder builder = new
+LinearDRPCTopologyBuilder("add");
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.addBolt(new AdderBolt(),2);</div>
+builder.addBolt(new AdderBolt(),2);
 <div style="font-family: 微软雅黑; line-height: normal;">Config conf =
-new Config();</div>
+new Config();
 <div style="font-family: 微软雅黑; line-height: normal;">
-conf.setDebug(true);</div>
+conf.setDebug(true);
 <div style="font-family: 微软雅黑; line-height: normal;">LocalCluster
-cluster = new LocalCluster();</div>
+cluster = new LocalCluster();
 <div style="font-family: 微软雅黑; line-height: normal;">
-cluster.submitTopology("drpc-adder-topology", conf,</div>
+cluster.submitTopology("drpc-adder-topology", conf,
 <div style="font-family: 微软雅黑; line-height: normal;">
-builder.createLocalTopology(drpc));</div>
+builder.createLocalTopology(drpc));
 <div style="font-family: 微软雅黑; line-height: normal;">String result
-= drpc.execute("add", "1+-1");</div>
+= drpc.execute("add", "1+-1");
 <div style="font-family: 微软雅黑; line-height: normal;">
-checkResult(result,0);</div>
+checkResult(result,0);
 <div style="font-family: 微软雅黑; line-height: normal;">result =
-drpc.execute("add", "1+1+5+10");</div>
+drpc.execute("add", "1+1+5+10");
 <div style="font-family: 微软雅黑; line-height: normal;">
-checkResult(result,17);</div>
+checkResult(result,17);
 <div style="font-family: 微软雅黑; line-height: normal;">
-cluster.shutdown();</div>
+cluster.shutdown();
 <div style="font-family: 微软雅黑; line-height: normal;">
-drpc.shutdown();</div>
-<div style="font-family: 微软雅黑; line-height: normal;">}</div>
+drpc.shutdown();
+<div style="font-family: 微软雅黑; line-height: normal;">}
 <div style="font-family: 微软雅黑; line-height: normal;">
 首先创建一个LocalDRPC对象在本地运行DRPC服务器；然后创建一个topology
-builder，并增加bolt到此topology。然后用execute方法来测试这个topology。</div>
+builder，并增加bolt到此topology。然后用execute方法来测试这个topology。
 <div style="font-family: 微软雅黑; line-height: normal;">
 为了连接到一个远程的DRPC服务器，需要使用DRPCClient类。DRPC服务器给出了“Thrift
 API”（http://thrift.apache.org/）可以被多种语言使用，而且无论本地还是远程都是一样的API。上面的例子是本地的，如果需要提交topology到Storm集群，使用createRemoteTopology来代替上面的createLocalTopology，此方法会从Storm
-Config中读到DRPC的配置并据此运行。</div>
-</div>
-<div><br/></div>
-</div>
-
-
+Config中读到DRPC的配置并据此运行。
     </div>
 
     
@@ -861,14 +855,14 @@ Config中读到DRPC的配置并据此运行。</div>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

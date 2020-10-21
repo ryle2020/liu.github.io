@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="计算并返回任意正整数n的阶乘 def main(n):     if n &#x3D;&#x3D; 1:         return n     else:         return n * main(n-1)  计算并返回任意多个证书的和 def main(*args):     return sum(args)  给定任意列表lst和一个任意值item，返回item在lst中第一次出现的位置，如果不存在则">
+  <meta name="description" content="计算并返回任意正整数n的阶乘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python小屋练手①编程自测题1-10">
 <meta property="og:url" content="https://www.liuyong.online/2020/10/06/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A0%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%981-10/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="计算并返回任意正整数n的阶乘 def main(n):     if n &#x3D;&#x3D; 1:         return n     else:         return n * main(n-1)  计算并返回任意多个证书的和 def main(*args):     return sum(args)  给定任意列表lst和一个任意值item，返回item在lst中第一次出现的位置，如果不存在则">
+<meta property="og:description" content="计算并返回任意正整数n的阶乘">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-06T03:38:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:54.810Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:14.374Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="董付国">
 <meta property="article:tag" content="python">
@@ -240,14 +240,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -359,7 +359,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
         </span>
     </span>
 
@@ -378,7 +378,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>969</span>
+      <span>1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -397,71 +397,17 @@
     
     <div class="post-body" itemprop="articleBody">
         <ol>
-<li><p>计算并返回任意正整数n的阶乘</p>
-<pre><code class="python">def main(n):
-    if n == 1:
-        return n
-    else:
-        return n * main(n-1)</code></pre>
-</li>
-<li><p>计算并返回任意多个证书的和</p>
-<pre><code class="python">def main(*args):
-    return sum(args)</code></pre>
-</li>
-<li><p>给定任意列表lst和一个任意值item，返回item在lst中第一次出现的位置，如果不存在则返回’不存在’</p>
-<pre><code class="python">def main(lst, item):
-    try:
-        return lst.index(item)
-    except:
-       return &#39;不存在&#39;</code></pre>
-</li>
-<li><p>返回包含原列表中大于或等于所有整数平均值的整数列表</p>
-<pre><code class="python">def main(lst):
-    avg = sum(lst) / len(lst)
-    return [x for x in lst if x &gt;= avg]</code></pre>
-</li>
-<li><p>返回元组，第一个元素为p整除q的商，第二个元素为p对q的余数</p>
-<pre><code class="python">def main(p, q):
-    return (p//q, p%q)</code></pre>
-</li>
-<li><p>返回正整数num各位数字之和</p>
-<pre><code class="python">def main(num):
-    retV = num % 10
-    while num // 10 &gt; 0:
-        num = num // 10
-        retV += num % 10
-    return retV</code></pre>
-</li>
-<li><p>返回一个新列表，包含原列表中的唯一元素，且保持原列表中首次出现的相对位置</p>
-<pre><code class="python">def main(lst):
-    retList = []
-    for i in range(0, len(lst)):
-        try:
-            index = retList.index(lst[i])
-            continue
-        except:
-            retList.append(lst[i])
-    return retList</code></pre>
-</li>
-<li><p>返回一个新列表，包含原列表中每个字符串变成小写之后的字符串</p>
-<pre><code class="python">def main(lst):
-    return [x.lower() for x in lst]</code></pre>
-</li>
-<li><p>返回一个新列表，将原列表中每个字符串长度从大到小排列</p>
-<pre><code class="python">def main(lst):
-    return sorted(lst, key=lambda x:len(x), reverse=True)</code></pre>
-</li>
-<li><p>接收一个正整数n，返回n的阶乘，编写代码调用改函数，分别计算并输出20,、30、40的阶乘，不允许修改已有代码</p>
-<pre><code class="python">from functools import reduce
-from operator import mul
-
-def main(n):
-    return reduce(mul, range(1, n+1))
-
-print(main(20))
-print(main(30))
-print(main(40))</code></pre>
-</li>
+<li>计算并返回任意正整数n的阶乘<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n</span>):</span></span><br><span class="line"><span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line"><span class="keyword">return</span> n</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">return</span> n * main(n<span class="number">-1</span>)</span><br></pre></td></tr></table></figure></li>
+<li>计算并返回任意多个证书的和<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">*args</span>):</span></span><br><span class="line"><span class="keyword">return</span> sum(args)</span><br></pre></td></tr></table></figure></li>
+<li>给定任意列表lst和一个任意值item，返回item在lst中第一次出现的位置，如果不存在则返回’不存在’<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst, item</span>):</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"><span class="keyword">return</span> lst.index(item)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="string">&#x27;不存在&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>返回包含原列表中大于或等于所有整数平均值的整数列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">avg = sum(lst) / len(lst)</span><br><span class="line"><span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> lst <span class="keyword">if</span> x &gt;= avg]</span><br></pre></td></tr></table></figure></li>
+<li>返回元组，第一个元素为p整除q的商，第二个元素为p对q的余数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">p, q</span>):</span></span><br><span class="line"><span class="keyword">return</span> (p//q, p%q)</span><br></pre></td></tr></table></figure></li>
+<li>返回正整数num各位数字之和<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">num</span>):</span></span><br><span class="line">retV = num % <span class="number">10</span></span><br><span class="line"><span class="keyword">while</span> num // <span class="number">10</span> &gt; <span class="number">0</span>:</span><br><span class="line">num = num // <span class="number">10</span></span><br><span class="line">retV += num % <span class="number">10</span></span><br><span class="line"><span class="keyword">return</span> retV</span><br></pre></td></tr></table></figure></li>
+<li>返回一个新列表，包含原列表中的唯一元素，且保持原列表中首次出现的相对位置<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">retList = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(lst)):</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">index = retList.index(lst[i])</span><br><span class="line"><span class="keyword">continue</span></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">retList.append(lst[i])</span><br><span class="line"><span class="keyword">return</span> retList</span><br></pre></td></tr></table></figure></li>
+<li>返回一个新列表，包含原列表中每个字符串变成小写之后的字符串<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> [x.lower() <span class="keyword">for</span> x <span class="keyword">in</span> lst]</span><br></pre></td></tr></table></figure></li>
+<li>返回一个新列表，将原列表中每个字符串长度从大到小排列<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> sorted(lst, key=<span class="keyword">lambda</span> x:len(x), reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></li>
+<li>接收一个正整数n，返回n的阶乘，编写代码调用改函数，分别计算并输出20,、30、40的阶乘，不允许修改已有代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> mul</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n</span>):</span></span><br><span class="line"><span class="keyword">return</span> reduce(mul, range(<span class="number">1</span>, n+<span class="number">1</span>))</span><br><span class="line">print(main(<span class="number">20</span>))</span><br><span class="line">print(main(<span class="number">30</span>))</span><br><span class="line">print(main(<span class="number">40</span>))</span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </div>
@@ -594,14 +540,14 @@ print(main(40))</code></pre>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

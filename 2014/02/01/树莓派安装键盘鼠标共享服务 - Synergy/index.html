@@ -23,17 +23,17 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="原本以为是个简单事情，结果弄起来才知道其实不容易。 先去http:&#x2F;&#x2F;synergy-foss.org&#x2F;下载源码，ARM的芯片，得重新编译～  tar xzf synergy-1.4.15-Source.tar.gzcd synergy-1.4.15-Source编译，发觉要cmake，sudo apt-get install cmakevi CMakeLists.txt   -修改第178行se">
+  <meta name="description" content="原本以为是个简单事情，结果弄起来才知道其实不容易。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派安装键盘鼠标共享服务 - Synergy">
 <meta property="og:url" content="https://www.liuyong.online/2014/02/01/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1%C2%A0-%C2%A0Synergy/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="原本以为是个简单事情，结果弄起来才知道其实不容易。 先去http:&#x2F;&#x2F;synergy-foss.org&#x2F;下载源码，ARM的芯片，得重新编译～  tar xzf synergy-1.4.15-Source.tar.gzcd synergy-1.4.15-Source编译，发觉要cmake，sudo apt-get install cmakevi CMakeLists.txt   -修改第178行se">
+<meta property="og:description" content="原本以为是个简单事情，结果弄起来才知道其实不容易。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="article:published_time" content="2014-02-01T08:19:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.649Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.648Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="键盘鼠标共享">
@@ -242,14 +242,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -394,33 +394,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>原本以为是个简单事情，结果弄起来才知道其实不容易。<br/>
-先去<a target="_blank" rel="noopener" href="http://synergy-foss.org/help/">http://synergy-foss.org/</a>下载源码，ARM的芯片，得重新编译～<br/>
-
-<p>tar xzf synergy-1.4.15-Source.tar.gz<br/><br>cd synergy-1.4.15-Source<br/><br>编译，发觉要cmake，<br/><br>sudo apt-get install cmake<br/><br>vi CMakeLists.txt<br/><br> <wbr/> <wbr/> -修改第178行set(CMAKE_INCLUDE_PATH<br>“${CMAKE_INCLUDE_PATH}:/usr/include”)从“/usr/local/include”改为/usr/include,这个bug可以查到<a target="_blank" rel="noopener" href="http://synergy-foss.org/spit/issues/details/3365/">http://synergy-foss.org/spit/issues/details/3365/</a><br/></p>
-<p>./configure<br/><br>然后你就开始看到error了，<br/><br>第一个Missing header: X11/Xlib.hx11/XKBlib.h<br/><br>解决方式：sudo apt-get install libx11-dev<br/><br>第二个：Missing library：Xtst<br/><br>解决方式：sudo apt-get install libxtst-dev<br/><br>第三个：Cannot find source file： cryptopp562/3way.cpp<br>（发生地点是toos/CMakeLists.txt,意味着是tools子目录下面的，结果过去一看有个cryptopp562.zip的压缩包，坑爹啊）<br/></p>
-<p>解决方式：unzip cryptopp562.zip -d cryptopp562<br/><br>下来就是make了<br/><br>Make的时候出错</p></p>
+        <p>原本以为是个简单事情，结果弄起来才知道其实不容易。</p>
+<a id="more"></a>
+<p>先去<a target="_blank" rel="noopener" href="http://synergy-foss.org/help/">http://synergy-foss.org/</a>下载源码，ARM的芯片，得重新编译～<br>tar xzf synergy-1.4.15-Source.tar.gz<br>cd synergy-1.4.15-Source<br>编译，发觉要cmake，<br>sudo apt-get install cmake<br>vi CMakeLists.txt<br>-修改第178行set(CMAKE_INCLUDE_PATH<br>“${CMAKE_INCLUDE_PATH}:/usr/include”)从“/usr/local/include”改为/usr/include,这个bug可以查到<a target="_blank" rel="noopener" href="http://synergy-foss.org/spit/issues/details/3365/">http://synergy-foss.org/spit/issues/details/3365/</a><br>./configure<br>然后你就开始看到error了，<br>第一个Missing header: X11/Xlib.hx11/XKBlib.h<br>解决方式：sudo apt-get install libx11-dev<br>第二个：Missing library：Xtst<br>解决方式：sudo apt-get install libxtst-dev<br>第三个：Cannot find source file： cryptopp562/3way.cpp<br>（发生地点是toos/CMakeLists.txt,意味着是tools子目录下面的，结果过去一看有个cryptopp562.zip的压缩包，坑爹啊）<br>解决方式：unzip cryptopp562.zip -d cryptopp562<br>下来就是make了<br>Make的时候出错</p>
 <pre>
-<code>Error: unrecognized option -march=native cc1plus: error: bad value (native) for -march switch make[2]: *** [tools/CMakeFiles/cryptopp.dir/cryptopp562/3way.o] Error 1 make[1]: *** [tools/CMakeFiles/cryptopp.dir/all] Error 2 make: *** [all] Error 2</code> 
+<code>Error: unrecognized option -march=native cc1plus: error: bad value (native) for -march switch make[2]: *** [tools/CMakeFiles/cryptopp.dir/cryptopp562/3way.o] Error 1 make[1]: *** [tools/CMakeFiles/cryptopp.dir/all] Error 2 make: *** [all] Error 2</code>
 </pre>
-
-<p>编译目标出错了，目标应该是arm<br/><br>tools/CMakeLists.txt, and on line 83， 把-march=native<br>改成-march=armv6zk</p>
-<p>用uname -a 看，是armv6l，不过估计没啥问题，就没去改了。</p>
-<p>编译完毕之后，在source目录有个bin</p>
-<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6GfpsdZslc9&amp;bid=5922f3300101e20o&amp;uid=1495462704" target="_blank"><img alt="image" border="0" height="68" real_src="http://s10.sinaimg.cn/middle/001DcOaczy6GfpsdZslc9&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" title="image" width="550"/></a></p>
-<p>然后再在/etc/rc.local中配置为自启动</p>
-<p><a target="_blank" rel="noopener" href="http://s15.sinaimg.cn/middle/001DcOaczy6Gfpsgmho6e&amp;690">
-<img alt="image" border="0" height="345" real_src="http://s13.sinaimg.cn/middle/001DcOaczy6Gfpsj9KY4c&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" title="image" width="559"/></a></p>
+<p>编译目标出错了，目标应该是arm<br>tools/CMakeLists.txt, and on line 83， 把-march=native<br>改成-march=armv6zk<br>用uname -a 看，是armv6l，不过估计没啥问题，就没去改了。<br>编译完毕之后，在source目录有个bin<br><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=001DcOaczy6GfpsdZslc9&amp;bid=5922f3300101e20o&amp;uid=1495462704" target="_blank"><img alt="image" border="0" height="68" real_src="http://s10.sinaimg.cn/middle/001DcOaczy6GfpsdZslc9&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" title="image" width="550"/></a><br>然后再在/etc/rc.local中配置为自启动<br><a target="_blank" rel="noopener" href="http://s15.sinaimg.cn/middle/001DcOaczy6Gfpsgmho6e&amp;690"><br><img alt="image" border="0" height="345" real_src="http://s13.sinaimg.cn/middle/001DcOaczy6Gfpsj9KY4c&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" title="image" width="559"/></a></p>
 <div style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px">
-Technorati 标记: <a target="_blank" rel="noopener" href="http://technorati.com/tags/raspberrypi">raspberrypi</a>,<a target="_blank" rel="noopener" href="http://technorati.com/tags/synergy">synergy</a></div>
-<p>
-这里要注意的是，由于树莓派是用的debian的核，其shell事实上是dash而不是bash，所以在执行的时候可能会有问题（本人遇到了），解决的方式比较暴力，就是把dash改成bash。</p>
-<p>sudo dpkg-reconfigure dash</p>
-<p>或者 sudo rm /bin/sh;sudo ln –s /bin/bash /bin/sh</p>
-<p>在windows端（作为服务器）配置就简单了，完全是图形化操作，就不多说了。</p>
-</div>
-
-
+Technorati 标记: <a target="_blank" rel="noopener" href="http://technorati.com/tags/raspberrypi">raspberrypi</a>,<a target="_blank" rel="noopener" href="http://technorati.com/tags/synergy">synergy</a>
+这里要注意的是，由于树莓派是用的debian的核，其shell事实上是dash而不是bash，所以在执行的时候可能会有问题（本人遇到了），解决的方式比较暴力，就是把dash改成bash。
+sudo dpkg-reconfigure dash
+或者 sudo rm /bin/sh;sudo ln –s /bin/bash /bin/sh
+在windows端（作为服务器）配置就简单了，完全是图形化操作，就不多说了。
     </div>
 
     
@@ -550,14 +536,14 @@ Technorati 标记: <a target="_blank" rel="noopener" href="http://technorati.com
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

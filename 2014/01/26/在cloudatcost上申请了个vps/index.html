@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="一次交70USD，20GSSD，2个虚拟的L5520CPU，1G内存，100M网络，每个月1G的流量。可用的OS包括CentOS6.4，Ubuntu12.04，Debian7.0.  前两天随手整了个centos6.4，装了openvpn，国内连接还可以～  考虑到本地虚拟机现在都是装的Ubuntu，所以，今天就重新re-image到ubuntu去了。  几个设置：  第一是用putty远程登录后">
+  <meta name="description" content="一次交70USD，20G">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在cloudatcost上申请了个vps">
 <meta property="og:url" content="https://www.liuyong.online/2014/01/26/%E5%9C%A8cloudatcost%E4%B8%8A%E7%94%B3%E8%AF%B7%E4%BA%86%E4%B8%AAvps/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="一次交70USD，20GSSD，2个虚拟的L5520CPU，1G内存，100M网络，每个月1G的流量。可用的OS包括CentOS6.4，Ubuntu12.04，Debian7.0.  前两天随手整了个centos6.4，装了openvpn，国内连接还可以～  考虑到本地虚拟机现在都是装的Ubuntu，所以，今天就重新re-image到ubuntu去了。  几个设置：  第一是用putty远程登录后">
+<meta property="og:description" content="一次交70USD，20G">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-01-26T08:08:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.684Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.690Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="vps">
 <meta property="article:tag" content="cloudatcost">
@@ -238,14 +238,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -390,78 +390,76 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>一次交70USD，20G<br>SSD，2个虚拟的L5520CPU，1G内存，100M网络，每个月1G的流量。可用的OS包括CentOS6.4，Ubuntu12.04，<br>Debian7.0.</p>
-<div><br/></div>
-<div>前两天随手整了个centos6.4，装了openvpn，国内连接还可以～</div>
-<div><br/></div>
-<div>考虑到本地虚拟机现在都是装的Ubuntu，所以，今天就重新re-image到ubuntu去了。</div>
-<div><br/></div>
-<div>几个设置：</div>
-<div>
-第一是用putty远程登录后，会出来一堆信息，以前没有关注过，之知道centos是放在/etc/issue的，结果ubuntu比较复杂，是需要系统启动后用命令去取出来的。网上搜了下，有个兄弟已经有系统的论述了，这里就借用一下，原帖在<a target="_blank" rel="noopener" href="http://www.laozhe.net/324.html">http://www.laozhe.net/324.html</a>，我就偷懒了～</div>
-<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-　　Ubuntu的登陆和欢迎信息控制/etc/issue和/etc/motd。/etc/issue与/etc/motd区别在于：当一个网络用户或通过串口登录系统上时,/etc/issue的文件内容显示在login提示符之前,而/etc/motd内容显示在用户成功登录系统之后。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
-<br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
-<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-　　修改登陆前显示信息：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+        <p>一次交70USD，20G</p>
+<a id="more"></a>
+<p>SSD，2个虚拟的L5520CPU，1G内存，100M网络，每个月1G的流量。可用的OS包括CentOS6.4，Ubuntu12.04，<br>Debian7.0.<br>前两天随手整了个centos6.4，装了openvpn，国内连接还可以～<br>考虑到本地虚拟机现在都是装的Ubuntu，所以，今天就重新re-image到ubuntu去了。<br>几个设置：<br>第一是用putty远程登录后，会出来一堆信息，以前没有关注过，之知道centos是放在/etc/issue的，结果ubuntu比较复杂，是需要系统启动后用命令去取出来的。网上搜了下，有个兄弟已经有系统的论述了，这里就借用一下，原帖在<a target="_blank" rel="noopener" href="http://www.laozhe.net/324.html">http://www.laozhe.net/324.html</a>，我就偷懒了～<br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"><br>Ubuntu的登陆和欢迎信息控制/etc/issue和/etc/motd。/etc/issue与/etc/motd区别在于：当一个网络用户或通过串口登录系统上时,/etc/issue的文件内容显示在login提示符之前,而/etc/motd内容显示在用户成功登录系统之后。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/><br><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"><br>修改登陆前显示信息：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/></p>
 <pre style="font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-
-<p>#vi /etc/issue<br/><br>#vi /etc/issue.net<br/><br>Custom 10.04.2 LTS<br>l<br></pre><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　issue<br>内各代码意义：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/></p>
+#vi /etc/issue
+#vi /etc/issue.net
+Custom 10.04.2 LTS
+l
+</pre>
+<p><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　issue<br>内各代码意义：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/></p>
 <blockquote style="border-left-width: 5px; border-left-style: solid; border-left-color: rgb(201, 229, 247); padding-left: 15px; margin: 0px 0px 0px 15px; font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-d 本地端时间日期；<br/>
-l 显示第几个终端机接口；<br/>
-m 显示硬件等级 (i386/i486/i586/i686...)；<br/>
-
-<p>显示主机网络名称；<br/><br>o 显示 domain name；<br/></p>
-<p>操作系统版本 (相当于 uname -r)<br/><br>显示本地端时间；<br/><br>s 操作系统名称；<br/><br>v 操作系统版本。<br/></blockquote><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　可以通过修改/etc/issue内容制作自己喜欢的登陆信息。这里还要注意的是，除了<br>/etc/issue 外还有个 /etc/issue.net。这个是提供给 telnet 这个进程登录程序用的。当我们使用<br>telnet 连接主机时，主机的登入画面就会显示 /etc/issue.net 而不是<br>/etc/issue。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/><br><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"><br>　　登陆后显示信息：</span></div></p>
-<div><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
-#vi /var/run/motd</span></div>
-<div><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
-Welcome to Ubuntu!</span><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;"><br/>
+d 本地端时间日期；
+l 显示第几个终端机接口；
+m 显示硬件等级 (i386/i486/i586/i686...)；
+显示主机网络名称；
+o 显示 domain name；
+操作系统版本 (相当于 uname -r)
+显示本地端时间；
+s 操作系统名称；
+v 操作系统版本。</blockquote>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　可以通过修改/etc/issue内容制作自己喜欢的登陆信息。这里还要注意的是，除了
+/etc/issue 外还有个 /etc/issue.net。这个是提供给 telnet 这个进程登录程序用的。当我们使用
+telnet 连接主机时，主机的登入画面就会显示 /etc/issue.net 而不是
+/etc/issue。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+登陆后显示信息：</span>
+<span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
+#vi /var/run/motd</span>
+<span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
+Welcome to Ubuntu!</span><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
 </span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
 <span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-　　这里显示很多系统信息，都是怎么得来和更新的呢？</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+这里显示很多系统信息，都是怎么得来和更新的呢？</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
 <span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-　　Ubuntu 与别的 Linux 不同，直接修改 /etc/motd 文件重登录后无效。因为这里 /etc/motd
+Ubuntu 与别的 Linux 不同，直接修改 /etc/motd 文件重登录后无效。因为这里 /etc/motd
 是一个符号链接，指向 /var/run/motd，应该是一个启动后在生成的文件。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
 <span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-　　在版本 10.04 中，找到生成的脚本在目录 <wbr/></span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255); color: rgb(255, 0, 0);"><strong>/etc/update-motd.d/</strong></span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"> <wbr/>中，那几个有序号的文件就是，包括
+在版本 10.04 中，找到生成的脚本在目录 </span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255); color: rgb(255, 0, 0);"><strong>/etc/update-motd.d/</strong></span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"> 中，那几个有序号的文件就是，包括
 00-header，20-cpu-checker ，90-updates-available，
 98-reboot-required，10-help-text，50-landscape-sysinfo，91-release-
 upgrade，99-footer。修改这几个文件，可以得到自己想要的结果。</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
 <span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-　　我使用的是 Ubuntu 12.04 Server LTS，目录下有这几个文件：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
+我使用的是 Ubuntu 12.04 Server LTS，目录下有这几个文件：</span><br style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"/>
 <blockquote style="border-left-width: 5px; border-left-style: solid; border-left-color: rgb(201, 229, 247); padding-left: 15px; margin: 0px 0px 0px 15px; font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-00-header<br/>
-10-help-text<br/>
-50-landscape-sysinfo<br/>
-90-updates-available<br/>
-91-release-upgrade<br/>
-98-fsck-at-reboot<br/>
-98-reboot-required<br/>
+00-header
+10-help-text
+50-landscape-sysinfo
+90-updates-available
+91-release-upgrade
+98-fsck-at-reboot
+98-reboot-required
 99-footer</blockquote>
 <span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　此信息就是文件
-“50-landscape-sysinfo” 里面的如下语句控制的：</span></div>
-<div><span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
-/usr/bin/landscape-sysinfo</span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);"><br/>
+“50-landscape-sysinfo” 里面的如下语句控制的：</span>
+<span style="background-color: rgb(249, 253, 255); font-size: 13px; line-height: normal;">
+/usr/bin/landscape-sysinfo</span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
 </span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">　　</span><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">修改后用：sudo
-run-parts /etc/update-motd.d 去执行就会立即见到效果，而不用反复注销登录。</span></div>
-<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-<br/></span></div>
-<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+run-parts /etc/update-motd.d 去执行就会立即见到效果，而不用反复注销登录。</span>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+</span>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
 另外，在最后有Last
-loing：XXXXXXXXXXXXXXXXXXXXXXXX<wbr/>XXXXXXXXXXXXXX</span></div>
-<div><span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
-这个是/etc/ssh/sshd_config中有个”PrintLastLog</span><span style="background-color: rgb(249, 253, 255); font-size: 13px;">“来控制的。</span></div>
-<div><span style="background-color: rgb(249, 253, 255); font-size: 13px;"><br/></span></div>
-<div><font size="2"><span style="line-height: 19px;">修改主机名字：</span></font></div>
-<div><font size="2"><span style="line-height: 19px;">/etc/hostname</span></font></div>
-<div><font size="2"><span style="line-height: 19px;">/etc/hosts</span></font></div>
-<div><font size="2"><span style="line-height: 19px;"><br/></span></font></div>
-<div><br/></div>
-</div>
-
-
+loing：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+<span style="font-family: simsun; font-size: 13px; line-height: normal; background-color: rgb(249, 253, 255);">
+这个是/etc/ssh/sshd_config中有个”PrintLastLog</span><span style="background-color: rgb(249, 253, 255); font-size: 13px;">“来控制的。</span>
+<span style="background-color: rgb(249, 253, 255); font-size: 13px;"></span>
+<font size="2"><span style="line-height: 19px;">修改主机名字：</span></font>
+<font size="2"><span style="line-height: 19px;">/etc/hostname</span></font>
+<font size="2"><span style="line-height: 19px;">/etc/hosts</span></font>
+<font size="2"><span style="line-height: 19px;"></span></font>
     </div>
 
     
@@ -590,14 +588,14 @@ loing：XXXXXXXXXXXXXXXXXXXXXXXX<wbr/>XXXXXXXXXXXXXX</span></div>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

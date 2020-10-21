@@ -233,14 +233,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -315,304 +315,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/06/Getting%C2%A0Started%C2%A0with%C2%A0Storm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lvlogo.png">
-      <meta itemprop="name" content="Ryle Liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="劉勇の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2013/12/06/Getting%C2%A0Started%C2%A0with%C2%A0Storm/" class="post-title-link" itemprop="url">Getting Started with Storm</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-12-06 23:53:00" itemprop="dateCreated datePublished" datetime="2013-12-06T23:53:00+08:00">2013-12-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
-        </span>
-    </span>
-
-  
-     <!-- </div> -->
-     <!-- <div class="post-meta"> -->
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div style="text-indent:2em;">
-数据是值钱的，可是在很多商业场景中，随着时间的流逝，数据的价值是下降的。因此实时处理数据的方式方法能力也就很关键。在开源的领域，有个叫Storm的东西是做流数据处理的。中英文资料都很少，好不容易看到了一本Getting
-Started with Storm，很薄，105页，准备一边读读，一边弄成中文的。只能算是个人的读书心得和笔记。
-<div><br/></div>
-<div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<b>第一章</b></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<b>基础</b></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-Storm是一个用来处理数据流的分布式，可靠且能容错的系统。由各种被指定完成最基础简单任务的组件构成。Storm集群的输入流由Spout组件来处理，然后Spout把数据传递给Bolt组件，可以通过Bolt组件来处理数据。而一个Bolt可以将数据存放在某些存储设备中实现数据的持久化或者把数据传递给其他Bolt。你可以把Storm集群想象为Bolt的链条，每个环节都对数据进行一定的处理，而这条链条的输入数据都来自于Spout。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-为了阐明这个概念，这里有个简单的例子。昨天晚上我在看新闻的时候正好播音员开始说道政治家及他们对于各种话题的态度。播音员总是说到不同的名字，我对每个名字被提到的频率产生了兴趣，想知道这些名字是被提到同样多的次数，还是说有特殊的倾向性。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-设想我们把播音员正在说的话的字幕作为数据的输入流。于是我们可以通过一个Spout把这些信息从一个文件或者是Socket，通过HTTP或者其他方式读入。每接收到一行文本，Spout就把他们传递给一个专门用来把每行文本切分成单词组的Bolt来处理。然后这组单词的数据流被传递给另外一个专门用来比较的Bolt，比如我们可以把每个词都和事先定义好的政治家的名单做比较。每当有一个匹配的名字，第二个Bolt就把对应的名字在数据库中的计数器加1.于是无论什么时候你想看到结果，你只需要查询数据库，这个数据库是实时更新的。这样的所有组件的安置以及他们的联系被叫做Topology，下面是个例子：</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EN0zb8dG88" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm" name="image_operate_35191386345861082" real_src="http://s9.sinaimg.cn/bmiddle/001DcOacgy6EN0zb8dG88&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm"/></a><br/>
-<br/>
-<br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-现在我们再来设想一下，我们在一个Storm中对于每一个Bolt和Spout都做并行扩展，于是我们就得到了一个可以无限扩展的Topology。是不是很神奇？尽管这是一个简单的例子，但是你却可以看到Storm的强大。</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-Storm的典型场景有哪些呢？</div>
-<div style="font-family: 微软雅黑; line-height: normal;">流处理</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
-正如在上面的例子中展示的，不像其他一些流处理系统，Storm没有必要设置流处理的中间队列</blockquote>
-持续计算</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
-持续不断地将数据发送到客户端，从而保证这些数据可以被实时更新和展示</blockquote>
-分布式远程处理</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
-<div>非常简单地把CPU密集型操作并行化</div>
-<div><br/></div>
-</blockquote>
-<b>Storm的组件</b></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-在一个Storm集群，节点被组成可以持续运行的Master节点。现在存在2中类型的节点：master节点 和
-worker节点。Master节点运行一个叫做Nimbus的守护进程，负责在整个集群中的代码分发，对于每个work节点的任务分配，监控各种运行失败。Worker节点运行一行一个叫做Supervisor的守护进程，是一个Topology的一个执行部分。在Storm中，Topology可以在各种不同的机器上运行多个Worker节点。因为Storm将所有集群的状态记录在Zookeeper或者本地硬盘中，而守护进程是无状态的，可以失败或者重启而不会影响整个系统的健康。</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EN0Drc7dc7" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm" height="99" name="image_operate_4591386345877264" real_src="http://s8.sinaimg.cn/mw690/001DcOacgy6EN0Drc7dc7&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm" width="490"/></a><br/>
-<br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-在底层，Storm使用了zeromq或者0mq这样一个高级的，可嵌入的网络库，也正是0mq提供的各种精彩的特性使Storm成为可能。我们列一下0mq的特性：</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<ul>
-<li>Socket库支持并发的框架</li>
-<li>对于集群和超级计算而言，速度比TCP快</li>
-<li>通过inproc（进程内），IPC（进程间），TCP和multicast（多点传送）传递信息</li>
-<li>支持可扩展多核信息传送应用的异步I/O</li>
-<li>
-通过Fanout（扇出），pubsub（发布/订阅），pipeline（管道），request-reply（需求/响应）方式支持N-to-N链接</li>
-</ul>
-需要注意的是 Storm仅仅使用Push/Pull Sockets</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-<b>Storm的特点</b></div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-在所有的设计原则中，下面这些是尤其要注意的，正是这些使Storm非常出众：</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-易于编程：如果你曾经试过使用Scratch来做实时处理，你就能体会到这有多痛苦。而Storm可以显著地降低其复杂度。</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-支持多种编程语言：用基于JVM的语言来做Storm的开发是非常容易的，同时Storm也支持通过其他中间库的支持来支持任何一种你熟悉的编程语言。</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-容错：Storm集群会自动监控所有的worker节点，如果需要会自动重新安排任务</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-可扩展：在你需要扩展的时候，你唯一要做的工作就是往集群中增加额外的机器。Storm会自动为这些新增加的机器安排任务。</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-可靠：所有的信息会保证至少被执行一次，如果出错了，就会被执行多次，但是你不用担心会丢失任何信息</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-快速：Strom在设计的时候就考虑了速度的因素</div>
-<div style="font-family: 微软雅黑; line-height: normal;">
-支持事务：对于任意多计算，你可以精确地得到一个消息传递语义</div>
-</div>
-</div>
-</div>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/04/postgresql9.3%C2%A0ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B9%8B%E5%90%8E%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lvlogo.png">
-      <meta itemprop="name" content="Ryle Liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="劉勇の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2013/12/04/postgresql9.3%C2%A0ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B9%8B%E5%90%8E%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">postgresql9.3 ubuntu下安装之后的简单配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-12-04 02:22:00" itemprop="dateCreated datePublished" datetime="2013-12-04T02:22:00+08:00">2013-12-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
-        </span>
-    </span>
-
-  
-     <!-- </div> -->
-     <!-- <div class="post-meta"> -->
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>923</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div style="text-indent: 2em;">
-<div style="text-indent:2em;">
-<ol style="text-indent: 2em;">
-<li><font style="font-size: 14px;">安装就不说了，反正如果直接apt-get目前是拿不到最新的版本的，<span style="line-height: 21px;">直接apt-get install
-postgresql-9.3</span><span style="font-family: monospace; line-height: normal; background-color: rgb(247, 247, 247);">会告诉你找不到，得到</span>到<a target="_blank" rel="noopener" href="http://www.postgresql.org/download/linux/ubuntu/">http://www.postgresql.org/download/linux/ubuntu/</a>去看，</font></li>
-<li><font style="font-size: 14px;"><span style="font-family: monospace; line-height: normal; background-color: rgb(247, 247, 247);">
-首先要创建一个文件：</span><i style="font-family: verdana, sans-serif; line-height: 14.390625px; background-color: rgb(255, 255, 255);">/etc/apt/sources.list.d/pgdg.list，</i><span style="font-family: verdana, sans-serif; line-height: 14.390625px; background-color: rgb(255, 255, 255);">需要root权限</span><span style="font-family: verdana, sans-serif; background-color: rgb(255, 255, 255);">，追加一行内容</span></font></li>
-<li style="list-style: none"><font style="font-size: 14px;"><span style="font-family: monospace; line-height: 14.390625px; background-color: rgb(247, 247, 247);">
-deb
-http://apt.postgresql.org/pub/repos/apt/ <wbr/></span><span style="font-family: monospace; line-height: 14.390625px;">precise</span><span style="font-family: monospace; line-height: 14.390625px; background-color: rgb(247, 247, 247);">-pgdg
-main</span></font></li>
-<li><font style="font-size: 14px;"><span style="font-family: monospace; line-height: 14.390625px; background-color: rgb(247, 247, 247);">
-然后导入从</span><span style="font-family: sans-serif; line-height: 19.046875px; background-color: rgb(255, 255, 255);"><a target="_blank" rel="noopener" href="https://www.postgresql.org/media/keys/ACCC4CF8.asc">https://www.postgresql.org/media/keys/ACCC4CF8.asc</a>导入</span><span style="background-color: rgb(255, 255, 255);">repository
-key</span></font></li>
-<li style="list-style: none"><font style="font-size: 14px;"><span style="font-family: monospace; line-height: 14.390625px; background-color: rgb(247, 247, 247);">
-wget --quiet -O -
-https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key
-add -</span><br/>
-<span style="font-family: monospace; line-height: 14.390625px; background-color: rgb(247, 247, 247);">
-sudo apt-get update</span><br/>
-<span style="font-family: monospace; line-height: 14.390625px; background-color: rgb(247, 247, 247);">
-sudo apt-get install postgresql-9.3 pgadmin3</span></font></li>
-<li><font style="font-size: 14px;">安装完毕要配置了，#sudo -u postgres
-psql(用postgres登录psql)</font></li>
-<li><font style="font-size: 14px;">postgres#password
-postgres（在psql环境为postgres用户指定密码，退出是q)</font></li>
-<li>在postgres环境中  <wbr/>select name, setting from
-pg_settings where category="File Locations";得到配置文件所在的目录</li>
-<li>修改配置文件postgresql.conf: listen_address=&prime;*&prime;
-password_encryption=on</li>
-<li>确认pg_hba.conf: host all all 127.0.0.1/32 md5没有被注释</li>
-<li>sudo service postgresql restart</li>
-<li>配置完成</li>
-</ol>
-<div>Mysql忘记root密码后还是需要一点手脚的，发觉postgresql基本没啥特别之处</div>
-<div> <wbr/>修改pg_hba.conf中的host all all 127.0.0.1/32 md5
-为host all all 127.0.0.1/32 trust然后<span style="text-indent: 2em;">sudo -u postgres psql直接就进去了</span></div>
-</div>
-</div>
-</div>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/02/Ubuntu12.04LTS%C2%A0Eclipse%C2%A0Java_Python%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -677,77 +379,14 @@ password_encryption=on</li>
     
     <div class="post-body" itemprop="articleBody">
           <div style="text-indent:2em;">1.Eclipse
-<div> <wbr/>  <wbr/>最懒的方式就是 sudo apt-get
-install eclipse，问题就是安装了OpenJDK，然后还有就是由于源的问题，未必是最新版本的Eclipse；</div>
-<div> <wbr/>  <wbr/>所以采用另外的方式搞定：</div>
-<div> <wbr/>  <wbr/>-安装Oracle JDK</div>
-<div>
-<ul>
-<li>下载合适的JDK版本，<span style="line-height: 21px;">（http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html）</span>本人下载了Linux64
-jdk-7u45-linux-x64.tar.gz</li>
-<li>在/usr/lib下面建jvm目录 sudo mkdir /usr/lib/jvm</li>
-<li>把gz文件拷贝到此目录下,并解压缩（本来tar -xvfz应该可以直接解的，今天出错了，没纠结，先gzip -d 然后再tar
-xvf了）</li>
-<li>编辑环境配置文件 /etc/environment，主要是修改PATH，增加CLASSPATH和JAVA_HOME</li>
-<li>然后是系统更新：、</li>
-</ul>
-</div>
-</div>
-<blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
-<div style="text-indent:2em;">
-<div><span style="text-indent: 2em;">$ sudo update-alternatives
---install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_04/bin/java
-300</span></div>
-<div><span style="text-indent: 2em;">$ sudo update-alternatives
---install /usr/bin/javac javac /usr/lib/jvm/jdk1.7.0_04/bin/javac
-300</span></div>
-<div><span style="text-indent: 2em;">$ sudo update-alternatives
---config java</span></div>
-<div><span style="text-indent: 2em;">有 2 个候选项可用于替换 java (提供
-/usr/bin/java)</span></div>
-<div><span style="text-indent: 2em;">选择  <wbr/>
- <wbr/>路径  <wbr/>  <wbr/>
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>  <wbr/> 优先级
- <wbr/>状态</span></div>
-<div><span style="text-indent: 2em;">------------------------------------------------------------</span></div>
-<div><span style="text-indent: 2em;">* 0  <wbr/>
- <wbr/>
- <wbr/>/usr/lib/jvm/java-6-openjdk/jre/bin/java
- <wbr/> 1061  <wbr/> 自动模式</span></div>
-<div><span style="text-indent: 2em;"> <wbr/> 1
- <wbr/>  <wbr/>
- <wbr/>/usr/lib/jvm/java-6-openjdk/jre/bin/java
- <wbr/> 1061  <wbr/> 手动模式</span></div>
-<div><span style="text-indent: 2em;"> <wbr/> 2
- <wbr/>  <wbr/>
- <wbr/>/usr/lib/jvm/jdk1.7.0_04/bin/java
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>  <wbr/>300  <wbr/>
- <wbr/> 手动模式</span></div>
-<div><span style="text-indent: 2em;">要维持当前值[*]请按回车键，或者键入选择的编号：</span></div>
-<div>-继续安装eclipse</div>
-<div>从Eclipse.org下载kelper，解压缩，然后右键点击应用程序，编辑菜单，选中编程，新建项目，</div>
-<div>
-名称：Eclipse，命令，通过浏览定位到Eclipse启动文件，确定即可（我已经把Ubuntu的界面设置为Gnome经典了）如果需要汉化的话，从http://www.eclipse.org/babel/downloads.php下载对应版本的汉化包。<span style="text-indent: 2em;">BabelLanguagePack-eclipse-zh_4.3.0.v20131123020001.zip，解压缩后有2个文件夹，features和plugins，直接把此两个子文件夹中的内容拷贝到eclipse所在的对应的目录，重启eclipse，中文了。</span></div>
-<div><span style="text-indent: 2em;">要修改启动参数，也是eclipse的启动目录的eclipse.ini</span></div>
-<div><span style="text-indent: 2em;"><br/></span></div>
-<div><span style="text-indent: 2em;">-安装python支持，pydev</span></div>
-<div><span style="text-indent: 2em;">这个最简单了，直接 帮助
--》安装新软件，</span><span style="text-indent: 2em;">http://pydev.org/updates，只要网络还可以，直接装就是了。装完写个测试程序，运行python，一切正常～搞定收工</span></div>
-<div><span style="text-indent: 2em;"><br/></span></div>
-</div>
-</blockquote>
-<div style="text-indent:2em;">
-<div><br/></div>
-</div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/12/02/Ubuntu12.04LTS%C2%A0Eclipse%C2%A0Java_Python%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -836,10 +475,15 @@ xvf了）</li>
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我参与了有奖抢占昵称，活动地址：<a href="http://control.blog.sina.com.cn/blog_nickunify/index.php" target="_blank">http://control.blog.sina.com.cn/blog_nickunify/index.php</a><br><a href="http://control.blog.sina.com.cn/blog_nickunify/index.php" target="_blank"><img alt="我已率先抢占昵称，我的昵称独一无二!" real_src="http://simg.sinajs.cn/blog7style/images/activity/unique/blog690.jpg" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="我已率先抢占昵称，我的昵称独一无二!"><br></img></a></p>
-</div>
-
-
+          <p>我参与了有奖抢占昵称，活动地址：<a href="http://control.blog.sina.com.cn/blog_nickunify/index.php" target="_blank">http://control.blog.sina.com.cn/blog_nickunify/index.php</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/11/23/%E6%88%91%E5%B7%B2%E7%8E%87%E5%85%88%E6%8A%A2%E5%8D%A0%E6%98%B5%E7%A7%B0%EF%BC%8C%E6%88%91%E7%9A%84%E6%98%B5%E7%A7%B0%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C!/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -910,7 +554,7 @@ xvf了）</li>
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -928,111 +572,15 @@ xvf了）</li>
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all in<br>one是很简单的，但既然是开源的，不拿过来看看代码怎么跑总是有点不甘心的，所以搭了个开发环境，发觉网上有很多简单的说明，就是有些太简单了，呵呵～OpenERP是基于Python和PostgreSQL的，所以我这个开发环境配置主要分3大块：</p>
-<div>第一，PostgreSQL的安装</div>
-<div><a target="_blank" rel="noopener" href="http://www.postgresql.org/">http://www.postgresql.org/</a> <wbr/>选的是9.2的版本，理由很简单，9.2以后的不敢确保其兼容性，因为用到了一些python的包，有些里面说明就是只支持到9.2.4(<a target="_blank" rel="noopener" href="http://www.stickpeople.com/projects/python/win-psycopg/">http://www.stickpeople.com/projects/python/win-psycopg/</a>)</div>
-<div>
-至于PostgreSQL怎么管理，只能自己想办法找资料了，相比较于MySQL，中文资料少得可怜。还好，尽管是哑巴英语，看科技资料，还是过得去的。也可上itpub或者dataguru去找一些pdf的书籍。由于只关心用户，数据库创建，openERP本身的资料也足够了。（<a target="_blank" rel="noopener" href="https://doc.openerp.com/7.0/zh_CN/install/windows/postgres/#setup-a-postgresql-user">https://doc.openerp.com/7.0/zh_CN/install/windows/postgres/#setup-a-postgresql-user</a>）</div>
-<div><br/></div>
-<div>第二，Python及其开发环境的安装</div>
-<div>Python只能选2.x的，我选的是2.7
-64位的；开发环境么当然就是Eclipse了，配pydev,教程谷歌度娘都一大堆，就不多说了。弄好后写个最简单的"hello"
-python程序，确保配置ok；</div>
-<div><br/></div>
-<div>
-第三，也是最头痛的，我相信ubuntu下面可能会简单一点，但是在windows下面，尤其是64bits的，有很多python的包安装起来比较麻烦，尤其是在openERP的官方site，基本上没有明确的guide，说哪些是必要的，所以只能笨办法了：</div>
-<div>1，下载源代码</div>
-<div><a target="_blank" rel="noopener" href="https://www.openerp.com/start?download">https://www.openerp.com/start?download</a>就这里好了，找个最新的src下来，解压缩</div>
-<div>2，在Eclipse中配置好openERP的项目，link到你解压缩的目录</div>
-<div>3，问题来了，首先是要配一个openerp-server.conf，可以从网上下一个，还可以自己另外装一个all in
-one然后把此文件拷出来，再做修改。下面给个sample,可以拷贝了用，就是注意红的地方根据自己的配置修改</div>
-<div>
-<div>[options]</div>
-<div>without_demo = False</div>
-<div>unaccent = False</div>
-<div>db_template = template1</div>
-<div><font color="#ED1C24">db_password =dbpassword</font></div>
-<div>xmlrpcs = True</div>
-<div>xmlrpcs_interface = <wbr/></div>
-<div>syslog = False</div>
-<div>logrotate = True</div>
-<div>xmlrpcs_port = 8071</div>
-<div>test_report_directory = False</div>
-<div>list_db = True</div>
-<div>timezone = False</div>
-<div>xmlrpc_interface = <wbr/></div>
-<div>test_file = False</div>
-<div>smtp_password = False</div>
-<div>secure_pkey_file = server.pkey</div>
-<div>xmlrpc_port = 8069</div>
-<div>workers = 0</div>
-<div>log_level = info</div>
-<div>xmlrpc = True</div>
-<div><font color="#ED1C24">admin_passwd = admin</font></div>
-<div>smtp_port = 25</div>
-<div>smtp_server = localhost</div>
-<div>static_http_url_prefix = None</div>
-<div>limit_request = 8192</div>
-<div>test_commit = False</div>
-<div>proxy_mode = False</div>
-<div>demo = {}</div>
-<div>dbfilter = .*</div>
-<div>login_message = False</div>
-<div>import_partial = <wbr/></div>
-<div>pidfile = None</div>
-<div>db_maxconn = 64</div>
-<div>osv_memory_count_limit = False</div>
-<div>reportgz = False</div>
-<div>osv_memory_age_limit = 1.0</div>
-<div>netrpc_port = 8070</div>
-<div>db_port =5432</div>
-<div>db_name = False</div>
-<div>debug_mode = False</div>
-<div>netrpc = False</div>
-<div>limit_time_real = 120</div>
-<div>limit_memory_hard = 805306368</div>
-<div><font color="#ED1C24">logfile =
-E:SoftOpenERP7_2013_11_23openerp-server.log</font></div>
-<div>csv_internal_sep = ,</div>
-<div>limit_time_cpu = 60</div>
-<div><font color="#ED1C24">pg_path
-=Z:PostgreSQL9.2in</font></div>
-<div>limit_memory_soft = 671088640</div>
-<div>static_http_enable = False</div>
-<div>translate_modules = [&prime;all&prime;]</div>
-<div>smtp_ssl = False</div>
-<div>server_wide_modules = None</div>
-<div>netrpc_interface = <wbr/></div>
-<div>smtp_user = False</div>
-<div>log_handler = [&prime;:INFO&prime;]</div>
-<div><font color="#ED1C24">db_user =openpg</font></div>
-<div><font color="#ED1C24">db_host =localhost</font></div>
-<div>test_enable = False</div>
-<div>max_cron_threads = 2</div>
-<div>static_http_document_root = None</div>
-<div>email_from = False</div>
-<div><font color="#ED1C24">addons_path =
-E:SoftOpenERP7_2013_11_23openerpaddons</font></div>
-<div>secure_cert_file = server.cert</div>
-</div>
-<div>4，下面就是缺的包了，由于<a target="_blank" rel="noopener" href="http://bazaar.launchpad.net/~openerp/openerp/win-installer-trunk/files/head:/dependencies/">http://bazaar.launchpad.net/~openerp/openerp/win-installer-trunk/files/head:/dependencies/</a>太老了，基本都是基于win32的包，所以自己一个一个摸索了一遍，</div>
-<div>简单的方式就是在eclipse中执行
-openerp-server.py,然后看出错信息，缺哪个包就补哪个包；最后</div>
-<div>等这里不出错了，得打开web界面：http://localhost:8069/，然后确认上面红字的<span style="color: rgb(237, 28, 36);">logfile =
-E:SoftOpenERP7_2013_11_23openerp-server.log</span>的内容，继续排查出错信息。</div>
-<div>
-下面列出了所有的排查出来的包，distribute_setup是为了装easy_install可以忽略，电信访问pypi.python.org实在太慢了。（<a target="_blank" rel="noopener" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a> <wbr/>这个很快，不过不全，还是有些到github或者干错google了去找的）</div>
-<div><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbrKIe9fd" target="_blank"></a><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbQprq1d1" target="_blank"><img alt="OpenERP开发环境配置，基于版本7.0" name="image_operate_9111385218428307" real_src="http://s2.sinaimg.cn/mw690/001DcOacgy6EsbQprq1d1&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="OpenERP开发环境配置，基于版本7.0"/></a><br/>
-<br/>
-5，基本搞定这些，那就可以直接 http://localhost:8069了，会打开一个数据库管理界面，Master
-Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_passwd
-= admin</span></div>
-<div><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbKdiga4a" target="_blank"><img alt="OpenERP开发环境配置，基于版本7.0" name="image_operate_91041385218127342" real_src="http://s11.sinaimg.cn/bmiddle/001DcOacgy6EsbKdiga4a&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="OpenERP开发环境配置，基于版本7.0"/></a><br/>
-<br/></div>
-<div>6.这些都ok了，那就开干吧～admin进入配置模块了～</div>
-</div>
-
-
+          <p>前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all in</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/11/23/OpenERP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%9F%BA%E4%BA%8E%E7%89%88%E6%9C%AC7.0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1095,7 +643,7 @@ Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_pas
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/learning/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
         </span>
     </span>
 
@@ -1126,19 +674,14 @@ Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_pas
     
     <div class="post-body" itemprop="articleBody">
           <p>IBM： DataStage</p>
-<div>Microsoft:SSIS</div>
-<div>Oracle：ODI</div>
-<div>还有就是很牛的Informatic</div>
-<div><br/></div>
-<div>开源的：</div>
-<div>Kettle来自PentaHo</div>
-<div>Talend</div>
-<div>CloverETL等</div>
-<div><br/></div>
-<div><br/></div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/09/19/ETL%E5%B7%A5%E5%85%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1227,9 +770,15 @@ Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_pas
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>据说OpenStack必须安装在12.04版本上，随后就找了个12.04装了个虚拟机；装好后发觉中文输入和字体有点难看，从Windows下面拷贝了几个字体过来。<br/><br><br/><br>su<br/><br>mkdir /usr/share/fonts/winfonts<br/><br>cp * /usr/share/fonts/winfonts<br/><br>mkfontscale<br/><br>mkfontdir<br/><br>fc-cache -fv<br/><br>重启之后可以设置中文字体；<br/><br><br/><br>但是Xterm还是乱码，到自己的HOME目录建个.Xresource文件<br/><br><img alt="" title="ubuntu12.04LTS版安装后的简单配置"><br/><br><br/><br>不过个人还是习惯Gnome自带的终端，先这样了，其他的要回头有时间再整了～<br/><br><img alt="" title="ubuntu12.04LTS版安装后的简单配置"/><br/></p>
-<p></img></div></p>
-
+          <p>据说OpenStack必须安装在12.04版本上，随后就找了个12.04装了个虚拟机；装好后发觉中文输入和字体有点难看，从Windows下面拷贝了几个字体过来。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/08/18/ubuntu12.04LTS%E7%89%88%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1319,33 +868,14 @@ Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_pas
     
     <div class="post-body" itemprop="articleBody">
           <p>号称在科学杂志上发表2篇以上文章就有资格去参加院士评选，牛！</p>
-<div><br/></div>
-<div>
-在数据分析中，有很大的问题就是如何确认自变量和因变量的关系，常用的方式包括线性回归和非线性回归模型。尽管在R中，有很多方式可以逐步求精，比如Step，但是对于非连续的离散型数据还是很难处理，比较依赖于分析者的经验。</div>
-<div><br/></div>
-<div>科学杂志，有篇文章：《Detecing Novel Associations in Large Data
-Sets》,采用了网格模型来判断数据的集中程度，从而来判断数据的关联关系。</div>
-<div>1.划分网格G，X行Y列，要求X和Y的乘积小于N的0.6次方，N是样本个数（注意，未必等宽）</div>
-<div>2.概率密度函数p(x,y)定义为，指定方格内样本点数量占全体样本点数量的比例</div>
-<div>3.<a href="http://album.sina.com.cn/pic/5922f330gx6BLrBP9ap41" target="_blank"><img alt="数据分析-回归模型的新方法" height="68" name="image_operate_84501376186513275" real_src="http://s2.sinaimg.cn/mw690/5922f330gx6BLrBP9ap41&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="数据分析-回归模型的新方法" width="438"/></a></div>
-<div>然后计算MIC值（the Maximal Information Coefficient）</div>
-<div>1.M(x,y) = max{Ig}/log min{x,y}</div>
-<div>2.MIC=max{M(x,y)}</div>
-<div>困难在于计算M(x,y)因为要取所有可能的（x，y）对。</div>
-<div>-近视的逼近算法：</div>
-<div>
-http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1</div>
-<div>-MINE计算MIC的程序（Java和R）</div>
-<div>http://www.exploredata.net/Downloads</div>
-<div><br/></div>
-<div>Mark一下～</div>
-<div><br/></div>
-<div><br/></div>
-<div><br/></div>
-<br/>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1435,17 +965,14 @@ http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1</div>
     
     <div class="post-body" itemprop="articleBody">
           <p>1.基本概念</p>
-<p>2.安装配置</p>
-<p>3.数据类型和数据模型</p>
-<p>4.API及高级语言访问</p>
-<p>5.Shell操作</p>
-<p>6.主从复制</p>
-<p>7.分片</p>
-<p>8.管理维护</p>
-<p>9.实际案例</p>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/08/01/NO%C2%A0SQL%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1535,17 +1062,208 @@ http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1</div>
     
     <div class="post-body" itemprop="articleBody">
           <p>上周主要看了看memcached，这周就以redis为主了。</p>
-<p><a target="_blank" rel="noopener" href="http://redis.io">http://redis.io</a></p>
-<p>
-看上去安装，链接测试都比较简单。但是redis的数据类型比memcached丰富多了。找个Python的redis-py的包，玩一玩python吧，现在能做到只是广泛涉猎，等所有主流的NOSQL
-DB都碰一遍之后再来看看哪些可以稍微深入地玩一玩～</p>
-<p><a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f33007cec82ffeb95&amp;bid=5922f3300101a5u8&amp;uid=1495462704" target="_blank"><img alt="image" border="0" height="227" name="image_operate_66521373556183575" real_src="http://s6.sinaimg.cn/middle/5922f33007cec82ffeb95&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border-width: 0px; border-style: none; border-color: -moz-use-text-color; background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px;" title="image" width="401"/></a></p>
-<p> <wbr/><img alt="" height="219" name="image_operate_11631373556198281" title="redis" width="390"/></p>
-<p><br/>
-<a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f33007cec82ffeb95&amp;bid=5922f3300101a5u8&amp;uid=1495462704" target="_blank"></a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/07/11/redis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
 
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/07/04/%E5%AE%89%E8%A3%85centos6.4%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/07/04/%E5%AE%89%E8%A3%85centos6.4%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">安装centos6.4虚拟机后的几个基本设置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-07-04 12:52:00" itemprop="dateCreated datePublished" datetime="2013-07-04T12:52:00+08:00">2013-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>378</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>1.增加Sudoers</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/07/04/%E5%AE%89%E8%A3%85centos6.4%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/06/27/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/06/27/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">NoSQL数据库笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-06-27 23:23:00" itemprop="dateCreated datePublished" datetime="2013-06-27T23:23:00+08:00">2013-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>385</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>NoSQL = Not Only SQL, 针对关系型数据库的不擅长的地方做了有益的补充。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/06/27/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1610,14 +1328,14 @@ DB都碰一遍之后再来看看哪些可以稍微深入地玩一玩～</p>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

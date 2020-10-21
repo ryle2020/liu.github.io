@@ -23,16 +23,16 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="配置MySQL  通常MySQL有一个默认的管理员帐号（root），通过这个帐号可以访问所有的数据库内容。这个管理员帐号拥有所有的权利，可以为所欲为。所以你需要强化你的数据库安全来保护你的WEB应用。  注意：如果你只是安装了MySQL的话，root帐号默认是没有密码的，请务必给root账号设置密码！  *在MySQL中，默认的帐户是非常不安全的，简单来说，包括如下内容:    操作系统 帐户名">
+  <meta name="description" content="配置MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PrestaShop管理员指南 - 配置MySQL">
 <meta property="og:url" content="https://www.liuyong.online/2012/10/01/PrestaShop%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E9%85%8D%E7%BD%AEMySQL/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="配置MySQL  通常MySQL有一个默认的管理员帐号（root），通过这个帐号可以访问所有的数据库内容。这个管理员帐号拥有所有的权利，可以为所欲为。所以你需要强化你的数据库安全来保护你的WEB应用。  注意：如果你只是安装了MySQL的话，root帐号默认是没有密码的，请务必给root账号设置密码！  *在MySQL中，默认的帐户是非常不安全的，简单来说，包括如下内容:    操作系统 帐户名">
+<meta property="og:description" content="配置MySQL">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="article:published_time" content="2012-10-01T07:38:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:50.161Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:06.472Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="prestashop">
 <meta property="article:tag" content="mysql">
@@ -240,14 +240,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -393,10 +393,10 @@
     
     <div class="post-body" itemprop="articleBody">
         <p><font face="宋体" size="1"><strong><em><u><font face="宋体" size="3">配置MySQL</font></u></em></strong></font></p>
-<p>
-通常MySQL有一个默认的管理员帐号（root），通过这个帐号可以访问所有的数据库内容。这个管理员帐号拥有所有的权利，可以为所欲为。所以你需要强化你的数据库安全来保护你的WEB应用。</p>
+<a id="more"></a>
+<p>通常MySQL有一个默认的管理员帐号（root），通过这个帐号可以访问所有的数据库内容。这个管理员帐号拥有所有的权利，可以为所欲为。所以你需要强化你的数据库安全来保护你的WEB应用。</p>
 <div style="BACKGroUnD-CoLor: #dd0000; WiDTH: 100%; CoLor: white; size: 36px">
-注意：如果你只是安装了MySQL的话，root帐号默认是没有密码的，请务必给root账号设置密码！</div>
+注意：如果你只是安装了MySQL的话，root帐号默认是没有密码的，请务必给root账号设置密码！
 <div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 100%; CoLor: green; size: 36px">
 *在MySQL中，默认的帐户是非常不安全的，简单来说，包括如下内容:
 <table border="3">
@@ -449,28 +449,28 @@
 </tr>
 </tbody>
 </table>
-<p>你可以用MySQL的相关命令<br/>
-1.删除匿名用户 ：</p>
+你可以用MySQL的相关命令
+1.删除匿名用户 ：
 <div style="BACKGroUnD-CoLor: #000000; WiDTH: 75%; CoLor: white; size: 36px">
-shell&gt; mysql -u root<br/>
-mysql&gt; DELETE FROM mysql.user WHERE user=&prime;&prime;;<br/>
-mysql&gt; FLUSH PRIVILEGES;</div>
-<div>2.给root用户加密码 ：</div>
+shell&gt; mysql -u root
+mysql&gt; DELETE FROM mysql.user WHERE user=&prime;&prime;;
+mysql&gt; FLUSH PRIVILEGES;
+2.给root用户加密码 ：
 <div style="BACKGroUnD-CoLor: #000000; WiDTH: 75%; CoLor: white; size: 36px">
-shell&gt; mysql -u root<br/>
+shell&gt; mysql -u root
 mysql&gt; SET PASSWORD FOR &prime;root&prime;@&prime;localhost&prime; =
-PASSWORD(&prime;newPassword&prime;);<br/>
+PASSWORD(&prime;newPassword&prime;);
 mysql&gt; SET PASSWORD FOR &prime;root&prime;@&prime;%&prime; =
-PASSWORD(&prime;newPassword&prime;);<br/></div>
-<div>Unix的不举例了.事实上一共有三种方式给root用户创建密码：
+PASSWORD(&prime;newPassword&prime;);
+Unix的不举例了.事实上一共有三种方式给root用户创建密码：
 <ul>
 <li>SET PASSWORD语句(如上）</li>
 <li>mysql&gt; UPDATE mysql.user SET
-password=PASSWORD(&prime;newPassword&prime;) WHERE user=&prime;root&prime;;<br/>
+password=PASSWORD(&prime;newPassword&prime;) WHERE user=&prime;root&prime;;
 mysql&gt; FLUSH PRIVILEGES;</li>
 <li>mysqladmin -u root -h host_name password "newPassword"</li>
 </ul>
-<p>*丢失root密码之后的对应：<br/></p>
+*丢失root密码之后的对应：
 <ul>
 <li>1.终止MySQL服务</li>
 <li>2.编辑一个txt文件，命名为my_init.txt内容：SET PASSWORD FOR
@@ -479,29 +479,22 @@ mysql&gt; FLUSH PRIVILEGES;</li>
 --init-file=my_init.txt</li>
 <li>4.重启MySQL服务</li>
 </ul>
-</div>
-<p><font color="#0000FF">【为每一个WEB应用的数据库配置一个用户】</font></p>
-<p>
-每次在你的服务器上新安装一个WEB应用的时候，你应当创建一个新的MySQL用户，这个用户被授权来操作和此应用相关的数据。切记不要用同一个用户名去处理所有的数据库。下面是你创建新用户并授权的例子：</p>
+<font color="#0000FF">【为每一个WEB应用的数据库配置一个用户】</font>
+每次在你的服务器上新安装一个WEB应用的时候，你应当创建一个新的MySQL用户，这个用户被授权来操作和此应用相关的数据。切记不要用同一个用户名去处理所有的数据库。下面是你创建新用户并授权的例子：
 <div style="BACKGroUnD-CoLor: #000000; WiDTH: 75%; CoLor: white; size: 36px">
-shell&gt; mysql -u root -p yourPassword<br/>
-mysql&gt; use mysql;<br/>
+shell&gt; mysql -u root -p yourPassword
+mysql&gt; use mysql;
 mysql&gt; CREATE USER &prime;username&prime;@&prime;servername&prime;
-IDENTIFIED BY &prime;user_password&prime;;<br/>
+IDENTIFIED BY &prime;user_password&prime;;
 mysql&gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE,
-DROP, ALTER<br/>
-&gt; ON &prime;prestashop&prime;.* TO &prime;username&prime;@&prime;localhost&prime;;<br/>
-mysql&gt; FLUSH PRIVILEGES;</div>
+DROP, ALTER
+&gt; ON &prime;prestashop&prime;.* TO &prime;username&prime;@&prime;localhost&prime;;
+mysql&gt; FLUSH PRIVILEGES;
 这样，你就有一个专门的用户username用来处理和prestashop相关所有的数据操作。
-<p><br/></p>
-<br/>
 <hr/>
 2012年10月1日于南昌
-<hr/></div>
-<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border:0;" title="PrestaShop管理员指南 &lt;wbr&gt;- &lt;wbr&gt;配置MySQL"/></a> <wbr/>本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布</div>
-</div>
-
-
+<hr/>
+<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border:0;" title="PrestaShop管理员指南 &lt;wbr&gt;- &lt;wbr&gt;配置MySQL"/></a> 本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布
     </div>
 
     
@@ -630,14 +623,14 @@ mysql&gt; FLUSH PRIVILEGES;</div>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

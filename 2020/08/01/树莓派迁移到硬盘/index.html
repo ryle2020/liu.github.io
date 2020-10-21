@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="树莓派的SD卡慢且易出问题，所以尝试改造，将系统挂载在USB硬盘上，主要步骤：  将USB硬盘分区，记录PARTUUID  备份当前系统，并写入到USB硬盘   做设置调整  重启确认，填坑-&gt;将USB硬盘分区，记录PARTUUID主要涉及的命令：   sudo blkid确认硬盘的PARTUUID   sudo fdisk分区   sudomkfs.ext4 &#x2F;dev&#x2F;sda1-&gt;备">
+  <meta name="description" content="树莓派的SD卡慢且易出问题，所以尝试改造，将系统挂载在USB硬盘上，主要步骤：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派迁移到硬盘">
 <meta property="og:url" content="https://www.liuyong.online/2020/08/01/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%81%E7%A7%BB%E5%88%B0%E7%A1%AC%E7%9B%98/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="树莓派的SD卡慢且易出问题，所以尝试改造，将系统挂载在USB硬盘上，主要步骤：  将USB硬盘分区，记录PARTUUID  备份当前系统，并写入到USB硬盘   做设置调整  重启确认，填坑-&gt;将USB硬盘分区，记录PARTUUID主要涉及的命令：   sudo blkid确认硬盘的PARTUUID   sudo fdisk分区   sudomkfs.ext4 &#x2F;dev&#x2F;sda1-&gt;备">
+<meta property="og:description" content="树莓派的SD卡慢且易出问题，所以尝试改造，将系统挂载在USB硬盘上，主要步骤：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-01T04:33:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.421Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.402Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="硬盘">
@@ -238,14 +238,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -390,16 +390,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>树莓派的SD卡慢且易出问题，所以尝试改造，将系统挂载在USB硬盘上，主要步骤：<br/><br><br/><br><wbr/> <wbr/> <wbr/><br>将USB硬盘分区，记录PARTUUID<br/><br><wbr/> <wbr/> <wbr/><br>备份当前系统，并写入到USB硬盘<br/><br><wbr/> <wbr/> <wbr/> 做设置调整<br/><br><wbr/> <wbr/> <wbr/><br>重启确认，填坑<br/><br><br/><br><br/><br>-&gt;将USB硬盘分区，记录PARTUUID<br/><br>主要涉及的命令：<br/><br><br/><br><wbr/> <wbr/> <wbr/> sudo blkid<br>确认硬盘的PARTUUID<br/><br><wbr/> <wbr/> <wbr/> sudo fdisk<br>分区<br/><br><wbr/> <wbr/> <wbr/> sudo<br>mkfs.ext4 /dev/sda1<br/><br><br/><br>-&gt;备份当前系统，并写入到USB硬盘<br/><br>有4种方式， dd <wbr/> <wbr/><br>rsync <wbr/> tar和cp， 尝试了2种都OK<br/><br>主要涉及的命令：<br/><br><br/><br><wbr/> <wbr/> <wbr/> sudo dd<br>if=/dev/mmcblk0p2 of=/dev/sda1 <wbr/> <wbr/><br>耗时长，盘复制，后续需要resize2fs /dev/sda1<br/><br><wbr/> <wbr/> <wbr/> sudo rsync<br>-aAXv –exclude-from=”/tmp/exclude.list” /* /media/sda/sda1<br>其中exclude.list的内容为：/dev/* /media/* /mnt/* /proc/* /run/* /sys/*<br>/tmp/* /lost+found<br/><br><br/><br>-&gt;做设置调整<br/><br>主要涉及的命令：<br/><br><br/><br><wbr/> <wbr/> <wbr/><br>/boot目录下面：<br/><br><br/><br><wbr/> <wbr/> <wbr/> sudo<br>mkinitramfs -o initrd.sda<br/><br><wbr/> <wbr/> <wbr/> 编辑config.txt<br>在最后增加 <wbr/> initramfs initrd.sda<br/><br><wbr/> <wbr/> <wbr/><br>编辑cmdline.txt 把root=PARTUUID=xxxxxx-02<br>改成root=PARTUUID=上面拿到的硬盘PARTUUID<br/><br><br/><br><wbr/> <wbr/> <wbr/><br>/etc目录下面：<br/><br><br/><br><wbr/> <wbr/> <wbr/><br>编辑fstab，增加PARTUUID=上面拿到的硬盘PARTUUID <wbr/><br>/ <wbr/> <wbr/> ext4 <wbr/><br>defaults 0 1<br/><br><br/><br>重启确认，填坑<br/><br><br/><br><br/><br>主要参考linker：<br/></p>
+        <p>树莓派的SD卡慢且易出问题，所以尝试改造，将系统挂载在USB硬盘上，主要步骤：</p>
+<a id="more"></a>
+<p>将USB硬盘分区，记录PARTUUID<br>备份当前系统，并写入到USB硬盘<br>做设置调整<br>重启确认，填坑<br>-&gt;将USB硬盘分区，记录PARTUUID<br>主要涉及的命令：<br>sudo blkid<br>确认硬盘的PARTUUID<br>sudo fdisk<br>分区<br>sudo<br>mkfs.ext4 /dev/sda1<br>-&gt;备份当前系统，并写入到USB硬盘<br>有4种方式， dd<br>rsync  tar和cp， 尝试了2种都OK<br>主要涉及的命令：<br>sudo dd<br>if=/dev/mmcblk0p2 of=/dev/sda1<br>耗时长，盘复制，后续需要resize2fs /dev/sda1<br>sudo rsync<br>-aAXv –exclude-from=”/tmp/exclude.list” /* /media/sda/sda1<br>其中exclude.list的内容为：/dev/* /media/* /mnt/* /proc/* /run/* /sys/*<br>/tmp/* /lost+found<br>-&gt;做设置调整<br>主要涉及的命令：<br>/boot目录下面：<br>sudo<br>mkinitramfs -o initrd.sda<br>编辑config.txt<br>在最后增加  initramfs initrd.sda<br>编辑cmdline.txt 把root=PARTUUID=xxxxxx-02<br>改成root=PARTUUID=上面拿到的硬盘PARTUUID<br>/etc目录下面：<br>编辑fstab，增加PARTUUID=上面拿到的硬盘PARTUUID<br>/   ext4<br>defaults 0 1<br>重启确认，填坑<br>主要参考linker：</p>
 <ol>
-<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5590ac6f1655%EF%BC%88%E6%9C%89%E5%9D%91%EF%BC%89">https://www.jianshu.com/p/5590ac6f1655（有坑）</a><br/></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://cong5.net/post/raspberrypi-hard-disk-boot-with-usb-and-mount-hard-disks">https://cong5.net/post/raspberrypi-hard-disk-boot-with-usb-and-mount-hard-disks</a><br/></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.helplib.cn/beryl/backup-entire-linux-system-using-rsync">https://www.helplib.cn/beryl/backup-entire-linux-system-using-rsync</a><br>(有坑）</p>
-</div>
-
-</li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5590ac6f1655%EF%BC%88%E6%9C%89%E5%9D%91%EF%BC%89">https://www.jianshu.com/p/5590ac6f1655（有坑）</a></li>
+<li><a target="_blank" rel="noopener" href="https://cong5.net/post/raspberrypi-hard-disk-boot-with-usb-and-mount-hard-disks">https://cong5.net/post/raspberrypi-hard-disk-boot-with-usb-and-mount-hard-disks</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.helplib.cn/beryl/backup-entire-linux-system-using-rsync">https://www.helplib.cn/beryl/backup-entire-linux-system-using-rsync</a><br>(有坑）</li>
 </ol>
 
     </div>
@@ -530,14 +527,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

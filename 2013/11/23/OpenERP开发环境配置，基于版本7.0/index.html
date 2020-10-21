@@ -23,17 +23,17 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all inone是很简单的，但既然是开源的，不拿过来看看代码怎么跑总是有点不甘心的，所以搭了个开发环境，发觉网上有很多简单的说明，就是有些太简单了，呵呵～OpenERP是基于Python和PostgreSQL的，所以我这个开发环境配置主要分3大块： 第一，PostgreSQL的安装">
+  <meta name="description" content="前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenERP开发环境配置，基于版本7.0">
 <meta property="og:url" content="https://www.liuyong.online/2013/11/23/OpenERP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%9F%BA%E4%BA%8E%E7%89%88%E6%9C%AC7.0/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all inone是很简单的，但既然是开源的，不拿过来看看代码怎么跑总是有点不甘心的，所以搭了个开发环境，发觉网上有很多简单的说明，就是有些太简单了，呵呵～OpenERP是基于Python和PostgreSQL的，所以我这个开发环境配置主要分3大块： 第一，PostgreSQL的安装">
+<meta property="og:description" content="前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all in">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="article:published_time" content="2013-11-23T14:51:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:49.104Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:05.190Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="postgresql">
 <meta property="article:tag" content="OPENERP">
@@ -242,14 +242,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -376,7 +376,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -394,110 +394,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all in<br>one是很简单的，但既然是开源的，不拿过来看看代码怎么跑总是有点不甘心的，所以搭了个开发环境，发觉网上有很多简单的说明，就是有些太简单了，呵呵～OpenERP是基于Python和PostgreSQL的，所以我这个开发环境配置主要分3大块：</p>
-<div>第一，PostgreSQL的安装</div>
-<div><a target="_blank" rel="noopener" href="http://www.postgresql.org/">http://www.postgresql.org/</a> <wbr/>选的是9.2的版本，理由很简单，9.2以后的不敢确保其兼容性，因为用到了一些python的包，有些里面说明就是只支持到9.2.4(<a target="_blank" rel="noopener" href="http://www.stickpeople.com/projects/python/win-psycopg/">http://www.stickpeople.com/projects/python/win-psycopg/</a>)</div>
-<div>
-至于PostgreSQL怎么管理，只能自己想办法找资料了，相比较于MySQL，中文资料少得可怜。还好，尽管是哑巴英语，看科技资料，还是过得去的。也可上itpub或者dataguru去找一些pdf的书籍。由于只关心用户，数据库创建，openERP本身的资料也足够了。（<a target="_blank" rel="noopener" href="https://doc.openerp.com/7.0/zh_CN/install/windows/postgres/#setup-a-postgresql-user">https://doc.openerp.com/7.0/zh_CN/install/windows/postgres/#setup-a-postgresql-user</a>）</div>
-<div><br/></div>
-<div>第二，Python及其开发环境的安装</div>
-<div>Python只能选2.x的，我选的是2.7
-64位的；开发环境么当然就是Eclipse了，配pydev,教程谷歌度娘都一大堆，就不多说了。弄好后写个最简单的"hello"
-python程序，确保配置ok；</div>
-<div><br/></div>
-<div>
-第三，也是最头痛的，我相信ubuntu下面可能会简单一点，但是在windows下面，尤其是64bits的，有很多python的包安装起来比较麻烦，尤其是在openERP的官方site，基本上没有明确的guide，说哪些是必要的，所以只能笨办法了：</div>
-<div>1，下载源代码</div>
-<div><a target="_blank" rel="noopener" href="https://www.openerp.com/start?download">https://www.openerp.com/start?download</a>就这里好了，找个最新的src下来，解压缩</div>
-<div>2，在Eclipse中配置好openERP的项目，link到你解压缩的目录</div>
-<div>3，问题来了，首先是要配一个openerp-server.conf，可以从网上下一个，还可以自己另外装一个all in
-one然后把此文件拷出来，再做修改。下面给个sample,可以拷贝了用，就是注意红的地方根据自己的配置修改</div>
-<div>
-<div>[options]</div>
-<div>without_demo = False</div>
-<div>unaccent = False</div>
-<div>db_template = template1</div>
-<div><font color="#ED1C24">db_password =dbpassword</font></div>
-<div>xmlrpcs = True</div>
-<div>xmlrpcs_interface = <wbr/></div>
-<div>syslog = False</div>
-<div>logrotate = True</div>
-<div>xmlrpcs_port = 8071</div>
-<div>test_report_directory = False</div>
-<div>list_db = True</div>
-<div>timezone = False</div>
-<div>xmlrpc_interface = <wbr/></div>
-<div>test_file = False</div>
-<div>smtp_password = False</div>
-<div>secure_pkey_file = server.pkey</div>
-<div>xmlrpc_port = 8069</div>
-<div>workers = 0</div>
-<div>log_level = info</div>
-<div>xmlrpc = True</div>
-<div><font color="#ED1C24">admin_passwd = admin</font></div>
-<div>smtp_port = 25</div>
-<div>smtp_server = localhost</div>
-<div>static_http_url_prefix = None</div>
-<div>limit_request = 8192</div>
-<div>test_commit = False</div>
-<div>proxy_mode = False</div>
-<div>demo = {}</div>
-<div>dbfilter = .*</div>
-<div>login_message = False</div>
-<div>import_partial = <wbr/></div>
-<div>pidfile = None</div>
-<div>db_maxconn = 64</div>
-<div>osv_memory_count_limit = False</div>
-<div>reportgz = False</div>
-<div>osv_memory_age_limit = 1.0</div>
-<div>netrpc_port = 8070</div>
-<div>db_port =5432</div>
-<div>db_name = False</div>
-<div>debug_mode = False</div>
-<div>netrpc = False</div>
-<div>limit_time_real = 120</div>
-<div>limit_memory_hard = 805306368</div>
-<div><font color="#ED1C24">logfile =
-E:SoftOpenERP7_2013_11_23openerp-server.log</font></div>
-<div>csv_internal_sep = ,</div>
-<div>limit_time_cpu = 60</div>
-<div><font color="#ED1C24">pg_path
-=Z:PostgreSQL9.2in</font></div>
-<div>limit_memory_soft = 671088640</div>
-<div>static_http_enable = False</div>
-<div>translate_modules = [&prime;all&prime;]</div>
-<div>smtp_ssl = False</div>
-<div>server_wide_modules = None</div>
-<div>netrpc_interface = <wbr/></div>
-<div>smtp_user = False</div>
-<div>log_handler = [&prime;:INFO&prime;]</div>
-<div><font color="#ED1C24">db_user =openpg</font></div>
-<div><font color="#ED1C24">db_host =localhost</font></div>
-<div>test_enable = False</div>
-<div>max_cron_threads = 2</div>
-<div>static_http_document_root = None</div>
-<div>email_from = False</div>
-<div><font color="#ED1C24">addons_path =
-E:SoftOpenERP7_2013_11_23openerpaddons</font></div>
-<div>secure_cert_file = server.cert</div>
-</div>
-<div>4，下面就是缺的包了，由于<a target="_blank" rel="noopener" href="http://bazaar.launchpad.net/~openerp/openerp/win-installer-trunk/files/head:/dependencies/">http://bazaar.launchpad.net/~openerp/openerp/win-installer-trunk/files/head:/dependencies/</a>太老了，基本都是基于win32的包，所以自己一个一个摸索了一遍，</div>
-<div>简单的方式就是在eclipse中执行
-openerp-server.py,然后看出错信息，缺哪个包就补哪个包；最后</div>
-<div>等这里不出错了，得打开web界面：http://localhost:8069/，然后确认上面红字的<span style="color: rgb(237, 28, 36);">logfile =
-E:SoftOpenERP7_2013_11_23openerp-server.log</span>的内容，继续排查出错信息。</div>
-<div>
-下面列出了所有的排查出来的包，distribute_setup是为了装easy_install可以忽略，电信访问pypi.python.org实在太慢了。（<a target="_blank" rel="noopener" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a> <wbr/>这个很快，不过不全，还是有些到github或者干错google了去找的）</div>
-<div><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbrKIe9fd" target="_blank"></a><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbQprq1d1" target="_blank"><img alt="OpenERP开发环境配置，基于版本7.0" name="image_operate_9111385218428307" real_src="http://s2.sinaimg.cn/mw690/001DcOacgy6EsbQprq1d1&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="OpenERP开发环境配置，基于版本7.0"/></a><br/>
-<br/>
-5，基本搞定这些，那就可以直接 http://localhost:8069了，会打开一个数据库管理界面，Master
-Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_passwd
-= admin</span></div>
-<div><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbKdiga4a" target="_blank"><img alt="OpenERP开发环境配置，基于版本7.0" name="image_operate_91041385218127342" real_src="http://s11.sinaimg.cn/bmiddle/001DcOacgy6EsbKdiga4a&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="OpenERP开发环境配置，基于版本7.0"/></a><br/>
-<br/></div>
-<div>6.这些都ok了，那就开干吧～admin进入配置模块了～</div>
-</div>
-
+        <p>前一阶段一直在看一些NoSQL的东西，现在稍微挪出点时间，整了一下OpenERP，如果是在Windows7下面，安装all in</p>
+<a id="more"></a>
+<p>one是很简单的，但既然是开源的，不拿过来看看代码怎么跑总是有点不甘心的，所以搭了个开发环境，发觉网上有很多简单的说明，就是有些太简单了，呵呵～OpenERP是基于Python和PostgreSQL的，所以我这个开发环境配置主要分3大块：<br>第一，PostgreSQL的安装<br><a target="_blank" rel="noopener" href="http://www.postgresql.org/">http://www.postgresql.org/</a> 选的是9.2的版本，理由很简单，9.2以后的不敢确保其兼容性，因为用到了一些python的包，有些里面说明就是只支持到9.2.4(<a target="_blank" rel="noopener" href="http://www.stickpeople.com/projects/python/win-psycopg/">http://www.stickpeople.com/projects/python/win-psycopg/</a>)<br>至于PostgreSQL怎么管理，只能自己想办法找资料了，相比较于MySQL，中文资料少得可怜。还好，尽管是哑巴英语，看科技资料，还是过得去的。也可上itpub或者dataguru去找一些pdf的书籍。由于只关心用户，数据库创建，openERP本身的资料也足够了。（<a target="_blank" rel="noopener" href="https://doc.openerp.com/7.0/zh_CN/install/windows/postgres/#setup-a-postgresql-user">https://doc.openerp.com/7.0/zh_CN/install/windows/postgres/#setup-a-postgresql-user</a>）<br>第二，Python及其开发环境的安装<br>Python只能选2.x的，我选的是2.7<br>64位的；开发环境么当然就是Eclipse了，配pydev,教程谷歌度娘都一大堆，就不多说了。弄好后写个最简单的”hello”<br>python程序，确保配置ok；<br>第三，也是最头痛的，我相信ubuntu下面可能会简单一点，但是在windows下面，尤其是64bits的，有很多python的包安装起来比较麻烦，尤其是在openERP的官方site，基本上没有明确的guide，说哪些是必要的，所以只能笨办法了：<br>1，下载源代码<br><a target="_blank" rel="noopener" href="https://www.openerp.com/start?download">https://www.openerp.com/start?download</a>就这里好了，找个最新的src下来，解压缩<br>2，在Eclipse中配置好openERP的项目，link到你解压缩的目录<br>3，问题来了，首先是要配一个openerp-server.conf，可以从网上下一个，还可以自己另外装一个all in<br>one然后把此文件拷出来，再做修改。下面给个sample,可以拷贝了用，就是注意红的地方根据自己的配置修改<br>[options]<br>without_demo = False<br>unaccent = False<br>db_template = template1<br><font color="#ED1C24">db_password =dbpassword</font><br>xmlrpcs = True<br>xmlrpcs_interface =<br>syslog = False<br>logrotate = True<br>xmlrpcs_port = 8071<br>test_report_directory = False<br>list_db = True<br>timezone = False<br>xmlrpc_interface =<br>test_file = False<br>smtp_password = False<br>secure_pkey_file = server.pkey<br>xmlrpc_port = 8069<br>workers = 0<br>log_level = info<br>xmlrpc = True<br><font color="#ED1C24">admin_passwd = admin</font><br>smtp_port = 25<br>smtp_server = localhost<br>static_http_url_prefix = None<br>limit_request = 8192<br>test_commit = False<br>proxy_mode = False<br>demo = {}<br>dbfilter = .*<br>login_message = False<br>import_partial =<br>pidfile = None<br>db_maxconn = 64<br>osv_memory_count_limit = False<br>reportgz = False<br>osv_memory_age_limit = 1.0<br>netrpc_port = 8070<br>db_port =5432<br>db_name = False<br>debug_mode = False<br>netrpc = False<br>limit_time_real = 120<br>limit_memory_hard = 805306368<br><font color="#ED1C24">logfile =<br>E:SoftOpenERP7_2013_11_23openerp-server.log</font><br>csv_internal_sep = ,<br>limit_time_cpu = 60<br><font color="#ED1C24">pg_path<br>=Z:PostgreSQL9.2in</font><br>limit_memory_soft = 671088640<br>static_http_enable = False<br>translate_modules = [&prime;all&prime;]<br>smtp_ssl = False<br>server_wide_modules = None<br>netrpc_interface =<br>smtp_user = False<br>log_handler = [&prime;:INFO&prime;]<br><font color="#ED1C24">db_user =openpg</font><br><font color="#ED1C24">db_host =localhost</font><br>test_enable = False<br>max_cron_threads = 2<br>static_http_document_root = None<br>email_from = False<br><font color="#ED1C24">addons_path =<br>E:SoftOpenERP7_2013_11_23openerpaddons</font><br>secure_cert_file = server.cert<br>4，下面就是缺的包了，由于<a target="_blank" rel="noopener" href="http://bazaar.launchpad.net/~openerp/openerp/win-installer-trunk/files/head:/dependencies/">http://bazaar.launchpad.net/<del>openerp/openerp/win-installer-trunk/files/head:/dependencies/</a>太老了，基本都是基于win32的包，所以自己一个一个摸索了一遍，<br>简单的方式就是在eclipse中执行<br>openerp-server.py,然后看出错信息，缺哪个包就补哪个包；最后<br>等这里不出错了，得打开web界面：<a target="_blank" rel="noopener" href="http://localhost:8069/%EF%BC%8C%E7%84%B6%E5%90%8E%E7%A1%AE%E8%AE%A4%E4%B8%8A%E9%9D%A2%E7%BA%A2%E5%AD%97%E7%9A%84">http://localhost:8069/，然后确认上面红字的</a><span style="color: rgb(237, 28, 36);">logfile =<br>E:SoftOpenERP7_2013_11_23openerp-server.log</span>的内容，继续排查出错信息。<br>下面列出了所有的排查出来的包，distribute_setup是为了装easy_install可以忽略，电信访问pypi.python.org实在太慢了。（&lt;a href=”<a target="_blank" rel="noopener" href="http://www.lfd.uci.edu/">http://www.lfd.uci.edu/</a></del>gohlke/pythonlibs/“&gt;http://www.lfd.uci.edu/~gohlke/pythonlibs/</a> 这个很快，不过不全，还是有些到github或者干错google了去找的）<br><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbrKIe9fd" target="_blank"></a><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbQprq1d1" target="_blank"><img alt="OpenERP开发环境配置，基于版本7.0" name="image_operate_9111385218428307" real_src="http://s2.sinaimg.cn/mw690/001DcOacgy6EsbQprq1d1&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="OpenERP开发环境配置，基于版本7.0"/></a><br>5，基本搞定这些，那就可以直接 <a href="http://localhost:8069了，会打开一个数据库管理界面，Master">http://localhost:8069了，会打开一个数据库管理界面，Master</a><br>Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_passwd<br>= admin</span><br><a href="http://album.sina.com.cn/pic/001DcOacgy6EsbKdiga4a" target="_blank"><img alt="OpenERP开发环境配置，基于版本7.0" name="image_operate_91041385218127342" real_src="http://s11.sinaimg.cn/bmiddle/001DcOacgy6EsbKdiga4a&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="OpenERP开发环境配置，基于版本7.0"/></a><br>6.这些都ok了，那就开干吧～admin进入配置模块了～</p>
 
     </div>
 
@@ -628,14 +527,14 @@ Password就是上面红字中的<span style="color: rgb(237, 28, 36);">admin_pas
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="计算并返回两个列表向量的内积，也就是对应分量乘积的和。例如对于v1&#x3D;[1,2,3]，v2&#x3D;[4,5,6]，计算14+25+3*5&#x3D;32，返回32。 from operator import mul def main(vector1, vector2):     return sum(list(map(lambda x,y: x*y, vector1, vector2)))  返回最长的字符串 d">
+  <meta name="description" content="计算并返回两个列表向量的内积，也就是对应分量乘积的和。例如对于v1&#x3D;[1,2,3]，v2&#x3D;[4,5,6]，计算14+25+3*5&#x3D;32，返回32。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python小屋练手②编程自测题11-20">
 <meta property="og:url" content="https://www.liuyong.online/2020/10/06/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A1%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%9811-20/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="计算并返回两个列表向量的内积，也就是对应分量乘积的和。例如对于v1&#x3D;[1,2,3]，v2&#x3D;[4,5,6]，计算14+25+3*5&#x3D;32，返回32。 from operator import mul def main(vector1, vector2):     return sum(list(map(lambda x,y: x*y, vector1, vector2)))  返回最长的字符串 d">
+<meta property="og:description" content="计算并返回两个列表向量的内积，也就是对应分量乘积的和。例如对于v1&#x3D;[1,2,3]，v2&#x3D;[4,5,6]，计算14+25+3*5&#x3D;32，返回32。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-06T04:51:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:54.848Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:14.415Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="董付国">
 <meta property="article:tag" content="python">
@@ -239,14 +239,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -358,7 +358,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
         </span>
     </span>
 
@@ -377,7 +377,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -396,68 +396,17 @@
     
     <div class="post-body" itemprop="articleBody">
         <ol start="11">
-<li><p>计算并返回两个列表向量的内积，也就是对应分量乘积的和。例如对于v1=[1,2,3]，v2=[4,5,6]，计算1<em>4+2</em>5+3*5=32，返回32。</p>
-<pre><code class="python">from operator import mul
-def main(vector1, vector2):
-    return sum(list(map(lambda x,y: x*y, vector1, vector2)))</code></pre>
-</li>
-<li><p>返回最长的字符串</p>
-<pre><code class="python">def main(lst):
-   return sorted(lst, key=lambda x:len(x), reverse=True)[0]</code></pre>
-</li>
-<li><p>返回一个包含原列表lst中所有非0整数的新列表，且其中的所有整数保持原来的相对顺序</p>
-<pre><code class="python">def main(lst):
-   return list(filter(lambda x: x!=0, lst))</code></pre>
-</li>
-<li><p>返回绝对值最大的整数</p>
-<pre><code class="python">def main(lst):
-    retV = max([abs(x) for x in lst])
-    try:
-        index = lst.index(retV)
-        return lst[index]
-    except:
-        index = lst.index(-retV)
-        return lst[index]</code></pre>
-</li>
-<li><p>返回其中所有奇数组成的新列表</p>
-<pre><code class="python">def main(lst):
-    return [x for x in lst if x%2 !=0]</code></pre>
-</li>
-<li><p>返回一个长度为20的新字符串，原字符串s的内容再新字符串中居中，如果原字符串s长度小于20，就在两侧用#填充；如果s不小于20，则直接返回s</p>
-<pre><code class="python">def main(s):
-    return s.center(20, &#39;#&#39;)</code></pre>
-</li>
-<li><p>要求把阿拉伯数字0~9变成汉字零到九，其他非阿拉伯数字保持不变</p>
-<pre><code class="python">def main(s):
-    inStr=&#39;0123456789&#39;
-    outStr=&#39;零一二三四五六七八九&#39;
-    return s.translate(s.maketrans(inStr, outStr))</code></pre>
-</li>
-<li><p>要求判断是否存在重复的整数，如果所有整数完全一样，返回0；如果所有整数互不相同，返回1；如果部分相同则返回2；</p>
-<pre><code class="python">def main(lst):
-    s = set(lst)
-    if len(s) == 1 and len(lst) != 1:
-        return 0
-    elif len(s) == len(lst):
-        return 1
-    else:
-        return 2</code></pre>
-</li>
-<li><p>要求删除英文字母之外的其他所有字符，然后判断剩余的英文字母字符串是否为回文，是回文则返回True，否则返回False</p>
-<pre><code class="python">import re
-def main(s):
-    ns = re.sub(r&#39;[^a-zA-Z]&#39;,&#39;&#39;, s)
-    if ns[::-1] == ns:
-        return True
-    else:
-        return False</code></pre>
-</li>
-<li><p>要求返回其中出现次数最多的前3个字符组成的列表，并按从多到少排列</p>
-<pre><code class="python">from collections import Counter
-def main(s):
-    lst_dict = Counter(s).most_common(3)
-    return [lst_dict[0][0], lst_dict[1][0], lst_dict[2][0]]</code></pre>
-</li>
+<li>计算并返回两个列表向量的内积，也就是对应分量乘积的和。例如对于v1=[1,2,3]，v2=[4,5,6]，计算1<em>4+2</em>5+3*5=32，返回32。<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> mul</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">vector1, vector2</span>):</span></span><br><span class="line"><span class="keyword">return</span> sum(list(map(<span class="keyword">lambda</span> x,y: x*y, vector1, vector2)))</span><br></pre></td></tr></table></figure></li>
+<li>返回最长的字符串<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> sorted(lst, key=<span class="keyword">lambda</span> x:len(x), reverse=<span class="literal">True</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure></li>
+<li>返回一个包含原列表lst中所有非0整数的新列表，且其中的所有整数保持原来的相对顺序<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> list(filter(<span class="keyword">lambda</span> x: x!=<span class="number">0</span>, lst))</span><br></pre></td></tr></table></figure></li>
+<li>返回绝对值最大的整数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">retV = max([abs(x) <span class="keyword">for</span> x <span class="keyword">in</span> lst])</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">index = lst.index(retV)</span><br><span class="line"><span class="keyword">return</span> lst[index]</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">index = lst.index(-retV)</span><br><span class="line"><span class="keyword">return</span> lst[index]</span><br></pre></td></tr></table></figure></li>
+<li>返回其中所有奇数组成的新列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> lst <span class="keyword">if</span> x%<span class="number">2</span> !=<span class="number">0</span>]</span><br></pre></td></tr></table></figure></li>
+<li>返回一个长度为20的新字符串，原字符串s的内容再新字符串中居中，如果原字符串s长度小于20，就在两侧用#填充；如果s不小于20，则直接返回s<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">s</span>):</span></span><br><span class="line"><span class="keyword">return</span> s.center(<span class="number">20</span>, <span class="string">&#x27;#&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>要求把阿拉伯数字0~9变成汉字零到九，其他非阿拉伯数字保持不变<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">s</span>):</span></span><br><span class="line">inStr=<span class="string">&#x27;0123456789&#x27;</span></span><br><span class="line">outStr=<span class="string">&#x27;零一二三四五六七八九&#x27;</span></span><br><span class="line"><span class="keyword">return</span> s.translate(s.maketrans(inStr, outStr))</span><br></pre></td></tr></table></figure></li>
+<li>要求判断是否存在重复的整数，如果所有整数完全一样，返回0；如果所有整数互不相同，返回1；如果部分相同则返回2；<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">s = set(lst)</span><br><span class="line"><span class="keyword">if</span> len(s) == <span class="number">1</span> <span class="keyword">and</span> len(lst) != <span class="number">1</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">elif</span> len(s) == len(lst):</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></li>
+<li>要求删除英文字母之外的其他所有字符，然后判断剩余的英文字母字符串是否为回文，是回文则返回True，否则返回False<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">s</span>):</span></span><br><span class="line">ns = re.sub(<span class="string">r&#x27;[^a-zA-Z]&#x27;</span>,<span class="string">&#x27;&#x27;</span>, s)</span><br><span class="line"><span class="keyword">if</span> ns[::<span class="number">-1</span>] == ns:</span><br><span class="line"><span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure></li>
+<li>要求返回其中出现次数最多的前3个字符组成的列表，并按从多到少排列<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">s</span>):</span></span><br><span class="line">lst_dict = Counter(s).most_common(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">return</span> [lst_dict[<span class="number">0</span>][<span class="number">0</span>], lst_dict[<span class="number">1</span>][<span class="number">0</span>], lst_dict[<span class="number">2</span>][<span class="number">0</span>]]</span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </div>
@@ -589,14 +538,14 @@ def main(s):
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

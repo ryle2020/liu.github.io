@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Blog.pyclass Blog(object):     def __init__(self, title, url, publish, comment, read, picAddress, content, tag, category):         self.title &#x3D; title                #主题         self.url &#x3D; url">
+  <meta name="description" content="Blog.py">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬取新浪博客文章的Python实现之②">
 <meta property="og:url" content="https://www.liuyong.online/2020/09/01/%E7%88%AC%E5%8F%96%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84Python%E5%AE%9E%E7%8E%B0%E4%B9%8B%E2%91%A1/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="Blog.pyclass Blog(object):     def __init__(self, title, url, publish, comment, read, picAddress, content, tag, category):         self.title &#x3D; title                #主题         self.url &#x3D; url">
+<meta property="og:description" content="Blog.py">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-01T14:19:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.096Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.027Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="python爬虫">
 <meta property="article:tag" content="新浪博客">
@@ -239,14 +239,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -373,7 +373,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.9k</span>
+      <span>4.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -391,142 +391,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h5 id="Blog-py"><a href="#Blog-py" class="headerlink" title="Blog.py"></a><font color=#FF8C00>Blog.py</font></h5><pre><code class="python">class Blog(object):
-    def __init__(self, title, url, publish, comment, read, picAddress, content, tag, category):
-        self.title = title                #主题
-        self.url = url                    #URL
-        self.publish = publish            #发表日期
-        self.comment = comment            #评论数
-        self.read = read                  #阅读数
-        self.picAddress = picAddress      #图片地址列表，无的话为空
-        self.content = content            #内容
-        self.tag = tag                    #标签列表，无的话为空
-        self.category = category          #类别
-
-
-    def show(self):
-        print(&quot;title: &quot;, self.title)
-        print(&quot;url:&quot;, self.url)
-        print(&quot;comment&quot;, self.comment)
-        print(&quot;read&quot;, self.read)
-        print(&quot;picAddress&quot;, self.picAddress)
-        print(&quot;tag&quot;, self.tag)
-        print(&quot;category&quot;, self.category)
-        print(&quot;content&quot;, self.content)</code></pre>
-<h5 id="getBlogofSina-py"><a href="#getBlogofSina-py" class="headerlink" title="getBlogofSina.py"></a><font color=#FF8C00>getBlogofSina.py</font></h5><pre><code class="python">import sys, urllib, urllib.request as requests, re, codecs, html
-from bs4 import BeautifulSoup
-from ConfigData import ConfigData as cd
-from Blog import Blog
-
-
-# 取得博文详细信息
-def get_BlogDetail(strUrl):
-    #retBlog = Blog(title, strUrl, publish, comment, read, picAddress, content, tag, category)
-
-    request = requests.Request(strUrl)
-    response = requests.urlopen(request)
-    html = response.read()    
-    soup = BeautifulSoup(html, &#39;html.parser&#39;)
-
-    # 查找包含TAG和CATEGORY的段落
-    strFindList = str(soup.find_all(&#39;div&#39;, cd.patternTagDiv))
-    tagList = re.findall(cd.patternTag, strFindList)
-    if tagList != None and len(tagList) &gt; 0:
-        tag = (str(re.findall(cd.patternTag, strFindList)[0])[6:-2]).split(&quot;,&quot;)
-    else:
-        tag = []
-    categoryList = re.findall(cd.patternCategory, strFindList)
-    if categoryList != None and len(categoryList) &gt; 0:
-        category = (str(re.findall(cd.patternCategory, strFindList)[0])[1:-3]).split(&quot;,&quot;)
-    else:
-        category = [] 
-
-    # 查找TITLE的段落
-    strFindList = str(soup.find(&#39;title&#39;)).strip()
-    title = strFindList[7:-8].split(&quot;_&quot;)[0]
-    # print(title)
-
-    # 查找发表时间的段落
-    strFindList = str(soup.find_all(&#39;span&#39;, cd.patternTitleDetail))
-    publish = str(re.findall(cd.patternPublishDetail, strFindList)[0])
-
-    # 用Python发送API，获取JS返回值的方式获取评论数和阅读数
-    comment, read = get_cr_num(strUrl, get_crDict(&quot;&amp;aids=&quot; + strUrl[-11:-5]))
-
-    # 获得博文内容
-    content = str(soup.find(&#39;div&#39;, cd.patternContent ))
-
-    # 获得图像地址列表
-    strFindList = soup.find_all(&#39;img&#39;, title=re.compile(title))
-    picAddressList = []
-    for strFind in strFindList:
-        picAddress = str(re.findall(r&#39;real_src=.+src=&#39;, str(strFind)))[12:-6].strip()[:-1]
-        picAddress = picAddress.replace(&#39;&amp;amp;&#39;, &#39;&amp;&#39;)
-        picAddressList.append(picAddress)
-
-    return Blog(title, strUrl, publish, comment, read, picAddressList, content, tag, category)
-
-# 取得评论和阅读数的字典合集
-# INPUT: param （&amp;aids=02vdeu,0136nk）
-# RETURN: r - 评论数； c - 阅读数
-def get_crDict(param):
-    url = cd.crUrl + param
-    request = requests.Request(url)
-    response = requests.urlopen(request)
-    pattern = cd.patternCR
-    htmlW = str(re.findall(pattern, str(response.read()).strip())[0][:-1])
-return e v a l(htmlW)    # 返回字典 把e v a l的空格都要去掉，这个编辑器没法提交，所以只能加空格
-
-# 取得评论和阅读数
-# INPUT: _url （http://blog.sina.com.cn/s/blog_5922f3300101e20o.htm）
-# RETURN: r - 评论数； c - 阅读数
-def get_cr_num(strUrl, cr_dict):
-    needFindKey = strUrl[-11:-5]
-    return cr_dict[needFindKey].get(&#39;c&#39;), cr_dict[needFindKey].get(&#39;r&#39;)
-
-def makeBlogList():
-    # 保存具体内容的待爬取URL清单
-    needProcessURL = set()
-
-    # 需要爬取的URL列表
-    starUrlList = []
-    for i in range(1,5):
-        starUrlList.append(cd.strUrl + str(i) + &quot;.html&quot;)
-
-    # 生成博客文章一览表，格式：
-    # 序号 | 主题 | URL| 是否有图| 评论数/阅读数| 发表时间
-    fout = codecs.open(&#39;sina.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;)
-    fout.write(cd.htmlStart)
-
-    i=1    #  博客文章序号
-    blogList = []
-    for url in starUrlList:
-        request = requests.Request(url, headers=cd.headers)
-        response = requests.urlopen(request)
-        html = response.read()
-        soup = BeautifulSoup(html, &#39;html.parser&#39;)
-
-        # strFindList = soup.find_all(&#39;a&#39;, href=re.compile(cd.patternALink))
-        strFindList = soup.find_all(&#39;div&#39;, cd.patternDiv)
-
-        paramCR = &#39;&amp;aids=&#39;
-        for strFind in strFindList:
-            strFind = str(strFind)
-            resUrl = re.findall(cd.patternUrl, strFind)[0]
-            blogList.append(get_BlogDetail(str(resUrl)))
-
-    for blog in blogList:
-        hasPic = cd.outPic if len(blog.picAddress) &gt; 0 else &#39;&#39;
-        fout.write(cd.htmlCont.format(str(i), blog.title, blog.url, blog.url, hasPic, blog.comment, blog.read, blog.publish))
-        i += 1    
-
-    fout.write(cd.htmlEnd)
-    fout.close()
-
-
-if __name__ == &#39;__main__&#39;:
-    makeBlogList()</code></pre>
-
+        <h5 id="Blog-py"><a href="#Blog-py" class="headerlink" title="Blog.py"></a><font color=#FF8C00>Blog.py</font></h5><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blog</span>(<span class="params">object</span>):</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, title, url, publish, comment, read, picAddress, content, tag, category</span>):</span></span><br><span class="line">self.title = title                <span class="comment">#主题</span></span><br><span class="line">self.url = url                    <span class="comment">#URL</span></span><br><span class="line">self.publish = publish            <span class="comment">#发表日期</span></span><br><span class="line">self.comment = comment            <span class="comment">#评论数</span></span><br><span class="line">self.read = read                  <span class="comment">#阅读数</span></span><br><span class="line">self.picAddress = picAddress      <span class="comment">#图片地址列表，无的话为空</span></span><br><span class="line">self.content = content            <span class="comment">#内容</span></span><br><span class="line">self.tag = tag                    <span class="comment">#标签列表，无的话为空</span></span><br><span class="line">self.category = category          <span class="comment">#类别</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span>(<span class="params">self</span>):</span></span><br><span class="line">print(<span class="string">&quot;title: &quot;</span>, self.title)</span><br><span class="line">print(<span class="string">&quot;url:&quot;</span>, self.url)</span><br><span class="line">print(<span class="string">&quot;comment&quot;</span>, self.comment)</span><br><span class="line">print(<span class="string">&quot;read&quot;</span>, self.read)</span><br><span class="line">print(<span class="string">&quot;picAddress&quot;</span>, self.picAddress)</span><br><span class="line">print(<span class="string">&quot;tag&quot;</span>, self.tag)</span><br><span class="line">print(<span class="string">&quot;category&quot;</span>, self.category)</span><br><span class="line">print(<span class="string">&quot;content&quot;</span>, self.content)</span><br></pre></td></tr></table></figure>
+<h5 id="getBlogofSina-py"><a href="#getBlogofSina-py" class="headerlink" title="getBlogofSina.py"></a><font color=#FF8C00>getBlogofSina.py</font></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys, urllib, urllib.request <span class="keyword">as</span> requests, re, codecs, html</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> ConfigData <span class="keyword">import</span> ConfigData <span class="keyword">as</span> cd</span><br><span class="line"><span class="keyword">from</span> Blog <span class="keyword">import</span> Blog</span><br><span class="line"><span class="comment"># 取得博文详细信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_BlogDetail</span>(<span class="params">strUrl</span>):</span></span><br><span class="line"><span class="comment">#retBlog = Blog(title, strUrl, publish, comment, read, picAddress, content, tag, category)</span></span><br><span class="line">request = requests.Request(strUrl)</span><br><span class="line">response = requests.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"><span class="comment"># 查找包含TAG和CATEGORY的段落</span></span><br><span class="line">strFindList = str(soup.find_all(<span class="string">&#x27;div&#x27;</span>, cd.patternTagDiv))</span><br><span class="line">tagList = re.findall(cd.patternTag, strFindList)</span><br><span class="line"><span class="keyword">if</span> tagList != <span class="literal">None</span> <span class="keyword">and</span> len(tagList) &gt; <span class="number">0</span>:</span><br><span class="line">tag = (str(re.findall(cd.patternTag, strFindList)[<span class="number">0</span>])[<span class="number">6</span>:<span class="number">-2</span>]).split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">tag = []</span><br><span class="line">categoryList = re.findall(cd.patternCategory, strFindList)</span><br><span class="line"><span class="keyword">if</span> categoryList != <span class="literal">None</span> <span class="keyword">and</span> len(categoryList) &gt; <span class="number">0</span>:</span><br><span class="line">category = (str(re.findall(cd.patternCategory, strFindList)[<span class="number">0</span>])[<span class="number">1</span>:<span class="number">-3</span>]).split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">category = []</span><br><span class="line"><span class="comment"># 查找TITLE的段落</span></span><br><span class="line">strFindList = str(soup.find(<span class="string">&#x27;title&#x27;</span>)).strip()</span><br><span class="line">title = strFindList[<span class="number">7</span>:<span class="number">-8</span>].split(<span class="string">&quot;_&quot;</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># print(title)</span></span><br><span class="line"><span class="comment"># 查找发表时间的段落</span></span><br><span class="line">strFindList = str(soup.find_all(<span class="string">&#x27;span&#x27;</span>, cd.patternTitleDetail))</span><br><span class="line">publish = str(re.findall(cd.patternPublishDetail, strFindList)[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># 用Python发送API，获取JS返回值的方式获取评论数和阅读数</span></span><br><span class="line">comment, read = get_cr_num(strUrl, get_crDict(<span class="string">&quot;&amp;aids=&quot;</span> + strUrl[<span class="number">-11</span>:<span class="number">-5</span>]))</span><br><span class="line"><span class="comment"># 获得博文内容</span></span><br><span class="line">content = str(soup.find(<span class="string">&#x27;div&#x27;</span>, cd.patternContent ))</span><br><span class="line"><span class="comment"># 获得图像地址列表</span></span><br><span class="line">strFindList = soup.find_all(<span class="string">&#x27;img&#x27;</span>, title=re.compile(title))</span><br><span class="line">picAddressList = []</span><br><span class="line"><span class="keyword">for</span> strFind <span class="keyword">in</span> strFindList:</span><br><span class="line">picAddress = str(re.findall(<span class="string">r&#x27;real_src=.+src=&#x27;</span>, str(strFind)))[<span class="number">12</span>:<span class="number">-6</span>].strip()[:<span class="number">-1</span>]</span><br><span class="line">picAddress = picAddress.replace(<span class="string">&#x27;&amp;amp;&#x27;</span>, <span class="string">&#x27;&amp;&#x27;</span>)</span><br><span class="line">picAddressList.append(picAddress)</span><br><span class="line"><span class="keyword">return</span> Blog(title, strUrl, publish, comment, read, picAddressList, content, tag, category)</span><br><span class="line"><span class="comment"># 取得评论和阅读数的字典合集</span></span><br><span class="line"><span class="comment"># INPUT: param （&amp;aids=02vdeu,0136nk）</span></span><br><span class="line"><span class="comment"># RETURN: r - 评论数； c - 阅读数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_crDict</span>(<span class="params">param</span>):</span></span><br><span class="line">url = cd.crUrl + param</span><br><span class="line">request = requests.Request(url)</span><br><span class="line">response = requests.urlopen(request)</span><br><span class="line">pattern = cd.patternCR</span><br><span class="line">htmlW = str(re.findall(pattern, str(response.read()).strip())[<span class="number">0</span>][:<span class="number">-1</span>])</span><br><span class="line"><span class="keyword">return</span> e v a l(htmlW)    <span class="comment"># 返回字典 把e v a l的空格都要去掉，这个编辑器没法提交，所以只能加空格</span></span><br><span class="line"><span class="comment"># 取得评论和阅读数</span></span><br><span class="line"><span class="comment"># INPUT: _url （http://blog.sina.com.cn/s/blog_5922f3300101e20o.htm）</span></span><br><span class="line"><span class="comment"># RETURN: r - 评论数； c - 阅读数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_cr_num</span>(<span class="params">strUrl, cr_dict</span>):</span></span><br><span class="line">needFindKey = strUrl[<span class="number">-11</span>:<span class="number">-5</span>]</span><br><span class="line"><span class="keyword">return</span> cr_dict[needFindKey].get(<span class="string">&#x27;c&#x27;</span>), cr_dict[needFindKey].get(<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeBlogList</span>():</span></span><br><span class="line"><span class="comment"># 保存具体内容的待爬取URL清单</span></span><br><span class="line">needProcessURL = set()</span><br><span class="line"><span class="comment"># 需要爬取的URL列表</span></span><br><span class="line">starUrlList = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">starUrlList.append(cd.strUrl + str(i) + <span class="string">&quot;.html&quot;</span>)</span><br><span class="line"><span class="comment"># 生成博客文章一览表，格式：</span></span><br><span class="line"><span class="comment"># 序号 | 主题 | URL| 是否有图| 评论数/阅读数| 发表时间</span></span><br><span class="line">fout = codecs.open(<span class="string">&#x27;sina.html&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">fout.write(cd.htmlStart)</span><br><span class="line">i=<span class="number">1</span>    <span class="comment">#  博客文章序号</span></span><br><span class="line">blogList = []</span><br><span class="line"><span class="keyword">for</span> url <span class="keyword">in</span> starUrlList:</span><br><span class="line">request = requests.Request(url, headers=cd.headers)</span><br><span class="line">response = requests.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"><span class="comment"># strFindList = soup.find_all(&#x27;a&#x27;, href=re.compile(cd.patternALink))</span></span><br><span class="line">strFindList = soup.find_all(<span class="string">&#x27;div&#x27;</span>, cd.patternDiv)</span><br><span class="line">paramCR = <span class="string">&#x27;&amp;aids=&#x27;</span></span><br><span class="line"><span class="keyword">for</span> strFind <span class="keyword">in</span> strFindList:</span><br><span class="line">strFind = str(strFind)</span><br><span class="line">resUrl = re.findall(cd.patternUrl, strFind)[<span class="number">0</span>]</span><br><span class="line">blogList.append(get_BlogDetail(str(resUrl)))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogList:</span><br><span class="line">hasPic = cd.outPic <span class="keyword">if</span> len(blog.picAddress) &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">fout.write(cd.htmlCont.format(str(i), blog.title, blog.url, blog.url, hasPic, blog.comment, blog.read, blog.publish))</span><br><span class="line">i += <span class="number">1</span></span><br><span class="line">fout.write(cd.htmlEnd)</span><br><span class="line">fout.close()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">makeBlogList()</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -655,14 +522,14 @@ if __name__ == &#39;__main__&#39;:
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

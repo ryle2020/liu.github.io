@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="配置文件[family]  ; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人 familyList&#x3D;爸爸, 大宝, 二宝, 妈妈 ddMain&#x3D;二宝 xhbMain&#x3D;大宝   [time] ; 定义等待间隔时间 pyautoguiPAUSE &#x3D; 2 generalWaitTime &#x3D; 2 generalWaitTime_speed_high &#x3D; 0.2 g">
+  <meta name="description" content="配置文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="③用configparser解析配置文件">
 <meta property="og:url" content="https://www.liuyong.online/2020/09/25/%E2%91%A2%E7%94%A8configparser%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="配置文件[family]  ; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人 familyList&#x3D;爸爸, 大宝, 二宝, 妈妈 ddMain&#x3D;二宝 xhbMain&#x3D;大宝   [time] ; 定义等待间隔时间 pyautoguiPAUSE &#x3D; 2 generalWaitTime &#x3D; 2 generalWaitTime_speed_high &#x3D; 0.2 g">
+<meta property="og:description" content="配置文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-25T13:25:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:54.733Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:14.292Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
 <meta name="twitter:card" content="summary">
@@ -238,14 +238,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -357,7 +357,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
         </span>
     </span>
 
@@ -376,14 +376,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>11k</span>
+      <span>13k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -394,466 +394,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><pre><code>[family] 
-; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人
-familyList=爸爸, 大宝, 二宝, 妈妈
-ddMain=二宝
-xhbMain=大宝
-
-
-[time]
-; 定义等待间隔时间
-pyautoguiPAUSE = 2
-generalWaitTime = 2
-generalWaitTime_speed_high = 0.2
-generalTimeAdjust = 3
-generalTimeAdjust_speed_high = 1
-generalTimeAdjust_speed_low =  5
-
-[log]
-; 定义日志参数，0表示控制台输出，1表示文件输出，2表示同时输出
-basicLogFileName = logger.log
-logFileName = log.txt
-logMode = 2
-level = DEBUG
-
-[password]
-passwordFile = password
-[weixin-ssm]
-; 微信随申码相关的控制参数
-
-; 定义微信安装位置
-wxAppName = C:\\Program Files (x86)\\Tencent\\WeChat\\WeChat.exe
-
-; 定义微信登录窗口
-wxLoginWindowClass = WeChatLoginWndForPC
-wxLoginWindowName = 登录
-wxLoginBtnPic = img/weixin/wxLogin.png
-
-; 定义微信主窗口
-wxWindowClass = WeChatMainWndForPC
-wxWindowName = 微信
-
-; 定义微信小程序面板窗口
-wxMicroPgWindowClass = AppletPanelWnd
-wxMicroPgWindowName = 
-wx_xcxPic = img/weixin/wx_xcx.png
-
-; 定义随申办的窗口
-ssbWindowClass=Chrome_WidgetWin_0
-ssbWindowName=随申办
-wx_ssbPic = img/weixin/wx_ssb.png
-
-; 定义一些鼠标移动的相对常量
-; 0. 微信登录窗口的登录按钮位置
-wxLoginBtn_x = 138
-wxLoginBtn_y = 279
-
-; 1. 微信主窗口位置
-left = 0
-top = 0
-width = 800
-height = 600
-repaint = 1
-
-; 2. 搜索框
-searchBox_x = 150
-searchBox_y = 37
-
-; 3. 小程序面板
-microPg_x = 30
-microPg_y = 490
-
-; 4. 查找小程序
-s_microPg_x = 300
-s_microPg_y = 450
-
-; 5. 随申办定位
-ssb_x = 115
-ssb_y = 320
-
-; 6. 随申码定位
-ssm_x = 235
-ssm_y = 280
-
-; 7. 亲属随申码主链接
-ssm_main_link_x = 347
-ssm_main_link_y = 191
-
-; 8. 亲属随申码定位（x不变，y从310开始，以93位间隔增长）
-ssm_family_x = 347
-ssm_family_start_y = 310
-ssm_family_interval_y = 93
-; 亲属随申码返回的时候需要调整位置
-ssm_family_adjust_y = 10 
-
-; 定义搜索内容
-wxSearch = 
-
-; 截图区域
-imgLeft = 5
-imgTop = 62
-imgRight = 405
-imgBottom = 675
-
-[Dingding]
-; 钉钉相关控制参数
-
-; 定义钉钉安装位置
-ddAppName = C:\\Program Files (x86)\\DingDing\\DingtalkLauncher.exe
-
-ddLoginWindowClass = StandardFrame_Loging
-ddLoginWindowName = 钉钉
-ddPasswordLoginPic = img/dingding/ddPasswordLogin.png
-ddPasswordLogin_x = 210
-ddPasswordLogin_y = 70
-ddInputPassword = img/dingding/inputPassword.png
-ddInputPassword_x = 200
-ddInputPassword_y = 316
-ddInputPhoneNumber = img/dingding/inputPhoneNumber.png
-ddInputPhoneNumber_x = 215
-ddInputPhoneNumber_y = 272
-ddLoginBtn = img/dingding/loginBtn.png
-ddLoginBtn_x = 257
-ddLoginBtn_y = 316
-
-ddLoginPhone = 钉钉登录手机号
-
-
-; 定义钉钉主窗口
-ddWindowClass = StandardFrame_DingTalk
-ddWindowName = 钉钉
-ddWidth = 960
-ddHeight = 640
-
-; 获得省的列表并取得相应的省
-sheng_pullPosition_x = 363
-sheng_pullPosition_y = 246
-sheng_scroll = -100
-sheng_scroll_from_x = 350
-sheng_scroll_from_y = 250
-
-; 获得市的列表并取得相应的市
-shi_pullPosition_x = 472
-shi_pullPosition_y = 246
-shi_scroll = -150
-shi_scroll_from_x = 450
-shi_scroll_from_y = 300
-
-; 获得区的列表并取得相应的区
-qu_pullPosition_x = 585
-qu_pullPosition_y = 246
-qu_scroll = -150
-qu_scroll_from_x = 550
-qu_scroll_from_y = 300
-
-; 上传随申码确认按钮距离边界的差值
-uploadConfirmBtn_x = 70
-uploadConfirmBtn_y = 30
-
-; 工作窗口图标
-workWindowSign_x = 30
-workWindowSign_y = 220
-
-; 选择工作单位
-workOrgSelect_x = 500
-workOrgSelect_y = 53
-confirmWorkOrg_x = 500
-confirmWorkOrg_y = 202
-
-; OA工作台首页
-oaHomepage_x = 140
-oaHomepage_y = 93
-oaRefresh_x = 187
-oaRefresh_y = 52
-
-; 每日填报
-mrtb_scroll_from_x = 150
-mrtb_scroll_from_y = 150
-mrtb_scroll = -400
-mrtb_default_x = 550
-mrtb_default_y = 225
-
-; 寻找表格
-mrtb_table_x = 273
-mrtb_table_y = 584
-
-; 处理表格
-table_scroll = -250
-table_uploade_scroll = -50
-table_upload_scroll_adjust = 67
-table_small_scroll = -80
-
-; 日期
-currentDate_x = 240
-currentDate_y = 246
-todayBtn_x = 346
-todayBtn_y = 548
-
-; 体温
-temp = 36.7
-temp_x = 250
-temp_y = 350
-
-; 健康
-jiankang_x = 214
-jiankang_y = 461
-
-; 城市
-city_x = 269
-city_y = 214
-
-sheng_default_x = 235
-sheng_default_y = 338
-
-shi_default_x = 420
-shi_default_y = 254
-
-qu_default_x = 539
-qu_default_y = 402
-
-; 社区
-shequ_x = 214
-shequ_y = 352
-
-; 旅行
-lvxing_x = 214
-lvxing_y = 494
-
-; 接触
-jiechu_x = 214
-jiechu_y = 220
-
-; 图片上传
-ddMain_pic_x = 231
-ddMain_pic_y = 245
-
-family_start_x = 231
-family_start_y = 323
-
-; 最终提交
-submit_x = 273
-submit_y = 605
-
-; 关闭填表
-close_table_x = 501
-close_table_y = 90
-
-; 关闭每日填表
-close_mrtb_x = 358
-close_mrtb_y = 90
-
-
-[xiaoheiban]
-; 定义晓黑板相关的控制参数
-; 晓黑板的安装绝对路径
-xhbAppName = C:\\Program Files (x86)\\xiaoheiban\\晓黑板.exe
-
-xhbLoginWindowClass = Chrome_WidgetWin_1
-xhbLoginWindowName = 晓黑板登录
-
-xhbMainWindowClass = Chrome_WidgetWin_1
-xhbMainWindowName = 消息/全部
-
-xhbLoginPhone = 哓黑板登录手机号</code></pre>
-<h4 id="解析程序"><a href="#解析程序" class="headerlink" title="解析程序"></a>解析程序</h4><pre><code class="python">import configparser
-import logging
-from logging import handlers
-
-configFilename=&quot;suishencode.ini&quot;
-
-class ConfigData(object):
-
-    config = configparser.ConfigParser()
-    config.read(configFilename, encoding=&#39;utf-8&#39;)
-
-
-    # ********************************* #
-    # 全局参数定义开始                  #
-    # ********************************* #        
-    # 定义家属列表
-    familyList = config.get(&#39;family&#39;, &#39;familyList&#39;).strip().split(&#39;,&#39;)
-    ddMain = config.get(&#39;family&#39;, &#39;ddMain&#39;).strip()
-    xhbMain = config.get(&#39;family&#39;, &#39;xhbMain&#39;).strip()
-
-    # 定义等待间隔时间
-    pyautoguiPAUSE = config.getint(&#39;time&#39;, &#39;pyautoguiPAUSE&#39;)
-    generalWaitTime_speed_high = config.getfloat(&#39;time&#39;, &#39;generalWaitTime_speed_high&#39;)
-    generalWaitTime = config.getint(&#39;time&#39;, &#39;generalWaitTime&#39;)
-    generalTimeAdjust = config.getint(&#39;time&#39;, &#39;generalTimeAdjust&#39;)
-    generalTimeAdjust_speed_high = config.getint(&#39;time&#39;, &#39;generalTimeAdjust_speed_high&#39;)
-    generalTimeAdjust_speed_low = config.getint(&#39;time&#39;, &#39;generalTimeAdjust_speed_low&#39;)
-
-    # 日志参数
-    basicLogFileName = config.get(&#39;log&#39;, &#39;basicLogFileName&#39;)
-    logFileName = config.get(&#39;log&#39;, &#39;logFileName&#39;)
-    logMode = config.getint(&#39;log&#39;, &#39;logMode&#39;)
-    logLevelDefinition = &#123;&#39;DEBUG&#39;: 10,
-                          &#39;INFO&#39;: 20,
-                          &#39;NOTSET&#39;: 0,
-                          &#39;WARNING&#39;: 30,
-                          &#39;ERROR&#39;: 40,
-                          &#39;CRITICAL&#39;: 50&#125;
-    logLevel = logLevelDefinition[config.get(&#39;log&#39;, &#39;level&#39;)]
-
-    passwordFile = config.get(&#39;password&#39;, &#39;passwordFile&#39;)
-
-    # ********************************* #
-    # 全局参数定义结束                  #
-    # ********************************* #
-
-
-
-    # ********************************* #
-    # 微信随申码获取参数定义开始        #
-    # ********************************* #
-    # 定义微信APP安装位置
-    wxAppName = config.get(&#39;weixin-ssm&#39;, &#39;wxAppName&#39;).strip()
-
-    # 定义微信登录窗口
-    wxLoginWindowClass = config.get(&#39;weixin-ssm&#39;, &#39;wxLoginWindowClass&#39;).strip()
-    wxLoginWindowName = config.get(&#39;weixin-ssm&#39;, &#39;wxLoginWindowName&#39;).strip()
-    wxLoginBtnPic = config.get(&#39;weixin-ssm&#39;, &#39;wxLoginBtnPic&#39;).strip()
-    wxLoginBtn_x = config.getint(&#39;weixin-ssm&#39;, &#39;wxLoginBtn_x&#39;)
-    wxLoginBtn_y = config.getint(&#39;weixin-ssm&#39;, &#39;wxLoginBtn_y&#39;)
-
-    # 定义微信主窗口
-    wxWindowClass = config.get(&#39;weixin-ssm&#39;, &#39;wxWindowClass&#39;).strip()
-    wxWindowName = config.get(&#39;weixin-ssm&#39;, &#39;wxWindowName&#39;).strip()
-
-    # 定义微信小程序面板窗口
-    wxMicroPgWindowClass = config.get(&#39;weixin-ssm&#39;, &#39;wxMicroPgWindowClass&#39;).strip()
-    wxMicroPgWindowName = config.get(&#39;weixin-ssm&#39;, &#39;wxMicroPgWindowName&#39;).strip()
-    wx_xcxPic = config.get(&#39;weixin-ssm&#39;, &#39;wx_xcxPic&#39;).strip()
-    wx_ssbPic = config.get(&#39;weixin-ssm&#39;, &#39;wx_ssbPic&#39;).strip()
-
-    # 定义随申办的窗口
-    ssbWindowClass=config.get(&#39;weixin-ssm&#39;, &#39;ssbWindowClass&#39;).strip()
-    ssbWindowName=config.get(&#39;weixin-ssm&#39;, &#39;ssbWindowName&#39;).strip()
-
-    # 定义一些鼠标移动的相对常量
-    # 0. 窗口位置
-    left = config.getint(&#39;weixin-ssm&#39;, &#39;left&#39;)
-    top = config.getint(&#39;weixin-ssm&#39;, &#39;top&#39;)
-    width = config.getint(&#39;weixin-ssm&#39;, &#39;width&#39;)
-    height = config.getint(&#39;weixin-ssm&#39;, &#39;height&#39;)
-    repaint = config.getint(&#39;weixin-ssm&#39;, &#39;repaint&#39;)
-
-    # 1. 搜索框
-    searchBox_x = config.getint(&#39;weixin-ssm&#39;, &#39;searchBox_x&#39;)
-    searchBox_y = config.getint(&#39;weixin-ssm&#39;, &#39;searchBox_y&#39;)
-
-    # 2. 小程序面板
-    microPg_x = config.getint(&#39;weixin-ssm&#39;, &#39;microPg_x&#39;)
-    microPg_y = config.getint(&#39;weixin-ssm&#39;, &#39;microPg_y&#39;)
-
-    # 3. 查找小程序
-    s_microPg_x = config.getint(&#39;weixin-ssm&#39;, &#39;s_microPg_x&#39;)
-    s_microPg_y = config.getint(&#39;weixin-ssm&#39;, &#39;s_microPg_y&#39;)
-
-    # 4. 随申办定位
-    ssb_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssb_x&#39;)
-    ssb_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssb_y&#39;)
-
-    # 5. 随申码定位
-    ssm_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_x&#39;)
-    ssm_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_y&#39;)
-
-    # 6. 亲属随申码主链接
-    ssm_main_link_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_main_link_x&#39;)
-    ssm_main_link_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_main_link_y&#39;)
-
-    # 7. 亲属随申码定位（x不变，y从310开始，以93位间隔增长）
-    ssm_family_x = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_x&#39;)
-    ssm_family_start_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_start_y&#39;)
-    ssm_family_interval_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_interval_y&#39;)
-    ssm_family_adjust_y = config.getint(&#39;weixin-ssm&#39;, &#39;ssm_family_adjust_y&#39;) # 亲属随申码返回的时候需要调整位置
-
-    # 定义搜索内容
-    forSearch = config.get(&#39;weixin-ssm&#39;, &#39;wxSearch&#39;).strip()
-
-    # 截图区域
-    imgLeft = config.getint(&#39;weixin-ssm&#39;, &#39;imgLeft&#39;)
-    imgTop = config.getint(&#39;weixin-ssm&#39;, &#39;imgTop&#39;)
-    imgRight = config.getint(&#39;weixin-ssm&#39;, &#39;imgRight&#39;)
-    imgBottom = config.getint(&#39;weixin-ssm&#39;, &#39;imgBottom&#39;)    
-
-    # ********************************* #
-    # 微信随申码获取参数定义结束        #
-    # ********************************* #
-
-
-
-    # ********************************* #
-    # 钉钉获取参数定义开始              #
-    # ********************************* #
-
-    # 定义钉钉APP安装位置
-    ddAppName = config.get(&#39;Dingding&#39;, &#39;ddAppName&#39;).strip()
-
-    # 定义钉钉登录窗口
-    ddLoginWindowClass = config.get(&#39;Dingding&#39;, &#39;ddLoginWindowClass&#39;).strip()
-    ddLoginWindowName = config.get(&#39;Dingding&#39;, &#39;ddLoginWindowName&#39;).strip()
-
-    ddPasswordLoginPic = config.get(&#39;Dingding&#39;, &#39;ddPasswordLoginPic&#39;).strip()
-    ddPasswordLogin_x = config.getint(&#39;Dingding&#39;, &#39;ddPasswordLogin_x&#39;)
-    ddPasswordLogin_y = config.getint(&#39;Dingding&#39;, &#39;ddPasswordLogin_y&#39;)
-
-    ddInputPassword = config.get(&#39;Dingding&#39;, &#39;ddInputPassword&#39;).strip()
-    ddInputPassword_x = config.getint(&#39;Dingding&#39;, &#39;ddInputPassword_x&#39;)
-    ddInputPassword_y = config.getint(&#39;Dingding&#39;, &#39;ddInputPassword_y&#39;)
-
-    ddInputPhoneNumber = config.get(&#39;Dingding&#39;, &#39;ddInputPhoneNumber&#39;).strip()
-    ddInputPhoneNumber_x = config.getint(&#39;Dingding&#39;, &#39;ddInputPhoneNumber_x&#39;)
-    ddInputPhoneNumber_y = config.getint(&#39;Dingding&#39;, &#39;ddInputPhoneNumber_y&#39;)
-
-    ddLoginBtn = config.get(&#39;Dingding&#39;, &#39;ddLoginBtn&#39;).strip()
-    ddLoginBtn_x = config.getint(&#39;Dingding&#39;, &#39;ddLoginBtn_x&#39;)
-    ddLoginBtn_y = config.getint(&#39;Dingding&#39;, &#39;ddLoginBtn_y&#39;)
-
-    ddLoginPhone = config.get(&#39;Dingding&#39;, &#39;ddLoginPhone&#39;).strip()
-
-    # 定义钉钉窗口
-    ddWindowClass = config.get(&#39;Dingding&#39;, &#39;ddWindowClass&#39;).strip()
-    ddWindowName = config.get(&#39;Dingding&#39;, &#39;ddWindowName&#39;).strip()
-    ddWidth = config.getint(&#39;Dingding&#39;, &#39;ddWidth&#39;)
-    ddHeight = config.getint(&#39;Dingding&#39;, &#39;ddHeight&#39;)
-
-
-    # ********************************* #
-    # 钉钉获取参数定义结束              #
-    # ********************************* #
-
-
-
-    # ********************************* #
-    # 晓黑板获取参数定义开始            #
-    # ********************************* #
-    # 定义晓黑板窗口
-
-
-
-    # ********************************* #
-    # 晓黑板获取参数定义结束            #
-    # ********************************* #
-
-    # 定义晓黑板APP安装位置
-    xhbAppName = config.get(&#39;xiaoheiban&#39;, &#39;xhbAppName&#39;).strip()
-
-    # 晓黑板登录窗口
-    xhbLoginWindowClass = config.get(&#39;xiaoheiban&#39;, &#39;xhbLoginWindowClass&#39;).strip()
-    xhbLoginWindowName = config.get(&#39;xiaoheiban&#39;, &#39;xhbLoginWindowName&#39;).strip()
-
-    # 晓黑板主窗口
-    xhbMainWindowClass = config.get(&#39;xiaoheiban&#39;, &#39;xhbMainWindowClass&#39;).strip()
-    xhbMainWindowName = config.get(&#39;xiaoheiban&#39;, &#39;xhbMainWindowName&#39;).strip()
-
-    xhbLoginPhone = config.get(&#39;xiaoheiban&#39;, &#39;xhbLoginPhone&#39;).strip()
-
-
-if __name__ == &#39;__main__&#39;:
-    cd = ConfigData()</code></pre>
-
+        <h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br></pre></td><td class="code"><pre><span class="line">[family]</span><br><span class="line">; 家族人员名单，亲属顺序根据微信’随申码‘的顺序，本人在最后,根据钉钉的设置，最多5个人</span><br><span class="line">familyList&#x3D;爸爸, 大宝, 二宝, 妈妈</span><br><span class="line">ddMain&#x3D;二宝</span><br><span class="line">xhbMain&#x3D;大宝</span><br><span class="line">[time]</span><br><span class="line">; 定义等待间隔时间</span><br><span class="line">pyautoguiPAUSE &#x3D; 2</span><br><span class="line">generalWaitTime &#x3D; 2</span><br><span class="line">generalWaitTime_speed_high &#x3D; 0.2</span><br><span class="line">generalTimeAdjust &#x3D; 3</span><br><span class="line">generalTimeAdjust_speed_high &#x3D; 1</span><br><span class="line">generalTimeAdjust_speed_low &#x3D;  5</span><br><span class="line">[log]</span><br><span class="line">; 定义日志参数，0表示控制台输出，1表示文件输出，2表示同时输出</span><br><span class="line">basicLogFileName &#x3D; logger.log</span><br><span class="line">logFileName &#x3D; log.txt</span><br><span class="line">logMode &#x3D; 2</span><br><span class="line">level &#x3D; DEBUG</span><br><span class="line">[password]</span><br><span class="line">passwordFile &#x3D; password</span><br><span class="line">[weixin-ssm]</span><br><span class="line">; 微信随申码相关的控制参数</span><br><span class="line">; 定义微信安装位置</span><br><span class="line">wxAppName &#x3D; C:\\Program Files (x86)\\Tencent\\WeChat\\WeChat.exe</span><br><span class="line">; 定义微信登录窗口</span><br><span class="line">wxLoginWindowClass &#x3D; WeChatLoginWndForPC</span><br><span class="line">wxLoginWindowName &#x3D; 登录</span><br><span class="line">wxLoginBtnPic &#x3D; img&#x2F;weixin&#x2F;wxLogin.png</span><br><span class="line">; 定义微信主窗口</span><br><span class="line">wxWindowClass &#x3D; WeChatMainWndForPC</span><br><span class="line">wxWindowName &#x3D; 微信</span><br><span class="line">; 定义微信小程序面板窗口</span><br><span class="line">wxMicroPgWindowClass &#x3D; AppletPanelWnd</span><br><span class="line">wxMicroPgWindowName &#x3D;</span><br><span class="line">wx_xcxPic &#x3D; img&#x2F;weixin&#x2F;wx_xcx.png</span><br><span class="line">; 定义随申办的窗口</span><br><span class="line">ssbWindowClass&#x3D;Chrome_WidgetWin_0</span><br><span class="line">ssbWindowName&#x3D;随申办</span><br><span class="line">wx_ssbPic &#x3D; img&#x2F;weixin&#x2F;wx_ssb.png</span><br><span class="line">; 定义一些鼠标移动的相对常量</span><br><span class="line">; 0. 微信登录窗口的登录按钮位置</span><br><span class="line">wxLoginBtn_x &#x3D; 138</span><br><span class="line">wxLoginBtn_y &#x3D; 279</span><br><span class="line">; 1. 微信主窗口位置</span><br><span class="line">left &#x3D; 0</span><br><span class="line">top &#x3D; 0</span><br><span class="line">width &#x3D; 800</span><br><span class="line">height &#x3D; 600</span><br><span class="line">repaint &#x3D; 1</span><br><span class="line">; 2. 搜索框</span><br><span class="line">searchBox_x &#x3D; 150</span><br><span class="line">searchBox_y &#x3D; 37</span><br><span class="line">; 3. 小程序面板</span><br><span class="line">microPg_x &#x3D; 30</span><br><span class="line">microPg_y &#x3D; 490</span><br><span class="line">; 4. 查找小程序</span><br><span class="line">s_microPg_x &#x3D; 300</span><br><span class="line">s_microPg_y &#x3D; 450</span><br><span class="line">; 5. 随申办定位</span><br><span class="line">ssb_x &#x3D; 115</span><br><span class="line">ssb_y &#x3D; 320</span><br><span class="line">; 6. 随申码定位</span><br><span class="line">ssm_x &#x3D; 235</span><br><span class="line">ssm_y &#x3D; 280</span><br><span class="line">; 7. 亲属随申码主链接</span><br><span class="line">ssm_main_link_x &#x3D; 347</span><br><span class="line">ssm_main_link_y &#x3D; 191</span><br><span class="line">; 8. 亲属随申码定位（x不变，y从310开始，以93位间隔增长）</span><br><span class="line">ssm_family_x &#x3D; 347</span><br><span class="line">ssm_family_start_y &#x3D; 310</span><br><span class="line">ssm_family_interval_y &#x3D; 93</span><br><span class="line">; 亲属随申码返回的时候需要调整位置</span><br><span class="line">ssm_family_adjust_y &#x3D; 10</span><br><span class="line">; 定义搜索内容</span><br><span class="line">wxSearch &#x3D;</span><br><span class="line">; 截图区域</span><br><span class="line">imgLeft &#x3D; 5</span><br><span class="line">imgTop &#x3D; 62</span><br><span class="line">imgRight &#x3D; 405</span><br><span class="line">imgBottom &#x3D; 675</span><br><span class="line">[Dingding]</span><br><span class="line">; 钉钉相关控制参数</span><br><span class="line">; 定义钉钉安装位置</span><br><span class="line">ddAppName &#x3D; C:\\Program Files (x86)\\DingDing\\DingtalkLauncher.exe</span><br><span class="line">ddLoginWindowClass &#x3D; StandardFrame_Loging</span><br><span class="line">ddLoginWindowName &#x3D; 钉钉</span><br><span class="line">ddPasswordLoginPic &#x3D; img&#x2F;dingding&#x2F;ddPasswordLogin.png</span><br><span class="line">ddPasswordLogin_x &#x3D; 210</span><br><span class="line">ddPasswordLogin_y &#x3D; 70</span><br><span class="line">ddInputPassword &#x3D; img&#x2F;dingding&#x2F;inputPassword.png</span><br><span class="line">ddInputPassword_x &#x3D; 200</span><br><span class="line">ddInputPassword_y &#x3D; 316</span><br><span class="line">ddInputPhoneNumber &#x3D; img&#x2F;dingding&#x2F;inputPhoneNumber.png</span><br><span class="line">ddInputPhoneNumber_x &#x3D; 215</span><br><span class="line">ddInputPhoneNumber_y &#x3D; 272</span><br><span class="line">ddLoginBtn &#x3D; img&#x2F;dingding&#x2F;loginBtn.png</span><br><span class="line">ddLoginBtn_x &#x3D; 257</span><br><span class="line">ddLoginBtn_y &#x3D; 316</span><br><span class="line">ddLoginPhone &#x3D; 钉钉登录手机号</span><br><span class="line">; 定义钉钉主窗口</span><br><span class="line">ddWindowClass &#x3D; StandardFrame_DingTalk</span><br><span class="line">ddWindowName &#x3D; 钉钉</span><br><span class="line">ddWidth &#x3D; 960</span><br><span class="line">ddHeight &#x3D; 640</span><br><span class="line">; 获得省的列表并取得相应的省</span><br><span class="line">sheng_pullPosition_x &#x3D; 363</span><br><span class="line">sheng_pullPosition_y &#x3D; 246</span><br><span class="line">sheng_scroll &#x3D; -100</span><br><span class="line">sheng_scroll_from_x &#x3D; 350</span><br><span class="line">sheng_scroll_from_y &#x3D; 250</span><br><span class="line">; 获得市的列表并取得相应的市</span><br><span class="line">shi_pullPosition_x &#x3D; 472</span><br><span class="line">shi_pullPosition_y &#x3D; 246</span><br><span class="line">shi_scroll &#x3D; -150</span><br><span class="line">shi_scroll_from_x &#x3D; 450</span><br><span class="line">shi_scroll_from_y &#x3D; 300</span><br><span class="line">; 获得区的列表并取得相应的区</span><br><span class="line">qu_pullPosition_x &#x3D; 585</span><br><span class="line">qu_pullPosition_y &#x3D; 246</span><br><span class="line">qu_scroll &#x3D; -150</span><br><span class="line">qu_scroll_from_x &#x3D; 550</span><br><span class="line">qu_scroll_from_y &#x3D; 300</span><br><span class="line">; 上传随申码确认按钮距离边界的差值</span><br><span class="line">uploadConfirmBtn_x &#x3D; 70</span><br><span class="line">uploadConfirmBtn_y &#x3D; 30</span><br><span class="line">; 工作窗口图标</span><br><span class="line">workWindowSign_x &#x3D; 30</span><br><span class="line">workWindowSign_y &#x3D; 220</span><br><span class="line">; 选择工作单位</span><br><span class="line">workOrgSelect_x &#x3D; 500</span><br><span class="line">workOrgSelect_y &#x3D; 53</span><br><span class="line">confirmWorkOrg_x &#x3D; 500</span><br><span class="line">confirmWorkOrg_y &#x3D; 202</span><br><span class="line">; OA工作台首页</span><br><span class="line">oaHomepage_x &#x3D; 140</span><br><span class="line">oaHomepage_y &#x3D; 93</span><br><span class="line">oaRefresh_x &#x3D; 187</span><br><span class="line">oaRefresh_y &#x3D; 52</span><br><span class="line">; 每日填报</span><br><span class="line">mrtb_scroll_from_x &#x3D; 150</span><br><span class="line">mrtb_scroll_from_y &#x3D; 150</span><br><span class="line">mrtb_scroll &#x3D; -400</span><br><span class="line">mrtb_default_x &#x3D; 550</span><br><span class="line">mrtb_default_y &#x3D; 225</span><br><span class="line">; 寻找表格</span><br><span class="line">mrtb_table_x &#x3D; 273</span><br><span class="line">mrtb_table_y &#x3D; 584</span><br><span class="line">; 处理表格</span><br><span class="line">table_scroll &#x3D; -250</span><br><span class="line">table_uploade_scroll &#x3D; -50</span><br><span class="line">table_upload_scroll_adjust &#x3D; 67</span><br><span class="line">table_small_scroll &#x3D; -80</span><br><span class="line">; 日期</span><br><span class="line">currentDate_x &#x3D; 240</span><br><span class="line">currentDate_y &#x3D; 246</span><br><span class="line">todayBtn_x &#x3D; 346</span><br><span class="line">todayBtn_y &#x3D; 548</span><br><span class="line">; 体温</span><br><span class="line">temp &#x3D; 36.7</span><br><span class="line">temp_x &#x3D; 250</span><br><span class="line">temp_y &#x3D; 350</span><br><span class="line">; 健康</span><br><span class="line">jiankang_x &#x3D; 214</span><br><span class="line">jiankang_y &#x3D; 461</span><br><span class="line">; 城市</span><br><span class="line">city_x &#x3D; 269</span><br><span class="line">city_y &#x3D; 214</span><br><span class="line">sheng_default_x &#x3D; 235</span><br><span class="line">sheng_default_y &#x3D; 338</span><br><span class="line">shi_default_x &#x3D; 420</span><br><span class="line">shi_default_y &#x3D; 254</span><br><span class="line">qu_default_x &#x3D; 539</span><br><span class="line">qu_default_y &#x3D; 402</span><br><span class="line">; 社区</span><br><span class="line">shequ_x &#x3D; 214</span><br><span class="line">shequ_y &#x3D; 352</span><br><span class="line">; 旅行</span><br><span class="line">lvxing_x &#x3D; 214</span><br><span class="line">lvxing_y &#x3D; 494</span><br><span class="line">; 接触</span><br><span class="line">jiechu_x &#x3D; 214</span><br><span class="line">jiechu_y &#x3D; 220</span><br><span class="line">; 图片上传</span><br><span class="line">ddMain_pic_x &#x3D; 231</span><br><span class="line">ddMain_pic_y &#x3D; 245</span><br><span class="line">family_start_x &#x3D; 231</span><br><span class="line">family_start_y &#x3D; 323</span><br><span class="line">; 最终提交</span><br><span class="line">submit_x &#x3D; 273</span><br><span class="line">submit_y &#x3D; 605</span><br><span class="line">; 关闭填表</span><br><span class="line">close_table_x &#x3D; 501</span><br><span class="line">close_table_y &#x3D; 90</span><br><span class="line">; 关闭每日填表</span><br><span class="line">close_mrtb_x &#x3D; 358</span><br><span class="line">close_mrtb_y &#x3D; 90</span><br><span class="line">[xiaoheiban]</span><br><span class="line">; 定义晓黑板相关的控制参数</span><br><span class="line">; 晓黑板的安装绝对路径</span><br><span class="line">xhbAppName &#x3D; C:\\Program Files (x86)\\xiaoheiban\\晓黑板.exe</span><br><span class="line">xhbLoginWindowClass &#x3D; Chrome_WidgetWin_1</span><br><span class="line">xhbLoginWindowName &#x3D; 晓黑板登录</span><br><span class="line">xhbMainWindowClass &#x3D; Chrome_WidgetWin_1</span><br><span class="line">xhbMainWindowName &#x3D; 消息&#x2F;全部</span><br><span class="line">xhbLoginPhone &#x3D; 哓黑板登录手机号</span><br></pre></td></tr></table></figure>
+<h4 id="解析程序"><a href="#解析程序" class="headerlink" title="解析程序"></a>解析程序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> configparser</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span> logging <span class="keyword">import</span> handlers</span><br><span class="line">configFilename=<span class="string">&quot;suishencode.ini&quot;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConfigData</span>(<span class="params">object</span>):</span></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config.read(configFilename, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 全局参数定义开始                  #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 定义家属列表</span></span><br><span class="line">familyList = config.get(<span class="string">&#x27;family&#x27;</span>, <span class="string">&#x27;familyList&#x27;</span>).strip().split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">ddMain = config.get(<span class="string">&#x27;family&#x27;</span>, <span class="string">&#x27;ddMain&#x27;</span>).strip()</span><br><span class="line">xhbMain = config.get(<span class="string">&#x27;family&#x27;</span>, <span class="string">&#x27;xhbMain&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义等待间隔时间</span></span><br><span class="line">pyautoguiPAUSE = config.getint(<span class="string">&#x27;time&#x27;</span>, <span class="string">&#x27;pyautoguiPAUSE&#x27;</span>)</span><br><span class="line">generalWaitTime_speed_high = config.getfloat(<span class="string">&#x27;time&#x27;</span>, <span class="string">&#x27;generalWaitTime_speed_high&#x27;</span>)</span><br><span class="line">generalWaitTime = config.getint(<span class="string">&#x27;time&#x27;</span>, <span class="string">&#x27;generalWaitTime&#x27;</span>)</span><br><span class="line">generalTimeAdjust = config.getint(<span class="string">&#x27;time&#x27;</span>, <span class="string">&#x27;generalTimeAdjust&#x27;</span>)</span><br><span class="line">generalTimeAdjust_speed_high = config.getint(<span class="string">&#x27;time&#x27;</span>, <span class="string">&#x27;generalTimeAdjust_speed_high&#x27;</span>)</span><br><span class="line">generalTimeAdjust_speed_low = config.getint(<span class="string">&#x27;time&#x27;</span>, <span class="string">&#x27;generalTimeAdjust_speed_low&#x27;</span>)</span><br><span class="line"><span class="comment"># 日志参数</span></span><br><span class="line">basicLogFileName = config.get(<span class="string">&#x27;log&#x27;</span>, <span class="string">&#x27;basicLogFileName&#x27;</span>)</span><br><span class="line">logFileName = config.get(<span class="string">&#x27;log&#x27;</span>, <span class="string">&#x27;logFileName&#x27;</span>)</span><br><span class="line">logMode = config.getint(<span class="string">&#x27;log&#x27;</span>, <span class="string">&#x27;logMode&#x27;</span>)</span><br><span class="line">logLevelDefinition = &#123;<span class="string">&#x27;DEBUG&#x27;</span>: <span class="number">10</span>,</span><br><span class="line"><span class="string">&#x27;INFO&#x27;</span>: <span class="number">20</span>,</span><br><span class="line"><span class="string">&#x27;NOTSET&#x27;</span>: <span class="number">0</span>,</span><br><span class="line"><span class="string">&#x27;WARNING&#x27;</span>: <span class="number">30</span>,</span><br><span class="line"><span class="string">&#x27;ERROR&#x27;</span>: <span class="number">40</span>,</span><br><span class="line"><span class="string">&#x27;CRITICAL&#x27;</span>: <span class="number">50</span>&#125;</span><br><span class="line">logLevel = logLevelDefinition[config.get(<span class="string">&#x27;log&#x27;</span>, <span class="string">&#x27;level&#x27;</span>)]</span><br><span class="line">passwordFile = config.get(<span class="string">&#x27;password&#x27;</span>, <span class="string">&#x27;passwordFile&#x27;</span>)</span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 全局参数定义结束                  #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 微信随申码获取参数定义开始        #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 定义微信APP安装位置</span></span><br><span class="line">wxAppName = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxAppName&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义微信登录窗口</span></span><br><span class="line">wxLoginWindowClass = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxLoginWindowClass&#x27;</span>).strip()</span><br><span class="line">wxLoginWindowName = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxLoginWindowName&#x27;</span>).strip()</span><br><span class="line">wxLoginBtnPic = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxLoginBtnPic&#x27;</span>).strip()</span><br><span class="line">wxLoginBtn_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxLoginBtn_x&#x27;</span>)</span><br><span class="line">wxLoginBtn_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxLoginBtn_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 定义微信主窗口</span></span><br><span class="line">wxWindowClass = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxWindowClass&#x27;</span>).strip()</span><br><span class="line">wxWindowName = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxWindowName&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义微信小程序面板窗口</span></span><br><span class="line">wxMicroPgWindowClass = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxMicroPgWindowClass&#x27;</span>).strip()</span><br><span class="line">wxMicroPgWindowName = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxMicroPgWindowName&#x27;</span>).strip()</span><br><span class="line">wx_xcxPic = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wx_xcxPic&#x27;</span>).strip()</span><br><span class="line">wx_ssbPic = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wx_ssbPic&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义随申办的窗口</span></span><br><span class="line">ssbWindowClass=config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssbWindowClass&#x27;</span>).strip()</span><br><span class="line">ssbWindowName=config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssbWindowName&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义一些鼠标移动的相对常量</span></span><br><span class="line"><span class="comment"># 0. 窗口位置</span></span><br><span class="line">left = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;left&#x27;</span>)</span><br><span class="line">top = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;top&#x27;</span>)</span><br><span class="line">width = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;width&#x27;</span>)</span><br><span class="line">height = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;height&#x27;</span>)</span><br><span class="line">repaint = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;repaint&#x27;</span>)</span><br><span class="line"><span class="comment"># 1. 搜索框</span></span><br><span class="line">searchBox_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;searchBox_x&#x27;</span>)</span><br><span class="line">searchBox_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;searchBox_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 2. 小程序面板</span></span><br><span class="line">microPg_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;microPg_x&#x27;</span>)</span><br><span class="line">microPg_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;microPg_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 3. 查找小程序</span></span><br><span class="line">s_microPg_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;s_microPg_x&#x27;</span>)</span><br><span class="line">s_microPg_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;s_microPg_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 4. 随申办定位</span></span><br><span class="line">ssb_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssb_x&#x27;</span>)</span><br><span class="line">ssb_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssb_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 5. 随申码定位</span></span><br><span class="line">ssm_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_x&#x27;</span>)</span><br><span class="line">ssm_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 6. 亲属随申码主链接</span></span><br><span class="line">ssm_main_link_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_main_link_x&#x27;</span>)</span><br><span class="line">ssm_main_link_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_main_link_y&#x27;</span>)</span><br><span class="line"><span class="comment"># 7. 亲属随申码定位（x不变，y从310开始，以93位间隔增长）</span></span><br><span class="line">ssm_family_x = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_family_x&#x27;</span>)</span><br><span class="line">ssm_family_start_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_family_start_y&#x27;</span>)</span><br><span class="line">ssm_family_interval_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_family_interval_y&#x27;</span>)</span><br><span class="line">ssm_family_adjust_y = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;ssm_family_adjust_y&#x27;</span>) <span class="comment"># 亲属随申码返回的时候需要调整位置</span></span><br><span class="line"><span class="comment"># 定义搜索内容</span></span><br><span class="line">forSearch = config.get(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;wxSearch&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 截图区域</span></span><br><span class="line">imgLeft = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;imgLeft&#x27;</span>)</span><br><span class="line">imgTop = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;imgTop&#x27;</span>)</span><br><span class="line">imgRight = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;imgRight&#x27;</span>)</span><br><span class="line">imgBottom = config.getint(<span class="string">&#x27;weixin-ssm&#x27;</span>, <span class="string">&#x27;imgBottom&#x27;</span>)</span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 微信随申码获取参数定义结束        #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 钉钉获取参数定义开始              #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 定义钉钉APP安装位置</span></span><br><span class="line">ddAppName = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddAppName&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义钉钉登录窗口</span></span><br><span class="line">ddLoginWindowClass = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddLoginWindowClass&#x27;</span>).strip()</span><br><span class="line">ddLoginWindowName = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddLoginWindowName&#x27;</span>).strip()</span><br><span class="line">ddPasswordLoginPic = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddPasswordLoginPic&#x27;</span>).strip()</span><br><span class="line">ddPasswordLogin_x = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddPasswordLogin_x&#x27;</span>)</span><br><span class="line">ddPasswordLogin_y = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddPasswordLogin_y&#x27;</span>)</span><br><span class="line">ddInputPassword = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddInputPassword&#x27;</span>).strip()</span><br><span class="line">ddInputPassword_x = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddInputPassword_x&#x27;</span>)</span><br><span class="line">ddInputPassword_y = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddInputPassword_y&#x27;</span>)</span><br><span class="line">ddInputPhoneNumber = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddInputPhoneNumber&#x27;</span>).strip()</span><br><span class="line">ddInputPhoneNumber_x = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddInputPhoneNumber_x&#x27;</span>)</span><br><span class="line">ddInputPhoneNumber_y = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddInputPhoneNumber_y&#x27;</span>)</span><br><span class="line">ddLoginBtn = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddLoginBtn&#x27;</span>).strip()</span><br><span class="line">ddLoginBtn_x = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddLoginBtn_x&#x27;</span>)</span><br><span class="line">ddLoginBtn_y = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddLoginBtn_y&#x27;</span>)</span><br><span class="line">ddLoginPhone = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddLoginPhone&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 定义钉钉窗口</span></span><br><span class="line">ddWindowClass = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddWindowClass&#x27;</span>).strip()</span><br><span class="line">ddWindowName = config.get(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddWindowName&#x27;</span>).strip()</span><br><span class="line">ddWidth = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddWidth&#x27;</span>)</span><br><span class="line">ddHeight = config.getint(<span class="string">&#x27;Dingding&#x27;</span>, <span class="string">&#x27;ddHeight&#x27;</span>)</span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 钉钉获取参数定义结束              #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 晓黑板获取参数定义开始            #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 定义晓黑板窗口</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 晓黑板获取参数定义结束            #</span></span><br><span class="line"><span class="comment"># ********************************* #</span></span><br><span class="line"><span class="comment"># 定义晓黑板APP安装位置</span></span><br><span class="line">xhbAppName = config.get(<span class="string">&#x27;xiaoheiban&#x27;</span>, <span class="string">&#x27;xhbAppName&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 晓黑板登录窗口</span></span><br><span class="line">xhbLoginWindowClass = config.get(<span class="string">&#x27;xiaoheiban&#x27;</span>, <span class="string">&#x27;xhbLoginWindowClass&#x27;</span>).strip()</span><br><span class="line">xhbLoginWindowName = config.get(<span class="string">&#x27;xiaoheiban&#x27;</span>, <span class="string">&#x27;xhbLoginWindowName&#x27;</span>).strip()</span><br><span class="line"><span class="comment"># 晓黑板主窗口</span></span><br><span class="line">xhbMainWindowClass = config.get(<span class="string">&#x27;xiaoheiban&#x27;</span>, <span class="string">&#x27;xhbMainWindowClass&#x27;</span>).strip()</span><br><span class="line">xhbMainWindowName = config.get(<span class="string">&#x27;xiaoheiban&#x27;</span>, <span class="string">&#x27;xhbMainWindowName&#x27;</span>).strip()</span><br><span class="line">xhbLoginPhone = config.get(<span class="string">&#x27;xiaoheiban&#x27;</span>, <span class="string">&#x27;xhbLoginPhone&#x27;</span>).strip()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">cd = ConfigData()</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -978,14 +521,14 @@ if __name__ == &#39;__main__&#39;:
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

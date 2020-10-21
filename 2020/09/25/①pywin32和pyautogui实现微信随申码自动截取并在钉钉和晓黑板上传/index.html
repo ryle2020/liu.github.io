@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="两个儿子，一个读小学，一个幼儿园。自从疫情缓解上课以来，根据学校的要求，每天都要上传同住人的随申码，还要填一系列的固定的信息，除了每天可能会变化的体温。我是个懒人，每天都要抱着手机截图，还要不停地填写几乎相同的东西，不仅无聊而且无趣，可是不填又不行，老师会一个一个催。于是，想找些偷懒的方式，无外乎：  在手机上自动操作 在电脑上自动操作 应用程序，或者 网站    做决定也很容易，手机上要实现自动">
+  <meta name="description" content="两个儿子，一个读小学，一个幼儿园。自从疫情缓解上课以来，根据学校的要求，每天都要上传同住人的随申码，还要填一系列的固定的信息，除了每天可能会变化的体温。我是个懒人，每天都要抱着手机截图，还要不停地填写几乎相同的东西，不仅无聊而且无趣，可是不填又不行，老师会一个一个催。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="①pywin32和pyautogui实现微信随申码自动截取并在钉钉和晓黑板上传">
 <meta property="og:url" content="https://www.liuyong.online/2020/09/25/%E2%91%A0pywin32%E5%92%8Cpyautogui%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E9%9A%8F%E7%94%B3%E7%A0%81%E8%87%AA%E5%8A%A8%E6%88%AA%E5%8F%96%E5%B9%B6%E5%9C%A8%E9%92%89%E9%92%89%E5%92%8C%E6%99%93%E9%BB%91%E6%9D%BF%E4%B8%8A%E4%BC%A0/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="两个儿子，一个读小学，一个幼儿园。自从疫情缓解上课以来，根据学校的要求，每天都要上传同住人的随申码，还要填一系列的固定的信息，除了每天可能会变化的体温。我是个懒人，每天都要抱着手机截图，还要不停地填写几乎相同的东西，不仅无聊而且无趣，可是不填又不行，老师会一个一个催。于是，想找些偷懒的方式，无外乎：  在手机上自动操作 在电脑上自动操作 应用程序，或者 网站    做决定也很容易，手机上要实现自动">
+<meta property="og:description" content="两个儿子，一个读小学，一个幼儿园。自从疫情缓解上课以来，根据学校的要求，每天都要上传同住人的随申码，还要填一系列的固定的信息，除了每天可能会变化的体温。我是个懒人，每天都要抱着手机截图，还要不停地填写几乎相同的东西，不仅无聊而且无趣，可是不填又不行，老师会一个一个催。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-25T13:14:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:54.654Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:14.209Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
 <meta name="twitter:card" content="summary">
@@ -237,14 +237,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -356,7 +356,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
         </span>
     </span>
 
@@ -375,7 +375,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>881</span>
+      <span>885</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -393,42 +393,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>两个儿子，一个读小学，一个幼儿园。自从疫情缓解上课以来，根据学校的要求，每天都要上传同住人的随申码，还要填一系列的固定的信息，除了每天可能会变化的体温。我是个懒人，每天都要抱着手机截图，还要不停地填写几乎相同的东西，不仅无聊而且无趣，可是不填又不行，老师会一个一个催。<br>于是，想找些偷懒的方式，无外乎：</p>
+        <p>两个儿子，一个读小学，一个幼儿园。自从疫情缓解上课以来，根据学校的要求，每天都要上传同住人的随申码，还要填一系列的固定的信息，除了每天可能会变化的体温。我是个懒人，每天都要抱着手机截图，还要不停地填写几乎相同的东西，不仅无聊而且无趣，可是不填又不行，老师会一个一个催。</p>
+<a id="more"></a>
+<p>于是，想找些偷懒的方式，无外乎：</p>
 <ol>
 <li>在手机上自动操作</li>
-<li>在电脑上自动操作<ul>
+<li>在电脑上自动操作</li>
+</ol>
+<ul>
 <li>应用程序，或者</li>
-<li>网站</li>
+<li>网站<br>做决定也很容易，手机上要实现自动操作，至少需要去截其他APP的图，应该需要Root吧；电脑上自动操作，钉钉只有应用程序，晓黑板有应用程序，也有网站，可惜晓黑板的网站，登录部分都是用JS写出来的，用Selenium暂时水平不够，所以还没有找到合适的方法，于是简单一点，加上微信PC端，全部用应用程序吧。<br>所以，前提条件：</li>
 </ul>
-</li>
-</ol>
-<p>做决定也很容易，手机上要实现自动操作，至少需要去截其他APP的图，应该需要Root吧；电脑上自动操作，钉钉只有应用程序，晓黑板有应用程序，也有网站，可惜晓黑板的网站，登录部分都是用JS写出来的，用Selenium暂时水平不够，所以还没有找到合适的方法，于是简单一点，加上微信PC端，全部用应用程序吧。</p>
-<p>所以，前提条件：</p>
 <ol>
-<li><p>安装微信、钉钉和哓黑板的windows版本的客户端</p>
-</li>
-<li><p>准备好钉钉、哓黑板的用户名（手机号）和密码</p>
-</li>
-<li><p>微信每次都必须扫码登陆，所以设成等待手机端确认后自动登录</p>
-</li>
-<li><p>在微信中，找到‘随申办’小程序，注册好个人、还有同住人的随申码（小孩、60岁以上的人自动可以通过，否则要提供手持身份证的照片、户口本或者结婚证）</p>
-</li>
-<li><p>最后就是手动把流程走一遍，同时开一个捕捉鼠标位置的程序，把各个关键的点全部记录下来，作为默认位置。而在实际程序中，尽量使用pyautogui的screenshot的识图功能，所以每个需要做出选择点的图片（带文字）也需要截屏下来。</p>
-<pre><code class="python">import pywin32api
-
-while True:
-     pos = win32api.GetCursorPos()
-     print(pos)</code></pre>
-</li>
-</ol>
-<p>2个整天终于把程序调好了，只要没有大的幺蛾子，每天要做的事情就是启动程序，然后在微信上确认一下登录，剩下的，程序统统自己搞定（当然，还能进一步偷懒，设个计划任务）</p>
-<p>下面是主要的工具和包：</p>
-<ol>
+<li>安装微信、钉钉和哓黑板的windows版本的客户端</li>
+<li>准备好钉钉、哓黑板的用户名（手机号）和密码</li>
+<li>微信每次都必须扫码登陆，所以设成等待手机端确认后自动登录</li>
+<li>在微信中，找到‘随申办’小程序，注册好个人、还有同住人的随申码（小孩、60岁以上的人自动可以通过，否则要提供手持身份证的照片、户口本或者结婚证）</li>
+<li>最后就是手动把流程走一遍，同时开一个捕捉鼠标位置的程序，把各个关键的点全部记录下来，作为默认位置。而在实际程序中，尽量使用pyautogui的screenshot的识图功能，所以每个需要做出选择点的图片（带文字）也需要截屏下来。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pywin32api</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">pos = win32api.GetCursorPos()</span><br><span class="line">print(pos)</span><br></pre></td></tr></table></figure>
+2个整天终于把程序调好了，只要没有大的幺蛾子，每天要做的事情就是启动程序，然后在微信上确认一下登录，剩下的，程序统统自己搞定（当然，还能进一步偷懒，设个计划任务）<br>下面是主要的工具和包：</li>
 <li>SPY++：这个是微软的工具，用来识别所有窗口的类名和窗口名称，使得程序可以控制这些窗口和控件</li>
 <li>pywin32api，pywin32con，pywin32gui的包，pip就行</li>
-<li>pyautogui包（不是一般得强大！！！）</li>
+<li>pyautogui包（不是一般得强大！！！）<br>程序还没有最终调整好，只适合有一定动手能力的人~</li>
 </ol>
-<p>程序还没有最终调整好，只适合有一定动手能力的人~</p>
 
     </div>
 
@@ -554,14 +540,14 @@ while True:
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

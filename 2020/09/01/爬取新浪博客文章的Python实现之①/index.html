@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;学以致用，既然看了看python的爬虫，今天就动手折腾一个吧。在折腾的过程中，充分体会到了正则表达式的威力和用处，不过笨人有笨法子。除了正则，还能用字符串不是？ 实现路径 确定爬取内容的HTML结构，设计对应的存储结构 确定爬取内容的HTML、JS、CS的结构，确定可能的技术路线 首先实现爬取和数据抓取，然后后续实现和typecho的对接  要点难点 正则表达式熟练度不够，">
+  <meta name="description" content="&amp;emsp;&amp;emsp;学以致用，既然看了看python的爬虫，今天就动手折腾一个吧。在折腾的过程中，充分体会到了正则表达式的威力和用处，不过笨人有笨法子。除了正则，还能用字符串不是？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬取新浪博客文章的Python实现之①">
 <meta property="og:url" content="https://www.liuyong.online/2020/09/01/%E7%88%AC%E5%8F%96%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84Python%E5%AE%9E%E7%8E%B0%E4%B9%8B%E2%91%A0/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;学以致用，既然看了看python的爬虫，今天就动手折腾一个吧。在折腾的过程中，充分体会到了正则表达式的威力和用处，不过笨人有笨法子。除了正则，还能用字符串不是？ 实现路径 确定爬取内容的HTML结构，设计对应的存储结构 确定爬取内容的HTML、JS、CS的结构，确定可能的技术路线 首先实现爬取和数据抓取，然后后续实现和typecho的对接  要点难点 正则表达式熟练度不够，">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;学以致用，既然看了看python的爬虫，今天就动手折腾一个吧。在折腾的过程中，充分体会到了正则表达式的威力和用处，不过笨人有笨法子。除了正则，还能用字符串不是？">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-01T13:58:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.061Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:03.987Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="python爬虫">
 <meta property="article:tag" content="新浪博客">
@@ -239,14 +239,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -373,7 +373,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.2k</span>
+      <span>7.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -392,175 +392,18 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>&emsp;&emsp;学以致用，既然看了看python的爬虫，今天就动手折腾一个吧。在折腾的过程中，充分体会到了正则表达式的威力和用处，不过笨人有笨法子。除了正则，还能用字符串不是？</p>
+<a id="more"></a>
 <h5 id="实现路径"><a href="#实现路径" class="headerlink" title="实现路径"></a><font color=#FF8C00>实现路径</font></h5><ol>
 <li>确定爬取内容的HTML结构，设计对应的存储结构</li>
 <li>确定爬取内容的HTML、JS、CS的结构，确定可能的技术路线</li>
-<li>首先实现爬取和数据抓取，然后后续实现和typecho的对接</li>
-</ol>
-<h5 id="要点难点"><a href="#要点难点" class="headerlink" title="要点难点"></a><font color=#FF8C00>要点难点</font></h5><ol>
+<li>首先实现爬取和数据抓取，然后后续实现和typecho的对接<h5 id="要点难点"><a href="#要点难点" class="headerlink" title="要点难点"></a><font color=#FF8C00>要点难点</font></h5></li>
 <li>正则表达式熟练度不够，又不想花费太多时间；</li>
 <li>不是所有的内容都能在HTML代码中找到的，需要用到Firefox的WEB开发工具-&gt;网络-&gt;XHD等等去确定这些必要的信息是怎么来的。再去观察Request的信息头，看看发送哪些数据，发到哪个接口</li>
-<li>自己的图片怎么样抓下来</li>
-</ol>
-<h5 id="程序实现"><a href="#程序实现" class="headerlink" title="程序实现"></a><font color=#FF8C00>程序实现</font></h5><p>经过上面的考量，整个程序（爬取部分）分成3个模块:</p>
-<ol>
+<li>自己的图片怎么样抓下来<h5 id="程序实现"><a href="#程序实现" class="headerlink" title="程序实现"></a><font color=#FF8C00>程序实现</font></h5>经过上面的考量，整个程序（爬取部分）分成3个模块:</li>
 <li>一个是设置一些常用参数的-ConfigData.py</li>
 <li>一个是设置访问对象结构的-Blog.py</li>
-<li>然后就是一个主要的动作程序-getBlogofSina.py</li>
+<li>然后就是一个主要的动作程序-getBlogofSina.py<h5 id="ConfigData-py"><a href="#ConfigData-py" class="headerlink" title="ConfigData.py"></a><font color=#FF8C00>ConfigData.py</font></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ConfigData.py</span></span><br><span class="line"><span class="comment">#一些固定的设置</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConfigData</span>(<span class="params">object</span>):</span></span><br><span class="line"><span class="comment"># 设置初始URL</span></span><br><span class="line"><span class="comment"># 新浪博客的URL为 articlelist_+【用户id】+ _d + _d + .html</span></span><br><span class="line"><span class="comment"># 第一个_d： 0表示全部文章；1开始表示分类文章</span></span><br><span class="line"><span class="comment"># 第二个_d:  表示页码从1开始</span></span><br><span class="line">strUrl = <span class="string">&#x27;http://blog.sina.com.cn/s/articlelist_1495462704_0_&#x27;</span></span><br><span class="line"><span class="comment">#   设置爬虫的浏览器User-Agent</span></span><br><span class="line"><span class="comment">#   https://useragent.buyaocha.com 获得当前浏览器的User-Agent</span></span><br><span class="line">headers = &#123;</span><br><span class="line"><span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; \</span></span><br><span class="line"><span class="string">rv:80.0) Gecko/20100101 Firefox/80.0&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#   分析新浪博客的博文目录，得到博文目录列表页的解析正则表达式</span></span><br><span class="line"><span class="comment">#   http://blog.sina.com.cn/s/articlelist_1495462704_0_2.html</span></span><br><span class="line">patternUrlList = <span class="string">r&#x27;articlelist[\w]*_0_[\w]*.html&#x27;</span></span><br><span class="line"><span class="comment">#     得到博文目录列表页中每页的博文连接的解析正则表达式</span></span><br><span class="line"><span class="comment">#     &lt;div class=&quot;articleCell SG_j_linedot1&quot;&gt;</span></span><br><span class="line"><span class="comment">#     &lt;p class=&quot;atc_main SG_dot&quot;&gt;</span></span><br><span class="line"><span class="comment">#     &lt;span class=&quot;atc_ic_f&quot;&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="comment">#     &lt;span class=&quot;atc_title&quot;&gt;</span></span><br><span class="line"><span class="comment">#     &lt;a href=&quot;http://blog.sina.com.cn/s/blog_5922f3300102z36z.html&quot; target=&quot;_blank&quot; title=&quot;&quot;&gt;完美数和亲和数Python和C&lt;/a&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="comment">#     &lt;span class=&quot;atc_ic_b&quot;&gt;&lt;img align=&quot;absmiddle&quot; class=&quot;SG_icon SG_icon18&quot; height=&quot;15&quot; src=&quot;http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif&quot; title=&quot;此博文包含图片&quot; width=&quot;15&quot;/&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     &lt;p class=&quot;atc_info&quot;&gt;</span></span><br><span class="line"><span class="comment">#     &lt;span class=&quot;atc_data&quot; id=&quot;count_5922f3300102z36z&quot;&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="comment">#     &lt;span class=&quot;atc_tm SG_txtc&quot;&gt;2020-08-17 22:16&lt;/span&gt;</span></span><br><span class="line"><span class="comment">#     &lt;span class=&quot;atc_set&quot;&gt;</span></span><br><span class="line"><span class="comment">#     &lt;/span&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#patternALink = r&#x27;5922f3300[\w]+.html&#x27;</span></span><br><span class="line">patternDiv = &#123;<span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;articleCell SG_j_linedot1&#x27;</span>&#125;</span><br><span class="line">patternUrl = <span class="string">r&#x27;http:\/\/[\w\.\/]*.html&#x27;</span></span><br><span class="line">patternTitle = <span class="string">r&#x27;&gt;[\u4e00-\u9fa5\w]+&#x27;</span></span><br><span class="line">patternPic = <span class="string">r&#x27;img&#x27;</span></span><br><span class="line">patternPublish = <span class="string">r&#x27;\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;\s+\d&#123;2&#125;:\d&#123;2&#125;&#x27;</span></span><br><span class="line">outPic = <span class="string">&#x27;有图&#x27;</span></span><br><span class="line"><span class="comment"># 获取博客文章详细页面的正则表达式</span></span><br><span class="line">patternTagDiv = &#123;<span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;articalTag&#x27;</span>&#125;</span><br><span class="line">patternTag = <span class="string">r&quot;\$tag=.+&quot;</span>   <span class="comment">#获取TAG</span></span><br><span class="line">patternCategory = <span class="string">r&#x27;\&gt;[\u4e00-\u9a5e\w\s]+\&lt;\/a&#x27;</span></span><br><span class="line">patternTitleDetail = &#123;<span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;time SG_txtc&#x27;</span>&#125;</span><br><span class="line">patternPublishDetail = <span class="string">r&#x27;\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;\s+\d&#123;2&#125;:\d&#123;2&#125;:\d&#123;2&#125;&#x27;</span></span><br><span class="line">patternContent = &#123;<span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;articalContent&#x27;</span>&#125;</span><br><span class="line"><span class="comment">#   评论和阅读数量来自于js，通过firefox的web开发工具【网络】查看其api接口和参数</span></span><br><span class="line"><span class="comment">#   其初始#url=&#x27;http://comet.blog.sina.com.cn/api?maintype=num&amp;uid=5922f330&amp;aids=02z36z,02z2zj,02x881,02vdeu,02v0dv,02uwl0,01fdfa,01e20o,01dzuf,01dqjv,01dmef,01dkrs,01db4f,01d9bi,01d5om,01d5bj,01d2wt,01d2mg,01cx8d,01cx7e,01brlp,01b1ik,01av40,01anza,01a5u8,019zlo,019uv9,019tsy,019rli,015lxq,0156di,0150o8,014z1t,014wcu,014u1r,014rjf,014ovo,014ov5,014ovm,014ov1,014ov6,014o1b,0149fb,0149f4,0137za,0137q6,0137kc,0137ea,0137d9,0136nk&amp;requestId=aritlces_number_6610&amp;fetch=c,r&#x27;</span></span><br><span class="line"><span class="comment">#   发现url=&#x27;http://comet.blog.sina.com.cn/api?maintype=num&amp;fetch=c,r&amp;uid=5922f330&amp;aids=02z36z,02z2zj,02x881,02vdeu,02v0dv,02uwl0,01fdfa,01e20o,01dzuf,01dqjv,01dmef,01dkrs,01db4f,01d9bi,01d5om,01d5bj,01d2wt,01d2mg,01cx8d,01cx7e,01brlp,01b1ik,01av40,01anza,01a5u8,019zlo,019uv9,019tsy,019rli,015lxq,0156di,0150o8,014z1t,014wcu,014u1r,014rjf,014ovo,014ov5,014ovm,014ov1,014ov6,014o1b,0149fb,0149f4,0137za,0137q6,0137kc,0137ea,0137d9,0136nk&#x27;</span></span><br><span class="line"><span class="comment">#   即可，也就是说必要的参数包括maintype, fetch, uid和aids</span></span><br><span class="line"><span class="comment">#   在这里，uid = 5922f330， aids需要动态构筑，就是具体博文的后6位</span></span><br><span class="line"><span class="comment">#   博文： http://blog.sina.com.cn/s/blog_5922f3300101e20o.html</span></span><br><span class="line"><span class="comment">#   其中： 5922f330为uid， 01用途不详， 后面六位 01e20o为aid</span></span><br><span class="line"><span class="comment">#   为了后面处理方便，为保持程序灵活性，以后可将uid也设成动态构筑</span></span><br><span class="line">crUrl = <span class="string">&#x27;http://comet.blog.sina.com.cn/api?maintype=num&amp;fetch=c,r&amp;uid=5922f330&#x27;</span></span><br><span class="line">patternCR = <span class="string">r&#x27;&#123;.*&#125;\)&#x27;</span></span><br><span class="line"><span class="comment"># 设置logging的格式和级别</span></span><br><span class="line">loggingLevel = logging.DEBUG</span><br><span class="line">loggingFormat = <span class="string">&#x27;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&#x27;</span></span><br><span class="line"><span class="comment"># 设置初始URL</span></span><br><span class="line">startURL = <span class="string">&#x27;http://blog.sina.com.cn/s/articlelist_1495462704_0_1.html&#x27;</span></span><br><span class="line"><span class="comment"># 设置输出格式</span></span><br><span class="line">htmlStart = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;HTML&gt;&lt;head&gt;&lt;meta= charset=&quot;utf-8&quot; /&gt;&lt;title&gt;新浪博客抓取结果&lt;/title&gt;</span></span><br><span class="line"><span class="string">&lt;style type=&quot;text/css&quot;&gt;</span></span><br><span class="line"><span class="string">@charset &quot;utf-8&quot;;</span></span><br><span class="line"><span class="string">/* CSS Document */</span></span><br><span class="line"><span class="string">.tabtop13 &#123;</span></span><br><span class="line"><span class="string">margin-top: 13px;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.tabtop13 td&#123;</span></span><br><span class="line"><span class="string">background-color:#ffffff;</span></span><br><span class="line"><span class="string">height:25px;</span></span><br><span class="line"><span class="string">line-height:150%;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.font-center&#123; text-align:center&#125;</span></span><br><span class="line"><span class="string">.btbg&#123;background:#e9faff !important;&#125;</span></span><br><span class="line"><span class="string">.btbg1&#123;background:#f2fbfe !important;&#125;</span></span><br><span class="line"><span class="string">.btbg2&#123;background:#f3f3f3 !important;&#125;</span></span><br><span class="line"><span class="string">.biaoti&#123;</span></span><br><span class="line"><span class="string">font-family: 微软雅黑;</span></span><br><span class="line"><span class="string">font-size: 36px;</span></span><br><span class="line"><span class="string">font-weight: bold;</span></span><br><span class="line"><span class="string">border-bottom:1px dashed #CCCCCC;</span></span><br><span class="line"><span class="string">color: #255e95;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.titfont &#123;</span></span><br><span class="line"><span class="string">font-family: 微软雅黑;</span></span><br><span class="line"><span class="string">font-size: 16px;</span></span><br><span class="line"><span class="string">font-weight: bold;</span></span><br><span class="line"><span class="string">color: #255e95;</span></span><br><span class="line"><span class="string">background: url(../images/ico3.gif) no-repeat 15px center;</span></span><br><span class="line"><span class="string">background-color:#e9faff;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.tabtxt2 &#123;</span></span><br><span class="line"><span class="string">font-family: 微软雅黑;</span></span><br><span class="line"><span class="string">font-size: 14px;</span></span><br><span class="line"><span class="string">font-weight: bold;</span></span><br><span class="line"><span class="string">text-align: right;</span></span><br><span class="line"><span class="string">padding-right: 10px;</span></span><br><span class="line"><span class="string">color:#327cd1;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.tabtxt3 &#123;</span></span><br><span class="line"><span class="string">font-family: 微软雅黑;</span></span><br><span class="line"><span class="string">font-size: 14px;</span></span><br><span class="line"><span class="string">padding-left: 15px;</span></span><br><span class="line"><span class="string">color: #000;</span></span><br><span class="line"><span class="string">margin-top: 10px;</span></span><br><span class="line"><span class="string">margin-bottom: 10px;</span></span><br><span class="line"><span class="string">line-height: 20px;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; align=&quot;center&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;tr&gt;&lt;td align=&quot;center&quot; class=&quot;biaoti&quot; height=&quot;60&quot;&gt;</span></span><br><span class="line"><span class="string">我的新浪博客&amp;nbsp;&amp;nbsp;:&amp;nbsp;&amp;nbsp;</span></span><br><span class="line"><span class="string">&lt;span style=&quot;font-size:32px;color:blue&quot;&gt;烟波满目凭栏久&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;span style=&quot;font-family:Times New Roman;font-size:18px&quot;&gt;(http://blog.sina.com.cn/liusanrong)&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;1&quot; cellpadding=&quot;4&quot; bgcolor=&quot;#cccccc&quot; class=&quot;tabtop13&quot; align=&quot;center&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;tr&gt;&lt;td width=&quot;5%&quot; class=&quot;btbg font-center titfont&quot;&gt;序号&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td width=&quot;20%&quot; class=&quot;btbg font-center titfont&quot;&gt;主题&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td width=&quot;30%&quot; class=&quot;btbg font-center titfont&quot;&gt;URL&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td width=&quot;5%&quot; class=&quot;btbg font-center titfont&quot;&gt;是否有图&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td width=&quot;15%&quot; class=&quot;btbg font-center titfont&quot;&gt;评论数/阅读数&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td width=&quot;25%&quot;  class=&quot;btbg font-center titfont&quot;&gt;发表时间&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;/tr&gt;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">htmlCont = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;tr&gt;&lt;td class=&quot;btbg2 font-center&quot;&gt; &#123;&#125; &lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td class=&quot;font-center&quot;&gt; &#123;&#125; &lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td class=&quot;font-center&quot;&gt;&lt;a href=&quot;&#123;&#125;&quot;&gt;&#123;&#125;&lt;/a&gt;&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td class=&quot;font-center&quot;&gt;&#123;&#125;&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td class=&quot;font-center&quot;&gt;&#123;&#125;/&#123;&#125;&lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;td class=&quot;font-center&quot;&gt;&#123;&#125;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">htmlEnd = <span class="string">&#x27;&lt;/table&gt;&lt;br /&gt;&lt;/body&gt;&lt;/HTML&gt;&#x27;</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"><span class="keyword">pass</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h5 id="ConfigData-py"><a href="#ConfigData-py" class="headerlink" title="ConfigData.py"></a><font color=#FF8C00>ConfigData.py</font></h5><pre><code class="python">#ConfigData.py
-#一些固定的设置
-import logging
-class ConfigData(object):
-
-# 设置初始URL
-
-# 新浪博客的URL为 articlelist_+【用户id】+ _d + _d + .html
-
-# 第一个_d： 0表示全部文章；1开始表示分类文章
-
-# 第二个_d:  表示页码从1开始
-
-strUrl = &#39;http://blog.sina.com.cn/s/articlelist_1495462704_0_&#39;
-#   设置爬虫的浏览器User-Agent
-#   https://useragent.buyaocha.com 获得当前浏览器的User-Agent
-headers = &#123;
-    &#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; \
-    rv:80.0) Gecko/20100101 Firefox/80.0&#39;   
-&#125;
-#   分析新浪博客的博文目录，得到博文目录列表页的解析正则表达式
-#   http://blog.sina.com.cn/s/articlelist_1495462704_0_2.html
-patternUrlList = r&#39;articlelist[\w]*_0_[\w]*.html&#39;
-#     得到博文目录列表页中每页的博文连接的解析正则表达式
-#     &lt;div class=&quot;articleCell SG_j_linedot1&quot;&gt;
-#     &lt;p class=&quot;atc_main SG_dot&quot;&gt;
-#     &lt;span class=&quot;atc_ic_f&quot;&gt;&lt;/span&gt;
-#     &lt;span class=&quot;atc_title&quot;&gt;
-#     &lt;a href=&quot;http://blog.sina.com.cn/s/blog_5922f3300102z36z.html&quot; target=&quot;_blank&quot; title=&quot;&quot;&gt;完美数和亲和数Python和C&lt;/a&gt;&lt;/span&gt;
-#     &lt;span class=&quot;atc_ic_b&quot;&gt;&lt;img align=&quot;absmiddle&quot; class=&quot;SG_icon SG_icon18&quot; height=&quot;15&quot; src=&quot;http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif&quot; title=&quot;此博文包含图片&quot; width=&quot;15&quot;/&gt;&lt;/span&gt;
-#     &lt;/p&gt;
-#     &lt;p class=&quot;atc_info&quot;&gt;
-#     &lt;span class=&quot;atc_data&quot; id=&quot;count_5922f3300102z36z&quot;&gt;&lt;/span&gt;
-#     &lt;span class=&quot;atc_tm SG_txtc&quot;&gt;2020-08-17 22:16&lt;/span&gt;
-#     &lt;span class=&quot;atc_set&quot;&gt;
-#     &lt;/span&gt;
-#     &lt;/p&gt;
-#     &lt;/div&gt;
-
-#patternALink = r&#39;5922f3300[\w]+.html&#39;
-patternDiv = &#123;&#39;class&#39;: &#39;articleCell SG_j_linedot1&#39;&#125;
-patternUrl = r&#39;http:\/\/[\w\.\/]*.html&#39;
-patternTitle = r&#39;&gt;[\u4e00-\u9fa5\w]+&#39;
-patternPic = r&#39;img&#39;
-patternPublish = r&#39;\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;\s+\d&#123;2&#125;:\d&#123;2&#125;&#39;
-
-outPic = &#39;有图&#39;
-
-# 获取博客文章详细页面的正则表达式
-patternTagDiv = &#123;&#39;class&#39;: &#39;articalTag&#39;&#125;
-patternTag = r&quot;\$tag=.+&quot;   #获取TAG
-patternCategory = r&#39;\&gt;[\u4e00-\u9a5e\w\s]+\&lt;\/a&#39;
-patternTitleDetail = &#123;&#39;class&#39;: &#39;time SG_txtc&#39;&#125;
-patternPublishDetail = r&#39;\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;\s+\d&#123;2&#125;:\d&#123;2&#125;:\d&#123;2&#125;&#39;
-patternContent = &#123;&#39;class&#39;: &#39;articalContent&#39;&#125;
-
-#   评论和阅读数量来自于js，通过firefox的web开发工具【网络】查看其api接口和参数
-#   其初始#url=&#39;http://comet.blog.sina.com.cn/api?maintype=num&amp;uid=5922f330&amp;aids=02z36z,02z2zj,02x881,02vdeu,02v0dv,02uwl0,01fdfa,01e20o,01dzuf,01dqjv,01dmef,01dkrs,01db4f,01d9bi,01d5om,01d5bj,01d2wt,01d2mg,01cx8d,01cx7e,01brlp,01b1ik,01av40,01anza,01a5u8,019zlo,019uv9,019tsy,019rli,015lxq,0156di,0150o8,014z1t,014wcu,014u1r,014rjf,014ovo,014ov5,014ovm,014ov1,014ov6,014o1b,0149fb,0149f4,0137za,0137q6,0137kc,0137ea,0137d9,0136nk&amp;requestId=aritlces_number_6610&amp;fetch=c,r&#39;
-#   发现url=&#39;http://comet.blog.sina.com.cn/api?maintype=num&amp;fetch=c,r&amp;uid=5922f330&amp;aids=02z36z,02z2zj,02x881,02vdeu,02v0dv,02uwl0,01fdfa,01e20o,01dzuf,01dqjv,01dmef,01dkrs,01db4f,01d9bi,01d5om,01d5bj,01d2wt,01d2mg,01cx8d,01cx7e,01brlp,01b1ik,01av40,01anza,01a5u8,019zlo,019uv9,019tsy,019rli,015lxq,0156di,0150o8,014z1t,014wcu,014u1r,014rjf,014ovo,014ov5,014ovm,014ov1,014ov6,014o1b,0149fb,0149f4,0137za,0137q6,0137kc,0137ea,0137d9,0136nk&#39;
-#   即可，也就是说必要的参数包括maintype, fetch, uid和aids
-#   在这里，uid = 5922f330， aids需要动态构筑，就是具体博文的后6位
-#   博文： http://blog.sina.com.cn/s/blog_5922f3300101e20o.html
-#   其中： 5922f330为uid， 01用途不详， 后面六位 01e20o为aid
-#   为了后面处理方便，为保持程序灵活性，以后可将uid也设成动态构筑
-crUrl = &#39;http://comet.blog.sina.com.cn/api?maintype=num&amp;fetch=c,r&amp;uid=5922f330&#39;
-patternCR = r&#39;&#123;.*&#125;\)&#39;
-
-# 设置logging的格式和级别
-loggingLevel = logging.DEBUG
-loggingFormat = &#39;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&#39;
-
-# 设置初始URL
-startURL = &#39;http://blog.sina.com.cn/s/articlelist_1495462704_0_1.html&#39;
-
-# 设置输出格式
-htmlStart = &#39;&#39;&#39;
-    &lt;HTML&gt;&lt;head&gt;&lt;meta= charset=&quot;utf-8&quot; /&gt;&lt;title&gt;新浪博客抓取结果&lt;/title&gt;
-    &lt;style type=&quot;text/css&quot;&gt;
-        @charset &quot;utf-8&quot;;
-    /* CSS Document */
-    .tabtop13 &#123;
-        margin-top: 13px;
-    &#125;
-    .tabtop13 td&#123;
-        background-color:#ffffff;
-        height:25px;
-        line-height:150%;
-    &#125;
-    .font-center&#123; text-align:center&#125;
-    .btbg&#123;background:#e9faff !important;&#125;
-    .btbg1&#123;background:#f2fbfe !important;&#125;
-    .btbg2&#123;background:#f3f3f3 !important;&#125;
-    .biaoti&#123;
-        font-family: 微软雅黑;
-        font-size: 36px;
-        font-weight: bold;
-        border-bottom:1px dashed #CCCCCC;
-        color: #255e95;
-    &#125;
-    .titfont &#123;
-
-        font-family: 微软雅黑;
-        font-size: 16px;
-        font-weight: bold;
-        color: #255e95;
-        background: url(../images/ico3.gif) no-repeat 15px center;
-        background-color:#e9faff;
-    &#125;
-    .tabtxt2 &#123;
-        font-family: 微软雅黑;
-        font-size: 14px;
-        font-weight: bold;
-        text-align: right;
-        padding-right: 10px;
-        color:#327cd1;
-    &#125;
-    .tabtxt3 &#123;
-        font-family: 微软雅黑;
-        font-size: 14px;
-        padding-left: 15px;
-        color: #000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 20px;
-    &#125;
-    &lt;/style&gt;&lt;/head&gt;
-    &lt;body&gt;&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; align=&quot;center&quot;&gt;
-    &lt;tr&gt;&lt;td align=&quot;center&quot; class=&quot;biaoti&quot; height=&quot;60&quot;&gt;
-    我的新浪博客&amp;nbsp;&amp;nbsp;:&amp;nbsp;&amp;nbsp;
-    &lt;span style=&quot;font-size:32px;color:blue&quot;&gt;烟波满目凭栏久&lt;/span&gt;
-    &lt;span style=&quot;font-family:Times New Roman;font-size:18px&quot;&gt;(http://blog.sina.com.cn/liusanrong)&lt;/span&gt;
-    &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;1&quot; cellpadding=&quot;4&quot; bgcolor=&quot;#cccccc&quot; class=&quot;tabtop13&quot; align=&quot;center&quot;&gt;
-    &lt;tr&gt;&lt;td width=&quot;5%&quot; class=&quot;btbg font-center titfont&quot;&gt;序号&lt;/td&gt;
-    &lt;td width=&quot;20%&quot; class=&quot;btbg font-center titfont&quot;&gt;主题&lt;/td&gt;
-    &lt;td width=&quot;30%&quot; class=&quot;btbg font-center titfont&quot;&gt;URL&lt;/td&gt;
-    &lt;td width=&quot;5%&quot; class=&quot;btbg font-center titfont&quot;&gt;是否有图&lt;/td&gt;
-    &lt;td width=&quot;15%&quot; class=&quot;btbg font-center titfont&quot;&gt;评论数/阅读数&lt;/td&gt;
-    &lt;td width=&quot;25%&quot;  class=&quot;btbg font-center titfont&quot;&gt;发表时间&lt;/td&gt;
-    &lt;/tr&gt;
-&#39;&#39;&#39;
-htmlCont = &#39;&#39;&#39;
-    &lt;tr&gt;&lt;td class=&quot;btbg2 font-center&quot;&gt; &#123;&#125; &lt;/td&gt;
-    &lt;td class=&quot;font-center&quot;&gt; &#123;&#125; &lt;/td&gt;
-    &lt;td class=&quot;font-center&quot;&gt;&lt;a href=&quot;&#123;&#125;&quot;&gt;&#123;&#125;&lt;/a&gt;&lt;/td&gt;
-    &lt;td class=&quot;font-center&quot;&gt;&#123;&#125;&lt;/td&gt;
-    &lt;td class=&quot;font-center&quot;&gt;&#123;&#125;/&#123;&#125;&lt;/td&gt;
-    &lt;td class=&quot;font-center&quot;&gt;&#123;&#125;&lt;/td&gt;&lt;/tr&gt;
-&#39;&#39;&#39;
-
-htmlEnd = &#39;&lt;/table&gt;&lt;br /&gt;&lt;/body&gt;&lt;/HTML&gt;&#39;
-
-if __name__ == &#39;__main__&#39;:
-    pass</code></pre>
 
     </div>
 
@@ -690,14 +533,14 @@ if __name__ == &#39;__main__&#39;:
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

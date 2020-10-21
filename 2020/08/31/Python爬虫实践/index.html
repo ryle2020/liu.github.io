@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="缘由：自己在新浪的博客，准备搬个家，可惜现在各个blog的空间越来越封闭了，于是准备自己整个爬虫，爬下来放到typecho中来 爬虫概述   爬虫种类 描述    通用型网络爬 目标是尽可能大的覆盖网络对象；主要基于关键字   聚焦网络爬虫 抓取特定主题的网页，为相关用户提供数据资源   增量式网络爬虫 只更新变化的部分，对算法有要求   深层网络爬虫 需要注册登录之后才能获取内容的部分   爬虫">
+  <meta name="description" content="缘由：自己在新浪的博客，准备搬个家，可惜现在各个blog的空间越来越封闭了，于是准备自己整个爬虫，爬下来放到typecho中来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬虫实践">
 <meta property="og:url" content="https://www.liuyong.online/2020/08/31/Python%E7%88%AC%E8%99%AB%E5%AE%9E%E8%B7%B5/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="缘由：自己在新浪的博客，准备搬个家，可惜现在各个blog的空间越来越封闭了，于是准备自己整个爬虫，爬下来放到typecho中来 爬虫概述   爬虫种类 描述    通用型网络爬 目标是尽可能大的覆盖网络对象；主要基于关键字   聚焦网络爬虫 抓取特定主题的网页，为相关用户提供数据资源   增量式网络爬虫 只更新变化的部分，对算法有要求   深层网络爬虫 需要注册登录之后才能获取内容的部分   爬虫">
+<meta property="og:description" content="缘由：自己在新浪的博客，准备搬个家，可惜现在各个blog的空间越来越封闭了，于是准备自己整个爬虫，爬下来放到typecho中来">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-31T09:54:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.026Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:03.946Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="python爬虫">
 <meta name="twitter:card" content="summary">
@@ -238,14 +238,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -372,7 +372,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>517</span>
+      <span>516</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -391,6 +391,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>缘由：自己在新浪的博客，准备搬个家，可惜现在各个blog的空间越来越封闭了，于是准备自己整个爬虫，爬下来放到typecho中来</p>
+<a id="more"></a>
 <h3 id="爬虫概述"><a href="#爬虫概述" class="headerlink" title="爬虫概述"></a><font color=#FF8C00>爬虫概述</font></h3><table>
 <thead>
 <tr>
@@ -419,33 +420,24 @@
 <li>根据需求设定种子URL</li>
 <li>把URL放入<strong>待抓取队列</strong></li>
 <li>从<strong>待抓取URL</strong>读出要处理的URL，解析并下载对应的网页，根据需要解析存储；将处理完毕的URL放入已处理URL队列</li>
-<li>将 <em>3</em> 中的数据分析出来的URL和已抓取的URL比较去重，将未处理的URL放入<strong>待抓取队列</strong>，进入新的循环。</li>
+<li>将 <em>3</em> 中的数据分析出来的URL和已抓取的URL比较去重，将未处理的URL放入<strong>待抓取队列</strong>，进入新的循环。<h3 id="Python和HTTP有关的常用库"><a href="#Python和HTTP有关的常用库" class="headerlink" title="Python和HTTP有关的常用库"></a><font color=#FF8C00>Python和HTTP有关的常用库</font></h3></li>
+<li>urllib2和urllib<br>主要用这个两个库，包括：</li>
 </ol>
-<h3 id="Python和HTTP有关的常用库"><a href="#Python和HTTP有关的常用库" class="headerlink" title="Python和HTTP有关的常用库"></a><font color=#FF8C00>Python和HTTP有关的常用库</font></h3><ol>
-<li><p>urllib2和urllib<br>主要用这个两个库，包括：</p>
 <ul>
-<li><p>请求与响应</p>
-</li>
-<li><p>请求的Headers处理</p>
-</li>
-<li><p>Cookie的处理</p>
-</li>
-<li><p>设置超时</p>
-</li>
-<li><p>获取HTTP响应码</p>
-</li>
-<li><p>重定向</p>
-</li>
-<li><p>Proxy代理</p>
-<p>*Python3不用urllib2了，最简单就是用urllib.request</p>
-</li>
+<li>请求与响应</li>
+<li>请求的Headers处理</li>
+<li>Cookie的处理</li>
+<li>设置超时</li>
+<li>获取HTTP响应码</li>
+<li>重定向</li>
+<li>Proxy代理</li>
+<li>Python3不用urllib2了，最简单就是用urllib.request</li>
 </ul>
-</li>
-<li><p>httplib和urllib<br>基本不用httplib</p>
-</li>
-<li><p>Requests<br><strong>第三方Requests库</strong></p>
-</li>
+<ol start="2">
+<li>httplib和urllib<br>基本不用httplib</li>
+<li>Requests</li>
 </ol>
+<p><strong>第三方Requests库</strong></p>
 <h3 id="HTML解析"><a href="#HTML解析" class="headerlink" title="HTML解析"></a><font color=#FF8C00>HTML解析</font></h3><ol>
 <li>用Python的正则表达式</li>
 <li>Beautiful Soup</li>
@@ -579,14 +571,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

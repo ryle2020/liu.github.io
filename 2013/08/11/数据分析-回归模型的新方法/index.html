@@ -23,16 +23,16 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="号称在科学杂志上发表2篇以上文章就有资格去参加院士评选，牛！   在数据分析中，有很大的问题就是如何确认自变量和因变量的关系，常用的方式包括线性回归和非线性回归模型。尽管在R中，有很多方式可以逐步求精，比如Step，但是对于非连续的离散型数据还是很难处理，比较依赖于分析者的经验。  科学杂志，有篇文章：《Detecing Novel Associations in Large Data Sets》">
+  <meta name="description" content="号称在科学杂志上发表2篇以上文章就有资格去参加院士评选，牛！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据分析-回归模型的新方法">
 <meta property="og:url" content="https://www.liuyong.online/2013/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="号称在科学杂志上发表2篇以上文章就有资格去参加院士评选，牛！   在数据分析中，有很大的问题就是如何确认自变量和因变量的关系，常用的方式包括线性回归和非线性回归模型。尽管在R中，有很多方式可以逐步求精，比如Step，但是对于非连续的离散型数据还是很难处理，比较依赖于分析者的经验。  科学杂志，有篇文章：《Detecing Novel Associations in Large Data Sets》">
+<meta property="og:description" content="号称在科学杂志上发表2篇以上文章就有资格去参加院士评选，牛！">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="article:published_time" content="2013-08-11T01:35:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:49.213Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:05.317Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="数据分析">
 <meta name="twitter:card" content="summary">
@@ -239,14 +239,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -392,32 +392,8 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>号称在科学杂志上发表2篇以上文章就有资格去参加院士评选，牛！</p>
-<div><br/></div>
-<div>
-在数据分析中，有很大的问题就是如何确认自变量和因变量的关系，常用的方式包括线性回归和非线性回归模型。尽管在R中，有很多方式可以逐步求精，比如Step，但是对于非连续的离散型数据还是很难处理，比较依赖于分析者的经验。</div>
-<div><br/></div>
-<div>科学杂志，有篇文章：《Detecing Novel Associations in Large Data
-Sets》,采用了网格模型来判断数据的集中程度，从而来判断数据的关联关系。</div>
-<div>1.划分网格G，X行Y列，要求X和Y的乘积小于N的0.6次方，N是样本个数（注意，未必等宽）</div>
-<div>2.概率密度函数p(x,y)定义为，指定方格内样本点数量占全体样本点数量的比例</div>
-<div>3.<a href="http://album.sina.com.cn/pic/5922f330gx6BLrBP9ap41" target="_blank"><img alt="数据分析-回归模型的新方法" height="68" name="image_operate_84501376186513275" real_src="http://s2.sinaimg.cn/mw690/5922f330gx6BLrBP9ap41&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="数据分析-回归模型的新方法" width="438"/></a></div>
-<div>然后计算MIC值（the Maximal Information Coefficient）</div>
-<div>1.M(x,y) = max{Ig}/log min{x,y}</div>
-<div>2.MIC=max{M(x,y)}</div>
-<div>困难在于计算M(x,y)因为要取所有可能的（x，y）对。</div>
-<div>-近视的逼近算法：</div>
-<div>
-http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1</div>
-<div>-MINE计算MIC的程序（Java和R）</div>
-<div>http://www.exploredata.net/Downloads</div>
-<div><br/></div>
-<div>Mark一下～</div>
-<div><br/></div>
-<div><br/></div>
-<div><br/></div>
-<br/>
-</div>
-
+<a id="more"></a>
+<p>在数据分析中，有很大的问题就是如何确认自变量和因变量的关系，常用的方式包括线性回归和非线性回归模型。尽管在R中，有很多方式可以逐步求精，比如Step，但是对于非连续的离散型数据还是很难处理，比较依赖于分析者的经验。<br>科学杂志，有篇文章：《Detecing Novel Associations in Large Data<br>Sets》,采用了网格模型来判断数据的集中程度，从而来判断数据的关联关系。<br>1.划分网格G，X行Y列，要求X和Y的乘积小于N的0.6次方，N是样本个数（注意，未必等宽）<br>2.概率密度函数p(x,y)定义为，指定方格内样本点数量占全体样本点数量的比例<br>3.<a href="http://album.sina.com.cn/pic/5922f330gx6BLrBP9ap41" target="_blank"><img alt="数据分析-回归模型的新方法" height="68" name="image_operate_84501376186513275" real_src="http://s2.sinaimg.cn/mw690/5922f330gx6BLrBP9ap41&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="数据分析-回归模型的新方法" width="438"/></a><br>然后计算MIC值（the Maximal Information Coefficient）<br>1.M(x,y) = max{Ig}/log min{x,y}<br>2.MIC=max{M(x,y)}<br>困难在于计算M(x,y)因为要取所有可能的（x，y）对。<br>-近视的逼近算法：<br><a target="_blank" rel="noopener" href="http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1">http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1</a><br>-MINE计算MIC的程序（Java和R）<br><a target="_blank" rel="noopener" href="http://www.exploredata.net/Downloads">http://www.exploredata.net/Downloads</a><br>Mark一下～</p>
 
     </div>
 
@@ -546,14 +522,14 @@ http://www.sciencemag.org/content/suppl/2011/12/14/334.6062.1518.DC1</div>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

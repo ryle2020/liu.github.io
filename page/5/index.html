@@ -233,14 +233,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -315,228 +315,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/07/04/%E5%AE%89%E8%A3%85centos6.4%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lvlogo.png">
-      <meta itemprop="name" content="Ryle Liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="劉勇の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2013/07/04/%E5%AE%89%E8%A3%85centos6.4%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">安装centos6.4虚拟机后的几个基本设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-07-04 12:52:00" itemprop="dateCreated datePublished" datetime="2013-07-04T12:52:00+08:00">2013-07-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
-        </span>
-    </span>
-
-  
-     <!-- </div> -->
-     <!-- <div class="post-meta"> -->
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>378</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>1.增加Sudoers</p>
-<p>  用su切换到root用户，cd /etc, chmod 777 sudoers, 然后vi
-sudoers</p>
-<p>  找到“root 
-ALL=(ALL)   
-ALL”这一行，下面增加”username
-ALL=(ALL)   
-ALL”</p>
-<p>  最后chmod 440 sudoers</p>
-<p>2.更改hostname</p>
-<p>  sudo vi /etc/sysconfig/network
-然后修改hostname=需要设置的hostname</p>
-<p>  $hostname 需要设置的hostname</p>
-<p>3.更新系统</p>
-<p>  sudo yum update</p>
-<p>4.安装中文</p>
-<p>  sudo yum install <a href="mailto:‘@Chinese">‘@Chinese</a> support’</p>
-<p>5.修改开放的端口</p>
-<p>   -M1 sudo
-setup  （打开图形界面）</p>
-<p>   -M2 sudo vi
-/etc/sysconfig/iptables （默认开22端口，根据22端口的写法写想要开的端口）</p>
-<p>
-
-<p>service iptables restart</p></p>
-</div>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/06/27/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lvlogo.png">
-      <meta itemprop="name" content="Ryle Liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="劉勇の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2013/06/27/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">NoSQL数据库笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-06-27 23:23:00" itemprop="dateCreated datePublished" datetime="2013-06-27T23:23:00+08:00">2013-06-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
-        </span>
-    </span>
-
-  
-     <!-- </div> -->
-     <!-- <div class="post-meta"> -->
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>452</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>NoSQL = Not Only SQL, 针对关系型数据库的不擅长的地方做了有益的补充。</p>
-<p>大部分为开源软件，支持分布式集群</p>
-<p>主要包括键值存储，文档型，列存储型，图形，对象等等（<a target="_blank" rel="noopener" href="http://nosql-database.org/">http://nosql-database.org/</a>）。</p>
-<p>键值存储：临时Memcached 永久ROMA 两者兼具Redis</p>
-<p>文档型：MongoDB、CouchDB等</p>
-<p>面向列：Cassanra、HBase等</p>
-<p>
--------------------------------------------------------------------</p>
-<p>Memcached：<a target="_blank" rel="noopener" href="http://memcached.org/">http://memcached.org/</a></p>
-<p>Redis:<a target="_blank" rel="noopener" href="http://redis.io/">http://redis.io/</a></p>
-<p>Cassandra: <a target="_blank" rel="noopener" href="http://cassandra.apache.org/">http://cassandra.apache.org/</a></p>
-<p>HBase:<a target="_blank" rel="noopener" href="http://hbase.apache.org/">http://hbase.apache.org/</a></p>
-<p>MongoDB:<a target="_blank" rel="noopener" href="http://www.mongodb.org/">http://www.mongodb.org/</a></p>
-<p>Neo4J:<a target="_blank" rel="noopener" href="http://www.neo4j.org/">http://www.neo4j.org/</a>
-or <a target="_blank" rel="noopener" href="http://www.neo4j.org.cn/">http://www.neo4j.org.cn/</a></p>
-</div>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/06/26/%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E4%B8%8ER%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%96%9B%E6%AF%85%C2%A0%E9%99%88%E7%AB%8B%E8%90%8D%EF%BC%89%C2%A0%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%B9%A0%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -582,7 +360,7 @@ or <a target="_blank" rel="noopener" href="http://www.neo4j.org.cn/">http://www.
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -600,82 +378,15 @@ or <a target="_blank" rel="noopener" href="http://www.neo4j.org.cn/">http://www.
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>-------------------------------------------</p>
-<p>2_1.R</p>
-<p>x=cbind(c(1,2,3));<br/>
-print(x);<br/>
-y=cbind(c(4,5,6));<br/>
-print(y);<br/>
-z=2*x+y+cbind(c(1,1,1));<br/>
-print(z);<br/>
-print(crossprod(x,y));<br/>
-print(tcrossprod(x,y));<br/>
---------------------------------------------</p>
-<p>2_2.R</p>
-<p>A=matrix(1:20,nrow=4,ncol=5);<br/>
-print(A);<br/>
-B=matrix(1:20,nrow=4,ncol=5,byrow=T);<br/>
-print(B);<br/>
-C=A+B;<br/>
-print(C);<br/>
-E=A*B;<br/>
-print(E);<br/>
-F=A[1:3,1:3];<br/>
-print(F);<br/>
-G=cbind(B[1:4,1:2],B[1:4,4:5]);<br/>
-print(G);<br/>
-#或者<br/>
-G=B[,-c(3)];<br/>
-print(G);<br/>
------------------------------------------------------------------</p>
-<p>2_3.R</p>
-<p>
-x=c(rep(c(1),times=5),rep(c(2),times=3),rep(c(4),times=2));<br/>
-print(x);<br/>
-------------------------------------------------------------------</p>
-<p>2_4.R</p>
-<p>H=matrix(,ncol=5,nrow=5);<br/>
-for(i in 1:5) {for(j in 1:5) {H[i,j]=c(1/(i+j-1)) }};<br/>
-print(H);<br/>
-print(det(H));<br/>
-print(solve(H));<br/>
-print(eigen(H));<br/>
-------------------------------------------------------------------</p>
-<p>2_5.R</p>
-<p>student=data.frame(<br/>
-&prime;序号&prime;=c(1:5),<br/>
-&prime;姓名&prime;=c("张三","李四","王五","赵六","丁一"),<br/>
-
-<p>&prime;性别&prime;=c(“女”,”男”,”女”,”男”,”女”),<br/></p>
-<p>&prime;年龄&prime;=c(14:16,14:15),<br/><br>&prime;身高(cm)&prime;=c(156,165,157,162,159),<br/><br>&prime;体重(kg)&prime;=c(42.0,49.0,41.5,52.0,45.5)<br/><br>);<br/><br>print(student);<br/><br>———————————————————-</p></p>
-<p>2_6.R</p>
-<p>
-M=read.table("C:\R\2_5Data.txt",header=T);<br/>
-
-<p>print(M);<br/><br>write.csv(M,”C:\R\2_5CSV.csv”);<br/></p>
-<p>———————————————————–</p></p>
-<p>2_7.R</p>
-<p>fun_2_7R &lt;- function(){<br/>
-  n =
-scan("",what=integer(0),nlines=1);<br/>
-
-<p>  if( n &lt;= 0 ){<br/></p>
-<p>print(“要求输入一个正整数”);<br/><br>  }<br/><br>  else{<br/></p>
-<p>repeat{<br/></p>
-<p>if( n == 1 ){<br/></p>
-<p>print(“运算成功”);<br/></p>
-<p>break;<br/></p>
-<p>}<br/></p>
-<p>if( n%%2 == 0 ){<br/></p>
-<p>n = n/2;<br/></p>
-<p>print(n);<br/></p>
-<p>}else{<br/></p>
-<p>n = 3*n + 1;<br/></p>
-<p>print(n);<br/></p>
-<p>}<br/><br>    }<br/><br>  }<br/><br>}</p></p>
-</div>
-
-
+          <hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/06/26/%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E4%B8%8ER%E8%BD%AF%E4%BB%B6%EF%BC%88%E8%96%9B%E6%AF%85%C2%A0%E9%99%88%E7%AB%8B%E8%90%8D%EF%BC%89%C2%A0%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%B9%A0%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -764,31 +475,15 @@ scan("",what=integer(0),nlines=1);<br/>
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>-数据的分类：可测量数据与不可测量数据，又称分类数据和数值数据（Categorical Data
-&amp; Numerical Data）</p>
-<p>-数值数据：组（Class） 的计算公式： <a target="_blank" rel="noopener" href="http://s11.sinaimg.cn/middle/5922f3304dfd376ed063a&amp;amp;690">
-<img alt="1R1QC[S5SG`)%2`6XOS0SKL" border="0" height="80" real_src="http://s9.sinaimg.cn/middle/5922f3304dfd376dda118&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="1R1QC[S5SG`)%2`6XOS0SKL" width="244"/></a><em>史特吉斯</em>Sturges公式</p>
-<p>组距的计算=<a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f3304dfd36cdad0eb&amp;bid=5922f33001019rli&amp;uid=1495462704" target="_blank"><img alt="image" border="0" height="47" real_src="http://s12.sinaimg.cn/middle/5922f3304dfd36cdad0eb&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" width="244"/></a></p>
-<p>组中值（Class Midpoint）次数（Frequency）</p>
-<p>相对次数（Relative Frequency）= 所属该组的数据个数/数据总数， 之和必为1</p>
-<p>次数分布表（Frequency Distribution Table）</p>
-<p>-直方图（Histogram）也叫柱状图，用高度不等的纵向条纹表示数据分布；条纹的宽度为组距（class
-Width);条纹的中央为组中值；</p>
-<p>-算术平均数（Arithmetic Mean）=Sum（A1，AN）/N</p>
-<p>-几何平均数（Geometric Mean）=<a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f3304dfd36cecae70&amp;bid=5922f33001019rli&amp;uid=1495462704" target="_blank"><img alt="8ZX8YJ51F_NRP(IA$%$RCMN" border="0" height="45" real_src="http://s1.sinaimg.cn/middle/5922f3304dfd36cecae70&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="8ZX8YJ51F_NRP(IA$%$RCMN" width="168"/></a></p>
-<p>-调和平均数(Harmonic Mean) =<a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f3304dfd379bc8c43&amp;bid=5922f33001019rli&amp;uid=1495462704" target="_blank"><img alt="XT9F6DJP_SL`70%$53K)YKC" border="0" height="65" real_src="http://s4.sinaimg.cn/middle/5922f3304dfd379bc8c43&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="XT9F6DJP_SL`70%$53K)YKC" width="142"/></a></p>
-<p>-中位数（Median）数据依大小顺序排列时，最中间的数值；如果为偶数，则需要将最中间2位的平均数作为中位数</p>
-<p>-标准差（Standard Deviation）用来表示数据离散程度</p>
-<p>  总体的标准差 = <a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f3304dfd36cdcafd7&amp;bid=5922f33001019rli&amp;uid=1495462704" target="_blank"><img alt="5NU9S%SWNZOUL2250O`)EPO" border="0" height="40" real_src="http://s8.sinaimg.cn/middle/5922f3304dfd36cdcafd7&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="5NU9S%SWNZOUL2250O`)EPO" width="244"/></a></p>
-<p>  样本的标准差 = <a href="http://photo.blog.sina.com.cn/list/blogpic.php?pid=5922f3304dfd36cfed1a7&amp;bid=5922f33001019rli&amp;uid=1495462704" target="_blank"><img alt=")]`AC]VB`G%ALV]H232)9L0" border="0" height="41" real_src="http://s8.sinaimg.cn/middle/5922f3304dfd36cfed1a7&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title=")]`AC]VB`G%ALV]H232)9L0" width="244"/></a></p>
-<p>-推断统计学/描述统计学</p>
-<p>-标准记分=<a target="_blank" rel="noopener" href="http://s11.sinaimg.cn/middle/5922f3304dfd36d13bcaa&amp;amp;690"><img alt="image" border="0" height="45" real_src="http://s10.sinaimg.cn/middle/5922f3304dfd36d081d49&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" width="244"/></a></p>
-<p>-离差=<a target="_blank" rel="noopener" href="http://s3.sinaimg.cn/middle/5922f3304dfd36d0134b2&amp;amp;690"><img alt="image" border="0" height="34" real_src="http://s4.sinaimg.cn/middle/5922f3304dfd36d17c963&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" width="244"/></a></p>
-<p><a target="_blank" rel="noopener" href="http://s14.sinaimg.cn/middle/5922f33007cc858fb1cbd&amp;amp;690">
-<img alt="image" border="0" height="106" real_src="http://s14.sinaimg.cn/middle/5922f3304dfd379ccc51d&amp;amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" width="244"/></a></p>
-</div>
-
-
+          <p>-数据的分类：可测量数据与不可测量数据，又称分类数据和数值数据（Categorical Data</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/06/23/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E6%AD%A5%E6%AD%A5%E6%9D%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -878,13 +573,14 @@ Width);条纹的中央为组中值；</p>
     
     <div class="post-body" itemprop="articleBody">
           <div style="margin:0; width:689px; height:553px; position:relative; overflow:hidden; background:url(http://simg.sinajs.cn/blog7style/images/activity/blog7year/blog7year_contentbg.png) no-repeat; font-family:&prime;Microsoft Yahei&prime;,&prime;宋体&prime;,Arial,Helvetica,sans-serif; color:#000000; font-size:14px;"><h3 style="margin:102px 0 0 63px; font-size:19px; color:#fff600;">
-我的博客今天<span style="color:#6ab6e2;">3</span>岁<span style="color:#6ab6e2;">178</span>天了，我领取了徽章. <wbr/> <wbr/></h3>
-<div style="position:absolute; top:60px; right:106px;"><img alt="我的博客今天3岁178天了，我领取了精英博主徽章" real_src="http://s4.sinaimg.cn/middle/5922f3304d322937da3a3&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="我的博客今天3岁178天了，我领取了精英博主徽章" width="108"/></div>
-<ul style="margin:102px 0 0 70px;line-height:28px;list-style:none;font-size:13px;color:#6ab6e2;">
-<li><span style="color:#fff600;">2009.07.20</span>，我在新浪博客安家。</li><li><span style="color:#fff600;">2009.09.15</span>，我写下了第一篇博文：《突然有写日记的冲动了~》。</li><li><span style="color:#fff600;">2010.11.28</span>，我上传了第一张图片到相册。</li><li>至今，我的博客共获得<span style="color:#fff600;">3,571</span>次访问。</li></ul><p style="color:#6ab6e2;margin:28px 0 0 100px;">这些年，新浪博客伴我点点滴滴谱写生活！</p><div style="margin:90px 0 0 400px;display:inline-block;"><a href="http://control.blog.sina.com.cn/blog_7years/index.php" target="_blank" title="你也来领取你的博客徽章吧"><img alt="我的博客今天3岁178天了，我领取了精英博主徽章" real_src="http://simg.sinajs.cn/blog7style/images/activity/blog7year/blog7year_contentbtn.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="我的博客今天3岁178天了，我领取了精英博主徽章"/></a></div></div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/01/13/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%BB%8A%E5%A4%A93%E5%B2%81178%E5%A4%A9%E4%BA%86%EF%BC%8C%E6%88%91%E9%A2%86%E5%8F%96%E4%BA%86%E7%B2%BE%E8%8B%B1%E5%8D%9A%E4%B8%BB%E5%BE%BD%E7%AB%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -974,13 +670,14 @@ Width);条纹的中央为组中值；</p>
     
     <div class="post-body" itemprop="articleBody">
           <p>这些日子，来回常州苏州，火车坐多了；在车上无事就是看些所谓的玄幻小说，比如“我吃西红柿”的“吞噬星空”。里面总是提到，如果你没有相应的实力却拥有重宝的话，就成了追杀的对象；在罗主角没有绝对实力的时候，他的至宝都要改头换面，藏起不用。</p>
-<div><br/></div>
-<div>正好又看到凤凰男和孔雀女的帖子，突然想到咱老祖宗真是英明神武啊-”门当户对“！</div>
-<div>古时候，门当户对也许就是为了相近的背景，相似的生活习惯和家族联姻；</div>
-<div>而现在，门当户对更多的是避免不幸的婚姻，如果不般配，也有点小说中没有实力却身怀重宝的意思。。。。。。</div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/26/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1051,7 +748,7 @@ Width);条纹的中央为组中值；</p>
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>302</span>
+      <span>298</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1070,37 +767,14 @@ Width);条纹的中央为组中值；</p>
     
     <div class="post-body" itemprop="articleBody">
           <p>高中同学，每月一聚。不知不觉，人已中年。感慨之余，话题也比较多得涉及养生了。小六说他在弄艾灸，效果还不错，让我也去试试～</p>
-<div><br/></div>
-<div>于是跟着小六，开始学点艾灸的东西。</div>
-<div><br/></div>
-<div>《扁鹊心书》（未考证）“人于无病时，常灸关元、气海、命关、中脘......虽未得长生，亦可保百余年寿！“</div>
-<div>1.艾叶：端午插门上，驱邪之物；</div>
-<div>2.艾绒：青艾绒，陈艾绒，金艾绒，一般家里自用选陈艾绒-捏、观、闻、看其烟</div>
-<div>3.艾条：看形、闻味、看火、观烟</div>
-<div>4.艾粒：</div>
-<div>5.艾炷：小的如同米粒-直接灸；大的犹如蚕豆-间接灸</div>
-<div>
-<hr/></div>
-<div>艾灸方式：</div>
-<div>
-<ol>
-<li>隔姜隔蒜艾</li>
-<li>隔盐艾</li>
-</ol>
-</div>
-<div>
-<hr/></div>
-<div>艾灸注意事项：</div>
-<div>
-<ol>
-<li>穿着宽松，除去一切可能阻碍气血运行的物品</li>
-<li>取穴宜少，一般每次最多取3～4个穴位</li>
-<li>时间宜长，一般单次20分钟左右</li>
-</ol>
-</div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/20/%E8%B7%9F%E7%9D%80%E5%B0%8F%E5%85%AD%EF%BC%8C%E5%AD%A6%E4%B9%A0%E8%89%BE%E7%81%B8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1190,16 +864,14 @@ Width);条纹的中央为组中值；</p>
     
     <div class="post-body" itemprop="articleBody">
           <p>越急越搞，Excel的字体是宋体，编码是gb2312，存成CSV也好，一般的TXT</p>
-<div>也好，导入到MySQL总是乱码；</div>
-<div><br/></div>
-<div>改成存成Unicode.txt</div>
-<div>然后导入时指定UTF8</div>
-<div>MySql的格式指定为UTF8</div>
-<div><br/></div>
-<div>导入，OK～</div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/18/%E8%A7%81%E9%AC%BC%E4%BA%86%EF%BC%8CExcel%E5%AF%BC%E5%85%A5%E5%88%B0Mysql%E5%B1%85%E7%84%B6%E5%87%BA%E4%B9%B1%E7%A0%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1289,24 +961,14 @@ Width);条纹的中央为组中值；</p>
     
     <div class="post-body" itemprop="articleBody">
           <div style="">冬天到了，把南阳台改造了一下，虽然地方小，也成了小书房～
-<div>右边是淘来的楠竹书架，有点晃荡晃荡。。。。。<a href="http://s5.sinaimg.cn/orignal/5922f330gd0e365d09e84" target="_blank"><img alt="自己动手，把南阳台变成了小书房" height="275" name="image_operate_8111355576110014" real_src="http://s5.sinaimg.cn/mw690/5922f330gd0e365d09e84&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="自己动手，把南阳台变成了小书房" width="490"/></a><br/>
-<br/>
-改造工具特写，电锤/电钻两用～<br/>
-<a href="http://s15.sinaimg.cn/orignal/5922f330gd0e3674d1aee" target="_blank"><img alt="自己动手，把南阳台变成了小书房" height="275" name="image_operate_30371355575218300" real_src="http://s15.sinaimg.cn/mw690/5922f330gd0e3674d1aee&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="自己动手，把南阳台变成了小书房" width="490"/></a><br/>
-工具全家福，钻头有3组，木头/砖水泥/瓷砖（玻璃）没尝试过。</div>
-<div>电线下面是好东西，水平垂直45度测试仪<br/>
-<a href="http://s12.sinaimg.cn/orignal/5922f330gd0e368e6475b" target="_blank"><img alt="自己动手，把南阳台变成了小书房" height="275" name="image_operate_87151355575239077" real_src="http://s12.sinaimg.cn/mw690/5922f330gd0e368e6475b&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="自己动手，把南阳台变成了小书房" width="490"/></a><br/>
-改造之后：</div>
-<div>桌子也是淘来的，也有点晃荡<br/>
-<a href="http://s6.sinaimg.cn/orignal/5922f330gd0e36d834765" target="_blank"><img alt="自己动手，把南阳台变成了小书房" height="275" name="image_operate_38871355575493243" real_src="http://s6.sinaimg.cn/mw690/5922f330gd0e36d834765&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="自己动手，把南阳台变成了小书房" width="490"/></a><br/>
-能看出来这张和上面那张有啥区别么？除了灯光～<br/>
-<a href="http://s6.sinaimg.cn/orignal/5922f330gd0e36f4e09d5" target="_blank"><img alt="自己动手，把南阳台变成了小书房" name="image_operate_44951355576060654" real_src="http://s6.sinaimg.cn/bmiddle/5922f330gd0e36f4e09d5&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="" title="自己动手，把南阳台变成了小书房"/></a><br/>
-搁板特写～<br/>
-<a href="http://s12.sinaimg.cn/orignal/5922f330g7b49f733dabb" target="_blank"><img alt="自己动手，把南阳台变成了小书房" height="275" name="image_operate_88291355576177902" real_src="http://s12.sinaimg.cn/mw690/5922f330g7b49f733dabb&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="自己动手，把南阳台变成了小书房" width="490"/></a><br/></div>
-</div>
-</div>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/15/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%EF%BC%8C%E6%8A%8A%E5%8D%97%E9%98%B3%E5%8F%B0%E5%8F%98%E6%88%90%E4%BA%86%E5%B0%8F%E4%B9%A6%E6%88%BF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1395,10 +1057,213 @@ Width);条纹的中央为组中值；</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>某大拿在QQ上说，希望和我一起写写JQuery Mobile方面的应用，然后给了一个JQuery<br>Mobile的官方link～这不是摆明了给我上眼药么～<br/><br><br/><br>不过好歹，mobile算是2013的重点突破方向，总要长点经验值，免得被忽悠，也就开始吧～<br/><br><br/><br>不求忽悠人。。。。。。<br/></p>
+          <p>某大拿在QQ上说，希望和我一起写写JQuery Mobile方面的应用，然后给了一个JQuery</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/12/%E4%BB%8A%E5%A4%A9%E5%BC%80%E5%A7%8B%E8%BF%9B%E5%85%A5JQuery%C2%A0Mobile%E7%9A%84%E4%B8%96%E7%95%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
 
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/12/09/%E6%81%B6%E8%A1%A5WEB%E5%89%8D%E7%AB%AF%E7%9A%84%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/12/09/%E6%81%B6%E8%A1%A5WEB%E5%89%8D%E7%AB%AF%E7%9A%84%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">恶补WEB前端的知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-12-09 22:35:00" itemprop="dateCreated datePublished" datetime="2012-12-09T22:35:00+08:00">2012-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>112</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="articalContent" id="sina_keyword_ad_area2">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/09/%E6%81%B6%E8%A1%A5WEB%E5%89%8D%E7%AB%AF%E7%9A%84%E7%9F%A5%E8%AF%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/12/06/%E7%83%9F%E6%B3%A2%E6%BB%A1%E7%9B%AE%E5%87%AD%E6%A0%8F%E4%B9%85%EF%BC%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2012/12/06/%E7%83%9F%E6%B3%A2%E6%BB%A1%E7%9B%AE%E5%87%AD%E6%A0%8F%E4%B9%85%EF%BC%81/" class="post-title-link" itemprop="url">烟波满目凭栏久！</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-12-06 04:44:00" itemprop="dateCreated datePublished" datetime="2012-12-06T04:44:00+08:00">2012-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>134</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span style="font-family: arial, 宋体, sans-serif; line-height: 24px; background-color: rgb(255, 255, 255);">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2012/12/06/%E7%83%9F%E6%B3%A2%E6%BB%A1%E7%9B%AE%E5%87%AD%E6%A0%8F%E4%B9%85%EF%BC%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1463,14 +1328,14 @@ Width);条纹的中央为组中值；</p>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

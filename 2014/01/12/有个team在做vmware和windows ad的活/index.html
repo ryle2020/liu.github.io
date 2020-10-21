@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="顺便去了解了一下vmware vSphere    一.什么是数据中心虚拟化    硬件设备转换成软件资源；虚拟化打破能耗循环；    物理硬件-》管理程序-》虚拟机 虚拟化的重要优势：合并 （合并在更少的硬件上，节约资金）  IT挑战：可用性，可伸缩性，最佳化，管理   二.vSphere的组件 1.虚拟机  2.EXSi管理程序：裸机管理程序，直接硬件访问，稳定性强，灵活的安装方式;托管方式管">
+  <meta name="description" content="顺便去了解了一下vmware vSphere">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有个team在做vmware和windows ad的活">
 <meta property="og:url" content="https://www.liuyong.online/2014/01/12/%E6%9C%89%E4%B8%AAteam%E5%9C%A8%E5%81%9Avmware%E5%92%8Cwindows%C2%A0ad%E7%9A%84%E6%B4%BB/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="顺便去了解了一下vmware vSphere    一.什么是数据中心虚拟化    硬件设备转换成软件资源；虚拟化打破能耗循环；    物理硬件-》管理程序-》虚拟机 虚拟化的重要优势：合并 （合并在更少的硬件上，节约资金）  IT挑战：可用性，可伸缩性，最佳化，管理   二.vSphere的组件 1.虚拟机  2.EXSi管理程序：裸机管理程序，直接硬件访问，稳定性强，灵活的安装方式;托管方式管">
+<meta property="og:description" content="顺便去了解了一下vmware vSphere">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-01-11T16:53:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.720Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.734Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="vmware">
 <meta name="twitter:card" content="summary">
@@ -237,14 +237,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -390,95 +390,74 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>顺便去了解了一下vmware vSphere</p>
-<div><br/></div>
-<div>
+<a id="more"></a>
 <div style="font-family: 微软雅黑; line-height: normal;">
-一.什么是数据中心虚拟化</div>
+一.什么是数据中心虚拟化
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/> 硬件设备转换成软件资源；虚拟化打破能耗循环；</div>
+硬件设备转换成软件资源；虚拟化打破能耗循环；
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/> 物理硬件-》管理程序-》虚拟机</div>
+物理硬件-》管理程序-》虚拟机
 <div style="font-family: 微软雅黑; line-height: normal;">虚拟化的重要优势：合并
-（合并在更少的硬件上，节约资金）</div>
+（合并在更少的硬件上，节约资金）
 <div style="font-family: 微软雅黑; line-height: normal;">
-IT挑战：可用性，可伸缩性，最佳化，管理</div>
-<div style="font-family: 微软雅黑; line-height: normal;"><br/></div>
+IT挑战：可用性，可伸缩性，最佳化，管理
 <div style="font-family: 微软雅黑; line-height: normal;">
-二.vSphere的组件</div>
-<div style="font-family: 微软雅黑; line-height: normal;">1.虚拟机</div>
 <div style="font-family: 微软雅黑; line-height: normal;">
-2.EXSi管理程序：裸机管理程序，直接硬件访问，稳定性强，灵活的安装方式;托管方式管理程序-workstation</div>
+二.vSphere的组件
+<div style="font-family: 微软雅黑; line-height: normal;">1.虚拟机
+<div style="font-family: 微软雅黑; line-height: normal;">
+2.EXSi管理程序：裸机管理程序，直接硬件访问，稳定性强，灵活的安装方式;托管方式管理程序-workstation
 <div style="font-family: 微软雅黑; line-height: normal;">3.vCenter
-Server管理1000个ESXi主机，管理10000个虚拟机</div>
+Server管理1000个ESXi主机，管理10000个虚拟机
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>
- <wbr/>vCenter组件：身份管理服务器，数据库服务器，应用程序服务器，web服务器，VMware
-vSphere Web Client</div>
+vCenter组件：身份管理服务器，数据库服务器，应用程序服务器，web服务器，VMware
+vSphere Web Client
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>vCenter是具有管理功能的集中式平台</div>
+vCenter是具有管理功能的集中式平台
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>vMotion：将运行中的虚拟机不间断迁移</div>
+vMotion：将运行中的虚拟机不间断迁移
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>DRS：分布式资源调度：提供负载平衡，监控内存和cpu负载</div>
+DRS：分布式资源调度：提供负载平衡，监控内存和cpu负载
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>DPM：分布式电源管理</div>
+DPM：分布式电源管理
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/> StoragevMotion：迁移虚拟机的存储设备</div>
+StoragevMotion：迁移虚拟机的存储设备
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>存储DRS：存储负载均衡</div>
+存储DRS：存储负载均衡
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>vSphere Data
-Protection：备份虚拟机（VDP）还有开放的API：VADP</div>
+vSphere Data
+Protection：备份虚拟机（VDP）还有开放的API：VADP
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>HA：高可用</div>
+HA：高可用
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/> FT：容错</div>
+FT：容错
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>vSphere Replication：将虚拟机复制到另外一个站点</div>
+vSphere Replication：将虚拟机复制到另外一个站点
 <div style="font-family: 微软雅黑; line-height: normal;">
-4.存储和虚拟网络</div>
+4.存储和虚拟网络
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/> 存储：</div>
+存储：
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
-vSphere支持：光纤，以太网光纤（FCoE）， iSCSI，NFS，Local</div>
+vSphere支持：光纤，以太网光纤（FCoE）， iSCSI，NFS，Local
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/> 本地存储共享VSA
-vSphere Storage Appliance</div>
+本地存储共享VSA
+vSphere Storage Appliance
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
-vFlash：支持SSD</div>
+vFlash：支持SSD
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>两种类型的数据存储：VMFS或者NFS</div>
+两种类型的数据存储：VMFS或者NFS
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/> 虚拟网络： <wbr/></div>
+虚拟网络：
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/> 虚拟交换机：标准虚拟交换机， 分布式虚拟交换机</div>
+虚拟交换机：标准虚拟交换机， 分布式虚拟交换机
 <div style="font-family: 微软雅黑; line-height: normal;">
- <wbr/>  <wbr/>  <wbr/>
- <wbr/>
- <wbr/>vSphere网络支持：VLANS，流量调整，端口镜像，服务质量QoS和DSCP，NetFlow，CDP和LLDP</div>
+vSphere网络支持：VLANS，流量调整，端口镜像，服务质量QoS和DSCP，NetFlow，CDP和LLDP
 <div style="font-family: 微软雅黑; line-height: normal;">5.vCenter
-Operation Manager，解决性能、容量和效率问题，监控动态：运行状况，风险，效率</div>
+Operation Manager，解决性能、容量和效率问题，监控动态：运行状况，风险，效率
 <div style="font-family: 微软雅黑; line-height: normal;">6.vCenter
-Configuration Manager：更改发现和关联，自动修复，合规检查，配置分析</div>
+Configuration Manager：更改发现和关联，自动修复，合规检查，配置分析
 <div style="font-family: 微软雅黑; line-height: normal;">7.vCenter Site
-Recovery Manager：灾难恢复</div>
-</div>
-</div>
-
-
+Recovery Manager：灾难恢复
     </div>
 
     
@@ -606,14 +585,14 @@ Recovery Manager：灾难恢复</div>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

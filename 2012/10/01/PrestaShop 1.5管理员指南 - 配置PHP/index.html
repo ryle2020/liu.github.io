@@ -23,16 +23,16 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="原始Link：管理员指南 （目前只有1.4版本的）  配置PHP 配置MySQL 配置基础认证方式 确保PrestaShop安装得更安全 性能调优 其他建议 拾遗  配置PHP 【设置php.ini】- 强烈建议仔细阅读PHP手册中关于php.ini的配置说明 1. 在此给出一些编辑你的php.ini文件的指南，请注意此文件在你的服务器的PHP的安装目录而不在PrestaShop的目录。 2. 不">
+  <meta name="description" content="原始Link：管理员指南 （目前只有1.4版本的）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PrestaShop 1.5管理员指南 - 配置PHP">
 <meta property="og:url" content="https://www.liuyong.online/2012/10/01/PrestaShop%C2%A01.5%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E9%85%8D%E7%BD%AEPHP/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="原始Link：管理员指南 （目前只有1.4版本的）  配置PHP 配置MySQL 配置基础认证方式 确保PrestaShop安装得更安全 性能调优 其他建议 拾遗  配置PHP 【设置php.ini】- 强烈建议仔细阅读PHP手册中关于php.ini的配置说明 1. 在此给出一些编辑你的php.ini文件的指南，请注意此文件在你的服务器的PHP的安装目录而不在PrestaShop的目录。 2. 不">
+<meta property="og:description" content="原始Link：管理员指南 （目前只有1.4版本的）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
 <meta property="article:published_time" content="2012-10-01T06:58:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:50.197Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:06.632Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="prestashop">
 <meta property="article:tag" content="php">
@@ -241,14 +241,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -393,7 +393,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><font face="宋体" size="1"><font face="宋体" size="3">原始Link：</font><a href="http://doc.prestashop.com/display/PS14/System+Administrator+Guide" target="_blank"><font face="宋体" size="3">管理员指南</font></a><font face="宋体" size="3"> <wbr/>（目前只有1.4版本的）</font></font></p>
+        <p><font face="宋体" size="1"><font face="宋体" size="3">原始Link：</font><a href="http://doc.prestashop.com/display/PS14/System+Administrator+Guide" target="_blank"><font face="宋体" size="3">管理员指南</font></a><font face="宋体" size="3"> （目前只有1.4版本的）</font></font></p>
+<a id="more"></a>
 <ul>
 <li><font face="宋体" size="1"><font face="宋体" size="3">配置PHP</font></font></li>
 <li><font face="宋体" size="1"><font face="宋体" size="3">配置MySQL</font></font></li>
@@ -403,51 +404,47 @@
 <li><font face="宋体" size="1"><font face="宋体" size="3">其他建议</font></font></li>
 <li><font face="宋体" size="1"><font face="宋体" size="3">拾遗</font></font></li>
 </ul>
-<p><font face="宋体" size="1"><em><strong><u><font face="宋体" size="3">配置PHP</font></u></strong></em></font></p>
-<p><font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3"><font color="#0000FF" face="宋体" size="3">【</font>设置php.ini】-
-强烈建议仔细阅读PHP手册中关于<a target="_blank" rel="noopener" href="http://cn2.php.net/manual/zh/ini.php">php.ini的配置</a>说明</font></font></p>
-<p><font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#000000">1.
-在此给出一些编辑你的php.ini文件的指南，请注意此文件在你的服务器的PHP的安装目录而不在PrestaShop的目录。</font></font></font></font></p>
-<p><font face="宋体" size="1"><font color="#000000" face="宋体" size="3">2.
-不是所有的主机服务提供商都允许你访问或者编辑此文件，所以如果你需要访问此文件请联系你的主机服务提供商。比如，在共享主机的情况下，你也许不能被允许访问php.ini文件。如果你的主机提供商不能提供PrestaShop需要的配置，你也不能编辑php.ini文件，那你就不得不迁移到一个专享主机或者有更大自由度的主机。</font></font></p>
-<p><font face="宋体" size="1"><font color="#000000" face="宋体" size="3">3.
-编辑php.ini文件也算是个技术活，所以如果你的PrestaShop已经工作正常，那就没有必要尝试编辑此文件或者迁移主机。</font></font></p>
-<p><font face="宋体" size="1"><font color="#000000" face="宋体" size="3">4.
-编辑php.ini文件需要你改变一些配置的值，大部分情况是从“On”到“Off”或者相反。php.ini基本上每行都有相应的说明，请仔细阅读那些和你的改变相关的部分。尤其请慎重对待编辑，因为这些会直接影响PHP的运行，这也会和你的服务的稳定和安全密切相关。</font></font></p>
-<p><font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3">【必须的配置】</font></font></p>
-<p><font face="宋体" size="1"><font face="宋体" size="3">为了保证PrestaShop
-1.4.x正常运行，你的PHP安装必须符合下面的设置：</font></font></p>
-<p><font face="宋体" size="1"><font face="宋体" size="3">1.MySQL：MySQL扩展确保可以访问你的数据。无此扩展PrestaShop不能工作；</font></font></p>
-<p><font face="宋体" size="1"><font face="宋体" size="3">2.GD库：GD库确保PHP可以动态处理图像。PrestaShop使用此库处理图像，包括大小变更，重构等。没有图像，一个在线商店就失去了大部分吸引力。所以请确保GD库是Enabled的！</font></font></p>
-<p><font face="宋体" size="1"><font face="宋体" size="3">3.DOM扩展：DOM扩展确保可以解析XML文档。PrestaShop在很多功能和模块中使用到此扩展。</font></font></p>
-<p><font face="宋体" size="1"><font face="宋体" size="3">4.allow_url_fopen：此指令确保模块可以访问远程文件，而这在付款等流程方面是至关重要的。因此必须设置为“<font color="#FF0000"><strong>ON</strong></font>"。</font></font></p>
+<font face="宋体" size="1"><em><strong><u><font face="宋体" size="3">配置PHP</font></u></strong></em></font>
+<font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3"><font color="#0000FF" face="宋体" size="3">【</font>设置php.ini】-
+强烈建议仔细阅读PHP手册中关于<a target="_blank" rel="noopener" href="http://cn2.php.net/manual/zh/ini.php">php.ini的配置</a>说明</font></font>
+<font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#000000">1.
+在此给出一些编辑你的php.ini文件的指南，请注意此文件在你的服务器的PHP的安装目录而不在PrestaShop的目录。</font></font></font></font>
+<font face="宋体" size="1"><font color="#000000" face="宋体" size="3">2.
+不是所有的主机服务提供商都允许你访问或者编辑此文件，所以如果你需要访问此文件请联系你的主机服务提供商。比如，在共享主机的情况下，你也许不能被允许访问php.ini文件。如果你的主机提供商不能提供PrestaShop需要的配置，你也不能编辑php.ini文件，那你就不得不迁移到一个专享主机或者有更大自由度的主机。</font></font>
+<font face="宋体" size="1"><font color="#000000" face="宋体" size="3">3.
+编辑php.ini文件也算是个技术活，所以如果你的PrestaShop已经工作正常，那就没有必要尝试编辑此文件或者迁移主机。</font></font>
+<font face="宋体" size="1"><font color="#000000" face="宋体" size="3">4.
+编辑php.ini文件需要你改变一些配置的值，大部分情况是从“On”到“Off”或者相反。php.ini基本上每行都有相应的说明，请仔细阅读那些和你的改变相关的部分。尤其请慎重对待编辑，因为这些会直接影响PHP的运行，这也会和你的服务的稳定和安全密切相关。</font></font>
+<font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3">【必须的配置】</font></font>
+<font face="宋体" size="1"><font face="宋体" size="3">为了保证PrestaShop
+1.4.x正常运行，你的PHP安装必须符合下面的设置：</font></font>
+<font face="宋体" size="1"><font face="宋体" size="3">1.MySQL：MySQL扩展确保可以访问你的数据。无此扩展PrestaShop不能工作；</font></font>
+<font face="宋体" size="1"><font face="宋体" size="3">2.GD库：GD库确保PHP可以动态处理图像。PrestaShop使用此库处理图像，包括大小变更，重构等。没有图像，一个在线商店就失去了大部分吸引力。所以请确保GD库是Enabled的！</font></font>
+<font face="宋体" size="1"><font face="宋体" size="3">3.DOM扩展：DOM扩展确保可以解析XML文档。PrestaShop在很多功能和模块中使用到此扩展。</font></font>
+<font face="宋体" size="1"><font face="宋体" size="3">4.allow_url_fopen：此指令确保模块可以访问远程文件，而这在付款等流程方面是至关重要的。因此必须设置为“<font color="#FF0000"><strong>ON</strong></font>"。</font></font>
 <font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#FF0000" size="2">简而言之，如下的配置是必须的</font></font></font></font>
 <div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 30%; CoLor: red; size: 36px">
 <font face="宋体" size="1"><font face="宋体" size="3">extension =
-php_mysql.dll<br/>
-extension = php_gd2.dll<br/>
-allow_url_fopen = On</font></font></div>
-<p><font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3">【建议的配置】</font></font></p>
-<p><font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">为了更好的体验，建议你的PHP需要做如下设置：</font></font></font></p>
-<p><font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">1.GZIP：GZip可以使WEB服务器在发送数据给浏览器前，压缩WEB
-Pages，图像和脚本等。这可以使应用执行得更快。</font></font></font></p>
-<p><font face="宋体">2.Mcrypt库：Mcrypt为PHP提供了额外的安全支持，<font size="1"><font color="#0000FF" size="3"><font color="#000000">可以使用更多的加密解密算法。</font></font></font></font></p>
-<p><font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">3.关闭r</font></font></font><font size="1"><font color="#0000FF" size="3"><font color="#000000"><font face="宋体">egister_globals:register_globals指令在开启的情况下，设置所有的环境变量（GET,POST,COOKIE,SERVER等）为全局变量。使用永远不销毁的变量是非常不安全的。比如一个恶意的用户可以轻易地利用GET方法来设置一个值。具体有关安全的话题，请自行谷哥或者度娘～这个是PHP4.1到4.2的最重要的变化之一。<br/>
-<br/>
-4.关闭magic_quotes:魔法引号指令会自动对所有环境变量中的特殊字符进行转义。这个选项需要被设成“<strong>OFF</strong>”因为它会转义每一个变量而不管这个变量是否已经被转义过了。</font></font></font></font></p>
-<p><font size="1"><font color="#0000FF" size="3"><font color="#000000"><font face="宋体">5.关闭allow_url_include:allow_url_include指令允许通过“require”和“include”指令来include任何文件，包括那些不在你的服务器上的文件。这个选项需要被设成“<strong>OFF</strong>”。</font></font></font></font></p>
+php_mysql.dll
+extension = php_gd2.dll
+allow_url_fopen = On</font></font>
+<font face="宋体" size="1"><font color="#0000FF" face="宋体" size="3">【建议的配置】</font></font>
+<font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">为了更好的体验，建议你的PHP需要做如下设置：</font></font></font>
+<font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">1.GZIP：GZip可以使WEB服务器在发送数据给浏览器前，压缩WEB
+Pages，图像和脚本等。这可以使应用执行得更快。</font></font></font>
+<font face="宋体">2.Mcrypt库：Mcrypt为PHP提供了额外的安全支持，<font size="1"><font color="#0000FF" size="3"><font color="#000000">可以使用更多的加密解密算法。</font></font></font></font>
+<font size="1"><font color="#0000FF" size="3"><font color="#000000" face="宋体">3.关闭r</font></font></font><font size="1"><font color="#0000FF" size="3"><font color="#000000"><font face="宋体">egister_globals:register_globals指令在开启的情况下，设置所有的环境变量（GET,POST,COOKIE,SERVER等）为全局变量。使用永远不销毁的变量是非常不安全的。比如一个恶意的用户可以轻易地利用GET方法来设置一个值。具体有关安全的话题，请自行谷哥或者度娘～这个是PHP4.1到4.2的最重要的变化之一。
+4.关闭magic_quotes:魔法引号指令会自动对所有环境变量中的特殊字符进行转义。这个选项需要被设成“<strong>OFF</strong>”因为它会转义每一个变量而不管这个变量是否已经被转义过了。</font></font></font></font>
+<font size="1"><font color="#0000FF" size="3"><font color="#000000"><font face="宋体">5.关闭allow_url_include:allow_url_include指令允许通过“require”和“include”指令来include任何文件，包括那些不在你的服务器上的文件。这个选项需要被设成“<strong>OFF</strong>”。</font></font></font></font>
 <font size="1"><font size="3"><font face="宋体" size="1"><font face="宋体"><font size="3"><font color="#008000" size="2">简而言之，高度推荐如下的配置：</font></font></font></font></font></font>
 <div style="BACKGroUnD-CoLor: #eeeeee; WiDTH: 30%; CoLor: green; size: 36px">
-register_globals = Off<br/>
-magic_quotes_gpc = Off<br/>
-allow_url_include = Off</div>
+register_globals = Off
+magic_quotes_gpc = Off
+allow_url_include = Off
 <hr/>
-2012年9月30日于南昌<br/>
+2012年9月30日于南昌
 <hr/>
-<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border:0;" title="PrestaShop &lt;wbr&gt;1.5管理员指南 &lt;wbr&gt;- &lt;wbr&gt;配置PHP"/></a> <wbr/>本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布</div>
-</div>
-
-
+<div style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="border:0;" title="PrestaShop &lt;wbr&gt;1.5管理员指南 &lt;wbr&gt;- &lt;wbr&gt;配置PHP"/></a> 本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布
     </div>
 
     
@@ -577,14 +574,14 @@ allow_url_include = Off</div>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

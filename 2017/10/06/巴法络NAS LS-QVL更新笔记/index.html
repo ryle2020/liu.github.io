@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="入手了一台4盘NAS，巴法络LS-QVL，淘宝二手730.5。 同时还入手了4块希捷2T的硬盘，淘宝二手1120.   结果发觉装上了之后起不来，下面是排查和修正的步骤， 1. 用Navigator，结果无法查到 2. 查看电源LED，红灯连续短闪6次，查了一下，错误code：E6，固件损坏~ 3.和老板联系，老板爽快得不得了，你退货就好了。实在不甘心，于是度娘+谷歌 -先试恢复出厂设置：">
+  <meta name="description" content="入手了一台4盘NAS，巴法络LS-QVL，淘宝二手730.5。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="巴法络NAS LS-QVL更新笔记">
 <meta property="og:url" content="https://www.liuyong.online/2017/10/06/%E5%B7%B4%E6%B3%95%E7%BB%9CNAS%C2%A0LS-QVL%E6%9B%B4%E6%96%B0%E7%AC%94%E8%AE%B0/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="入手了一台4盘NAS，巴法络LS-QVL，淘宝二手730.5。 同时还入手了4块希捷2T的硬盘，淘宝二手1120.   结果发觉装上了之后起不来，下面是排查和修正的步骤， 1. 用Navigator，结果无法查到 2. 查看电源LED，红灯连续短闪6次，查了一下，错误code：E6，固件损坏~ 3.和老板联系，老板爽快得不得了，你退货就好了。实在不甘心，于是度娘+谷歌 -先试恢复出厂设置：">
+<meta property="og:description" content="入手了一台4盘NAS，巴法络LS-QVL，淘宝二手730.5。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-10-06T14:32:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:48.465Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:04.441Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="巴法络">
@@ -239,14 +239,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -392,23 +392,23 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>入手了一台4盘NAS，巴法络LS-QVL，淘宝二手730.5。</p>
-<div>同时还入手了4块希捷2T的硬盘，淘宝二手1120.<br/>
-<div><br/></div>
-</div>
-<div>结果发觉装上了之后起不来，下面是排查和修正的步骤，</div>
-<div>1. 用Navigator，结果无法查到</div>
-<div>2. 查看电源LED，红灯连续短闪6次，查了一下，错误code：E6，固件损坏~</div>
-<div>3.和老板联系，老板爽快得不得了，你退货就好了。实在不甘心，于是度娘+谷歌</div>
-<div>-先试恢复出厂设置： <wbr/></div>
+<a id="more"></a>
+<p>同时还入手了4块希捷2T的硬盘，淘宝二手1120.<br>结果发觉装上了之后起不来，下面是排查和修正的步骤，</p>
+<ol>
+<li>用Navigator，结果无法查到</li>
+<li>查看电源LED，红灯连续短闪6次，查了一下，错误code：E6，固件损坏~</li>
+<li>和老板联系，老板爽快得不得了，你退货就好了。实在不甘心，于是度娘+谷歌</li>
+</ol>
+<p>-先试恢复出厂设置：</p>
 <div style="text-align: left;">
 <ul>
 <li>按住功能按钮不放，按一下电源按钮开机，功能LED蓝色快闪</li>
 <li>松开功能按钮，然后再按一下功能按钮，功能LED和电源LED同时开始快闪</li>
 <li>约1分钟只有，功能LED熄灭，电源LED变成红色，连续短闪6次</li>
 </ul>
-- 表示恢复出厂设置失败</div>
-<div style="text-align: left;"><br/></div>
-<div style="text-align: left;">- 下面尝试固件更新：</div>
+- 表示恢复出厂设置失败
+<div style="text-align: left;">
+<div style="text-align: left;">- 下面尝试固件更新：
 <div style="text-align: left;">
 <ul>
 <li><a href="http://buffalo.jp/support_ap/support/products/ls_qvl.html" target="_blank">去buffalo官网下载最新的1.73版本的固件</a></li>
@@ -424,38 +424,26 @@ Server的根目录</li>
 <li>设置结束之后，电源LED会常亮（如果有问题，重来一遍就是）</li>
 <li>
 一切OK，启动Navigator，可以查询设置结束之后的NAS的IP地址，一般是169.254.23.x，然后把PC的IP地址改成同一个网段，启动1.73版固件目录下的LSUpdater。当然了，这里需要对LSUpdater.ini做个修改，[Flags]
-VersionCheck = 0 <wbr/> NoFormatting =
-0 <wbr/> [SpecialFlags] Debug = 1（应该是5行）。</li>
+VersionCheck = 0  NoFormatting =
+0  [SpecialFlags] Debug = 1（应该是5行）。</li>
 <li>等待固件更新，更新完毕之后就可以接入局域网，点开web设置了~</li>
 </ul>
-<div>解压缩文件的密码：</div>
-<div>
-<div>uboot - IeY8omJwGlGkIbJm2FH_MV4fLsXE8ieu0gNYwE6Ty</div>
-<div>uImage - aAhvlM1Yp7_2VSm6BhgkmTOrCN1JyE0C5Q6<wbr/>cB3oBB</div>
-<div>initrd - IeY8omJwGlGkIbJm2FH_MV4fLsXE8ieu0gNYwE6Ty</div>
-<div>hddrootfs - 1NIf_2yUOlRDpYZUVNqboRpMBoZwT<wbr/>4PzoUvOPUp6l</div>
-<div><br/></div>
-<div>备用：YvSInIQopeipx66t_DCdfEvfP47qeVPhNhAuSYmA4<wbr/></div>
-</div>
-<div><br/></div>
-<div>考虑到机器和硬盘都是二手的，为了保证数据的安全性，</div>
-<div>第一，设置了硬盘报警邮件；</div>
-<div>第二，设置了Raid10的磁盘整列，同时坏掉2块盘的概率应该不大吧。。。。。。</div>
-<div><br/></div>
-<div>必须要说明参考的几个link：</div>
-<div>https://post.smzdm.com/p/17374/ 尽管讲的是LS-XL，理论上LS系列都可以用</div>
-<div>
+解压缩文件的密码：
+uboot - IeY8omJwGlGkIbJm2FH_MV4fLsXE8ieu0gNYwE6Ty
+uImage - aAhvlM1Yp7_2VSm6BhgkmTOrCN1JyE0C5Q6cB3oBB
+initrd - IeY8omJwGlGkIbJm2FH_MV4fLsXE8ieu0gNYwE6Ty
+hddrootfs - 1NIf_2yUOlRDpYZUVNqboRpMBoZwT4PzoUvOPUp6l
+备用：YvSInIQopeipx66t_DCdfEvfP47qeVPhNhAuSYmA4
+考虑到机器和硬盘都是二手的，为了保证数据的安全性，
+第一，设置了硬盘报警邮件；
+第二，设置了Raid10的磁盘整列，同时坏掉2块盘的概率应该不大吧。。。。。。
+必须要说明参考的几个link：
+https://post.smzdm.com/p/17374/ 尽管讲的是LS-XL，理论上LS系列都可以用
 https://fatmin.com/2015/02/08/how-to-fix-the-buffalo-linkstation-nas-partition-not-found-error/
-改LSUpdater.ini</div>
-<div>http://jingyan.baidu.com/article/08b6a591acb49014a80922bb<wbr/>.html
-密码来自这里</div>
-<div><br/></div>
-<div>至于第一NAS的改机，这里就不多写了，主要是有好几个树莓派，NAS还是以存储为最高优先级吧~</div>
-<div><br/></div>
-</div>
-</div>
-
-
+改LSUpdater.ini
+http://jingyan.baidu.com/article/08b6a591acb49014a80922bb.html
+密码来自这里
+至于第一NAS的改机，这里就不多写了，主要是有好几个树莓派，NAS还是以存储为最高优先级吧~
     </div>
 
     
@@ -585,14 +573,14 @@ https://fatmin.com/2015/02/08/how-to-fix-the-buffalo-linkstation-nas-partition-n
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->

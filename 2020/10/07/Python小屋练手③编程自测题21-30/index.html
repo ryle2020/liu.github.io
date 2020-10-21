@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。  def isPrime(num):     if num &#x3D;&#x3D; 2:         return True     for i in range(2, int(pow(num, 0.5))):         i">
+  <meta name="description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python小屋练手③编程自测题21-30">
 <meta property="og:url" content="https://www.liuyong.online/2020/10/07/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A2%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%9821-30/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。  def isPrime(num):     if num &#x3D;&#x3D; 2:         return True     for i in range(2, int(pow(num, 0.5))):         i">
+<meta property="og:description" content="函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-07T06:30:00.000Z">
-<meta property="article:modified_time" content="2020-10-20T10:17:54.884Z">
+<meta property="article:modified_time" content="2020-10-21T01:23:14.458Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="董付国">
 <meta property="article:tag" content="python">
@@ -240,14 +240,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -359,7 +359,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programer/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
+          <a href="/categories/interesting/" itemprop="url" rel="index"><span itemprop="name">兴趣爱好</span></a>
         </span>
     </span>
 
@@ -397,80 +397,17 @@
     
     <div class="post-body" itemprop="articleBody">
         <ol start="21">
-<li>函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。</li>
-</ol>
-<pre><code class="python">def isPrime(num):
-    if num == 2:
-        return True
-    for i in range(2, int(pow(num, 0.5))):
-        if num % i == 0:
-            return False
-    return True
-def main(n):
-    if n == 2:
-        return n
-    for i in range(n, 2, -1):
-        if isPrime(i):
-            return i</code></pre>
-<ol start="22">
-<li>函数main接收两个正整数n和i，返回组合数C（n，i）的值，也就是从n个物体中任选i个物体有多少种选法，要求结果为整数。</li>
-</ol>
-<pre><code class="python">def main(n, i):
-    for j in range(n-1, n-i, -1):
-        n = n * j
-    for j in range(1, i+1):
-        n = n // j
-    return n</code></pre>
-<ol start="23">
-<li>函数main接收一个大于等于1的正整数n和一个介于[0,9]区间的正整数a，要求返回表达式a+aa+aaa+…+aa..aa前n项的和</li>
-</ol>
-<pre><code class="python">def main(n, a):
-    retV, calV = 0, 0
-    for i in range(0, n):
-        calV = calV * 10 + a
-        retV = retV + calV
-    return retV</code></pre>
-<ol start="24">
-<li>已知当前文件夹中文件data24.txt中有若干用英文半角逗号分隔的整数，函数main用来读取文件中的内容，把每个数字乘以10，返回这些乘积结果组成的列表。</li>
-</ol>
-<pre><code class="python">def main():
-    with open (&#39;data24.txt&#39;, &#39;r&#39;) as f:
-        cList = f.read().strip().split(&#39;,&#39;)
-        return [int(x)*10 for x in cList]
-   print(main())</code></pre>
-<ol start="25">
-<li><p>函数main接收一个包含若干集合的列表lst，要求返回这些集合的并集</p>
-<pre><code class="python">def main(lst):
-    s = set(lst[0])
-    for i in range(1, len(lst)):
-        s = set.union(s, set(lst[i]))
-    return s</code></pre>
-</li>
-<li><p>函数main接收一个包含若干表示角度的实数的列表lst，要求返回这些实数转化为弧度之后的正弦值组成的新列表。</p>
-<pre><code class="python">from math import sin, radians
-def main(lst):
-    return [sin(radians(x)) for x in lst]</code></pre>
-</li>
-<li><p>函数main接收6个整数，其中year1，month1，day1表示一个日期的年月日，year2，month2，day2表示另一个日期的年月日，要求返回这两个日期之间相差的天数（必须为0或者正数）</p>
-<pre><code class="python">from datetime import date
-
-def main(year1, month1, day1, year2, month2, day2):
-    return abs((date(year1,month1,day1)-date(year2,month2,day2)).days)</code></pre>
-</li>
-<li><p>函数main接收一个表示年份的正整数year，要求判断是否为闰年，是闰年就返回字符串yes，否则返回no</p>
-<pre><code class="python">def main(year):
-    if year%4 == 0 and year%100 != 0 or year%400 ==0:
-        return &#39;yes&#39;
-return &#39;no&#39;</code></pre>
-</li>
-<li><p>函数main接收一个单参数函数func和一个包含若干实数的列表lst，要求计算lst中的每个实数作为自变量时func的函数值，返回其中的最大值</p>
-<pre><code class="python">def main(func, lst):
-    return max([func(x) for x in lst])</code></pre>
-</li>
-<li><p>函数main接收一个包含若干正整数的元组tup，要求计算并返回这些整数的截尾平均数，也就是去掉一个最高分和最低分之后剩余数字的算术平均数，结果保留1位小数。</p>
-<pre><code class="python">def main(tup):
-    return &quot;&#123;:.1f&#125;&quot;.format((sum(tup) - max(tup) - min(tup)) / (len(tup) - 2))</code></pre>
-</li>
+<li>函数isPrime()接收一个大于等于2的正整数num，判断其是否为素数，是返回True，否则返回False。函数main接收一个大于等于2的正整数n，要求返回不超过n的最大素数。<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span>(<span class="params">num</span>):</span></span><br><span class="line"><span class="keyword">if</span> num == <span class="number">2</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(pow(num, <span class="number">0.5</span>))):</span><br><span class="line"><span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n</span>):</span></span><br><span class="line"><span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line"><span class="keyword">return</span> n</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n, <span class="number">2</span>, <span class="number">-1</span>):</span><br><span class="line"><span class="keyword">if</span> isPrime(i):</span><br><span class="line"><span class="keyword">return</span> i</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收两个正整数n和i，返回组合数C（n，i）的值，也就是从n个物体中任选i个物体有多少种选法，要求结果为整数。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n, i</span>):</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(n<span class="number">-1</span>, n-i, <span class="number">-1</span>):</span><br><span class="line">n = n * j</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">n = n // j</span><br><span class="line"><span class="keyword">return</span> n</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个大于等于1的正整数n和一个介于[0,9]区间的正整数a，要求返回表达式a+aa+aaa+…+aa..aa前n项的和<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">n, a</span>):</span></span><br><span class="line">retV, calV = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, n):</span><br><span class="line">calV = calV * <span class="number">10</span> + a</span><br><span class="line">retV = retV + calV</span><br><span class="line"><span class="keyword">return</span> retV</span><br></pre></td></tr></table></figure></li>
+<li>已知当前文件夹中文件data24.txt中有若干用英文半角逗号分隔的整数，函数main用来读取文件中的内容，把每个数字乘以10，返回这些乘积结果组成的列表。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line"><span class="keyword">with</span> open (<span class="string">&#x27;data24.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">cList = f.read().strip().split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"><span class="keyword">return</span> [int(x)*<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> cList]</span><br><span class="line">print(main())</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个包含若干集合的列表lst，要求返回这些集合的并集<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line">s = set(lst[<span class="number">0</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(lst)):</span><br><span class="line">s = set.union(s, set(lst[i]))</span><br><span class="line"><span class="keyword">return</span> s</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个包含若干表示角度的实数的列表lst，要求返回这些实数转化为弧度之后的正弦值组成的新列表。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sin, radians</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> [sin(radians(x)) <span class="keyword">for</span> x <span class="keyword">in</span> lst]</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收6个整数，其中year1，month1，day1表示一个日期的年月日，year2，month2，day2表示另一个日期的年月日，要求返回这两个日期之间相差的天数（必须为0或者正数）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">year1, month1, day1, year2, month2, day2</span>):</span></span><br><span class="line"><span class="keyword">return</span> abs((date(year1,month1,day1)-date(year2,month2,day2)).days)</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个表示年份的正整数year，要求判断是否为闰年，是闰年就返回字符串yes，否则返回no<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">year</span>):</span></span><br><span class="line"><span class="keyword">if</span> year%<span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year%<span class="number">100</span> != <span class="number">0</span> <span class="keyword">or</span> year%<span class="number">400</span> ==<span class="number">0</span>:</span><br><span class="line"><span class="keyword">return</span> <span class="string">&#x27;yes&#x27;</span></span><br><span class="line"><span class="keyword">return</span> <span class="string">&#x27;no&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个单参数函数func和一个包含若干实数的列表lst，要求计算lst中的每个实数作为自变量时func的函数值，返回其中的最大值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">func, lst</span>):</span></span><br><span class="line"><span class="keyword">return</span> max([func(x) <span class="keyword">for</span> x <span class="keyword">in</span> lst])</span><br></pre></td></tr></table></figure></li>
+<li>函数main接收一个包含若干正整数的元组tup，要求计算并返回这些整数的截尾平均数，也就是去掉一个最高分和最低分之后剩余数字的算术平均数，结果保留1位小数。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">tup</span>):</span></span><br><span class="line"><span class="keyword">return</span> <span class="string">&quot;&#123;:.1f&#125;&quot;</span>.format((sum(tup) - max(tup) - min(tup)) / (len(tup) - <span class="number">2</span>))</span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </div>
@@ -543,8 +480,8 @@ return &#39;no&#39;</code></pre>
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/07/python%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E2%91%A221-30/" rel="next" title="Python编程自测③21-30">
-                  Python编程自测③21-30 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/14/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A4%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%9841-50/" rel="next" title="Python编程自测⑤41-50">
+                  Python编程自测⑤41-50 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -603,14 +540,14 @@ return &#39;no&#39;</code></pre>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 <!-- </div> -->
 <!-- <div class="busuanzi-count"> -->
