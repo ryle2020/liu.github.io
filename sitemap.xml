@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.liuyong.online/tags/</loc>
+    
+    <lastmod>2020-10-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.liuyong.online/2020/10/14/Python%E5%B0%8F%E5%B1%8B%E7%BB%83%E6%89%8B%E2%91%A4%E7%BC%96%E7%A8%8B%E8%87%AA%E6%B5%8B%E9%A2%9841-50/</loc>
     
     <lastmod>2020-10-21</lastmod>
@@ -1324,13 +1331,6 @@
     
   </url>
   
-  <url>
-    <loc>https://www.liuyong.online/tags/</loc>
-    
-    <lastmod>2020-10-08</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>https://www.liuyong.online/</loc>
@@ -1362,13 +1362,6 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E7%94%B5%E5%BD%B1/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.liuyong.online/tags/SQLite/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1377,6 +1370,13 @@
   
   <url>
     <loc>https://www.liuyong.online/tags/Flask/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.liuyong.online/tags/%E7%94%B5%E5%BD%B1/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1439,6 +1439,13 @@
   </url>
   
   <url>
+    <loc>https://www.liuyong.online/tags/%E7%94%9F%E6%97%A5/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.liuyong.online/tags/linux/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1447,13 +1454,6 @@
   
   <url>
     <loc>https://www.liuyong.online/tags/nginx/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.liuyong.online/tags/%E7%94%9F%E6%97%A5/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1572,13 +1572,6 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E6%AD%8C%E6%9B%B2/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.liuyong.online/tags/ubuntu/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1587,6 +1580,13 @@
   
   <url>
     <loc>https://www.liuyong.online/tags/eclipse/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.liuyong.online/tags/%E6%AD%8C%E6%9B%B2/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1698,6 +1698,13 @@
   </url>
   
   <url>
+    <loc>https://www.liuyong.online/tags/%E5%BF%83%E6%83%85%E5%A5%BD/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.liuyong.online/tags/%E9%9B%AA%E9%93%81%E9%BE%99%E5%87%AF%E6%97%8B/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1712,28 +1719,7 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E5%BF%83%E6%83%85%E5%A5%BD/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.liuyong.online/tags/JQuery/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.liuyong.online/tags/%E9%85%92/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.liuyong.online/tags/%E5%90%8C%E4%BA%8B/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1754,7 +1740,7 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E8%AF%97%E8%AF%8D/</loc>
+    <loc>https://www.liuyong.online/tags/%E9%85%92/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1768,7 +1754,28 @@
   </url>
   
   <url>
+    <loc>https://www.liuyong.online/tags/%E5%90%8C%E4%BA%8B/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.liuyong.online/tags/%E8%AF%97%E8%AF%8D/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.liuyong.online/tags/%E5%90%8D%E5%8F%A5/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.liuyong.online/tags/%E5%90%8C%E4%BA%8B%E7%9A%84%E6%96%B0%E5%B1%85/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1783,13 +1790,6 @@
   
   <url>
     <loc>https://www.liuyong.online/tags/%E4%BA%BA/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.liuyong.online/tags/%E5%90%8C%E4%BA%8B%E7%9A%84%E6%96%B0%E5%B1%85/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1824,14 +1824,14 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E5%AE%B6%E7%94%B5/</loc>
+    <loc>https://www.liuyong.online/tags/%E7%82%B9%E7%82%B9/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E7%82%B9%E7%82%B9/</loc>
+    <loc>https://www.liuyong.online/tags/%E5%AE%B6%E7%94%B5/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1859,6 +1859,13 @@
   </url>
   
   <url>
+    <loc>https://www.liuyong.online/tags/%E5%90%83%E5%90%83%E5%90%83/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.liuyong.online/tags/%E6%95%85%E4%B9%A1/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1873,7 +1880,7 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E5%90%83%E5%90%83%E5%90%83/</loc>
+    <loc>https://www.liuyong.online/tags/%E4%BD%93%E9%87%8D/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1881,13 +1888,6 @@
   
   <url>
     <loc>https://www.liuyong.online/tags/%E5%8F%8D%E7%9C%81/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.liuyong.online/tags/%E4%BD%93%E9%87%8D/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1908,14 +1908,14 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E9%98%85%E5%85%B5/</loc>
+    <loc>https://www.liuyong.online/tags/cloudatcost/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/cloudatcost/</loc>
+    <loc>https://www.liuyong.online/tags/%E9%98%85%E5%85%B5/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2118,14 +2118,14 @@
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://www.liuyong.online/tags/%E5%A4%A7%E5%84%BF%E5%AD%90/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.liuyong.online/tags/%E5%A4%A7%E5%84%BF%E5%AD%90/</loc>
+    <loc>https://www.liuyong.online/tags/%E6%96%B0%E6%B5%AA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
