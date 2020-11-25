@@ -6,7 +6,7 @@
   <link href="https://www.liuyong.online/atom.xml" rel="self"/>
   
   <link href="https://www.liuyong.online/"/>
-  <updated>2020-10-31T07:44:07.064Z</updated>
+  <updated>2020-11-25T12:38:45.243Z</updated>
   <id>https://www.liuyong.online/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>django国际化处理</title>
+    <link href="https://www.liuyong.online/2020/11/25/django%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%84%E7%90%86/"/>
+    <id>https://www.liuyong.online/2020/11/25/django%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%84%E7%90%86/</id>
+    <published>2020-11-25T12:14:00.000Z</published>
+    <updated>2020-11-25T12:38:45.243Z</updated>
+    
+    <content type="html"><![CDATA[<p>django的国际化是个比较大的坑，百度出来的好多都是形式正确，而实际并不work！[我使用的是django2.2LTS版本]</p><a id="more"></a><h4 id="设置文件-settings-py-配置"><a href="#设置文件-settings-py-配置" class="headerlink" title="设置文件 settings.py 配置"></a>设置文件 settings.py 配置</h4><p>  setting.py有3个注意点</p><ul><li>MIDDLEWARE</li><li>TEMPLATES</li><li>其他（主要是LANGUAGE 和 i18N，L10N）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;</span>,</span><br><span class="line">    ***<span class="string">&#x27;django.middleware.locale.LocaleMiddleware&#x27;</span>,***</span><br><span class="line">    <span class="string">&#x27;django.middleware.common.CommonMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;</span>,</span><br><span class="line">]</span><br><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.django.DjangoTemplates&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [],</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">            ***<span class="string">&#x27;django.template.context_processors.i18n&#x27;</span>,***</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line">LOCALE_PATHS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;locale&#x27;</span>),</span><br><span class="line">]</span><br><span class="line">LANGUAGE_CODE = <span class="string">&#x27;zh-hans&#x27;</span></span><br><span class="line">USE_I18N = <span class="literal">True</span></span><br><span class="line">USE_L10N = <span class="literal">True</span></span><br></pre></td></tr></table></figure><h4 id="需要多语言对应的文件，一般为model和view"><a href="#需要多语言对应的文件，一般为model和view" class="headerlink" title="需要多语言对应的文件，一般为model和view"></a>需要多语言对应的文件，一般为model和view</h4>需要引入相关的包，本人在Bodhi上不需要安装gettext，据说在windows下面需要自己安装<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.utils.translation <span class="keyword">import</span> gettext_lazy <span class="keyword">as</span> _</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">request</span>):</span></span><br><span class="line">    context = &#123;<span class="string">&#x27;display_welcome&#x27;</span>: _(<span class="string">&quot;Welcome!&quot;</span>)&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;index.html&#x27;</span>, context)</span><br></pre></td></tr></table></figure><h4 id="命令行操作及翻译"><a href="#命令行操作及翻译" class="headerlink" title="命令行操作及翻译"></a>命令行操作及翻译</h4></li></ul><ol><li><p>坑就在这里了，必须是zh_Hans（<em>H必须为大写</em>）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin makemessages -l zh_Hans</span><br></pre></td></tr></table></figure></li><li><p>到对应的目录下面去寻找django.po文件，应该为/locale/zh_Hans/LC_MESSAGES<br>把文件里msgid对应的msgstr翻译好。</p></li><li><p>再执行编译命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin compilemessages</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;django的国际化是个比较大的坑，百度出来的好多都是形式正确，而实际并不work！[我使用的是django2.2LTS版本]&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="程序人生" scheme="https://www.liuyong.online/categories/programer/"/>
+    
+    <category term="兴趣爱好" scheme="https://www.liuyong.online/categories/interesting/"/>
+    
+    
+    <category term="django" scheme="https://www.liuyong.online/tags/django/"/>
+    
+    <category term="python" scheme="https://www.liuyong.online/tags/python/"/>
+    
+    <category term="国际化" scheme="https://www.liuyong.online/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python文字转语音的几种方式</title>
     <link href="https://www.liuyong.online/2020/10/31/python%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
     <id>https://www.liuyong.online/2020/10/31/python%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</id>
     <published>2020-10-31T06:14:00.000Z</published>
-    <updated>2020-10-31T07:44:07.064Z</updated>
+    <updated>2020-10-31T15:08:19.390Z</updated>
     
     <content type="html"><![CDATA[<p>给老大报了一个python的启蒙班，第一天上课讲让电脑朗读，用的是培训机构自己的包ybc，想着看看有没有其他包，发现了几个常见的解决方案：pyWin32, pyttsx3, 百度或者讯飞的sdk或者cloud service</p><a id="more"></a><h4 id="猿编程的包"><a href="#猿编程的包" class="headerlink" title="猿编程的包"></a>猿编程的包</h4><p>  这个是猿编程自己的封装，核心就是speak函数，参数是字符串和角色，角色从1-7,有男女老少。具体可以看<a href="http://www.yuanfudao.com/tutor-ybc-course-api/pymodule/ybc_module/y_ybc.html">猿编程文档1.0</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ybc</span><br><span class="line"></span><br><span class="line">ybc.speak(<span class="string">&#x27;猿编程&#x27;</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure><h4 id="pyttsx3"><a href="#pyttsx3" class="headerlink" title="pyttsx3"></a>pyttsx3</h4><p>  这个看上去是使用比较频繁的包，有人说对中文支持不好，但是我测试了一下，没发现什么问题，可以对voice，rate和volumn进行调节。<br>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyttsx3</span><br><span class="line"></span><br><span class="line">engine = pyttsx3.init()</span><br><span class="line">rate = engine.getProperty(<span class="string">&#x27;rate&#x27;</span>)</span><br><span class="line">engine.setProperty(<span class="string">&#x27;rate&#x27;</span>, rate+<span class="number">10</span>)</span><br><span class="line">volumn = engine.getProperty(<span class="string">&#x27;volumn&#x27;</span>)</span><br><span class="line">engine.say(<span class="string">&#x27;测试&#x27;</span>)</span><br><span class="line">engine.runAndWait()  </span><br></pre></td></tr></table></figure></p><h4 id="pyWin32"><a href="#pyWin32" class="headerlink" title="pyWin32"></a>pyWin32</h4><p>这个是使用了pyWin32的功能</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> win32com.client <span class="keyword">import</span> Dispatch</span><br><span class="line"></span><br><span class="line">speaker = Dispatch(<span class="string">&quot;SAPI.SpVoice&quot;</span>)</span><br><span class="line">speaker.Speak(<span class="string">&quot;不要想东想西，看东看西，好好做作业！&quot;</span>)</span><br></pre></td></tr></table></figure><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul><li>百度的API或者SDK</li><li>科大讯飞的API或者SDK</li></ul>]]></content>
     
@@ -35,13 +62,13 @@
     <category term="兴趣爱好" scheme="https://www.liuyong.online/categories/interesting/"/>
     
     
-    <category term="pyttsx2" scheme="https://www.liuyong.online/tags/pyttsx2/"/>
-    
     <category term="pyWin32" scheme="https://www.liuyong.online/tags/pyWin32/"/>
     
     <category term="百度" scheme="https://www.liuyong.online/tags/%E7%99%BE%E5%BA%A6/"/>
     
     <category term="讯飞" scheme="https://www.liuyong.online/tags/%E8%AE%AF%E9%A3%9E/"/>
+    
+    <category term="pyttsx3" scheme="https://www.liuyong.online/tags/pyttsx3/"/>
     
   </entry>
   
@@ -493,30 +520,6 @@
     
     <category term="程序人生" scheme="https://www.liuyong.online/categories/programer/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>2014-07-05 看看SQLite以及Flask</title>
-    <link href="https://www.liuyong.online/2014/07/05/2014-07-05%C2%A0%E7%9C%8B%E7%9C%8BSQLite%E4%BB%A5%E5%8F%8AFlask/"/>
-    <id>https://www.liuyong.online/2014/07/05/2014-07-05%C2%A0%E7%9C%8B%E7%9C%8BSQLite%E4%BB%A5%E5%8F%8AFlask/</id>
-    <published>2014-07-05T14:49:00.000Z</published>
-    <updated>2020-10-21T01:23:04.566Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>在安装SQLite3.8.5的时候，发生了几个小问题，mark一下：<a id="more"></a></li><li>1<br>直接下载的sqlite-shell-linux-x86-3080500.zip解压缩之后在ubuntu64位上跑不起来，<br>现象：直接启动执行文件，被告知找不到文件，尽管已经有了可执行的权限，<br>解决方式，安装i386的包sudo apt-get install ia32-libs</li><li>2 采用从source code开始的变异之后的问题是：<br>现象：ERROR：SQLite header and source version mismatch<br>解决方式:安装完毕后执行 sudo /sbin/ldconfig<br>顺便说一下，sqlite的源代码是托管在fossil（<a href="http://www.fossil-scm.org/" title="http://www.fossil-scm.org/">http://www.fossil-scm.org/</a>）的，回头找时间去看看</li><li>Python的环境很烦人，今天终于看到了一个virtualen的东西，貌似不错<a href="http://dormousehole.readthedocs.org/en/latest/installation.html#installation">http://dormousehole.readthedocs.org/en/latest/installation.html#installation</a></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;在安装SQLite3.8.5的时候，发生了几个小问题，mark一下：</summary>
-    
-    
-    
-    <category term="程序人生" scheme="https://www.liuyong.online/categories/programer/"/>
-    
-    
-    <category term="SQLite" scheme="https://www.liuyong.online/tags/SQLite/"/>
-    
-    <category term="Flask" scheme="https://www.liuyong.online/tags/Flask/"/>
     
   </entry>
   
