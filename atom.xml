@@ -6,7 +6,7 @@
   <link href="https://www.liuyong.online/atom.xml" rel="self"/>
   
   <link href="https://www.liuyong.online/"/>
-  <updated>2020-11-25T12:42:34.734Z</updated>
+  <updated>2020-12-08T07:05:40.522Z</updated>
   <id>https://www.liuyong.online/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VUE起步</title>
+    <link href="https://www.liuyong.online/2020/12/08/VUE%E8%B5%B7%E6%AD%A5/"/>
+    <id>https://www.liuyong.online/2020/12/08/VUE%E8%B5%B7%E6%AD%A5/</id>
+    <published>2020-12-08T12:14:00.000Z</published>
+    <updated>2020-12-08T07:05:40.522Z</updated>
+    
+    <content type="html"><![CDATA[<p>听说VUE挺好，找个时间来看看！</p><a id="more"></a><p>VUE的入门就几样东西：</p><ol><li>结构</li></ol><ul><li>template（在HTML中用id来表示）</li><li>script （VUE的程序</li><li>style （显示的样式）</li></ul><ol start="2"><li>指令</li></ol><ul><li>v-for</li><li>v-if/v-else</li><li>v-bind</li><li>v-on </li><li>v-model</li><li>v-show</li></ul><ol start="3"><li>组件</li></ol><ul><li>注册组件</li><li>引用组件</li><li>组件逻辑</li></ul><ol start="4"><li><p>语法</p></li><li><p>生命周期</p></li><li><p>计算属性和侦听</p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;听说VUE挺好，找个时间来看看！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="程序人生" scheme="https://www.liuyong.online/categories/programer/"/>
+    
+    <category term="兴趣爱好" scheme="https://www.liuyong.online/categories/interesting/"/>
+    
+    
+    <category term="vue" scheme="https://www.liuyong.online/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>django国际化处理</title>
@@ -501,25 +524,6 @@
     <category term="cubieBoard" scheme="https://www.liuyong.online/tags/cubieBoard/"/>
     
     <category term="动态域名" scheme="https://www.liuyong.online/tags/%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 6.5 Postgresql开发调试环境的配置</title>
-    <link href="https://www.liuyong.online/2014/08/17/CentOS%C2%A06.5%C2%A0Postgresql%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>https://www.liuyong.online/2014/08/17/CentOS%C2%A06.5%C2%A0Postgresql%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
-    <published>2014-08-17T07:17:00.000Z</published>
-    <updated>2020-10-21T01:23:04.526Z</updated>
-    
-    <content type="html"><![CDATA[<ul><a id="more"></a><li>安装开发环境，包括git以及eclipse</li></ul>1.yum install git;2.Eclipse的安装就不废话了，关键是要安装CDT<ul><li>得到postgresql源代码,这个过程非常漫长～</li></ul>git clone git://git.postgresql.org/git/postgresql.git<ul><li>构建项目</li></ul>会碰到一些问题，主要是一些包yum install flexyum install bison1.重新copy一个目录，确保服务器上拉下来的代码不受影响cp -Rpostgresql pgsql2.创建postgresql编译安装之后的目录及数据目录mkdir pgsqlDevmkidr data3.编译./configure--prefix=/home/pgsqlDev --enable-depend --enable-cassert--enable-debug4.make5.make install6.在eclipse中导入项目，配置运行/调试参数，加入环境变量PGDATA=/home/data7.先命令行 initdb -D /home/data8.然后就是一般程序一样在eclipse中调试了]]></content>
-    
-    
-    <summary type="html">&lt;ul&gt;</summary>
-    
-    
-    
-    <category term="程序人生" scheme="https://www.liuyong.online/categories/programer/"/>
-    
     
   </entry>
   
