@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>劉勇の博客</title>
   
-  <subtitle>Ryle&#39;s Blog</subtitle>
+  
   <link href="https://www.liuyong.online/atom.xml" rel="self"/>
   
   <link href="https://www.liuyong.online/"/>
@@ -85,13 +85,13 @@
     <category term="兴趣爱好" scheme="https://www.liuyong.online/categories/interesting/"/>
     
     
+    <category term="pyttsx3" scheme="https://www.liuyong.online/tags/pyttsx3/"/>
+    
     <category term="pyWin32" scheme="https://www.liuyong.online/tags/pyWin32/"/>
     
     <category term="百度" scheme="https://www.liuyong.online/tags/%E7%99%BE%E5%BA%A6/"/>
     
     <category term="讯飞" scheme="https://www.liuyong.online/tags/%E8%AE%AF%E9%A3%9E/"/>
-    
-    <category term="pyttsx3" scheme="https://www.liuyong.online/tags/pyttsx3/"/>
     
   </entry>
   
