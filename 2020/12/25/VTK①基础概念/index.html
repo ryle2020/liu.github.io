@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"always","padding":18,"offset":0},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null,"activeClass":"utteranc"},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="基础功能里面有太多需要理解的东西了，从vtkRenderWindowInteractor, vtk Filter, vtkCamera, vtkLight开始吧">
+  <meta name="description" content="朋友对VTK和QT感起了兴趣，想我帮忙看一下。纯粹是外行，不过也无所谓了，所以就看一下吧~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VTK基础功能">
-<meta property="og:url" content="https://www.liuyong.online/2020/12/29/VTK%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/">
+<meta property="og:title" content="VTK①基础概念">
+<meta property="og:url" content="https://www.liuyong.online/2020/12/25/VTK%E2%91%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 <meta property="og:site_name" content="劉勇の博客">
-<meta property="og:description" content="基础功能里面有太多需要理解的东西了，从vtkRenderWindowInteractor, vtk Filter, vtkCamera, vtkLight开始吧">
+<meta property="og:description" content="朋友对VTK和QT感起了兴趣，想我帮忙看一下。纯粹是外行，不过也无所谓了，所以就看一下吧~">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-29T12:14:00.000Z">
-<meta property="article:modified_time" content="2021-01-01T14:10:09.978Z">
+<meta property="article:published_time" content="2020-12-25T12:14:00.000Z">
+<meta property="article:modified_time" content="2021-01-01T14:28:04.262Z">
 <meta property="article:author" content="Ryle Liu">
 <meta property="article:tag" content="vtk">
 <meta property="article:tag" content="3D">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.liuyong.online/2020/12/29/VTK%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/">
+<link rel="canonical" href="https://www.liuyong.online/2020/12/25/VTK%E2%91%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>VTK基础功能 | 劉勇の博客</title>
+  <title>VTK①基础概念 | 劉勇の博客</title>
   
 
 
@@ -222,7 +222,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vtkRenderWindowInteractor"><span class="nav-number">1.</span> <span class="nav-text">vtkRenderWindowInteractor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter-Data"><span class="nav-number">2.</span> <span class="nav-text">Filter Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vtkCamera"><span class="nav-number">3.</span> <span class="nav-text">vtkCamera</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96Camera"><span class="nav-number">3.0.1.</span> <span class="nav-text">实例化Camera</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vtkLight"><span class="nav-number">4.</span> <span class="nav-text">vtkLight</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#VTK%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">VTK的定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VTK%E7%9A%84%E7%9B%AE%E5%BD%95%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">VTK的目录基本结构：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VTK%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%92%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">VTK的基本体系结构和流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">Python的简单代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E6%BA%90%E6%96%87%E4%BB%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E3%80%9042400-IDGH-stl%E3%80%91"><span class="nav-number">5.</span> <span class="nav-text">读源文件的代码【42400-IDGH.stl】</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -319,7 +319,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2020/12/29/VTK%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2020/12/25/VTK%E2%91%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/lvlogo.png">
@@ -332,7 +332,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          VTK基础功能
+          VTK①基础概念
         </h1>
 
         <div class="post-meta-container">
@@ -343,7 +343,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-12-29 20:14:00" itemprop="dateCreated datePublished" datetime="2020-12-29T20:14:00+08:00">2020-12-29</time>
+      <time title="创建时间：2020-12-25 20:14:00" itemprop="dateCreated datePublished" datetime="2020-12-25T20:14:00+08:00">2020-12-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,14 +374,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
+      <span>3.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -392,148 +392,74 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>基础功能里面有太多需要理解的东西了，从vtkRenderWindowInteractor, vtk Filter, vtkCamera, vtkLight开始吧</p>
+        <p>朋友对VTK和QT感起了兴趣，想我帮忙看一下。纯粹是外行，不过也无所谓了，所以就看一下吧~</p>
 <a id="more"></a>
-<h3 id="vtkRenderWindowInteractor"><a href="#vtkRenderWindowInteractor" class="headerlink" title="vtkRenderWindowInteractor"></a>vtkRenderWindowInteractor</h3><p>  当对自己的数据做可视化的时候，显然咱得和可视化之后的数据有交互。所以尽管是非核心功能，也得有所了解。基本上，VTK提供了如下几种可选的方式： </p>
-<ul>
-<li>使用内建的vtkRenderWindowInteractor</li>
-<li>创建自己的交互器绑定相应的事件</li>
-<li>如果使用解释型语言，可以在运行时输入命令</li>
-<li>从屏幕上选取数据可以用“Picking”</li>
+<p>从了解的角度来说，范围太大了，所以很难着手。按照惯例，就先看看VTK到底是什么吧。</p>
+<h4 id="VTK的定义："><a href="#VTK的定义：" class="headerlink" title="VTK的定义："></a>VTK的定义：</h4><ul>
+<li>VKT是Visualization Toolkit的简称，是一个开源、跨平台的图形应用函数库。最早是在19993年GE的三维工程师利用闲暇时间构建的，后来其中两位成立了<a target="_blank" rel="noopener" href="https://www.kitware.com/">kitware</a>公司（1998年）。目前VTK在生物医疗和大型研究机构领域的应用特别广泛。</li>
+<li>VTK的主要应用方向是三维计算机图形、图像处理及可视化。底层是OpenGL，采用面向对象的方式封装，本身是C++开发的，也提供包括Tcl/Tk、Java和Python的编程语言接口。显然，本人肯定是直接从VTK的Python入手的。</li>
+<li>VTK目前的版本（2020年12月）最新为9.0，直接提供的是python的wheel文件，当然也有源代码供在各个不同的环境下面去编译。</li>
+<li>VTK的学习资源（转载自CSDN的<a target="_blank" rel="noopener" href="https://blog.csdn.net/www_doling_net">东灵工作室</a>）<ul>
+<li>肯定是官网<a target="_blank" rel="noopener" href="https://wtk.org/">VTK.org</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.kitware.com/products/books/VTKUsersGuide.pdf">VTK User’s Guide</a>, 目前已经到Edition 11 </li>
+<li><a target="_blank" rel="noopener" href="https://lorensen.github.io/VTKExamples/site/VTKBook/00Preface/">The Visualization Toolkit:An Object-Oriented Approach to 3D Graphics, 4th Edition</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.kitware.com/the-source-newsletter/">Source</a>按季度发行的刊物</li>
+<li><a target="_blank" rel="noopener" href="https://vtk.org/doc/nightly/html/">VTK在线帮助文档</a>可以根据版本下载到本地</li>
+<li><del><a target="_blank" rel="noopener" href="https://public.kitware.com/mailman/listinfo/">VTK Users邮件列表</a></del></li>
+<li><a target="_blank" rel="noopener" href="https://discourse.vtk.org/">VTK论坛</a></li>
+<li><a target="_blank" rel="noopener" href="https://kitware.github.io/vtk-examples/site/">VTK Examples</a></li>
+<li>其他<ul>
+<li><a target="_blank" rel="noopener" href="http://insight-journal.org/">Insight Journal</a>   Open Access on-line publication covering the domain for medicl image processing and visualization</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/www_doling_net">东灵工作室</a></li>
+<li><a target="_blank" rel="noopener" href="https://vtk.org/community-support/">VTK Community</a></li>
+<li>VTK自带的各种Examples</li>
 </ul>
-<p>最简单的方法当然就是用内建的vtkRenderWindowInteractor了，这个类已经为一系列预定义的事件和行为提供了响应，并且提供了override默认行为的方式。它允许咱们去控制Camera和Actor， 并且提供两种交互方式：①Position Sensitive，比如游戏操纵杆；②Motion Sensitive，比如轨迹球；下面就是已经定义好的事件响应（这里要特别指出的是，多个renderers可以渲染在同一个renderwindow，每个renderer有自己的viewport，而vtkRenderWindowInteractor支持和同一renderwindow中的多个render交互）</p>
-<ul>
-<li><p>j键 和 t键： 在position sensitive（<strong>J</strong>oystick）和motion sensitive（<strong>T</strong>rackball）两种模式中切换。在J模式下，只要按鼠标键就可以持续运动；在T模式下，只有按着鼠标键拖动鼠标的时候，运动才会发生。</p>
-</li>
-<li><p>c键 和 a键： c代表<strong>C</strong>amera， a代表<strong>A</strong>ctor。在C模式下，鼠标事件影响camera的位置和focalpoint；在A模式下，影响被鼠标指着的actor。</p>
-</li>
-<li><p>鼠标按键1， 2， 3</p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th align="center">模式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Button 1</td>
-<td align="center">Camera</td>
-<td>让Camera绕其FocalPoint<strong>旋转</strong></td>
-</tr>
-<tr>
-<td>Button 1</td>
-<td align="center">Actor</td>
-<td>让Actor绕其原点<strong>旋转</strong></td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td>Button 2</td>
-<td align="center">Camera</td>
-<td><strong>平移</strong>Camera</td>
-</tr>
-<tr>
-<td>Button 2</td>
-<td align="center">Actor</td>
-<td><strong>平移</strong>Actor</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td></td>
-</tr>
-<tr>
-<td>Button 3</td>
-<td align="center">Camera</td>
-<td><strong>缩放</strong>Camera</td>
-</tr>
-<tr>
-<td>Button 3</td>
-<td align="center">Actor</td>
-<td><strong>缩放</strong>Actor</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>数字按键3： 切换render window的stereo mode</p>
-</li>
-<li><p>按键e 或者 q： 退出应用</p>
-</li>
-<li><p>按键f： 飞到鼠标点中的点，这事实上设置了focal point，然后允许围绕这个点旋转</p>
-</li>
-<li><p>按键p： 提供 Pick 操作</p>
-</li>
-<li><p>按键r： 重置camera</p>
-</li>
-<li><p>按键s： 让所有的actor都有表面</p>
-</li>
-<li><p>按键u： 进入用户定义的模式，也就是提供一个交互器，允许用户输入命令</p>
-</li>
-<li><p>按键w： 和s是反向的，显示actor的三维线框模型</p>
 </li>
 </ul>
-<p>默认的交互style是position sensitive也就是J模式。</p>
-<p>vtkRenderWindowInteractor还提供了另外一些有用的特性。</p>
-<ul>
-<li>比如默认的LightFollowCameraOn()会让light的位置和focal point和camera的位置和focal point保持同步。（当然，这个可以用LightFollowCameraOff()来关闭）</li>
-<li>用来响应【按键U模式】的回调，可以AddObserver（UserEvent）</li>
-<li>提供数种pick相关的方法，并AddObserver（StartPickEvent和EndPickEvent），还可以通过使用SetPicker()来继承vtkAbstractPicker，从而提供自定义的方法</li>
+</li>
 </ul>
-<p>另外，如果基于这些交互想调整渲染的质量的话，可以通过SetDesiredUpdateRate()来设置希望的帧率。通常情况下，这个是自动处理的（鼠标激活，帧率提升，鼠标释放，帧率恢复）</p>
-<p>在VTK中，有两种不同的控制交互的方式：</p>
-<ul>
-<li>子类化 vtkInteractorStyle  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_style = vtkInteractorStyleFlight()</span><br><span class="line">iren.SetInteractorStyle(my_style)      <span class="comment"># iren是一个vtkRenderWindowInteractor的实例</span></span><br></pre></td></tr></table></figure></li>
-<li>在vtkRenderWindowInteractor增加oberservers，然后自定义一系列回调（3D 组件比较复杂, 以后另有专题）<br>  案例就参考 Examples/GUI/Python/CustomInteraction.py</li>
-</ul>
-<h3 id="Filter-Data"><a href="#Filter-Data" class="headerlink" title="Filter Data"></a>Filter Data</h3><p>这个容易理解多了，基本上可以看做Linux下面的管道的概念，继续拿CADPART来做说明：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">part = vtk.vtkSTLRead()</span><br><span class="line">part.SetFileName(<span class="string">&#x27;42400-IDGH.stl&#x27;</span>)</span><br><span class="line"></span><br><span class="line">shrink = vtk.vtkShrinkPolyData()</span><br><span class="line">shrink.SetInputConnection(part.GetOutputPort())</span><br><span class="line">shrink.SetShrinkFactor(<span class="number">0.85</span>)</span><br><span class="line"></span><br><span class="line">mapper = vtk.vtkPolyDataMapper()</span><br><span class="line">mapper.SetInputConnection(shrink.GetOutputPort())</span><br></pre></td></tr></table></figure>
-<p>示意如下,需要注意的就是需要确保管道前后的数据类型的兼容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[part] --&gt; B(shrink)</span><br><span class="line">B --&gt; C[mapper]</span><br><span class="line">C --&gt; D[Actor]</span><br></pre></td></tr></table></figure>
+<h4 id="VTK的目录基本结构："><a href="#VTK的目录基本结构：" class="headerlink" title="VTK的目录基本结构："></a>VTK的目录基本结构：</h4><pre><code>- InfoVis    信息可视化相关的类
+- Views      数据可视化的类，包括过滤器、可视化、交互和选择
+- CMake      用于编译的配置文件
+- Common     核心类库
+- Examples   各种参考案例
+- Filtering  可视化管道中与数据处理有关的类
+- GenericFiltering  与外部模拟包的接口适配框架
+- GeoVis     地形数据处理
+- Graphics   3D数据处理
+- GUISupport 界面开发的接口类，比如QT，MFC等等
+- Hybrid     同时对应图形学和图像处理功能
+- Imaging    图像处理
+- IO         读写数据
+- Parallel   并行处理
+- Rendering  渲染
+- Utilities  工具
+- VolumeRendering   体绘制
+- Widgets    3D组件
+- Wrapping   封装对包括TCL，Java和Python语言的支持</code></pre>
+<h4 id="VTK的基本体系结构和流程"><a href="#VTK的基本体系结构和流程" class="headerlink" title="VTK的基本体系结构和流程"></a>VTK的基本体系结构和流程</h4><pre><code>- 大的概念图：C++的核心类库 和 编程接口
+- 核心理念
+    - 可视化管线
+    - 渲染引擎
+- 在我看来，VTK的理解可以分成三个部分：
+      - 舞台，包括角色、相机、灯光、
+      - 展现和互动，包括窗口和窗口互动模式
+      - 数据源，角色的来源
+  如果对应VTK的类，舞台就是vtkRender， 角色就是vtkActor，角色还有vtkProp,相机就是vtkCamera， 灯光就是vtkLight；数据源就是vtkXXXSource、vtkXXXFilter、vtkXXXDataMapper. 这些是VTK的核心
+  展现和互动就是renderwindow和renderwindowinteractor, 这个在应用中，一般好会自己来封装，比如用QT</code></pre>
+<h4 id="Python的简单代码"><a href="#Python的简单代码" class="headerlink" title="Python的简单代码"></a>Python的简单代码</h4><p>VTK用户手册里面CXX和Tcl/Tk的代码比较多，这里改造一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vtkmodules.all <span class="keyword">as</span> vtk    <span class="comment"># 可以直接import vtk 运行没问题，但是在pycharm vscode里面无法代码补全</span></span><br><span class="line"></span><br><span class="line">cylinder = vtk\.vtkCylinderSource()    <span class="comment"># 定义DataSource</span></span><br><span class="line">cylinder.SetResolution(<span class="number">8</span>)    <span class="comment"># 设置</span></span><br><span class="line"></span><br><span class="line">cylinder_mapper = vtk\.vtkPolyDataMapper()   <span class="comment"># 定义DataMapper</span></span><br><span class="line">cylinder_mapper.SetInputConnection(cylinder.GetOutputPort())    <span class="comment"># 数据源绑定</span></span><br><span class="line"></span><br><span class="line">cylinder_actor = vtk\.vtkActor()    <span class="comment"># 定义角色</span></span><br><span class="line">cylinder_actor.GetProperty().SetColor(<span class="number">1.0</span>， <span class="number">0.4</span>， <span class="number">0.3</span>)    <span class="comment"># 设定角色属性，这里是颜色</span></span><br><span class="line">cylinder_actor.RotateX(<span class="number">30.0</span>)    <span class="comment"># 属性更新</span></span><br><span class="line">cylinder_actor.RotateY(<span class="number">-45.0</span>)    <span class="comment"># 属性更新</span></span><br><span class="line">cylinder_actor.SetMapper(cylinder_mapper)    <span class="comment"># 绑定角色的数据源</span></span><br><span class="line"></span><br><span class="line">ren1 = vtk\.vtkRenderer()    <span class="comment"># 舞台来了，渲染对象，既然有1，就可以有2,3,......</span></span><br><span class="line">ren1.AddActor(cylinder_actor)    <span class="comment"># 舞台有了，角色登场</span></span><br><span class="line">ren1.SetBackground(<span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.4</span>)    <span class="comment"># 舞台背景</span></span><br><span class="line"></span><br><span class="line">ren_win = vtk\.vtkRenderWindow()    <span class="comment"># 舞台的展示窗口</span></span><br><span class="line">ren_win.AddRenderer(ren1)    <span class="comment"># 把舞台放到展示窗口</span></span><br><span class="line">ren_win.SetSize(<span class="number">300</span>,<span class="number">300</span>)     <span class="comment"># 设置展示窗口大小</span></span><br><span class="line"></span><br><span class="line">iren = vtk\.vtkRenderWindowInteractor()    <span class="comment"># 得让观众和舞台上的交互啊</span></span><br><span class="line">iren.SetRenderWindow(ren_win)    <span class="comment"># 适合这个展示窗口交互</span></span><br><span class="line"></span><br><span class="line">iren.Initialize()    <span class="comment"># 交互初始化</span></span><br><span class="line">ren_win.Render()    <span class="comment"># 大幕来开，渲染</span></span><br><span class="line"></span><br><span class="line">iren.Start()    <span class="comment"># 交互开始</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="vtkCamera"><a href="#vtkCamera" class="headerlink" title="vtkCamera"></a>vtkCamera</h3><p>在3D图像处理中，Camera和Light对于渲染对象来说是非常重要的，所以如果程序没有显式声明的话，VTK会默认实例化camera和light。</p>
-<h5 id="实例化Camera"><a href="#实例化Camera" class="headerlink" title="实例化Camera"></a>实例化Camera</h5><ul>
-<li><p>实例化一个相机，并和渲染实例联系起来</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cam1 = vtk.vtkCamera()    <span class="comment">#实例化一个camera</span></span><br><span class="line">cam1.SetClippingRange(<span class="number">0.0475572</span>, <span class="number">2.37786</span>) <span class="comment">#设定Clipping的范围，最近和最远，不在这个范围内的物体都自动被清除</span></span><br><span class="line">cam1.SetFocalPoint(<span class="number">0052665</span>, <span class="number">-0.129454</span>, <span class="number">-0.0573973</span>) <span class="comment">#方向</span></span><br><span class="line">cam1.SetPosition(<span class="number">0.327637</span>, <span class="number">-0.116299</span>, <span class="number">-0.256418</span>) <span class="comment">#位置</span></span><br><span class="line">cam1.ComputeViewPlaneNormal() <span class="comment"># 默认的方式-这个需要具体学习一下，[CSDN上有很好的资料](https://blog.csdn.net/wzheng92/article/details/79935059)</span></span><br><span class="line">cam1.SetViewUp(<span class="number">-0.0225386</span>, <span class="number">0.999137</span>, <span class="number">0.034901</span>) <span class="comment"># 相机向上的方向</span></span><br><span class="line">ren1.SetActiveCamera(cam1) </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获得当前已经存在的相机实例</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cam1 = ren1.GetActiveCamera()</span><br><span class="line">cam1.Zoom(<span class="number">1.4</span>)    <span class="comment"># 通过改变视角来了缩放（也可参考SetViewAngle()),另外还有Dolly()通过移动相机来缩放</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其他简单的操纵相机的方法【需要进一步理解】</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cam1.Azimuth(<span class="number">150</span>)    <span class="comment"># 相机以Focal Point为中心的球型轨迹移动的经度</span></span><br><span class="line">cam1.Elevation(<span class="number">160</span>)  <span class="comment"># 相机以Focal Point为中心的球型轨迹移动的维度</span></span><br><span class="line"><span class="comment"># 要注意的就是一般情况下不会改变view-up vector，但是在南北极点会和view plane平行</span></span><br><span class="line"><span class="comment"># 为了避免这种情况，需要强制使用OrthogonalizeViewUp()方法（正交）,这种情况会改变相机协同轨迹</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>控制View的方向<br>相机最基础的功能是产生一个特定方向的视图，在程序上是通过这样的步骤来实现的：</p>
-</li>
-</ul>
-<ol>
-<li>设置相机的Focal Point <code>cam1.SetFocalPoint(0, 0, 0)    #x, y, z</code></li>
-<li>设置相机的Position <code>cam1.SetPosition(1, 1, 1)    #x,y, z</code></li>
-<li>设置相机的ViewPanel <code>cam1.ComputeViewPlaneNormal()</code></li>
-<li>设置相机的ViewUp <code>cam1.SetViewUp(1, 0, 0)</code></li>
-<li>设置相机是否正交  <code>cam1.OrthogonalizeViewUp()</code></li>
-<li>设置相机为当前相机 <code>ren1.SetActiveCamera(cam1)</code></li>
-<li>重置相机 <code>ren1.ResetCamera()</code><br>也就是说：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[设置相机基本属性] --&gt; B[激活相机为当前相机]</span><br><span class="line">B --&gt; C[重置舞台渲染的相机]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><p>透视(Perspective)和正交(Orghogonal)</p>
-<ul>
-<li>透视视图是通过视角(view angle)来调节角色(Actor)在View Plane上的成像的【点光源】</li>
-<li>正交或者平行视图可以想象成【平行光】，物体的成像是不受距离影响的<br>*这里的光不是光源，而是从看的角度出发的<br>要开启正交视图，首先用 <code>cam1.ParallelProjectionOn()</code><br>在正交视图中，视角不在用来控制缩放，而必须使用<code>cam1.SetParallelScale()</code></li>
-</ul>
-</li>
-<li><p>保存和恢复相机状态<br>这其实不用多做介绍，保存相机状态，至少需要保存Position、Focal Point、Clipping Range和View Up；恢复的话首先用保存的参数实例化一个相机，然后多一个步骤就是要<code>ren1.SetActiveCamera()</code></p>
-</li>
-</ul>
-<h3 id="vtkLight"><a href="#vtkLight" class="headerlink" title="vtkLight"></a>vtkLight</h3><ul>
-<li><p>灯光比相机容易控制，最常用的方法就是<code>SetPosition()</code>, <code>SetFocalPoint()</code>和<code>SetColor()</code>;另外，相机的灯光可以用<code>SwitchOn()</code>和<code>SitchOff()</code>开关；用<code>SetIntensity()</code>来控制强度<br>默认的vtkLight实例是定向灯光，也就是说其位置(position)和焦点(focal point)定义了一个平行于光线行进方向的矢量，并且光源假定在无穷远处。这意味着如果位置和焦点被同样地改变的话，物体上的光照不变。<br>通常，我们用如下的定义灯光，比如红色的头灯，位于相机的位置，指向相机的焦点。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">light = vtk.vtkLight()</span><br><span class="line">light.SetColor(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">light.SetFocalPoint(cam1.GetFocalPoint())</span><br><span class="line">light.SetPosition(cam1.GetPosition())</span><br><span class="line">ren1.AddLight(light)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定点光源Positional Lights【需要进一步理解】<br>使用<code>PositionalOn()</code>可以创建一个定点光源，可以和<code>SetConeAngle()</code>一起使用来控制聚光的面积，如果是180度的锥角的话，表明没有聚光效果而只有位置效果。</p>
-</li>
-</ul>
+<h4 id="读源文件的代码【42400-IDGH-stl】"><a href="#读源文件的代码【42400-IDGH-stl】" class="headerlink" title="读源文件的代码【42400-IDGH.stl】"></a>读源文件的代码【42400-IDGH.stl】</h4><p>从7.1.1开始，examples中的数据就不再是文件名了（再往前就不知道了），这里以9.0为例，可以看到VTKData9.0.1里面的数据全部是md5加上.data或者.paxheader的文件，在用户手册中有些例程需要用到测试数据，这些数据哪里去找呢？比如，例程：VTK/Examples/Rendering/Python/CADPart.py, 读取“42400-IDGH.stl”文件。在VTK9.0.1的源代码中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find |grep 42400-IDGH.stl</span><br></pre></td></tr></table></figure>
+<p>结果是 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Testing/Data/42400-IDGH.stl.SHA512</span><br></pre></td></tr></table></figure>
+<p>也就是能在Testing的Data目录中找到这个文件，是个文本文件，打开就是字符串“7edca2078c26d9647f189353967634c9c4c104b3ef7c81191f1cdb2dc6ba9ce43a357e38d618ac48c342d975ca2a454bc497f04b09c5dbe65823c430b862ef76” 然后通过这个字符串到VTKDATA9.0.1中去查找：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep 7edca2078c26d9647f189353967634c9c4c104b3ef7c81191f1cdb2dc6ba9ce43a357e38d618ac48c342d975ca2a454bc497f04b09c5dbe65823c430b862ef76 *.paxheader</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 10b64a3c281b0dbb15d798e3ff87dcd770018220.paxheader:169 path=VTK-9.0.1/.ExternalData/SHA512/7edca2078c26d9647f189353967634c9c4c104b3ef7c81191f1cdb2dc6ba9ce43a357e38d618ac48c342d975ca2a454bc497f04b09c5dbe65823c430b862ef76 </span><br></pre></td></tr></table></figure>
+<p>显然，也即是文件【10b64a3c281b0dbb15d798e3ff87dcd770018220.paxheader】所对应的数据文件就是42400-IDGH.stl<br>直接把10b64a3c281b0dbb15d798e3ff87dcd770018220.data的文件名改成42400-IDGH.stl，然后再CADPart.py中重新指定文件位置，一切OK！</p>
+<p>到这里，VTK的第一部分就基本记录完毕了！</p>
 
     </div>
 
@@ -569,7 +495,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.liuyong.online/2020/12/29/VTK%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/" title="VTK基础功能">https://www.liuyong.online/2020/12/29/VTK基础功能/</a>
+      <a href="https://www.liuyong.online/2020/12/25/VTK%E2%91%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" title="VTK①基础概念">https://www.liuyong.online/2020/12/25/VTK①基础概念/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -616,10 +542,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/01/01/VTK%E2%91%A1%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/" rel="prev" title="VTK②基础功能">
+                  <i class="fa fa-chevron-left"></i> VTK②基础功能
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/12/25/VTK%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="next" title="VTK基础概念">
-                  VTK基础概念 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/12/08/VUE%E8%B5%B7%E6%AD%A5/" rel="next" title="VUE起步">
+                  VUE起步 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
