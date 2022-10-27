@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"always","padding":18,"offset":0},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劉勇の博客">
+<meta property="og:url" content="https://www.liuyong.online/page/16/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="Technophile, Linux, Python, RaspberryPi">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/page/16/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="bodystyle">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+      <img class="custom-logo-image" src="/images/logo.png" alt="劉勇の博客">
+    
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+  </div>
+</div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+
+ 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/18/2%E5%A4%A9%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%EF%BC%8C%E8%AE%B0%E6%B5%81%E6%B0%B4%E5%B8%90%E4%B8%80%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/18/2%E5%A4%A9%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%EF%BC%8C%E8%AE%B0%E6%B5%81%E6%B0%B4%E5%B8%90%E4%B8%80%E7%AF%87/" class="post-title-link" itemprop="url">2天没有更新，记流水帐一篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-18 22:44:00" itemprop="dateCreated datePublished" datetime="2009-10-18T22:44:00+08:00">2009-10-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>789</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>老祖宗的“福兮，祸之所伏；祸兮，福之所倚”不时在提醒着偶，别气馁，别自得。周五发生了一些事情，有提升心情的，有扰乱心情的。总体而言，5/5吧。不过也是由于千头万绪的事情太多，再加上莫名其妙的腰痛，搞得老刘连写日志的心情都没有了。本来以为休息两天会好一点，谁知道到现在右后腰还是不能用力，好像一根筋吊住了，打个喷嚏都疼。想到薛大小姐曾经说过，3天不更新，就是欠教育。赶快忍者疼痛也上来唠叨一下，免得以后被教育。</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/15/%E6%94%BE%E6%9D%BE%E7%9A%84%E8%81%9A%E4%BC%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/15/%E6%94%BE%E6%9D%BE%E7%9A%84%E8%81%9A%E4%BC%9A/" class="post-title-link" itemprop="url">放松的聚会</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-15 23:34:00" itemprop="dateCreated datePublished" datetime="2009-10-15T23:34:00+08:00">2009-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/friends/" itemprop="url" rel="index"><span itemprop="name">同学亲友</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>377</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>老写PM的责任，有很多人有想法了。算了，还是停一停吧。正如今天的心情，昭和石油的项目已经结束了1年多了。再把这么多人聚在一个项目的可能性基本不存在。但是老刘遗传的吃吃喝喝的风气终于还是被保留了下来，不知道是幸运还是不幸。XF找的地方本来是不错的，口味不错，价格也不贵，属于实惠之选，无奈肉食性动物太多，而且某些肉食性动物被整整晾了2个小时，于是凶猛度上升了很多。结果一下子超出了预算1倍，还好，小胖子还算上路，把超出的部分填上了，虽然是借的老刘的银子，不带给利息的。总算是有所表示的了，是进步，偶们就得表扬。这么多菜中，老刘感兴趣的其实还是豆腐，手磨豆腐总是给人带来儿时的感觉。也许老刘确实在心理上疲惫了，老了，回忆总是在不经意间露出他或忧郁或欢欣的容颜。正如某人说的，当飞哥还是一块嫩豆腐的时候，老刘已经是很老的老豆腐了。。。。。。憧憬11月初的活动～</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/14/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E8%B4%A3%E4%BB%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B9%8B%E4%B8%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/14/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E8%B4%A3%E4%BB%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B9%8B%E4%B8%89/" class="post-title-link" itemprop="url">关于项目经理的责任的思考之三</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-14 23:46:00" itemprop="dateCreated datePublished" datetime="2009-10-14T23:46:00+08:00">2009-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>废话了两天之后，稍微切入一下正题。昨天说过，对于项目经理的评价不是一成不变的，不同的公司在不同的阶段有不同的定义。对于公司来说，盈利是第一位的，因此第一个定义就是要能挣钱；可持续发展是第二位的，因此第二个定义就是能管理好客户的期望值，从而维持良好的客户关系。基本上，不是极其特殊的case的话，有这两个条件就可以满足大部分公司对于项目经理的要求。甚至说，大部分项目经理的performance也就在这两点上被评价了。有朋友见习过、参与过HCT的很多项目，发觉他们的项目经理和HE的项目经理有着天壤之别。因为，HCT是和客户玩，HE是和自己玩。和客户玩，那就是玩钱，玩期望值；和自己玩，那就只能玩流程了。都说，只要中国人去干了，这个行业必然坍塌，从高额利润到大家都在零利润边缘游走。电视机、手机、电脑、通信设备是这样，衣服、袜子、鞋子、包更是这样。奢侈品不算，因为有所谓的品牌溢价；吃的喝的抽的也不算，因为俺们中国人就好这一口。软件外包行业也一样。中国成规模成气候的软件外包公司很少，很多公司发展到一点阶段就开始分裂。有了点客户关系，有了几个核心人员，就开始另立山头，自己给自己打工了。所以，搞到后来，也成了杀价的竞争。HCT，好歹有块牌子，就像奢侈品一样，用不起的人不是俺们的客户群，真要用的起的，也就看重JCN这个招牌，不在乎这几个小钱。HCT不是老刘可以随意谈论的，没干过，会被笑话，严重的话，会被扣上污蔑的帽子。HE的PM干过，时间也不长，也不是可以随意谈论的，资深的PM们一排排呢。不过，在自己的博客谈谈自己的想法，想来不会有人捡了鸡毛当令箭吧。HE的PM有很多都是从外面的外包行业转过来的，所以很多时候就会把外面的做法想法带进来。当然了，缤纷色彩闪出的美丽是最靓的么。问题呢，也就在这里发生了，外面是玩钱，玩客户期望值，客户关系。那可是费心费力的活。HE呢这个其实是没有必要玩的。理由很简单啊，HE吃的那叫啥，霸王餐！日本也好，中国也好，有活难道你能不给HE做？HE，那可是成本中心，钱不用谈，客户期望值也不用谈，客户关系更不用谈，都霸王餐了，还谈啥？何况，根据HE的规章制度，你想搞客户关系也没门哪。所以，HE的PM其实要关心的就是如何遵守HE的流程制度，把项目整好了，让客户接受，挑不出毛病就是了。这个工作，对于大部分大风大浪都闯过来的PM来说，太easy了，找个刚毕业的实习生都能整得清清楚楚认认真真。HE的项目经理，真的沦落了～（老刘原创，如果雷同，纯属巧合）</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/13/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E8%B4%A3%E4%BB%BB%E6%80%9D%E8%80%83%E4%B9%8B%E4%BA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/13/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E8%B4%A3%E4%BB%BB%E6%80%9D%E8%80%83%E4%B9%8B%E4%BA%8C/" class="post-title-link" itemprop="url">关于项目经理的责任思考之二</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-13 22:45:00" itemprop="dateCreated datePublished" datetime="2009-10-13T22:45:00+08:00">2009-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/learning/" itemprop="url" rel="index"><span itemprop="name">学习教育</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>835</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>昨天说项目经理第一个特点是要会混，那么是不是会混了就一定是一个好的或者说成功的项目经理了呢？其实这个问题很简单，人有1个脑袋2条腿，那是不是有1个脑袋2条腿的都是人呢。。。。。。开个玩笑啦，这个呢就要看各个公司在各个不同的阶段对项目经理的定位了。老刘01年再回日本的时候，是从派遣社员开始干起来的。简单地说就是被卖人头。（今天居然有个哥们说GDC干卖人头的事情，和他的职业发展道路不符，在接受了offer之后，偶让他到iLog面试，面试通过之后又拒绝了offer。问他现在在干嘛，也是在干外包的项目，靠，简直就是玩我们么，这种人强烈建议HR拉进黑名单。题外话）被卖人头也是有学问的，被卖的人很少能回公司，感受所谓公司的温暖。尤其是老刘当时在的属于日本的小公司。危机感时刻存在，担心公司倒闭，担心干得不好被踢回去。于是，被卖人头的人就有这样一个特点，知道，这个世界靠天靠地都靠不住，唯一靠得住的就是自己。于是乎，不得不努力工作以维持High</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/12/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E8%B4%A3%E4%BB%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B9%8B%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/12/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E8%B4%A3%E4%BB%BB%E7%9A%84%E6%80%9D%E8%80%83%E4%B9%8B%E4%B8%80/" class="post-title-link" itemprop="url">关于项目经理的责任的思考之一</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-12 23:41:00" itemprop="dateCreated datePublished" datetime="2009-10-12T23:41:00+08:00">2009-10-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/learning/" itemprop="url" rel="index"><span itemprop="name">学习教育</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在软件外包这个竞争异常激烈的行业，项目经理经常起着决定性的作用。一般来说，项目经理的性格决定了整个项目的性格。老刘对外包行业的项目经理的责任，有着自己的思考。我们生活的社会不是非黑即白的，同样，关于项目经理的责任的观点，也应该不存在正方反方。老刘在这里，只是想从老刘的经验，来谈谈自己的感悟。不希望被拍砖头。。。。。。</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/11/%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E8%80%85%E6%B3%A8%E6%84%8F%E7%9A%84%E5%BF%83%E7%90%86%EF%BC%88%E8%BD%AC%E8%BD%BD2%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/11/%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E8%80%85%E6%B3%A8%E6%84%8F%E7%9A%84%E5%BF%83%E7%90%86%EF%BC%88%E8%BD%AC%E8%BD%BD2%EF%BC%89/" class="post-title-link" itemprop="url">需要管理者注意的心理（转载2）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-11 07:08:00" itemprop="dateCreated datePublished" datetime="2009-10-11T07:08:00+08:00">2009-10-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/learning/" itemprop="url" rel="index"><span itemprop="name">学习教育</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span style="font-family:&prime;lucida grande&prime;, tahoma, helvetica, arial, &prime;bitstream vera sans&prime;, sans-serif;font-size:14px;line-height:21px">
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/11/%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E8%80%85%E6%B3%A8%E6%84%8F%E7%9A%84%E5%BF%83%E7%90%86%EF%BC%88%E8%BD%AC%E8%BD%BD1%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/11/%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E8%80%85%E6%B3%A8%E6%84%8F%E7%9A%84%E5%BF%83%E7%90%86%EF%BC%88%E8%BD%AC%E8%BD%BD1%EF%BC%89/" class="post-title-link" itemprop="url">需要管理者注意的心理（转载1）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-11 07:07:00" itemprop="dateCreated datePublished" datetime="2009-10-11T07:07:00+08:00">2009-10-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/learning/" itemprop="url" rel="index"><span itemprop="name">学习教育</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div style="text-align:left;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:5px;margin-right:5px;margin-bottom:0px;margin-left:0px;line-height:19px;word-break:break-all;word-wrap:break-word;color:rgb(221, 221, 221);font-family:Arial">
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/10/%E7%BD%91%E7%BB%9C%E6%95%85%E9%9A%9C%EF%BC%8C%E6%97%A0%E5%BF%83%E6%97%A5%E5%BF%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/10/%E7%BD%91%E7%BB%9C%E6%95%85%E9%9A%9C%EF%BC%8C%E6%97%A0%E5%BF%83%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">网络故障，无心日志</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-10 22:48:00" itemprop="dateCreated datePublished" datetime="2009-10-10T22:48:00+08:00">2009-10-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>288</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>家里的网络突然有问题了，家中的网络布置是这样的，带路由器的猫+16口的DES-1016D交换机</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/09/%E7%97%9B%E4%BA%86%EF%BC%8C%E4%BD%A0%E8%87%AA%E7%84%B6%E5%B0%B1%E4%BC%9A%E6%94%BE%E4%B8%8B%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/09/%E7%97%9B%E4%BA%86%EF%BC%8C%E4%BD%A0%E8%87%AA%E7%84%B6%E5%B0%B1%E4%BC%9A%E6%94%BE%E4%B8%8B%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" class="post-title-link" itemprop="url">痛了，你自然就会放下（转载）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-09 21:24:00" itemprop="dateCreated datePublished" datetime="2009-10-09T21:24:00+08:00">2009-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span style="font-family:&prime;lucida grande&prime;, tahoma, helvetica, arial, &prime;bitstream vera sans&prime;, sans-serif;font-size:12px;line-height:19px">
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/10/08/%E9%95%BF%E5%81%87%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2009/10/08/%E9%95%BF%E5%81%87%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" class="post-title-link" itemprop="url">长假的最后一天</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-10-08 22:32:00" itemprop="dateCreated datePublished" datetime="2009-10-08T22:32:00+08:00">2009-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/feeling/" itemprop="url" rel="index"><span itemprop="name">个人情怀</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSN%E6%90%AC%E5%AE%B6/" itemprop="url" rel="index"><span itemprop="name">MSN搬家</span></a>
+        </span>
+    </span>
+
+  
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>678</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>小家电都到了，包括一个德劲的DE17收音机，早上跑步的时候可以捏在手里听。废话不多说，无图无真相，先上照片，在偶上海的家相册中。应该说，偶还是满意的。另外既然已经拍照片了，老头老太特别希望可以把数码的照片打出来看，所以顺便又拍了几张房前屋后的照片，一并show出来了。</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">221k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:21</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

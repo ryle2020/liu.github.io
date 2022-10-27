@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"always","padding":18,"offset":0},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started with Storm">
+<meta property="og:url" content="https://www.liuyong.online/2013/12/06/Getting%C2%A0Started%C2%A0with%C2%A0Storm/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="article:published_time" content="2013-12-06T15:53:00.000Z">
+<meta property="article:modified_time" content="2022-10-27T12:22:28.980Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="storm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2013/12/06/Getting%C2%A0Started%C2%A0with%C2%A0Storm/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Getting Started with Storm | 劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="bodystyle">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+      <img class="custom-logo-image" src="/images/logo.png" alt="劉勇の博客">
+    
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+  </div>
+</div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+
+ 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2013/12/06/Getting%C2%A0Started%C2%A0with%C2%A0Storm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Getting Started with Storm
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-12-06 23:53:00" itemprop="dateCreated datePublished" datetime="2013-12-06T23:53:00+08:00">2013-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div style="text-indent:2em;">
+<a id="more"></a>
+数据是值钱的，可是在很多商业场景中，随着时间的流逝，数据的价值是下降的。因此实时处理数据的方式方法能力也就很关键。在开源的领域，有个叫Storm的东西是做流数据处理的。中英文资料都很少，好不容易看到了一本Getting
+Started with Storm，很薄，105页，准备一边读读，一边弄成中文的。只能算是个人的读书心得和笔记。
+<div style="font-family: 微软雅黑; line-height: normal;">
+<b>第一章</b>
+<div style="font-family: 微软雅黑; line-height: normal;">
+<b>基础</b>
+<div style="font-family: 微软雅黑; line-height: normal;">
+Storm是一个用来处理数据流的分布式，可靠且能容错的系统。由各种被指定完成最基础简单任务的组件构成。Storm集群的输入流由Spout组件来处理，然后Spout把数据传递给Bolt组件，可以通过Bolt组件来处理数据。而一个Bolt可以将数据存放在某些存储设备中实现数据的持久化或者把数据传递给其他Bolt。你可以把Storm集群想象为Bolt的链条，每个环节都对数据进行一定的处理，而这条链条的输入数据都来自于Spout。
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div style="font-family: 微软雅黑; line-height: normal;">
+为了阐明这个概念，这里有个简单的例子。昨天晚上我在看新闻的时候正好播音员开始说道政治家及他们对于各种话题的态度。播音员总是说到不同的名字，我对每个名字被提到的频率产生了兴趣，想知道这些名字是被提到同样多的次数，还是说有特殊的倾向性。
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div style="font-family: 微软雅黑; line-height: normal;">
+设想我们把播音员正在说的话的字幕作为数据的输入流。于是我们可以通过一个Spout把这些信息从一个文件或者是Socket，通过HTTP或者其他方式读入。每接收到一行文本，Spout就把他们传递给一个专门用来把每行文本切分成单词组的Bolt来处理。然后这组单词的数据流被传递给另外一个专门用来比较的Bolt，比如我们可以把每个词都和事先定义好的政治家的名单做比较。每当有一个匹配的名字，第二个Bolt就把对应的名字在数据库中的计数器加1.于是无论什么时候你想看到结果，你只需要查询数据库，这个数据库是实时更新的。这样的所有组件的安置以及他们的联系被叫做Topology，下面是个例子：
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EN0zb8dG88" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm" name="image_operate_35191386345861082" real_src="http://s9.sinaimg.cn/bmiddle/001DcOacgy6EN0zb8dG88&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm"/></a>
+<div style="font-family: 微软雅黑; line-height: normal;">
+现在我们再来设想一下，我们在一个Storm中对于每一个Bolt和Spout都做并行扩展，于是我们就得到了一个可以无限扩展的Topology。是不是很神奇？尽管这是一个简单的例子，但是你却可以看到Storm的强大。
+<div style="font-family: 微软雅黑; line-height: normal;">
+Storm的典型场景有哪些呢？
+<div style="font-family: 微软雅黑; line-height: normal;">流处理
+<div style="font-family: 微软雅黑; line-height: normal;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+正如在上面的例子中展示的，不像其他一些流处理系统，Storm没有必要设置流处理的中间队列</blockquote>
+持续计算
+<div style="font-family: 微软雅黑; line-height: normal;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+持续不断地将数据发送到客户端，从而保证这些数据可以被实时更新和展示</blockquote>
+分布式远程处理
+<div style="font-family: 微软雅黑; line-height: normal;">
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+非常简单地把CPU密集型操作并行化
+</blockquote>
+<b>Storm的组件</b>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在一个Storm集群，节点被组成可以持续运行的Master节点。现在存在2中类型的节点：master节点 和
+worker节点。Master节点运行一个叫做Nimbus的守护进程，负责在整个集群中的代码分发，对于每个work节点的任务分配，监控各种运行失败。Worker节点运行一行一个叫做Supervisor的守护进程，是一个Topology的一个执行部分。在Storm中，Topology可以在各种不同的机器上运行多个Worker节点。因为Storm将所有集群的状态记录在Zookeeper或者本地硬盘中，而守护进程是无状态的，可以失败或者重启而不会影响整个系统的健康。
+<div style="font-family: 微软雅黑; line-height: normal;"><a href="http://album.sina.com.cn/pic/001DcOacgy6EN0Drc7dc7" target="_blank"><img alt="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm" height="99" name="image_operate_4591386345877264" real_src="http://s8.sinaimg.cn/mw690/001DcOacgy6EN0Drc7dc7&amp;690" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="Getting &lt;wbr&gt;Started &lt;wbr&gt;with &lt;wbr&gt;Storm" width="490"/></a>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在底层，Storm使用了zeromq或者0mq这样一个高级的，可嵌入的网络库，也正是0mq提供的各种精彩的特性使Storm成为可能。我们列一下0mq的特性：
+<div style="font-family: 微软雅黑; line-height: normal;">
+<ul>
+<li>Socket库支持并发的框架</li>
+<li>对于集群和超级计算而言，速度比TCP快</li>
+<li>通过inproc（进程内），IPC（进程间），TCP和multicast（多点传送）传递信息</li>
+<li>支持可扩展多核信息传送应用的异步I/O</li>
+<li>
+通过Fanout（扇出），pubsub（发布/订阅），pipeline（管道），request-reply（需求/响应）方式支持N-to-N链接</li>
+</ul>
+需要注意的是 Storm仅仅使用Push/Pull Sockets
+<div style="font-family: 微软雅黑; line-height: normal;">
+<div style="font-family: 微软雅黑; line-height: normal;">
+<b>Storm的特点</b>
+<div style="font-family: 微软雅黑; line-height: normal;">
+在所有的设计原则中，下面这些是尤其要注意的，正是这些使Storm非常出众：
+<div style="font-family: 微软雅黑; line-height: normal;">
+易于编程：如果你曾经试过使用Scratch来做实时处理，你就能体会到这有多痛苦。而Storm可以显著地降低其复杂度。
+<div style="font-family: 微软雅黑; line-height: normal;">
+支持多种编程语言：用基于JVM的语言来做Storm的开发是非常容易的，同时Storm也支持通过其他中间库的支持来支持任何一种你熟悉的编程语言。
+<div style="font-family: 微软雅黑; line-height: normal;">
+容错：Storm集群会自动监控所有的worker节点，如果需要会自动重新安排任务
+<div style="font-family: 微软雅黑; line-height: normal;">
+可扩展：在你需要扩展的时候，你唯一要做的工作就是往集群中增加额外的机器。Storm会自动为这些新增加的机器安排任务。
+<div style="font-family: 微软雅黑; line-height: normal;">
+可靠：所有的信息会保证至少被执行一次，如果出错了，就会被执行多次，但是你不用担心会丢失任何信息
+<div style="font-family: 微软雅黑; line-height: normal;">
+快速：Strom在设计的时候就考虑了速度的因素
+<div style="font-family: 微软雅黑; line-height: normal;">
+支持事务：对于任意多计算，你可以精确地得到一个消息传递语义
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>一杯清茶</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ryle Liu
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.liuyong.online/2013/12/06/Getting%C2%A0Started%C2%A0with%C2%A0Storm/" title="Getting Started with Storm">https://www.liuyong.online/2013/12/06/Getting Started with Storm/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.liu.group">
+            <span class="icon">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+
+            <span class="label">WEB</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/storm/" rel="tag"><i class="fa fa-tag"></i> storm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2013/12/07/Netbeans7.4+XAMPP+Xdebug@Ubuntu1204LTS/" rel="prev" title="Netbeans7.4+XAMPP+Xdebug@Ubuntu1204LTS">
+                  <i class="fa fa-chevron-left"></i> Netbeans7.4+XAMPP+Xdebug@Ubuntu1204LTS
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2013/12/04/postgresql9.3%C2%A0ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B9%8B%E5%90%8E%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/" rel="next" title="postgresql9.3 ubuntu下安装之后的简单配置">
+                  postgresql9.3 ubuntu下安装之后的简单配置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">221k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:21</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

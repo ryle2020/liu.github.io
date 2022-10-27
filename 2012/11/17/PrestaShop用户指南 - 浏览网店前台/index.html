@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"always","padding":18,"offset":0},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="浏览网店前台----翻译累死人，看看后台，modules-&gt;position-&gt;LiveEdit一下子就都能看到了，其实关键还是说后面那些东西来控制这些显示的～">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PrestaShop用户指南 - 浏览网店前台">
+<meta property="og:url" content="https://www.liuyong.online/2012/11/17/PrestaShop%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E6%B5%8F%E8%A7%88%E7%BD%91%E5%BA%97%E5%89%8D%E5%8F%B0/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:description" content="浏览网店前台----翻译累死人，看看后台，modules-&gt;position-&gt;LiveEdit一下子就都能看到了，其实关键还是说后面那些东西来控制这些显示的～">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="og:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+<meta property="article:published_time" content="2012-11-17T14:20:00.000Z">
+<meta property="article:modified_time" content="2022-10-27T12:22:28.976Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="prestashop">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2012/11/17/PrestaShop%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E6%B5%8F%E8%A7%88%E7%BD%91%E5%BA%97%E5%89%8D%E5%8F%B0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>PrestaShop用户指南 - 浏览网店前台 | 劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="bodystyle">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+      <img class="custom-logo-image" src="/images/logo.png" alt="劉勇の博客">
+    
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+  </div>
+</div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+
+ 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">浏览网店前台----翻译累死人，看看后台，modules-&gt;position-&gt;LiveEdit一下子就都能看到了，其实关键还是说后面那些东西来控制这些显示的～</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">默认主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">在线商店导航</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.1.</span> <span class="nav-text">顶部</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">购物车</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.2.</span> <span class="nav-text">底部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.3.</span> <span class="nav-text">左列 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">-1.标签区 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">-2.商品类别区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">-3.&quot;看过的商品&quot; 区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">-4.供应商区 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">-5.制造商区域 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">-6.CMS区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">-7.广告区域 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.8.</span> <span class="nav-text">-8.新闻区域 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.4.</span> <span class="nav-text">右列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">-1.新品区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">-2.促销区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">-3.&quot;我们的商店&quot;区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">-4.&quot;联系我们&quot; 区域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.5.</span> <span class="nav-text">中列 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">-1.前端页面 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">-2.产品列表页</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.5.2.1.</span> <span class="nav-text">ategory header: image and image map</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.5.2.2.</span> <span class="nav-text">Product
+sorting</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.5.2.3.</span> <span class="nav-text">Product
+comparison</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">Product
+page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.5.4.</span> <span class="nav-text">The cart
+page</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2012/11/17/PrestaShop%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E6%B5%8F%E8%A7%88%E7%BD%91%E5%BA%97%E5%89%8D%E5%8F%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PrestaShop用户指南 - 浏览网店前台
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-11-17 22:20:00" itemprop="dateCreated datePublished" datetime="2012-11-17T22:20:00+08:00">2012-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>浏览网店前台----<font style="FonT-siZe: 12px">翻译累死人，看看后台，modules-&gt;position-&gt;LiveEdit一下子就都能看到了，其实关键还是说后面那些东西来控制这些显示的～</font></h1>
+<a id="more"></a>
+前台是顾客访问你的网店的入口，包括了界面、图片、商品、商品描述以及整个购买的流程。
+作为顾客，前台是你在浏览和购买时候的对于整个网店的体验。
+作为网店店主，你也需要前台非常了解，不仅仅是因为网店是你的，更因为你需要知道你的顾客面对的是什么。
+<h2>默认主题</h2>
+PrestaShop拥有一个默认的主题，前端为灰，背景为白。这是国际通用的简单直观的设计。如果你安装了例子数据，你可以看到苹果的产品。
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="1575" real_src="http://s1.sinaimg.cn/orignal/5922f330gceb192c32100" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="984"/>
+基于PrestaShop
+Addons网站的贡献，你可以在任何时候非常方便的改变前台的主题。这里，我们只是基于默认主题做介绍。
+<h2>在线商店导航</h2>
+不论客户是输入网店地址还是通过搜索引擎，他们总有许多选项通过下面的页面分类来导航。
+<h3>顶部</h3>
+顶部是一个狭窄的区域，可以在任何一个前台页面中访问。
+<span><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="0" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台"/><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="133" real_src="http://s11.sinaimg.cn/orignal/5922f330g7b11c1e56e7a" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="926"/></span>
+这里包含了几个重要的工具和连接：
+<ul>
+<li><strong>网店Logo</strong>.
+点击此LOGO可以回到首页面。请用你自己的Logo来代替我们的默认的“YourLogoHere”（默认大小是209x52）。</li>
+<li><strong>搜索引擎</strong>. 许多顾客愿意通过搜索引擎而不是通过商品类别导航来查找指定的商品。</li>
+<li><strong>联系和网站地图</strong>.
+这两个连接让客户访问指定的页面，一个是网店管理员，一个完整的网站的公开的页面清单。</li>
+<li><strong>添加收藏</strong>.
+这不是一个连接而是一个JavaScript行为，当点击之后，将让顾客的浏览器把你的网店加入收藏夹。</li>
+<li><strong>货币选项</strong>. 顾客可以选择商品标价的货币。</li>
+<li><strong>购物车: (空)</strong>. 是一个关于顾客当前购物车状态的快速提醒。</li>
+<li>
+<strong>欢迎</strong>. 简单的欢迎信息，当顾客登录之后，会变成“欢迎，<em>姓</em>”然后这个“姓”会连接到客户的帐号。</li>
+<li><strong>登录</strong>. 是邀请客户注册或者登录的连接。</li>
+</ul>
+在整个购物过程中，顶部基本上是不变的。
+<h4>购物车</h4>
+顶部最重要的部分是购物车。默认地，这是用来显示当前已经包含的商品的数量。当客户点击的时候，可以访问购物车，并开始购物的核对流程。
+当顾客把鼠标指向购物车的时候，这个区域会改变成显示每个增加的商品的名字。每个商品行包含了数量，组合和价格。顾客能够直接点击移除不想要的商品。在这个区域的底部会有配送费用和此订单的总费用。当点击核对的时候，可以开始核对流程。
+<h3>底部</h3>
+底部提供了一些对于客户来说是有用的页面。
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="337" real_src="http://s16.sinaimg.cn/orignal/5922f330gceb19318f0bf" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="926"/>
+<ul>
+<li>”我的帐号“区域, 包含了客户的个人资料的页面</li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li><strong>我的订单</strong>. 所有过去和现在在处理的订单。</li>
+<li><strong>我的存款</strong>. 可以用于将来订单的存款。</li>
+<li><strong>我的地址</strong>. 客户可以增加多个不同的地址。</li>
+<li><strong>我的个人信息</strong>. 姓名、电邮、家庭地址、电话号码、出生日期等所有必需的信息。</li>
+<li><strong>我的优惠券</strong>. 所有还没有被使用的优惠券号码。</li>
+<li><strong>我关注的商品</strong>. 客户可以标记一些商品，以便今后购买。</li>
+</ul>
+</li>
+<li>“信息”区域 </li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li>三个和商品有关：</li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li><strong>促销</strong>. 所有当前的促销。</li>
+<li><strong>新品</strong>. 近来增加的商品。</li>
+<li><strong>热销品</strong>. 当前热卖的商品。</li>
+</ul>
+</li>
+<li>四个是基本信息:</li>
+<li style="LisT-sTYLe-TYpe: none">
+<ul>
+<li>我们的网店 </li>
+<li>联系我们 </li>
+<li>服务条款 </li>
+<li>关于我们</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>“关注我们”区域,包含了你的网店的Facebook/Twitter帐号，并联系到你的RSS种子。</li>
+<li>“联系我们”区域,包含了网店的地址，联系电话，电邮等。</li>
+</ul>
+所有这些内容店主都能改变。
+<h3>左列 </h3>
+默认主题的左列主要是静态的，主要是用来导航。
+<h4>-1.标签区 </h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="80" real_src="http://s10.sinaimg.cn/orignal/5922f330g7b11c1ebde99" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="206"/>
+店主可以为每个商品标注一系列的标签。标签是没有继承关系的关键字。这些不会再商品页面被显示，但是在建主题清单的时候会非常有用。另外，大部分标签用粗体来显示。
+<h4>-2.商品类别区</h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="110" real_src="http://s4.sinaimg.cn/orignal/5922f330gceb1935790e3" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="205"/>
+商品类别是有继承关系的显示商品的方式，能包含任何数量的子类别，能方便地随着逻辑关系找到指定的商品。
+PrestaShop网店可以设置足够多的类别和子类别，在指定的类别层，可以设置无限多的商品。所有的类别都是根类别“HOME”的子类。
+这也是唯一的客户可以通过选择来比较商品的商品清单。
+<h4>-3."看过的商品" 区</h4>
+<em><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="100" real_src="http://s13.sinaimg.cn/orignal/5922f330gceb1938af52c" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="204"/></em>
+<em>显示在当前Session中客户至少看过一次的商品。</em>
+这是对于客户看过的商品的提醒，同时提供了返回客户看过的商品的相信页面的快捷方式。
+<h4>-4.供应商区 </h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="118" real_src="http://s6.sinaimg.cn/orignal/5922f330gceb193a38e15" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="206"/>
+客户可以选择访问所有来自同一个供应商的商品。
+<h4>-5.制造商区域 </h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="116" real_src="http://s3.sinaimg.cn/orignal/5922f330gceb193bbceb2" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="205"/>
+客户可以选者访问所有来自同一个制造商的商品。Customers can choose to display all the
+products from a single manufacturer, regardless of their types or
+prices.
+<h4>-6.CMS区域</h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="188" real_src="http://s9.sinaimg.cn/orignal/5922f330gceb193ce8518" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="206"/>
+这里PrestaShop列出了所有由店主创建的静态页面：配送信息、法律声明、服务条款等。
+<h4>-7.广告区域 </h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="107" real_src="http://s14.sinaimg.cn/orignal/5922f330gceb193f5c3ed" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="217"/>
+默认这里只是一个简单的连接到PrestaShop官方主页的图片。你可以通过改变设置，把这里变成其他网站的广告连接。
+<h4>-8.新闻区域 </h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="72" real_src="http://s13.sinaimg.cn/orignal/5922f330gceb194144f9c" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="206"/>
+客户可以直接用此模块定制接收你的网店的更新新闻。
+<h3>右列</h3>
+默认主题的右列在购物过程中基本是不变的。
+<h4>-1.新品区域</h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="526" real_src="http://s3.sinaimg.cn/orignal/5922f330gceb194306952" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="209"/>
+此处显示所有的新品，并连接到他们的详细页面。
+<h4>-2.促销区域</h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="139" real_src="http://s2.sinaimg.cn/orignal/5922f330gceb19441f631" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="210"/>
+显示所有的促销商品。
+<h4>-3."我们的商店"区域</h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="184" real_src="http://s1.sinaimg.cn/orignal/5922f330gceb194673340" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="210"/>
+此处包含了一个到商店地理定位的图片连接，可以让你的客户找到你的最近的实体店。当然如果你没有实体店的话，也可以通过设置关闭。
+<h4>-4."联系我们" 区域</h4>
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="149" real_src="http://s4.sinaimg.cn/orignal/5922f330gceb1948ff583" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="211"/>
+此处显示你的商店的服务热线。
+<h3>中列 </h3>
+这是根据客户的需要会变化的区域。
+<h4>-1.前端页面 </h4>
+默认的前端页面是给客户介绍商店的。
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="248" real_src="http://s14.sinaimg.cn/orignal/5922f330gceb194b4036d" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="547"/>
+紧跟这的就是“首推商品”
+<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="292" real_src="http://s2.sinaimg.cn/orignal/5922f330gceb194e8c9b1" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="536"/>
+大部分用户都是通过搜索引擎来访问网店，直接浏览商品或者类别。首页必须有特色，能够吸引新客户。
+<h4>-2.产品列表页</h4>
+PrestaShop有许多方式让客户找到商品，比如类别，标签，制造商，供应商，搜索等等，但是最终是需要给客户一个商品列表的。<img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" border="0" height="936" real_src="http://s3.sinaimg.cn/orignal/5922f330gceb1954caba2" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="545"/>
+尽管内容可能不同，列表被设计成相近的显示方式：
+<ul>
+<li>左边是个选择框</li>
+<li>中间是图片，名字和说明</li>
+<li>右边是价格，库存及“添加到购物车”</li>
+</ul>
+<h5>ategory header: image and image map</h5>
+<span><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" height="0" style="BorDer-BoTToM: black 1px solid; BorDer-LeFT: black 1px solid; BorDer-Top: black 1px solid; BorDer-riGHT: black 1px solid" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="0"/></span>
+Categories can feature a header image with an introductory
+message, as set by the shop owner.
+While this is not the case by default, you can choose to have
+the category image replaced by an image map. A category can feature
+an unlimited number of image maps, which the visitor can scroll
+through with the tool below it.
+An image map is simply an image which has links available for
+some of its areas. A "+" symbol is placed upon the areas which have
+links. The image map can feature as many links as necessary.
+<h5><a name="Browsingthefront-office-Productsorting"></a>Product
+sorting</h5>
+<span><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" height="0" style="BorDer-BoTToM: black 1px solid; BorDer-LeFT: black 1px solid; BorDer-Top: black 1px solid; BorDer-riGHT: black 1px solid" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="0"/></span>
+Product listing by category or manufacturer can be further
+sorted by price, name or availability.
+Note that listing by tags does not allow for such sorting.
+<h5><a name="Browsingthefront-office-Productcomparison"></a>Product
+comparison</h5>
+<span><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" height="0" style="BorDer-BoTToM: black 1px solid; BorDer-LeFT: black 1px solid; BorDer-Top: black 1px solid; BorDer-riGHT: black 1px solid" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="0"/></span>
+Products within a category can be compared to each other, thanks
+to each item&prime;s checkbox (on the left of the thumbnail). This is the
+only product listing where the customer can compare products, since
+there is no sense in comparing products that do not have the same
+characteristics/features. Obviously, this means that categories
+should only feature products which can be compared.
+Provided the product&prime;s information is complete and consistent,
+the comparison page will display with a row for each comparable
+feature. This is immensely useful, particularly for products with
+technical differences.
+By default, customers can compare up to 3 products at a time,
+but this can be changed in the "Products" preference page in the
+back-office.
+<h4><a name="Browsingthefront-office-Productpage"></a>Product
+page</h4>
+<span><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" height="0" style="BorDer-BoTToM: black 1px solid; BorDer-LeFT: black 1px solid; BorDer-Top: black 1px solid; BorDer-riGHT: black 1px solid" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="0"/></span>
+This is where all the information entered by the shop owner is
+available to the user. Depending on the theme design, a product
+page can be very thorough, with extensive information, or simply
+present the most essential facts. The default theme is typical in
+that its most prominent feature is the product images, with a tool
+below it enabling customers to scroll between the available
+images.
+Next to the images are two blocks:
+<ul>
+<li>A "Short description" block, presenting the main facts for the
+current product.</li>
+<li>The "Add to cart" block, with the option to choose among the
+available combinations (as defined by the shop owner) and the
+quantity to be ordered.</li>
+</ul>
+At the bottom of the product page is a tab section. The most
+usual ones are:
+<ul>
+<li><strong>More info</strong>. This gives the full description for
+the product, as entered by the shop owner.</li>
+<li><strong>Data sheet</strong>. <em>This tab only appears if the
+shop owner has entered data in the product&prime;s "Features" sheet.</em>
+This gives all the detailed featured that were entered into
+database. This data is also the one that is used when comparing two
+products. Therefore, the content of this tab is very sparsely
+written: these are just raw facts, far from the product description
+in the "More info" tab.</li>
+</ul>
+<h4><a name="Browsingthefront-office-Thecartpage"></a>The cart
+page</h4>
+<span><img alt="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" height="0" style="BorDer-BoTToM: black 1px solid; BorDer-LeFT: black 1px solid; BorDer-Top: black 1px solid; BorDer-riGHT: black 1px solid" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="0"/></span>
+Clicking on the "Cart: XX products" link in the header, or on
+the "Check out" button in the cart interface also in the header,
+brings the customer to the "Shopping cart summary" page, which is
+the first step in the order process. The breadcrumb trail at the
+top of the page indicates the steps in the order process:
+<ol>
+<li><strong>Summary</strong>. Where the customer makes sure that
+the order only contains the wanted products, no more, no less.</li>
+<li><strong>Login</strong>. Where the non-logged customer is asked
+to log in or create an account. This step is skipped over if the
+customer is already logged in.</li>
+<li><strong>Address</strong>. Where the customer is presented with
+his or her currently registered addresses in PrestaShop, and has to
+choose the one where the delivery is to be made.</li>
+<li><strong>Shipping</strong>. Where the customer choose the
+shipping options.</li>
+<li><strong>Payment</strong>. Where the customer is presented with
+the final price of the order (now including the shipping price),
+and is asked to choose a payment method.</li>
+</ol>
+The customer can come back to any previous step by clicking on
+its title.
+<table>
+<colgroup>
+<col width="24"/>
+<col/></colgroup>
+<tbody>
+<tr>
+<td valign="top"><img align="absmiddle" alt="" border="0" height="16" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台" width="16"/></td>
+<td>The standard order process takes 5 steps, and as many pages.
+You can choose to have all these steps on one page by going in the
+back-office, and in the "Orders" preference page, change the "Order
+process type" option from "Standard (5 steps)" to "One page check
+out".</td>
+</tr>
+</tbody>
+</table>
+The cart page gives a succinct but complete view of the items
+that are in the cart: thumbnail, name, features, unit price and
+ability to change the quantity of each product.
+Detailed pricing is then displayed below, including the order&prime;s
+total cost with tax and shipping, and if applicable, a description
+of the voucher that was used. Further below, the available
+addresses are displayed.
+Clicking "Next" starts the check-out process.
+<div style="MArGin-Top: 15px; MArGin-BoTToM: 10px"><a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank"><img alt="菊子曰" real_src="http://image.juziyue.com/WebStoryLogo20.png" src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" style="BorDer-BoTToM: 0px; BorDer-LeFT: 0px; BorDer-Top: 0px; BorDer-riGHT: 0px" title="PrestaShop用户指南 &lt;wbr&gt;- &lt;wbr&gt;浏览网店前台"/></a> 本文用<a href="http://sns.juziyue.com/webinvite.php?u=64456" target="_blank">菊子曰</a>发布
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>一杯清茶</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ryle Liu
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.liuyong.online/2012/11/17/PrestaShop%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%C2%A0-%C2%A0%E6%B5%8F%E8%A7%88%E7%BD%91%E5%BA%97%E5%89%8D%E5%8F%B0/" title="PrestaShop用户指南 - 浏览网店前台">https://www.liuyong.online/2012/11/17/PrestaShop用户指南 - 浏览网店前台/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.liu.group">
+            <span class="icon">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+
+            <span class="label">WEB</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/prestashop/" rel="tag"><i class="fa fa-tag"></i> prestashop</a>
+              <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+              <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2012/12/04/%E5%85%A5%E6%89%8BBuffalo%C2%A0LS_WVL%C2%A0%E5%8F%8C%E7%9B%98%E4%BD%8DNAS%E4%BB%A5%E5%8F%8A2%E4%B8%AA%E8%A5%BF%E9%83%A8%E6%95%B0%E6%8D%AE2T%E7%9A%84%E7%A1%AC%E7%9B%98/" rel="prev" title="入手Buffalo LS/WVL 双盘位NAS以及2个西部数据2T的硬盘">
+                  <i class="fa fa-chevron-left"></i> 入手Buffalo LS/WVL 双盘位NAS以及2个西部数据2T的硬盘
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2012/11/17/VPS%C2%A0Centos5.8%E8%A3%85%E6%9C%BA/" rel="next" title="VPS Centos5.8装机">
+                  VPS Centos5.8装机 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">221k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:21</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

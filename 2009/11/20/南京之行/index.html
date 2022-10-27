@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.liuyong.online","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"always","padding":18,"offset":0},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utteranc","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="南京之行甚为奇妙。听说有个数据库迁移的项目，这个和BAM有点关系，于是就被卷入了。和GBS的销售开会的时候，也许太能忽悠了，被点名去南京见最终客户。本来是应该临时抱一下佛脚再去的，抱佛脚的资料都已经有了。只是有些更重要的安排，没办法，只能见了客户随机应变了，好在还有一个DB2的专家一起。西服领带大衣公文包，好像已经尘封了数年了，行头在身，熟悉的感觉又回来了，譬如武打小说中退隐的高手又重新捏住了剑，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="南京之行">
+<meta property="og:url" content="https://www.liuyong.online/2009/11/20/%E5%8D%97%E4%BA%AC%E4%B9%8B%E8%A1%8C/">
+<meta property="og:site_name" content="劉勇の博客">
+<meta property="og:description" content="南京之行甚为奇妙。听说有个数据库迁移的项目，这个和BAM有点关系，于是就被卷入了。和GBS的销售开会的时候，也许太能忽悠了，被点名去南京见最终客户。本来是应该临时抱一下佛脚再去的，抱佛脚的资料都已经有了。只是有些更重要的安排，没办法，只能见了客户随机应变了，好在还有一个DB2的专家一起。西服领带大衣公文包，好像已经尘封了数年了，行头在身，熟悉的感觉又回来了，譬如武打小说中退隐的高手又重新捏住了剑，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-11-20T14:04:00.000Z">
+<meta property="article:modified_time" content="2022-10-27T12:22:29.012Z">
+<meta property="article:author" content="Ryle Liu">
+<meta property="article:tag" content="也是工作">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.liuyong.online/2009/11/20/%E5%8D%97%E4%BA%AC%E4%B9%8B%E8%A1%8C/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>南京之行 | 劉勇の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="劉勇の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="bodystyle">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+      <img class="custom-logo-image" src="/images/logo.png" alt="劉勇の博客">
+    
+    <a href="/" class="brand" rel="start">
+    <!--  <i class="logo-line"></i> -->
+      <h1 class="site-title">劉勇の博客</h1>
+    <!--  <i class="logo-line"></i> -->
+    </a>
+  </div>
+</div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+
+ 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryle Liu"
+      src="/images/lvlogo.png">
+  <p class="site-author-name" itemprop="name">Ryle Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryle2020" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryle2020" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryle@2ndlife.cn" title="E-Mail → mailto:ryle@2ndlife.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/liusanrong" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;liusanrong" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liu.group/" title="https:&#x2F;&#x2F;www.liu.group" rel="noopener" target="_blank">第二人生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://thinkphp.cn/" title="https:&#x2F;&#x2F;thinkphp.cn" rel="noopener" target="_blank">ThinkPHP</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kancloud.cn/" title="https:&#x2F;&#x2F;kancloud.cn" rel="noopener" target="_blank">看云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ryle2020" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.liuyong.online/2009/11/20/%E5%8D%97%E4%BA%AC%E4%B9%8B%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lvlogo.png">
+      <meta itemprop="name" content="Ryle Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劉勇の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          南京之行
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-11-20 22:04:00" itemprop="dateCreated datePublished" datetime="2009-11-20T22:04:00+08:00">2009-11-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programer/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+     <!-- </div> -->
+     <!-- <div class="post-meta"> -->
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>南京之行甚为奇妙。听说有个数据库迁移的项目，这个和BAM有点关系，于是就被卷入了。和GBS的销售开会的时候，也许太能忽悠了，被点名去南京见最终客户。本来是应该临时抱一下佛脚再去的，抱佛脚的资料都已经有了。只是有些更重要的安排，没办法，只能见了客户随机应变了，好在还有一个DB2的专家一起。西服领带大衣公文包，好像已经尘封了数年了，行头在身，熟悉的感觉又回来了，譬如武打小说中退隐的高手又重新捏住了剑，不过一般来说，这种高手往往是铺垫是牺牲品，不知老刘此行又会如何。很久不做忽悠人的工作，居然心里有点虚。。。。。。</p>
+<a id="more"></a>
+<p>客户很变态，上班靠打卡，一共有19楼，只有两部电梯，而且，打卡的地方一个在10楼，一个在15楼。而IT办公的地方基本在17，18楼。后果就是，到9点半快要上班的时候，电梯实在等不住了，于是一堆兄弟开始锻炼身体，先爬上10楼，然后再做电梯到17，18楼。。。。。。老刘是供应商，暂时不需要打卡，所以笃悠悠的到了18楼，穿过办公区，到19楼找到了会议室。会议室中已经有了8个人，一个看上去比较胖的，就是昨天GBS的销售左关照右关照的，客户的老大。旁边簇拥着2个小弟，另外一个高一点的，看上去不像小弟，应该也是可以说得上话的吧。在客户的老大对面，一看风格，就知道是IBM的兄弟，而且给老刘的感觉很好，所谓看上去特别顺眼。IBM的兄弟的旁边，坐着两个美女+一个留着山羊胡子的小弟。老刘坐下的第一个想法就是分析这些人的身份和情况。不过，这里，老刘犯了第一个错误，没有注意到真正的最终客户和客户另外的供应商的区别。表明老刘不做销售3年之后，观察能力有所下降。当然，美女们的作战技巧也让老刘丧失了最后一点警惕感。老刘到的时候，他们已经开始讨论当前数据库和DB2的优劣了，在老刘看来这个是没有意义的。除了Oracle，不知道还有什么数据库可以和DB2一较高下！所以老刘一言不发，就听了。当然，DB2也不是老刘的特长，所以老刘也不用在专家面前献丑。客户中一直发言的就是他们的老大，姓Ji，而美女中一直发言的姓Yuan；而他们相互之间的称谓非常熟悉，Ji总，Yuan总。所以老刘的第一判断是，今天客户这里2位是主角。而且这两位主角属于不同的部门，相互之间非常熟悉。在对数据库性能等的提问中，JI总一般不说话，都是Yuan美女在问问题，所以老刘做了第二个判断，Ji属于架构或者管理决策型人物，而yuan属于数据库部门<br>。数据库的问题问得差不多了，由于老刘的一言不发，让Ji总感觉有些不爽，所以特意来challenge老刘。老刘也没有多讲，就说，其实没啥好讲的，数据库的专家在这里呢。我要说的就是这次这个case，首先是能不能做的问题，其次是如何做的问题。能不能做由我们的专家和各位探讨，怎么做，我可以和大家分享。由于老刘的第一个失误，把美女们当作了最终客户的数据库部门的负责人，所以老刘上来就提出了全部铲除PB端，将C/S完全改造成B/S的方案。结果Yuan美女果然不是好对付的，居然说她同意这个方式。这使老刘彻底丧失了警惕性，因为这基本上意味着当前POS的供应商彻底出局。随后的讨论中，老刘为此付出了一定的代价。不过，好在这个不是致命的失误，只是让老刘丧失了一个反击的机会。但无论如何，察言观色的能力，分清敌我的能力，老刘是毫无疑问地下降了。由于对B/S架构性能的担忧，大家的方案迟迟不能落实。老刘就提出了一个把业务划分，performance要求不高的，客户端不会大量使用打印机，读卡器等硬件设备的非核心类业务先上三层，而核心类业务改造成链接DB2的二层的方案。于是大家开始review业务，到这时候老刘才发觉，原来美女们就是POS供应商，而且客户关系很深。可以说，客户把整个数据库和C/S架构的客户端都外包给他们的了。这时老刘才发觉有点麻烦，不过这样才真的有意思。趁大家在review一个一个业务，老刘就在根据他们你一言我一语的话语和说话的神情，分析他们的特点。然后看看怎么样才能找到一个大家都可以接受的切入点。具体的内容就不说了，最终老刘整理了5个方案，基本上定下来了下面的做法。看上去，除非在技术上有突破，否则必然是分步走的方式了，只是究竟是按照老刘的先对非核心业务上三层还是按照美女们先对核心业务上三层，有点争议。具体内容就不表了。这里要补充一下老刘犯的错误，真正的客户都带着客户的badge，而那几个美女没有！<br>不过，对老刘老说需要的是总结。首先是换位思考，如果老刘是客户的老大，只要做这么几件事情：<br>第一件事情：<br>1.让IBM说明当前的DB和DB2的区别在哪里；2.让POS供应商说明当前的Application用到了哪些当前DB的特性，这些特性，在DB2中怎么实现；3.根据上面的区别，可以估算直接迁移需要的工作量，称之为WL-A（WorkLoad-A）；4.由于PB不支持直接连接DB2，OK，采用ODBC或ADO或者DB2的其他桥接驱动，先做一个Pilot的项目，然后进行压力测试，看看性能损失有多少，记为PL-A（PerformanceLost-A）；<br>于是可以测算：1.这个PL-A是不是在可以接受的范围，如果不可以，那么就必须划分业务，以保证核心业务的PL在允许范围内；<br>2.这个WL-A是不是在可以接受的范围，如果不可以，也必须划分业务，看看哪些业务必须先上，以保证不影响日常的运营。<br>由上面的第一件事情可以看到，对于存在的WL和PL的risk，划分业务都是必须的，所以就有了第二件事情：<br>1.根据最终用户的类型及是否使用大量客户端硬件设备，把业务划分为核心和非核心业务<br>2.根据上述方案，要么核心业务走3层架构，要么非核心业务走3层架构，于是我们可以构筑一个pilot的项目，分别对这两种方式进行压力测试。根据WL-B和PL-B，WL-C和PL-C立马可以得到一个结论，到底采用哪个方案<br>所以，基本上来讲，不会发生需要大家在这里毫无头绪的发言的状态，尤其是，供应商之间还有各自的利益。当然了，老刘不是最终客户，而且说实话，老刘做供应商的时候就希望局势比较混乱。因为这样级别的客户不是一般的靠纯粹的关系就可以搞定的。所以一般来说，越是清楚，供应商就越挣不到银子。越是糊涂，越容易浑水摸鱼。。。。。。<br>其次是，对老刘来说是个警告，如果再温水煮青蛙的话，就要废掉了。居然观察能力都下降了，faint！<br>忽悠完客户，老刘就急吼吼赶回上海了，因为，上海有老刘牵挂的人儿～</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>一杯清茶</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ryle Liu 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ryle Liu 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ryle Liu
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.liuyong.online/2009/11/20/%E5%8D%97%E4%BA%AC%E4%B9%8B%E8%A1%8C/" title="南京之行">https://www.liuyong.online/2009/11/20/南京之行/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.liu.group">
+            <span class="icon">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+
+            <span class="label">WEB</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/%E4%B9%9F%E6%98%AF%E5%B7%A5%E4%BD%9C/" rel="tag"><i class="fa fa-tag"></i> 也是工作</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2009/11/22/%E4%B8%9C%E6%B5%B7%E5%A4%A7%E6%A1%A5/" rel="prev" title="东海大桥">
+                  <i class="fa fa-chevron-left"></i> 东海大桥
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2009/11/19/18%EF%BC%8C19%E4%B8%A4%E5%A4%A91%E8%B5%B7%E8%AE%B0%E4%BA%86/" rel="next" title="18,19两天1起记了">
+                  18,19两天1起记了 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">221k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:21</span>
+  </span>
+<!-- </div> -->
+<!-- <div class="busuanzi-count"> -->
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+<!-- </div> -->
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryle Liu</span>
+  <span class="post-meta-item">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
